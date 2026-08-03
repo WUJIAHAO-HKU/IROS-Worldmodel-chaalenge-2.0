@@ -25,6 +25,9 @@ venv/
 
 # Large or generated media.
 *.gif
+!artifacts/visualizations/
+!artifacts/visualizations/autoregressive_unet_rollout8_track2_native256_validation_episode16_00025.gif
+!artifacts/visualizations/autoregressive_unet_rollout8_track2_native256_localtest_episode2_00025.gif
 *.mp4
 *.png
 *.npy
