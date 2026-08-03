@@ -230,8 +230,11 @@ conda run -n go1 bash pipeline/scripts/run_public_rlinf_track2.sh runner.max_ste
 reward、advantage、actor update 与 `global_step_1` checkpoint 均完成。结果只能称为
 公开数据本地复现，不能宣称隐藏官方最终得分。
 
-本机已用上述命令的 `runner.max_steps=1` 完成验证；产物在
-`/root/autodl-tmp/results/track2_robotwin_adjust_bottle_http_grpo_openpi_pi05/checkpoints/global_step_1/`。
+当前自回归候选已用独立 `8002/18081` 端口完成 API contract、两轮
+`pi05 -> /v1/predict -> 官方 T5 reward`，以及 `runner.max_steps=1` 的真实
+GRPO 更新；产物在
+`artifacts/rlinf_track2_autoregressive_unet_rollout8_grpo_step1/autoregressive_unet_rollout8_grpo_step1/checkpoints/global_step_1/`。
+本次单步相对 reward 很低，只说明当前权重能接入正式公开闭环，不能说明策略效果达标。
 
 ## 3. 不可省略的提交前检查
 
