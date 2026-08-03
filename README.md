@@ -21,7 +21,7 @@
 | Native-resolution world model | 256px autoregressive U-Net |
 | Episode-disjoint open-loop evaluation | Complete |
 | Multi-round sliding-window rollout | Complete |
-| Public pi05 + T5 reward + RLinf/GRPO integration | One-step run complete |
+| Current U-Net with public pi05 + T5 reward + RLinf/GRPO | One-step run complete |
 | Official hidden evaluation | Not publicly available |
 
 This repository implements a deterministic, action-conditioned, autoregressive

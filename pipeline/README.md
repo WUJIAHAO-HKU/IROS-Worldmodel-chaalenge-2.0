@@ -183,9 +183,9 @@ conda run -n go1 bash pipeline/scripts/download_official_rlinf_resources.sh
 ```bash
 export T5_MODEL_PATH=/path/to/t5-base
 export ROBOTWIN_REWARD_MODEL_PATH=/path/to/reward_model_checkpoint
-export WAM_API_URL=http://127.0.0.1:8001
+export WAM_API_URL=http://127.0.0.1:8002
 export WAM_BEARER_TOKEN=local-dev-token
-export WAM_MODEL_VERSION=residual-unet-track2-native256-5000
+export WAM_MODEL_VERSION=autoregressive-unet-track2-native256-rollout8
 ```
 
 ```bash
@@ -201,16 +201,18 @@ export RLINF_RESET_DATASET=$PWD/artifacts/rlinf_public_reset_adjust_bottle
    data, and bridge health.
 
 ```bash
-WAM_BACKEND=residual-unet \
-WAM_CHECKPOINT_DIR=artifacts/checkpoints/residual-unet-track2-native256-5000/best \
+WAM_BACKEND=autoregressive-unet \
+WAM_CHECKPOINT_DIR=artifacts/checkpoints/autoregressive-unet-track2-rollout8-v1/best \
 WAM_MODEL_VERSION=$WAM_MODEL_VERSION WAM_BEARER_TOKEN=$WAM_BEARER_TOKEN \
-WAM_PORT=8001 conda run -n go1 python pipeline/scripts/serve.py
+WAM_PORT=8002 conda run -n go1 python pipeline/scripts/serve.py
 
 PYTHONPATH="$PWD/pipeline" conda run -n go1 python -m wam_pipeline.rlinf_bridge.server \
   --world-model-url=$WAM_API_URL --token=$WAM_BEARER_TOKEN \
-  --model-version=$WAM_MODEL_VERSION --port=18080
+  --model-version=$WAM_MODEL_VERSION --port=18081
 
-conda run -n go1 bash pipeline/scripts/run_public_rlinf_track2.sh
+RLINF_BRIDGE_URL=http://127.0.0.1:18081 \
+RLINF_RESET_DATASET=$PWD/artifacts/rlinf_public_reset_adjust_bottle \
+conda run -n go1 bash pipeline/scripts/run_public_rlinf_track2.sh runner.max_steps=1
 ```
 
 The bridge and the actual published components have been tested as:
@@ -226,7 +228,7 @@ Run the two-round component smoke before a GRPO job:
 PYTHONPATH="$PWD/pipeline:$PWD/third_party/WorldArena-2.0/RL_env_benchmark:$PWD/third_party/openpi-rlinf-full/src" \
 conda run -n go1 python pipeline/scripts/run_real_track2_closed_loop.py \
   --reset artifacts/rlinf_public_reset_adjust_bottle/episode0.npy \
-  --bridge-url http://127.0.0.1:18080 --rounds 2
+  --bridge-url http://127.0.0.1:18081 --rounds 2
 ```
 
 It runs `official pi05 -> Track-2 API -> official reward` for two chunks and
@@ -237,12 +239,13 @@ This produces a *public local RLinf/RoboTwin reproduction*.  It is not the
 organizer's hidden held-out final score, which cannot be computed locally.
 
 The included configuration enables CPU offload and CPU weight transport for a
-single 32-GB GPU. A one-step run completed policy rollout, Track-2 inference,
-official reward, GRPO actor update, and wrote `global_step_1` locally.
-The verified wrapper command was
-`bash pipeline/scripts/run_public_rlinf_track2.sh runner.max_steps=1`; its
-checkpoint is under
-`/root/autodl-tmp/results/track2_robotwin_adjust_bottle_http_grpo_openpi_pi05/checkpoints/global_step_1/`.
+single 32-GB GPU. The current autoregressive candidate passed the API contract,
+the two-round `pi05 -> Track-2 API -> official T5 reward` check, and one actual
+GRPO update. Its `global_step_1` checkpoint is under
+`artifacts/rlinf_track2_autoregressive_unet_rollout8_grpo_step1/autoregressive_unet_rollout8_grpo_step1/checkpoints/global_step_1/`.
+This only verifies the execution path. The one-step relative reward was very
+small, so it is not evidence of useful policy improvement; longer public
+closed-loop runs are required before comparing candidate quality.
 
 ## 7. Earlier 128px development baseline
 
