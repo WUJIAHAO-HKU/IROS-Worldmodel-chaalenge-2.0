@@ -1,0 +1,4 @@
+# Install into /root/miniconda3/envs/go1. Torch is already present there.
+h5py>=3.10
+imageio>=2.34
+pytest>=8.0

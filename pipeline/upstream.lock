@@ -1,0 +1,12 @@
+# iVideoGPT upstream metadata for this pipeline.
+repository=https://github.com/thuml/iVideoGPT
+branch=main
+# Refresh this value with: git ls-remote https://github.com/thuml/iVideoGPT.git refs/heads/main
+revision=d601d5cac9e96c6aa0c17cb37ed6a7c7ca1fb210
+checkout=third_party/iVideoGPT
+# Verified as a full Git checkout on 2026-08-02: 65 commits, 290 blobs,
+# 141 trees; neither shallow nor partial-clone configuration remains.
+license=MIT
+# Start from this public action-conditioned 64x64 model, then fine-tune on Adjust Bottle.
+checkpoint=thuml/ivideogpt-bair-64-act-cond
+checkpoint_revision=2863382adad16f49a8a6bc8e61c08a03e98bc5e5

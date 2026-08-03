@@ -1,0 +1,37 @@
+{
+  "format": "track2-open-loop-eval-v1",
+  "split": "validation",
+  "episodes": [
+    5,
+    7,
+    16,
+    18,
+    39
+  ],
+  "sample_count": 682,
+  "checkpoint_dir": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/checkpoints/autoregressive-unet-track2-rollout8-v1/best",
+  "backend": "autoregressive-unet",
+  "model_mae_by_prediction_frame": [
+    2.453287363052368,
+    3.840481996536255,
+    5.338672637939453,
+    6.869338035583496,
+    8.382963180541992,
+    9.856854438781738,
+    11.257000923156738,
+    12.571555137634277
+  ],
+  "model_mae_mean": 7.5712690353393555,
+  "copy_last_mae_by_prediction_frame": [
+    5.776416301727295,
+    9.47039794921875,
+    12.482236862182617,
+    15.028542518615723,
+    17.18128204345703,
+    19.134910583496094,
+    20.969303131103516,
+    22.63173484802246
+  ],
+  "copy_last_mae_mean": 15.334352493286133,
+  "action_perturbation_mean_absolute_pixel_delta": 0.036335781062311355
+}

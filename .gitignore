@@ -1,0 +1,36 @@
+# Generated data, checkpoints, official downloaded resources, and run outputs.
+artifacts/*
+!artifacts/evaluations/
+artifacts/evaluations/*
+!artifacts/evaluations/autoregressive_unet_rollout8_track2_native256_validation_all.json
+!artifacts/evaluations/autoregressive_unet_rollout8_track2_native256_local_test_all.json
+
+# Third-party source is fetched separately; do not vendor duplicate checkouts.
+third_party/
+
+# The full upstream iVideoGPT checkout is referenced by pipeline/upstream.lock.
+pipeline/vendor/
+
+# Python and test caches.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environment and editor files.
+.env
+.venv/
+venv/
+.vscode/
+.idea/
+
+# Large or generated media.
+*.gif
+*.mp4
+*.png
+*.npy
+*.npz
+*.pt
+*.pth
+*.safetensors
+*.h5
+*.hdf5

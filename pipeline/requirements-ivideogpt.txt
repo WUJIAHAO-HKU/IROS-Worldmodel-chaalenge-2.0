@@ -1,0 +1,10 @@
+# Additional packages needed only for the real iVideoGPT-64 backend.
+# Keep the upstream source pinned by upstream.lock before a reproducible run.
+accelerate>=1.0
+# The public config was written by 0.27, while the vendored model code is
+# verified in this workspace with 0.35.2 as well.
+diffusers>=0.27,<0.36
+einops>=0.7
+lpips>=0.1.4
+safetensors>=0.4
+transformers==4.46.3
