@@ -1,0 +1,67 @@
+diff --git a/RL_env_benchmark/rlinf/workers/actor/fsdp_actor_worker.py b/RL_env_benchmark/rlinf/workers/actor/fsdp_actor_worker.py
+index 53e735f..47a52b3 100644
+--- a/RL_env_benchmark/rlinf/workers/actor/fsdp_actor_worker.py
++++ b/RL_env_benchmark/rlinf/workers/actor/fsdp_actor_worker.py
+@@ -83,6 +83,10 @@ from rlinf.utils.utils import (
+     retrieve_model_state_dict_in_cpu,
+ )
+ from rlinf.workers.rollout.utils import RankMapper
++from wam_pipeline.rlinf_bridge.policy_probability import (
++    probability_consistency_metrics,
++    select_behavior_logprobs,
++)
+ 
+ 
+ def process_nested_dict_for_adv(nested_dict, rollout_epoch):
+@@ -1298,7 +1302,19 @@ class EmbodiedFSDPActor(FSDPModelManager, Worker):
+         if self.is_optimizer_offloaded:
+             self.load_optimizer(self.device)
+ 
+-        self.model.train()
++        ppo_model_mode = str(self.cfg.algorithm.get("ppo_model_mode", "train"))
++        if ppo_model_mode == "train":
++            self.model.train()
++        elif ppo_model_mode == "eval":
++            # Evaluation mode disables dropout while preserving autograd. PPO
++            # must evaluate the sampled diffusion chain under the same model
++            # mode used by the rollout worker.
++            self.model.eval()
++        else:
++            raise ValueError(
++                "algorithm.ppo_model_mode must be either 'train' or 'eval', "
++                f"got {ppo_model_mode!r}"
++            )
+         rollout_size = (
+             self.rollout_batch["prev_logprobs"].shape[0]
+             * self.rollout_batch["prev_logprobs"].shape[1]
+@@ -1424,6 +1440,22 @@ class EmbodiedFSDPActor(FSDPModelManager, Worker):
+         ]:
+             prev_logprobs = output_dict["prev_logprobs"]
+ 
++        probability_metrics = {}
++        if bool(self.cfg.algorithm.get("probability_audit", False)):
++            probability_metrics = probability_consistency_metrics(
++                output_dict["logprobs"],
++                prev_logprobs,
++                action_dim=int(self.cfg.actor.model.get("action_dim", 7)),
++                loss_mask=loss_mask,
++                clip_ratio_low=float(self.cfg.algorithm.clip_ratio_low),
++                clip_ratio_high=float(self.cfg.algorithm.clip_ratio_high),
++            )
++        prev_logprobs = select_behavior_logprobs(
++            output_dict["logprobs"],
++            prev_logprobs,
++            str(self.cfg.algorithm.get("behavior_logprob_source", "rollout")),
++        )
++
+         loss_kwargs = {
+             "loss_type": self.cfg.algorithm.loss_type,
+             "logprob_type": self.cfg.algorithm.logprob_type,
+@@ -1460,6 +1492,7 @@ class EmbodiedFSDPActor(FSDPModelManager, Worker):
+                 )
+ 
+         loss, metrics_data = policy_loss(**loss_kwargs)
++        metrics_data.update(probability_metrics)
+         entropy_loss = torch.tensor(0.0, device=Worker.torch_platform.current_device())
+         if self.cfg.algorithm.entropy_bonus > 0 and not loss_kwargs["critic_warmup"]:
+             entropy = output_dict["entropy"]

@@ -77,3 +77,29 @@ not enough evidence to promote step-20 over the official Pi0.5 baseline. The
 checkpoint is retained as a verified resume point; official Pi0.5 remains the
 deployment policy baseline until a longer, validation-gated run improves both
 arms consistently.
+
+## Probability-consistent long-horizon experiment (2026-08-09)
+
+A zero-learning-rate audit found that rollout log-probabilities were produced
+with OpenPI in evaluation mode while the actor recomputed them after forcing
+the model into training mode. Before any optimizer update, this produced an
+88.6161% true PPO clip fraction, mean absolute log-ratio 4.8052, and displayed
+KL 64.2438. Keeping the differentiable actor recomputation in evaluation mode
+reduced those values to 0%, 0.002750, and 0.003128 respectively.
+
+The repaired path also expands the valid-action mask across all 14 action
+dimensions and reports true clip fraction plus separate left/right probability
+errors. A 10-update run used four 32-frame trajectories per update, learning
+rate `5e-8`, PPO clip `0.05`, and gradient clip `0.25`. Across training, true
+probability-audit clip fraction averaged 0.3181% (maximum 0.8929%), mean
+absolute log-ratio was 0.003776, and the mean probability ratio was 1.000047.
+This confirms that the PPO density ratio is now numerically valid.
+
+The step-10 policy was then paired against official Pi0.5 on ten RL-held-out
+public resets, each with 16 consecutive 8-frame rounds. The full-horizon result
+was +0.4438% overall, +1.2118% on left-arm episodes, and -0.7658% on right-arm
+episodes. The candidate improved the late left-arm slice (+4.9205%) but
+regressed in the middle slice (-1.4247% overall) and on the right arm. It fails
+the predeclared +3% all/left/right promotion gate, so its checkpoint is deleted
+and official Pi0.5 remains the policy baseline. The probability repair is
+retained for future arm-stratified training.
