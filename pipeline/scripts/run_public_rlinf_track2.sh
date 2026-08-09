@@ -5,6 +5,7 @@ set -euo pipefail
 root_dir=$(cd "$(dirname "$0")/../.." && pwd)
 cd "$root_dir"
 rlinf_root=${RLINF_ROOT:-third_party/WorldArena-2.0/RL_env_benchmark}
+openpi_root=${OPENPI_SOURCE_ROOT:-third_party/openpi-rlinf-full}
 resources=${OFFICIAL_RESOURCES:-artifacts/official_resources}
 reset_dataset=${RLINF_RESET_DATASET:-artifacts/rlinf_public_reset_adjust_bottle}
 bridge_url=${RLINF_BRIDGE_URL:-http://127.0.0.1:18080}
@@ -18,13 +19,14 @@ resolve_path() {
 }
 
 rlinf_root=$(resolve_path "$rlinf_root")
+openpi_root=$(resolve_path "$openpi_root")
 resources=$(resolve_path "$resources")
 reset_dataset=$(resolve_path "$reset_dataset")
 
 python pipeline/scripts/check_official_rlinf_resources.py \
   --resources "$resources" --rlinf-root "$rlinf_root" --reset-dataset "$reset_dataset"
 
-export PYTHONPATH="$root_dir/pipeline:$rlinf_root:$root_dir/third_party/openpi-rlinf-full/src:${PYTHONPATH:-}"
+export PYTHONPATH="$root_dir/pipeline:$rlinf_root:$openpi_root/src:$openpi_root/packages/openpi-client/src:${PYTHONPATH:-}"
 export OPENPI_CKPT_PATH="$resources/pi05_adjust_bottle"
 export ROBOTWIN_REWARD_MODEL_PATH="${ROBOTWIN_REWARD_MODEL_PATH:-$resources/reward_model/adjust_bottle/full_weights.pt}"
 export T5_MODEL_PATH="${T5_MODEL_PATH:-$resources/reward_model/t5-base}"
