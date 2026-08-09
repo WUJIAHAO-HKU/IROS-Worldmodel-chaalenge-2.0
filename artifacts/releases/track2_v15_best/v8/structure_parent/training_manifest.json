@@ -1,0 +1,78 @@
+{
+  "format": "track2-autoregressive-structure-unet-v3",
+  "steps": 500,
+  "batch_size": 16,
+  "learning_rate": 0.0002,
+  "structure_strength_learning_rate": 0.0005,
+  "freeze_rgb_parent": true,
+  "coupling_warmup_steps": 500,
+  "motion_weight": 2.5,
+  "motion_threshold": 0.03,
+  "horizon_loss_power": 1.0,
+  "temporal_delta_weight": 0.15,
+  "texture_laplacian_weight": 0.08,
+  "mask_weight": 0.05,
+  "mask_edge_weight": 0.1,
+  "dark_rgb_weight": 0.1,
+  "high_motion_threshold": 0.04,
+  "high_motion_sampling": {
+    "threshold": 0.04,
+    "oversample_factor": 3.0,
+    "window_count": 5289,
+    "high_motion_window_count": 1097,
+    "high_motion_fraction": 0.20741160899981093,
+    "expected_high_motion_fraction": 0.4397968729119337,
+    "motion_mean": 0.023033425367413003,
+    "motion_p50": 0.018916577100753784,
+    "motion_p90": 0.049798034876585
+  },
+  "validation_sample_count": 160,
+  "seed": 20260813,
+  "initial_checkpoint": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/checkpoints/autoregressive-unet-track2-rollout8-horizon-largebatch-refine-v1/best",
+  "checkpoint_step": 500,
+  "best_selection_score": 1.0,
+  "validation": [
+    {
+      "step": 0,
+      "selection_score": 1.0,
+      "rgb_mae": 0.024070160960157714,
+      "high_motion_rgb_mae": 0.04315685670749814,
+      "temporal_delta_mae": 0.019046927243471144,
+      "highpass_mae": 0.00858062319457531,
+      "edge_mae": 0.009009080649980532,
+      "dark_region_rgb_mae": 0.06919189366726829,
+      "structure_mask_bce": 0.24542637467384337
+    },
+    {
+      "step": 250,
+      "selection_score": 1.0,
+      "rgb_mae": 0.024070160960157714,
+      "high_motion_rgb_mae": 0.04315685670749814,
+      "temporal_delta_mae": 0.019046927243471144,
+      "highpass_mae": 0.00858062319457531,
+      "edge_mae": 0.009009080649980532,
+      "dark_region_rgb_mae": 0.06919189366726829,
+      "structure_mask_bce": 0.19450175762176514
+    },
+    {
+      "step": 500,
+      "selection_score": 1.0,
+      "rgb_mae": 0.024070160960157714,
+      "high_motion_rgb_mae": 0.04315685670749814,
+      "temporal_delta_mae": 0.019046927243471144,
+      "highpass_mae": 0.00858062319457531,
+      "edge_mae": 0.009009080649980532,
+      "dark_region_rgb_mae": 0.06919189366726829,
+      "structure_mask_bce": 0.18011293709278106
+    }
+  ],
+  "baseline": {
+    "rgb_mae": 0.024070160960157714,
+    "high_motion_rgb_mae": 0.04315685670749814,
+    "temporal_delta_mae": 0.019046927243471144,
+    "highpass_mae": 0.00858062319457531,
+    "edge_mae": 0.009009080649980532,
+    "dark_region_rgb_mae": 0.06919189366726829,
+    "structure_mask_bce": 0.24542637467384337
+  }
+}

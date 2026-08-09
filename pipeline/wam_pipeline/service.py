@@ -67,7 +67,12 @@ def create_app(settings: ServiceSettings, backend: ModelBackend | None = None) -
     """Create an app whose only prediction output is future RGB frames."""
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
     app.state.settings = settings
-    app.state.backend = backend or build_backend(settings.backend_name, settings.checkpoint_dir, settings.device)
+    app.state.backend = backend or build_backend(
+        settings.backend_name,
+        settings.checkpoint_dir,
+        settings.device,
+        v15_library_dir=os.environ.get("WAM_V15_LIBRARY_DIR"),
+    )
     app.state.cache = IdempotencyCache()
     app.state.semaphore = asyncio.Semaphore(MAX_CONCURRENCY)
     app.state.ready = True

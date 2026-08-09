@@ -1,0 +1,87 @@
+{
+  "format": "track2-dual-tiny-experts-v15.0-deployment",
+  "date": "2026-08-08",
+  "status": "accepted_partial_specialist_composite",
+  "parent": "v14.1 frozen validation cache",
+  "model_hierarchy": {
+    "core_network": "v8",
+    "general_parent": "v10.1",
+    "texture_structure_parent": "v14.1",
+    "final_composite": "v15.0"
+  },
+  "parameter_counts": {
+    "glyph_expert": 132199,
+    "black_gripper_expert": 136340,
+    "total_new_parameters": 268539
+  },
+  "checkpoints": {
+    "glyph": {
+      "path": "glyph/best.pt",
+      "step": 1100,
+      "sha256": "524dc0335bf05779d45b301aca57d2015711543bfe6cdb3b250767b3ace512cd",
+      "deployment_strength": 0.0,
+      "decision": "rejected on internal dev; retained only for reproducibility"
+    },
+    "black_gripper": {
+      "path": "gripper/best.pt",
+      "step": 900,
+      "sha256": "aa5ab0d9657761cb30ed8becef22ee9a1d252f54854e1785813eff5608e54542",
+      "decision": "accepted only through per-arm temporal router"
+    }
+  },
+  "routing": {
+    "selection_split": ["episode36", "episode47"],
+    "arm0": {
+      "glyph_strength": 0.0,
+      "gripper_strength": 0.0,
+      "fallback": "v14.1 pixel-identical"
+    },
+    "arm1": {
+      "glyph_strength": 0.0,
+      "gripper_strength": 1.0,
+      "gripper_start_frame_zero_based": 2,
+      "active_horizons": [3, 4, 5, 6, 7, 8]
+    }
+  },
+  "validation64": {
+    "episodes": ["episode5", "episode7", "episode16", "episode18", "episode39"],
+    "sample_count": 64,
+    "parent": {
+      "rgb_mae": 6.1208930015563965,
+      "contact_rgb_mae": 7.915658950805664,
+      "structure_rgb_mae": 17.89929962158203,
+      "active_arm_texture_rgb_mae": 36.24492645263672
+    },
+    "v15": {
+      "rgb_mae": 6.120042324066162,
+      "contact_rgb_mae": 7.913723468780518,
+      "structure_rgb_mae": 17.84128761291504,
+      "active_arm_texture_rgb_mae": 36.24475860595703
+    },
+    "relative_improvement_percent": {
+      "rgb": 0.013897931070157053,
+      "contact": 0.024451306419025154,
+      "structure": 0.3241021151299371,
+      "active_arm_texture": 0.0004630901373378,
+      "arm1_structure": 1.1959477344370384
+    },
+    "horizon_acceptance": "t+1/t+2 pixel-identical; RGB and contact improve at every t+3 through t+8",
+    "arm0_acceptance": "40 windows pixel-identical",
+    "report": "validation64_temporal_safe_report.json",
+    "cache": "validation64_temporal_safe_predictions.npz",
+    "cache_sha256": "1c2cd6159f91b908062672a48587b272ebad946c7c58f47e4cd160651148e32d",
+    "report_sha256": "06c77519e6473c9951a2a466d8fdef8f863b8796574559a734a91d9417956e3b"
+  },
+  "recommended_video": {
+    "path": "videos_ranked/dual_tiny_experts_v150_episode7_00091.mp4",
+    "sha256": "5d06149b5346cdd747f27a665cb8c03c7385b5fdc8d1d292bb3732d17815ade4"
+  },
+  "source_sha256": {
+    "dual_tiny_experts_v150.py": "8f8df0f66174e44e96f442168b4a0fc53bbd559e41991cf221c30928dd92bf51",
+    "evaluate_dual_tiny_experts_v150.py": "bb1ff3b1671c0df1982d63f3ef7d191dd77519a639a49c5585fe19c1fa673e6b"
+  },
+  "tests": {
+    "relevant_regression": "16 passed in 2.53s",
+    "py_compile": "passed"
+  }
+}

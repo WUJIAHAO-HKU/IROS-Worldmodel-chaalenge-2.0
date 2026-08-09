@@ -1,0 +1,70 @@
+{
+  "format": "track2-contact-motion-retrieval-v14.1-deployment",
+  "status": "validation64_safe_text_alignment_upgrade",
+  "parent": "frozen v14.0 feathered retrieval output",
+  "implementation": {
+    "structure_branch": "unchanged v14.0 episode-disjoint real-motion template retrieval",
+    "text_branch": "frame-local right-beam affine alignment from the last observed frame",
+    "stale_text_cleanup": "detected glyph highlights only, constrained to the dark beam",
+    "texture_transfer": "direct glyph RGB alpha 0.90 plus positive high-pass 0.55 on t+1",
+    "eligible_frames": "first two frames before the validated v14.0 structure-template switch",
+    "fallback": "pixel-identical v14.0 output when the v14.0 gate or local text alignment fails"
+  },
+  "parameters": {
+    "text_alpha": 0.9,
+    "text_highpass_strength": 0.55,
+    "text_minimum_ecc": 0.55,
+    "text_prefix_frames": 2,
+    "temporal_transition_frames": 1
+  },
+  "validation64_vs_v140_improvement_percent": {
+    "rgb_mae": 0.0049621877,
+    "contact_rgb_mae": 0.0042768379,
+    "structure_rgb_mae": 0.0,
+    "target_texture_rgb_mae": 0.1597257174
+  },
+  "validation64_safety": {
+    "sample_count": 64,
+    "accepted_window_count": 1,
+    "unchanged_pixel_fraction": 0.9999657273,
+    "arm0_window_count": 40,
+    "arm0_pixel_identical": true,
+    "arm1_rgb_improvement_percent": 0.0187419056,
+    "arm1_contact_improvement_percent": 0.0183607606,
+    "arm1_structure_change_percent": 0.0,
+    "arm1_texture_improvement_percent": 0.2608553171
+  },
+  "episode7_00036_vs_v140_improvement_percent": {
+    "rgb_mae": 0.4107225439,
+    "contact_rgb_mae": 0.3499574790,
+    "structure_rgb_mae": 0.0,
+    "target_texture_rgb_mae": 2.8090256318,
+    "t1_texture_rgb_mae_before": 24.7668590546,
+    "t1_texture_rgb_mae_after": 17.8697490692
+  },
+  "continuous_episode7_vs_v140_improvement_percent": {
+    "rgb_mae": 0.0020040464,
+    "contact_rgb_mae": 0.0033758455,
+    "structure_rgb_mae": 0.0,
+    "target_texture_rgb_mae": 0.0301366972,
+    "accepted_window_count": 3
+  },
+  "rejected_variant": {
+    "name": "two-frame temporal structure crossfade",
+    "reason": "increased target-window RGB, contact and structure errors at t+4",
+    "deployment_transition_frames": 1
+  },
+  "server_artifacts": {
+    "validation_report": "artifacts/contact_motion_retrieval_v141/eval_validation64_frozen_v140_text_final.json",
+    "validation_cache": "artifacts/contact_motion_retrieval_v141/validation64_frozen_v140_text_final.npz",
+    "target_video": "artifacts/contact_motion_retrieval_v141/video_episode7_00036_final/best_v141_motion_retrieval_episode7_00036.mp4",
+    "continuous_fixed_t8_video": "artifacts/contact_motion_retrieval_v141/continuous_episode7/videos/best_v141_fixed_t8_full_episode.mp4",
+    "continuous_segmented_open_loop_video": "artifacts/contact_motion_retrieval_v141/continuous_episode7/videos/best_v141_open_loop_full_episode.mp4"
+  },
+  "sha256": {
+    "evaluate_script": "9c681c30d56c391fc777a1708c6c45c096e96ac65ca94c49792d87b98101fbc1",
+    "apply_script": "edc93557d7b94e05b7855663143a7e227c59f996ac55006d538c55eefa6da49e",
+    "validation_cache": "ff8744dcb2956c052933342cd177bd3b9c406650afad93ace9cb6d79157c5dc1",
+    "validation_report": "e3f348074e20badfa2c19e80226a12acff2887d5b4f996447a842be982d9fdcb"
+  }
+}

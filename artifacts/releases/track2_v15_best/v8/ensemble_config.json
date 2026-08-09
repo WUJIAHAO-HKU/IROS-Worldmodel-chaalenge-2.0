@@ -1,0 +1,32 @@
+{
+  "format": "track2-structure-gated-local-fusion-ensemble-v1",
+  "baseline": {
+    "directory": "baseline",
+    "source_checkpoint": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/checkpoints/autoregressive-direct-flow-local-motion-texture-structure-v5",
+    "artifact_sha256": "a73d707a286a0e9403d4421a627fe77b81c54333f374f023e1c3f7c8bf664336"
+  },
+  "selection_reports": {
+    "validation": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/evaluations/structure_gated_high_frequency_refiner_v1_validation_structure_metrics.json",
+    "local_test": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/evaluations/structure_gated_high_frequency_refiner_v1_local_test_structure_metrics.json"
+  },
+  "structure_parent": {
+    "directory": "structure_parent",
+    "source_checkpoint": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/checkpoints/autoregressive-separated-missing-dark-v6-selected-s0005",
+    "sha256": {
+      "model.pt": "bd9832ebb0d3ad0daf0372ddd3c9aba244a8901143cdcf986e8979b05eae56d0",
+      "training_manifest.json": "d32e1ec719ef210bc8fa0253e31f95fc696e5589e08ce95e2082efe7fd309aed",
+      "action_normalization.npz": "69d530a9275b73e79ee92104d5bfb738d0927f9751a857949499b882f937815b",
+      "track2_autoregressive_structure_unet_config.npz": "05b1dd45ffec00401ac580c70a1e51795cf7d214271f8a53fa1cc39a9467aa82"
+    }
+  },
+  "refiner": {
+    "directory": "refiner",
+    "source_checkpoint": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/checkpoints/structure-gated-high-frequency-refiner-v1/best",
+    "sha256": {
+      "model.pt": "f3775710cdb8dcf5d84e181d80a701d3130dbe4df8f4a7ffe2994a39868fb472",
+      "training_manifest.json": "0d7bf69c2a1cc3c86f630da1d09c96aebd2bf4f3e1411251db1b39d0db4f105a",
+      "action_normalization.npz": "69d530a9275b73e79ee92104d5bfb738d0927f9751a857949499b882f937815b",
+      "structure_refiner_config.npz": "677982695f522683b8fd688957370db6ac246a7d1aa477d53327c12c95ff74b9"
+    }
+  }
+}

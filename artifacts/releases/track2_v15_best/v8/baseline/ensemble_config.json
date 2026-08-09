@@ -1,0 +1,37 @@
+{
+  "format": "track2-local-motion-texture-fusion-ensemble-v1",
+  "selection_reports": {
+    "validation": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/evaluations/local_motion_texture_fusion_structure_v2_vs_v1_validation682.json",
+    "local_test": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/evaluations/local_motion_texture_fusion_structure_v2_vs_v1_local667.json"
+  },
+  "autoregressive": {
+    "directory": "autoregressive",
+    "source_checkpoint": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/checkpoints/autoregressive-unet-track2-rollout8-horizon-largebatch-refine-v1/best",
+    "sha256": {
+      "model.pt": "44a3089b69726f9eb733f8945e37504c6d7af743c5652ba079daca81eb50dbb7",
+      "training_manifest.json": "198896b93b150cb36d77b74761ae102a20ad05cafd6d80dc3677d96168af7c77",
+      "action_normalization.npz": "69d530a9275b73e79ee92104d5bfb738d0927f9751a857949499b882f937815b",
+      "track2_autoregressive_unet_config.npz": "51a2ad9029b88592f55cd3a37c51c6262cad7ff27419f0422610d5f545ad3e5c"
+    }
+  },
+  "direct_flow": {
+    "directory": "direct_flow",
+    "source_checkpoint": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/checkpoints/direct-flow-unet-track2-formal-v2/best",
+    "sha256": {
+      "model.pt": "cc0db479a5422e9e8aaf541dfa9274120f65b0676fe8d3196f0298aeee6bc769",
+      "training_manifest.json": "d74859767b0dc119c9b0033b08005949d137c7c9dbe4501f8e00efce43a2907a",
+      "action_normalization.npz": "69d530a9275b73e79ee92104d5bfb738d0927f9751a857949499b882f937815b",
+      "track2_direct_flow_unet_config.npz": "53fa033b908729b4a3199844f1718f42e8abd4960aa5c1e82959896c67c341ff"
+    }
+  },
+  "fusion": {
+    "directory": "fusion",
+    "source_checkpoint": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/checkpoints/local-motion-texture-fusion-structure-v2/best",
+    "sha256": {
+      "model.pt": "05dbb946a798fac2199c35fe905bfbc4ee96686a10c2498b975b1a80c4cbf0f9",
+      "training_manifest.json": "820ba7cb39094ccc1badd1d86401d9b7b34747b8c59ceffd15371f6641a19743",
+      "action_normalization.npz": "69d530a9275b73e79ee92104d5bfb738d0927f9751a857949499b882f937815b",
+      "local_fusion_config.npz": "d60ee1ac92861f2dd534d5a28350f6a45d1cead978929ccec249f83cb2b7195d"
+    }
+  }
+}

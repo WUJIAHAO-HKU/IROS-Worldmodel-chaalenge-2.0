@@ -1,0 +1,36 @@
+{
+  "name": "candidate-risk-router-v10.1-motion-hp05",
+  "status": "best_deployable_candidate",
+  "router_version": "v10.1",
+  "checkpoint": "artifacts/checkpoints/candidate-risk-router-v101-motion-cont1500/latest.pt",
+  "checkpoint_step": 1500,
+  "risk_weight": 1.0,
+  "margin": 0.25,
+  "highpass_protection": 0.5,
+  "selection_basis": "checkpoint dev episodes only; external validation not used for parameter selection",
+  "validation": {
+    "validation682": {
+      "rgb_improvement_percent": 0.34490232040361407,
+      "moving_rgb_improvement_percent": 0.050869790487769614,
+      "highpass_improvement_percent": 0.36658058766777735,
+      "edge_improvement_percent": 0.23972490896832216,
+      "dark_structure_improvement_percent": 0.07858435096289022
+    },
+    "local667": {
+      "rgb_improvement_percent": 0.446063565367974,
+      "moving_rgb_improvement_percent": 0.06934913231255228,
+      "highpass_improvement_percent": 0.4538253176193194,
+      "edge_improvement_percent": 0.30685526543087027,
+      "dark_structure_improvement_percent": 0.09871312825323936
+    },
+    "highmotion16": {
+      "rgb_improvement_percent": 0.16395698767462277,
+      "moving_rgb_improvement_percent": 0.05905349956486231,
+      "highpass_improvement_percent": 0.24146020153389236,
+      "edge_improvement_percent": 0.2194463309551843,
+      "dark_structure_improvement_percent": 0.025303723859950274
+    }
+  },
+  "archive": "artifacts/v101_candidate_risk_results_20260807.tgz",
+  "archive_sha256": "cbac917f9a41ae2ac923fa79dfb077f0e2d334a31e3dd563ac6e4955cdb813ed"
+}

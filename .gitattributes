@@ -1,0 +1,2 @@
+artifacts/releases/track2_v15_best/**/*.pt filter=lfs diff=lfs merge=lfs -text
+artifacts/releases/track2_v15_best/**/*.npz filter=lfs diff=lfs merge=lfs -text

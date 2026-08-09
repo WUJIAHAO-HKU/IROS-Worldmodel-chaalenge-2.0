@@ -165,7 +165,35 @@ class HybridUNetBackend(ModelBackend):
         return self._runtime.predict(context_frames, history_actions, future_actions, seed, instruction)
 
 
-def build_backend(name: str, checkpoint_dir: str | None = None, device: str = "cuda") -> ModelBackend:
+class V15CompositeBackend(ModelBackend):
+    """Validated v15 composite exposed through the online Track-2 contract."""
+
+    def __init__(
+        self,
+        checkpoint_dir: str | Path,
+        library_dir: str | Path,
+        device: str = "cuda",
+    ) -> None:
+        self.checkpoint_dir = Path(checkpoint_dir)
+        self.library_dir = Path(library_dir)
+        self.device = device
+        self._runtime = None
+
+    def predict(self, context_frames, history_actions, future_actions, seed, instruction):
+        if self._runtime is None:
+            from .v15_runtime import Track2V15Runtime
+
+            self._runtime = Track2V15Runtime(self.checkpoint_dir, self.library_dir, self.device)
+        return self._runtime.predict(context_frames, history_actions, future_actions, seed, instruction)
+
+
+def build_backend(
+    name: str,
+    checkpoint_dir: str | None = None,
+    device: str = "cuda",
+    *,
+    v15_library_dir: str | Path | None = None,
+) -> ModelBackend:
     if name == "synthetic":
         return SyntheticActionBackend()
     if name == "ivideogpt":
@@ -192,4 +220,10 @@ def build_backend(name: str, checkpoint_dir: str | None = None, device: str = "c
         if not checkpoint_dir:
             raise ValueError("--checkpoint-dir is required with --backend hybrid-unet")
         return HybridUNetBackend(checkpoint_dir, device)
+    if name == "v15-composite":
+        if not checkpoint_dir:
+            raise ValueError("--checkpoint-dir is required with --backend v15-composite")
+        if not v15_library_dir:
+            raise ValueError("WAM_V15_LIBRARY_DIR is required with --backend v15-composite")
+        return V15CompositeBackend(checkpoint_dir, v15_library_dir, device)
     raise ValueError(f"unknown backend {name!r}")

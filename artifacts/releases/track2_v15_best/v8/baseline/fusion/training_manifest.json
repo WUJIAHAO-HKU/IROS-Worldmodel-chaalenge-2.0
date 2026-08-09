@@ -1,0 +1,145 @@
+{
+  "format": "track2-local-motion-texture-fusion-v1",
+  "steps": 600,
+  "batch_size": 16,
+  "learning_rate": 5e-05,
+  "validation_interval": 150,
+  "seed": 20260813,
+  "dev_episodes": [
+    21,
+    25,
+    29,
+    45
+  ],
+  "train_sample_count": 1079,
+  "dev_sample_count": 121,
+  "loss_profile": "structure-v2",
+  "initial_checkpoint": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/checkpoints/local-motion-texture-fusion-v1/best",
+  "checkpoint_step": 600,
+  "validation": [
+    {
+      "step": 0,
+      "selection_metric": 0.9783101946704194,
+      "autoregressive": {
+        "rgb_mae": 0.018358905453327273,
+        "high_motion_rgb_mae": 0.02427172859509786,
+        "temporal_delta_mae": 0.015750318601440137,
+        "moving_region_rgb_mae": 0.09291717057811578,
+        "moving_region_temporal_delta_mae": 0.10867014166244353,
+        "moving_region_laplacian_mae": 0.022336901763989055,
+        "motion_magnitude_mae": 0.014073314622414014
+      },
+      "fusion": {
+        "rgb_mae": 0.017843013377885845,
+        "high_motion_rgb_mae": 0.023716476360956827,
+        "temporal_delta_mae": 0.015632127434754176,
+        "moving_region_rgb_mae": 0.08977111656464969,
+        "moving_region_temporal_delta_mae": 0.10684102217354331,
+        "moving_region_laplacian_mae": 0.021878741530398104,
+        "motion_magnitude_mae": 0.01391657934454847,
+        "alpha_mean": 0.9756817068935426,
+        "residual_abs_mean": 0.002308007309177362
+      }
+    },
+    {
+      "step": 150,
+      "selection_metric": 0.9736129549100512,
+      "autoregressive": {
+        "rgb_mae": 0.018358905453327273,
+        "high_motion_rgb_mae": 0.02427172859509786,
+        "temporal_delta_mae": 0.015750318601440137,
+        "moving_region_rgb_mae": 0.09291717057811578,
+        "moving_region_temporal_delta_mae": 0.10867014166244353,
+        "moving_region_laplacian_mae": 0.022336901763989055,
+        "motion_magnitude_mae": 0.014073314622414014
+      },
+      "fusion": {
+        "rgb_mae": 0.017706858471405407,
+        "high_motion_rgb_mae": 0.02364336291948954,
+        "temporal_delta_mae": 0.015573120642627895,
+        "moving_region_rgb_mae": 0.08959285425604675,
+        "moving_region_temporal_delta_mae": 0.1065293381315171,
+        "moving_region_laplacian_mae": 0.021758802918972645,
+        "motion_magnitude_mae": 0.013867475892886642,
+        "alpha_mean": 0.9670579453145177,
+        "residual_abs_mean": 0.0029353907757718374
+      }
+    },
+    {
+      "step": 300,
+      "selection_metric": 0.9718399656011114,
+      "autoregressive": {
+        "rgb_mae": 0.018358905453327273,
+        "high_motion_rgb_mae": 0.02427172859509786,
+        "temporal_delta_mae": 0.015750318601440137,
+        "moving_region_rgb_mae": 0.09291717057811578,
+        "moving_region_temporal_delta_mae": 0.10867014166244353,
+        "moving_region_laplacian_mae": 0.022336901763989055,
+        "motion_magnitude_mae": 0.014073314622414014
+      },
+      "fusion": {
+        "rgb_mae": 0.017662108437088896,
+        "high_motion_rgb_mae": 0.023563205997149148,
+        "temporal_delta_mae": 0.015592033459135323,
+        "moving_region_rgb_mae": 0.0894322519466997,
+        "moving_region_temporal_delta_mae": 0.1065043155818085,
+        "moving_region_laplacian_mae": 0.02167266949190666,
+        "motion_magnitude_mae": 0.013880931148844316,
+        "alpha_mean": 0.955658660447302,
+        "residual_abs_mean": 0.002685300359302316
+      }
+    },
+    {
+      "step": 450,
+      "selection_metric": 0.9684512382389738,
+      "autoregressive": {
+        "rgb_mae": 0.018358905453327273,
+        "high_motion_rgb_mae": 0.02427172859509786,
+        "temporal_delta_mae": 0.015750318601440137,
+        "moving_region_rgb_mae": 0.09291717057811578,
+        "moving_region_temporal_delta_mae": 0.10867014166244353,
+        "moving_region_laplacian_mae": 0.022336901763989055,
+        "motion_magnitude_mae": 0.014073314622414014
+      },
+      "fusion": {
+        "rgb_mae": 0.01757018419993482,
+        "high_motion_rgb_mae": 0.0235214168826739,
+        "temporal_delta_mae": 0.015538690175563507,
+        "moving_region_rgb_mae": 0.08911474828456943,
+        "moving_region_temporal_delta_mae": 0.10620984341012277,
+        "moving_region_laplacian_mae": 0.021621039936681425,
+        "motion_magnitude_mae": 0.013835633527641455,
+        "alpha_mean": 0.9513441905502446,
+        "residual_abs_mean": 0.002618642713741166
+      }
+    },
+    {
+      "step": 600,
+      "selection_metric": 0.967685542233661,
+      "autoregressive": {
+        "rgb_mae": 0.018358905453327273,
+        "high_motion_rgb_mae": 0.02427172859509786,
+        "temporal_delta_mae": 0.015750318601440137,
+        "moving_region_rgb_mae": 0.09291717057811578,
+        "moving_region_temporal_delta_mae": 0.10867014166244353,
+        "moving_region_laplacian_mae": 0.022336901763989055,
+        "motion_magnitude_mae": 0.014073314622414014
+      },
+      "fusion": {
+        "rgb_mae": 0.01754720710197428,
+        "high_motion_rgb_mae": 0.02353411724170049,
+        "temporal_delta_mae": 0.015537045875528298,
+        "moving_region_rgb_mae": 0.0890314283155131,
+        "moving_region_temporal_delta_mae": 0.10615966119017835,
+        "moving_region_laplacian_mae": 0.021575102181005713,
+        "motion_magnitude_mae": 0.013833178530547245,
+        "alpha_mean": 0.9449431364201317,
+        "residual_abs_mean": 0.00261818264552056
+      }
+    }
+  ],
+  "best_selection_metric": 0.967685542233661,
+  "autoregressive_cache": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/evaluations/fusion_train_ar_predictions.npz",
+  "direct_flow_cache": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/evaluations/fusion_train_flow_predictions.npz",
+  "best_checkpoint_step": 600
+}
