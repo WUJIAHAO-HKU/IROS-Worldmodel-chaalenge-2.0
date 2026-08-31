@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT='/root/autodl-tmp/IROS_WAM_2.0 challenge'
+OFF="$ROOT/artifacts/strict_track2_official_20260810"
+JOINT="$ROOT/artifacts/strict_track2_joint_augmentation_20260810"
+NAME='v235_public_causal_retrieval_ranking_seed1434_20260818'
+REG="$OFF/run_registry/$NAME"
+PY='/root/autodl-tmp/conda_envs/rlinf_track2/bin/python'
+RLINF="$ROOT/third_party/WorldArena-2.0/WorldArena-2.0-main/RL_env_benchmark"
+
+"$PY" "$ROOT/pipeline/scripts/prepare_v235_causal_retrieval_ranking.py" \
+  >"$OFF/run_registry/$NAME.prepare.log" 2>&1
+mv "$OFF/run_registry/$NAME.prepare.log" "$REG/prepare.log"
+
+cd /tmp
+PYTHONPATH="$ROOT/pipeline:$RLINF" TOKENIZERS_PARALLELISM=false \
+"$PY" "$ROOT/pipeline/scripts/sweep_v235_causal_retrieval_ranking.py" \
+  --audit-dir "$OFF/run_registry/v211_v209_train_action_capture_h200_r2_step1_seed1410_20260818/bridge_audit" \
+  --library "$JOINT/v214_public_right_knn_action_visual_diagnostic_seed1413/library/public_right_knn.npz" \
+  --reward-checkpoint "$ROOT/artifacts/official_resources/reward_model/adjust_bottle/full_weights.pt" \
+  --t5-model "$ROOT/artifacts/official_resources/reward_model/t5-base" \
+  --output "$REG/sweep_report.json" \
+  >"$REG/sweep.log" 2>&1
+
+touch "$REG/AUDIT_COMPLETE"
+echo V235_CAUSAL_RETRIEVAL_RANKING_COMPLETE

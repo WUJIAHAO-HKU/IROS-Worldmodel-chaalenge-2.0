@@ -6,6 +6,8 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import subprocess
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -55,12 +57,29 @@ def main() -> None:
     parser.add_argument("--policy", default="artifacts/official_resources/pi05_adjust_bottle")
     parser.add_argument("--reward", default="artifacts/official_resources/reward_model/adjust_bottle/full_weights.pt")
     parser.add_argument("--t5-model", default="artifacts/official_resources/reward_model/t5-base")
+    parser.add_argument("--strict-evaluation", required=True)
+    parser.add_argument("--world-model-checkpoint", required=True)
+    parser.add_argument("--world-model-backend", default="multisource-flow-unet")
+    parser.add_argument("--windows", default="artifacts/adjust_bottle_windows_full")
+    parser.add_argument("--split-manifest", default="artifacts/splits/adjust_bottle_50episodes_full.json")
     parser.add_argument("--rounds", type=int, default=2)
     parser.add_argument("--seed", type=int, default=1234)
     parser.add_argument("--device", default="cuda")
     args = parser.parse_args()
     if args.rounds < 1:
         raise SystemExit("--rounds must be positive")
+    subprocess.run(
+        [
+            sys.executable,
+            str(Path(__file__).resolve().with_name("require_strict_world_model_acceptance.py")),
+            "--evaluation", args.strict_evaluation,
+            "--windows", args.windows,
+            "--split-manifest", args.split_manifest,
+            "--checkpoint-dir", args.world_model_checkpoint,
+            "--backend", args.world_model_backend,
+        ],
+        check=True,
+    )
     for path in (Path(args.policy), Path(args.reward), Path(args.t5_model)):
         if not path.exists():
             raise SystemExit(f"missing official component: {path}")
@@ -82,6 +101,7 @@ def main() -> None:
     # those four slots with u4..u7 after each rollout chunk.
     condition = torch.zeros((1, 5, 14), dtype=torch.float32)
     condition[:, 1:, :] = torch.from_numpy(reset_actions[1:]).unsqueeze(0)
+    policy_state = torch.from_numpy(reset_actions[-1:]).to(device)
     bridge_url = args.bridge_url.rstrip("/")
 
     def post(path: str, payload: dict) -> dict:
@@ -113,13 +133,14 @@ def main() -> None:
             "main_images": latest.to(device),
             "wrist_images": None,
             "extra_view_images": None,
-            "states": torch.zeros((1, 14), dtype=torch.float32, device=device),
+            "states": policy_state,
             "task_descriptions": [instruction],
         }
         with torch.inference_mode():
             actions, _ = policy.predict_action_batch(policy_input, mode="eval", compute_values=False)
         if actions.shape != (1, 8, 14) or not torch.isfinite(actions).all():
             raise RuntimeError(f"policy returned invalid actions: {tuple(actions.shape)}")
+        policy_state = actions[:, -1].detach()
         response = post("/chunk_step", {"actions": actions.detach().cpu()})
         current = response["current_obs"]
         if current.shape != (1, 3, 1, 13, 256, 256) or not torch.isfinite(current).all():

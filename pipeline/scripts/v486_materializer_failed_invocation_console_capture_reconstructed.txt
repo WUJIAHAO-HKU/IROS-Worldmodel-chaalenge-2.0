@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v486_v485_phase_a_static_false_positive_reconciliation_preregistration.py", line 343, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v486_v485_phase_a_static_false_positive_reconciliation_preregistration.py", line 236, in main
+    raise RuntimeError("registration root")
+RuntimeError: registration root

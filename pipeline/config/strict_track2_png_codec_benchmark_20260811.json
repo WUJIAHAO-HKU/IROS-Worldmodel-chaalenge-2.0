@@ -1,0 +1,20 @@
+{
+  "format": "strict-track2-png-codec-benchmark-v1",
+  "created_at": "2026-08-11T17:18:00+08:00",
+  "input": "service_acceptance/v157_pre_deadwork_target_cache_real_context_batch8.npz:predicted_frames",
+  "frame_count": 64,
+  "shape_per_frame": [256, 256, 3],
+  "host_cpu_cgroup_quota_cores": 25,
+  "measurements_second_repeat": [
+    {"workers": 1, "encode_seconds": 1.064376621, "decode_seconds": 0.096845049},
+    {"workers": 2, "encode_seconds": 0.581142519, "decode_seconds": 0.092401045},
+    {"workers": 4, "encode_seconds": 0.310717268, "decode_seconds": 0.048421420},
+    {"workers": 8, "encode_seconds": 0.171788640, "decode_seconds": 0.038692251},
+    {"workers": 16, "encode_seconds": 0.115535470, "decode_seconds": 0.039417289}
+  ],
+  "selected_workers": 8,
+  "selection_reason": "8 workers retain CPU headroom for Pi0.5, reward and bridge processes while reducing isolated encode time 6.20x and decode time 2.50x.",
+  "all_worker_counts_png_bytes_exact": true,
+  "all_worker_counts_decoded_pixels_exact": true,
+  "formal_result": false
+}

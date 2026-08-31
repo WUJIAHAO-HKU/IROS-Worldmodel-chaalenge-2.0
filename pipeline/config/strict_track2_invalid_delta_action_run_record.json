@@ -1,0 +1,40 @@
+{
+  "format": "strict-track2-invalid-run-record-v1",
+  "recorded_at": "2026-08-11T03:27:31+08:00",
+  "run_label": "official_replica_v156_reward_safe_seed1240",
+  "status": "invalidated_before_policy_selection",
+  "reason": "The HTTP world environment supplied a zero Pi0.5 state, leaving frozen Pi0.5 joint outputs in delta space while the Track 2 world-model contract requires absolute actions.",
+  "checkpoint": {
+    "full_weights_sha256": "e48ae015de47cdebfe90edea02d2fcdcddc7589a444a8ba9ba10ed48011402e5",
+    "full_weights_bytes": 8529316588,
+    "dcp_metadata_sha256": "a15b47c9fcc8459588e1a7e5ee340fa4b73c1c9acb2670efa26499a014e01f4c",
+    "dcp_payload_sha256": "1f1c82e1531b2858117af48b1ee1910faa4acfc98d11232e55366e1ef58d1c3b",
+    "dcp_bytes_approx": 11786000000,
+    "policy_eligibility": false
+  },
+  "rollout_audit": {
+    "candidate_routes": 0,
+    "batch_size": 2,
+    "all_replays_bit_exact": true,
+    "future_action_min": -0.024497617036104202,
+    "future_action_max": 0.0175579022616148,
+    "future_left_gripper_mean": 0.0007085303077474236,
+    "future_right_gripper_mean": -0.004068172071129084,
+    "expected_absolute_gripper_near": 1.0,
+    "participant_action_selection": false,
+    "mpc": false
+  },
+  "cleanup": {
+    "authorization": "User previously requested removal of useless weights and extra data.",
+    "delete_exact_directory": "wan_robotwin_adjust_bottle_http_grpo_openpi_pi05/checkpoints/global_step_1/actor",
+    "retain": [
+      "launcher and runner logs",
+      "frozen run contract",
+      "checkpoint hashes",
+      "bridge rollout archive and replay report",
+      "absolute-action fix preregistration"
+    ],
+    "recoverable": false
+  },
+  "replacement_run": "official_replica_v156_absstate_seed1240"
+}

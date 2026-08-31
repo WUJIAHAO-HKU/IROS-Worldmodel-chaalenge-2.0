@@ -1,0 +1,102 @@
+{
+  "alias": {
+    "logical_bytes": 6475,
+    "path": "/dev/shm/v485_static_b73.log",
+    "sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b"
+  },
+  "boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+  "candidate_reuse_authorized": "pending_monitor_decision",
+  "deployed_sources": [
+    {
+      "logical_bytes": 8006,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v516_v515_alias_restore_readonly_remediation_external_terminal_design.json",
+      "sha256": "5316cfb105ac217113e5299454fad4f41dc5d9c19d098d2952de1ec6afde0761"
+    },
+    {
+      "logical_bytes": 27683,
+      "path": "/root/run_v516_v515_alias_restore_readonly_remediation_candidate_once.py",
+      "sha256": "af42057bc5a4eb58b812ecff44df377d87964bc176512f6fc709497c85e24db9"
+    },
+    {
+      "logical_bytes": 35494,
+      "path": "/root/run_v516_v515_alias_restore_readonly_remediation_transport_once.py",
+      "sha256": "671ba35b076da8380dc70d49c336bae67952b9b7145ecf0f1e6db5d113b2cc93"
+    },
+    {
+      "logical_bytes": 4541,
+      "path": "/root/v516_v515_alias_restore_readonly_remediation_transport_once.sh",
+      "sha256": "aedd6acd51f8a5904f3f6d2ec25e1753652b58947e9873c10e97c6cb3e3fd910"
+    }
+  ],
+  "failed_invocation": {
+    "argv": [
+      "/bin/bash",
+      "/root/v516_v515_alias_restore_readonly_remediation_transport_once.sh",
+      "--transport-self-test"
+    ],
+    "argv_repr": "['/bin/bash', '/root/v516_v515_alias_restore_readonly_remediation_transport_once.sh', '--transport-self-test']",
+    "candidate_adapter_invocations": 0,
+    "entry_stage": "script_preflight_before_helper_synthetic",
+    "normal_invocations": 0,
+    "returncode": 78,
+    "selftest_invocations": 1,
+    "stderr": "nonregular /root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v515_v514_adapter_deploy_abort_resolution_fact.json\n",
+    "stdout": "",
+    "transport_helper_invocations": 0
+  },
+  "format": "strict-track2-v517-v516-selftest-missing-fact-failure-fact-v1",
+  "fresh_transport_authorized": "pending_monitor_decision",
+  "gpu_compute_pids": [],
+  "hostname": "autodl-container-074042af4d-d3994172",
+  "matching_processes": [],
+  "owned_deployment_temps": [],
+  "retry_authorized": false,
+  "root_cause": {
+    "canonical_fact_lexists": false,
+    "canonical_fact_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v515_v514_adapter_deploy_abort_resolution_fact.json",
+    "deploy_boundary_source_count": 4,
+    "fact_omitted_from_deploy_boundary": true,
+    "required_logical_bytes": 2734,
+    "required_sha256": "b2e638cce323099ef269e45a4cdc8f2ad21044a35ee9b8102943df59f2f4d750",
+    "volatile_staging": {
+      "logical_bytes": 2734,
+      "path": "/dev/shm/v515_adapter_deploy_abort_resolution_fact.json",
+      "sha256": "b2e638cce323099ef269e45a4cdc8f2ad21044a35ee9b8102943df59f2f4d750"
+    }
+  },
+  "runtime_state": {
+    "candidate_adapter_invocations": 0,
+    "candidate_prep_lexists": false,
+    "candidate_root_lexists": false,
+    "evidence_prep_lexists": false,
+    "evidence_root_lexists": false,
+    "phase_a_invocations": 0,
+    "restore_invocations": 0,
+    "training_invocations": 0,
+    "transport_helper_invocations": 0
+  },
+  "services": {
+    "18084": {
+      "body": {
+        "status": "ready"
+      },
+      "http_code": 200,
+      "raw_body_logical_bytes": 18,
+      "raw_body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd",
+      "url": "http://127.0.0.1:18084/health"
+    },
+    "8005": {
+      "body": {
+        "api_version": "1.0",
+        "model_version": "track2-v218-public-knn-blend-alpha070-route-aware",
+        "status": "ready"
+      },
+      "http_code": 200,
+      "raw_body_logical_bytes": 106,
+      "raw_body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0",
+      "url": "http://127.0.0.1:8005/v1/health"
+    }
+  },
+  "status": "frozen_preentry_selftest_failure_no_candidate_execution_no_retry",
+  "timestamp_ns": 1787708048364300055
+}

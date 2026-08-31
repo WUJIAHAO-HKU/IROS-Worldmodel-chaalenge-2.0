@@ -1,0 +1,36 @@
+{
+  "format": "strict-track2-v157-mixed-visual-cache-preregistration-v1",
+  "created_at": "2026-08-11T09:12:00+08:00",
+  "purpose": "Add an episode-disjoint official-success visual anchor to the existing on-policy synthetic V15.7 cache before admitting V16.6.",
+  "builder": {
+    "script": "pipeline/scripts/build_strict_track2_v157_mixed_visual_cache.py",
+    "script_sha256": "1304a434618a5bef761f6ad427e04aa074c4b68279f10cde4965616134d74c29"
+  },
+  "inputs": {
+    "windows": "artifacts/strict_track2_joint_augmentation_20260810/formal_joint_parent_windows_full128",
+    "source_manifest": "artifacts/strict_track2_joint_augmentation_20260810/formal_joint_parent_windows_full128/window_sources.json",
+    "source_manifest_sha256": "3de2bd7abc97a9d8f3d0fb754088a151bcee0ff97e8b6f51e5ac5a0e3fde92e1",
+    "synthetic_cache": "artifacts/strict_track2_joint_augmentation_20260810/v157_exact_reward_cache64.npz",
+    "synthetic_cache_sha256": "6313ab2358714631ff610d04cc19ffa891b324fea4ada5a92732815270f90346"
+  },
+  "selection": {
+    "official_validation_left_success": 16,
+    "official_validation_right_success": 16,
+    "synthetic_validation_left": 16,
+    "synthetic_validation_right": 16,
+    "method": "deterministic linspace within each immutable source/arm group",
+    "total": 64,
+    "development22_or_final128_used": false
+  },
+  "frozen_v157": {
+    "model_version": "track2-v15.7-hybrid-action-gated-reward-safe-blend12",
+    "weights_changed": false,
+    "native_batch_enabled": false,
+    "service_max_batch": 8
+  },
+  "output": {
+    "cache": "artifacts/strict_track2_joint_augmentation_20260810/v157_balanced_mixed_visual_cache64.npz",
+    "manifest": "artifacts/strict_track2_joint_augmentation_20260810/v157_balanced_mixed_visual_cache64.manifest.json"
+  },
+  "interpretation_guard": "This is a world-model validation cache, not policy training data or a real RoboTwin success result."
+}

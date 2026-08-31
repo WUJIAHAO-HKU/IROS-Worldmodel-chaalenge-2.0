@@ -1,0 +1,27 @@
+{
+  "format": "strict-track2-hybrid-advantage-mask-preregistration-v1",
+  "created_at": "2026-08-11T00:33:00+08:00",
+  "frozen_checkpoint": "post_v15_residual_bounded8_reward_pilot200/checkpoint_step_000200",
+  "base_mask_beneficial_fraction": 0.55,
+  "official_left_fraction_candidates_in_order": [0.7, 0.8],
+  "fixed_output_strength": 1.25,
+  "final_residual_clip_255": 8.0,
+  "reason": "The 0.55 advantage mask produces positive official aggregate RGB and 2.826 percent official reward improvement; only official-left RGB regresses by 0.00127 percent. A stricter official-left training-only advantage threshold removes low-confidence pixels, while fixed 1.25 strength is intended to cross the 3 percent reward gate.",
+  "inference": {
+    "source": "frozen visual source gate from the last request frame",
+    "arm": "raw request action delta",
+    "target_or_reward_used": false,
+    "participant_mpc": false
+  },
+  "selection": "First official-left threshold in listed order satisfying every promotion gate.",
+  "promotion_gates": {
+    "uint8_official_overall_rgb_non_regression_percent": 0.0,
+    "uint8_official_left_and_right_rgb_non_regression": true,
+    "uint8_synthetic_rgb_non_regression_percent": 0.0,
+    "official_reward_mae_improvement_percent_min": 3.0,
+    "synthetic_reward_mae_non_regression": true,
+    "left_and_right_reward_mae_non_regression": true,
+    "maximum_absolute_residual_255": 8.0
+  },
+  "policy_development_or_acceptance_consumed": false
+}

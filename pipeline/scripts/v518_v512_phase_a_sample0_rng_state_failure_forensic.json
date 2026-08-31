@@ -1,0 +1,206 @@
+{
+  "format": "strict-track2-v518-v512-phase-a-sample0-rng-state-failure-forensic-v1",
+  "status": "immutable_failed_no_retry_read_only_forensic",
+  "seed": 1654,
+  "captured_at_utc": "2026-08-26T03:58:20Z",
+  "failure_summary": {
+    "error_type": "RuntimeError",
+    "error": "v485 v169 predict changed CPU/CUDA RNG state",
+    "child_returncode": 79,
+    "fixture_passed": false,
+    "fixture_status": "failed_no_retry",
+    "retry_authorized": false
+  },
+  "execution_partition": {
+    "transport_helper_invocations": 1,
+    "child_invocations": 1,
+    "sample0_calls_started": 1,
+    "sample0_calls_completed": 0,
+    "sample0_call_accounting_known": true,
+    "phase_a_launcher_invocations": 0,
+    "phase_a_driver_invocations": 0,
+    "training_invocations": 0,
+    "cache_reuse_invocations": 0,
+    "reward_read_invocations": 0,
+    "dev_hidden_final_outcome_read_invocations": 0,
+    "service_control_invocations": 0
+  },
+  "evidence_tree": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v512_v511_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1653_20260826",
+    "file_count": 6,
+    "logical_file_bytes": 337000,
+    "sha256sum_lines_digest_sha256": "f8df29faaf8ba9bb13eed325c32d8133ec6818d4ab969ee7bb8e58ec661107d5",
+    "canonical_json_digest_sha256": "44cd7567adf1abeabf0b0c0ff965fecd7b5c2bc441259148e604a3fd5d1de888",
+    "inventory": [
+      ["child_stderr.log", "57e4c18853eebeb4cb5377eedf96258fd55b81aa7ef82b2e98ab2b69ecea19b3", 427],
+      ["child_stdout.log", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 0],
+      ["design.json", "77db7b294ecc487aa25d262d5267f0f085d7a8d13c78843db41c0606ce048399", 16614],
+      ["intent.json", "46e6889c2e6ccf456996002f1a3a104073baa6b5d8d4dad7f0864b9f7037d5ff", 88698],
+      ["process_receipt.json", "4115aa351fb2077845a3dcd29e0432eedc059814effbb27ddd5c5dc705bf6074", 190330],
+      ["transport_helper.py", "1940150dac3a08ae9e9694633db1206fac11f9293e57ad4f58ecb6f6ef1aafaa", 40931]
+    ]
+  },
+  "terminal_records": {
+    "process_receipt": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v512_v511_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1653_20260826/process_receipt.json",
+      "sha256": "4115aa351fb2077845a3dcd29e0432eedc059814effbb27ddd5c5dc705bf6074",
+      "logical_bytes": 190330
+    },
+    "child_stderr": {
+      "sha256": "57e4c18853eebeb4cb5377eedf96258fd55b81aa7ef82b2e98ab2b69ecea19b3",
+      "logical_bytes": 427,
+      "line_count": 1,
+      "canonical_json_exact": true,
+      "traceback_appended": false
+    },
+    "child_stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logical_bytes": 0,
+      "line_count": 0
+    }
+  },
+  "source_records": {
+    "sample_child": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/verify_v512_v511_phase_a_sample0_cublas_workspace_environment_repair.py",
+      "sha256": "484e1203e697c02967c28d5e00e14a4a72832fc95b4c3857ddf6371b9d5f9980",
+      "logical_bytes": 17707
+    },
+    "sample_design": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v512_v511_phase_a_sample0_cublas_workspace_environment_repair_design.json",
+      "sha256": "77db7b294ecc487aa25d262d5267f0f085d7a8d13c78843db41c0606ce048399",
+      "logical_bytes": 16614
+    },
+    "transport_helper": {
+      "path": "/root/v512_v511_phase_a_sample0_cublas_workspace_environment_repair_once.py",
+      "sha256": "1940150dac3a08ae9e9694633db1206fac11f9293e57ad4f58ecb6f6ef1aafaa",
+      "logical_bytes": 40931
+    },
+    "transport_script": {
+      "path": "/root/v512_phase_a_sample0_cublas_workspace_environment_repair_once.sh",
+      "sha256": "e15425f5cb1b5994265f56bda347e54048ed9c57ba8221f0a02827112e2ab8c5",
+      "logical_bytes": 5442
+    },
+    "rng_scope": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+      "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5",
+      "logical_bytes": 4519
+    }
+  },
+  "v169_closure": {
+    "closure_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v474_v473_median4_parent_release_seed1618_20260824/v169_closure.json",
+    "closure_sha256": "f8b4891fc12fdbc87a7abd93b8a7709cc77614b294e6a7dfa6cd109dac43fb29",
+    "closure_digest": "5fc181bf1049b0e763ef47716f5e3356445de8eb6b2eb3de07dd2d70cd4346f3",
+    "release_records": 61,
+    "library_records": 6673,
+    "directory_symlinks": 4,
+    "file_symlinks": 2
+  },
+  "rng_state_observability": {
+    "torch_cpu": {
+      "before_sha256": null,
+      "after_sha256": null,
+      "comparison_result": "different",
+      "persistence": "not_persisted_scope_raised_before_event_return"
+    },
+    "torch_cuda_devices": {
+      "before": null,
+      "after": null,
+      "comparison_result": "at_least_one_cpu_or_cuda_state_different",
+      "persistence": "not_persisted_scope_raised_before_event_return"
+    },
+    "python_random": {
+      "before_sha256": null,
+      "after_sha256": null,
+      "comparison_result": "not_measured",
+      "persistence": "v485_rng_scope_does_not_capture_python_random_state"
+    },
+    "numpy_random": {
+      "before_sha256": null,
+      "after_sha256": null,
+      "comparison_result": "not_measured",
+      "persistence": "v485_rng_scope_does_not_capture_numpy_random_state"
+    },
+    "forensic_limit": "exact_before_after_digests_are_unrecoverable_from_the_terminated_child_and_were_not_persisted; no_reexecution_was_performed"
+  },
+  "control_flow_proof": {
+    "scope_sequence": [
+      "strict_deterministic_precondition",
+      "cuda_synchronize_if_available",
+      "capture_torch_cpu_and_cuda_rng_before",
+      "enter_warn_only_scope",
+      "runtime_predict_once",
+      "cuda_synchronize_if_available",
+      "restore_strict_deterministic_mode",
+      "capture_torch_cpu_and_cuda_rng_after",
+      "validate_raw_warning_exactly_once",
+      "compare_torch_cpu_and_cuda_rng_before_after",
+      "raise_rng_state_failure_before_returning_output_and_event"
+    ],
+    "raw_warning_gate_passed_by_control_flow_inference": true,
+    "raw_warning_receipt_persisted": false,
+    "output_was_transiently_returned_by_runtime_predict": true,
+    "output_digest_or_schema_persisted": false,
+    "scope_event_returned_to_child": false
+  },
+  "prepost": {
+    "input_snapshot_equal": true,
+    "held_alias_source_target_equal": true,
+    "package_tree_equal": true,
+    "sample0_dataset_equal": true,
+    "services_equal": true,
+    "process_reaped": true,
+    "process_group_empty": true,
+    "lineage_pids": [],
+    "gpu_compute_pids": []
+  },
+  "service_health": {
+    "8005": {
+      "http_code": 200,
+      "body": {"api_version": "1.0", "model_version": "track2-v218-public-knn-blend-alpha070-route-aware", "status": "ready"},
+      "sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0",
+      "logical_bytes": 106
+    },
+    "18084": {
+      "http_code": 200,
+      "body": {"status": "ready"},
+      "sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd",
+      "logical_bytes": 18
+    }
+  },
+  "repair_research": {
+    "execution_authorized": false,
+    "recommended_minimal_semantics": "fresh_single_call_runtime_proxy_restores_all_rng_families_before_returning_to_frozen_v485_scope",
+    "torch_context": "torch.random.fork_rng(devices=list(range(torch.cuda.device_count())),enabled=True)",
+    "inside_context_seed_sequence": [
+      "random.seed(exact_sample_seed)",
+      "numpy.random.seed(exact_sample_seed_mod_2_pow_32)",
+      "torch.manual_seed(exact_sample_seed)",
+      "torch.cuda.manual_seed_all(exact_sample_seed)_if_cuda_available",
+      "delegate_runtime.predict_exactly_once"
+    ],
+    "python_numpy_restoration": "capture random.getstate and numpy.random.get_state before proxy call; restore both in finally",
+    "torch_restoration": "fork_rng restores CPU and enumerated CUDA device states when the proxy returns or raises",
+    "why_proxy_is_required": "wrapping scope.predict_one externally would restore torch state only after frozen scope performs its internal comparison and therefore would still fail",
+    "warning_semantics": "do_not_filter_deduplicate_or_normalize; frozen outer warnings.catch_warnings observes the raw warning unchanged",
+    "required_future_evidence": [
+      "python_random_before_after_sha256_equal",
+      "numpy_random_before_after_sha256_equal",
+      "torch_cpu_before_after_sha256_equal",
+      "torch_cuda_each_device_before_after_sha256_equal",
+      "seed_values_and_device_list_exact",
+      "sample0_calls_started_1_completed_1",
+      "raw_warning_ordered_exactly_one_unchanged",
+      "output_schema_and_digest",
+      "package_dataset_alias_services_prepost_equal",
+      "process_reaped_group_empty_pid_gpu_empty"
+    ]
+  },
+  "authorization": {
+    "forensic_capture_authorized": true,
+    "forensic_capture_invocations": 1,
+    "sample_fixture_authorized": false,
+    "phase_a_authorized": false,
+    "training_authorized": false,
+    "retry_authorized": false
+  }
+}

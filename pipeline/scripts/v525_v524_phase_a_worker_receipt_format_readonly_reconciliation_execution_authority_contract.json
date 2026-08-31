@@ -1,0 +1,1264 @@
+{
+  "authority_materializer_source": {
+    "logical_bytes": 27325,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_execution_authority.py",
+    "sha256": "3b8434571c7444c489689c2b7601bb56e79a46d79780843875f4cc5b6fcf9e82"
+  },
+  "authority_receipt_contract": {
+    "authorization_exact": {
+      "cache_reuse_authorized": false,
+      "dev_hidden_final_outcome_read_authorized": false,
+      "driver_invocations_authorized": 0,
+      "launcher_invocations_authorized": 0,
+      "oof_authorized": false,
+      "oof_invocations_authorized": 0,
+      "phase_a_replay_authorized": false,
+      "phase_a_replay_invocations_authorized": 0,
+      "qualification_mutation_authorized": false,
+      "qualification_readonly_validation_authorized": true,
+      "readonly_reconciler_invocations_authorized": 1,
+      "readonly_reconciler_invocations_consumed": 0,
+      "retry_authorized": false,
+      "reward_read_authorized": false,
+      "rng_proxy_delegate_invocations_authorized": 0,
+      "training_authorized": false,
+      "training_invocations_authorized": 0,
+      "worker_invocations_authorized": 0
+    },
+    "check_key_set_sha256": "5807761490760f508bf160bb030b1803d33280dbc700082a86897b22e7c2de1f",
+    "check_keys": [
+      "authorization_boundary",
+      "contract_schema",
+      "execution_boundary",
+      "forensic_exact",
+      "forensic_semantics",
+      "format_mismatch_exact2",
+      "fresh_roots_absent",
+      "gpu_empty",
+      "input_prepost_equal",
+      "no_live_phase_a_process",
+      "normalized_digest_exact",
+      "original_digest_exact",
+      "publish_noreplace_exact1",
+      "qualification_readonly",
+      "recursive_diff_digest_exact",
+      "runtime_boundary",
+      "services_restored_current",
+      "source_aliases_exact",
+      "source_closure_current",
+      "source_order_exact",
+      "v524_attempt_exact4",
+      "v524_attempt_failed_no_retry",
+      "v524_authority_exact1",
+      "v524_authority_schema",
+      "v524_authority_sources_current",
+      "v524_independent_audit_passed",
+      "v524_qualification_exact20",
+      "v524_qualification_report_passed",
+      "v524_qualification_terminal_passed",
+      "v524_worker_counts_exact",
+      "v524_worker_receipts_current"
+    ],
+    "checks_sha256": "53836c7ad5d342d243c9c2bcc09e4fae4b64718f5266d1fa5ef6dbe84c99ce63",
+    "execution_boundary_exact": {
+      "authority_materialization_only": true,
+      "dev_hidden_final_outcome_reads": 0,
+      "oof_invocations": 0,
+      "phase_a_driver_invocations": 0,
+      "phase_a_launcher_invocations": 0,
+      "phase_a_replay_invocations": 0,
+      "phase_a_worker_invocations": 0,
+      "readonly_reconciler_invocations": 0,
+      "reward_reads": 0,
+      "rng_proxy_delegate_invocations": 0,
+      "training_invocations": 0
+    },
+    "external_terminal_evidence_contract_exact": {
+      "authoritative_success_only_via_external_terminal": true,
+      "candidate_and_evidence_dual_bind_required": true,
+      "candidate_expected_file_count": 1,
+      "candidate_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_seed1661_20260827",
+      "current_exact1_candidate_required": true,
+      "current_exact6_evidence_required": true,
+      "evidence_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_attempt_seed1661_20260827.attempt-prep",
+      "evidence_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_attempt_seed1661_20260827",
+      "expected_file_count": 6,
+      "format": "strict-track2-v525-v524-phase-a-worker-receipt-format-readonly-reconciliation-external-terminal-evidence-v1",
+      "fresh_transport_helper_source_required": true,
+      "fresh_transport_script_source_required": true,
+      "phase_a_replay_authorized": false,
+      "postcommit_diagnostics_adjudicated_by_external_terminal": true,
+      "retry_authorized": false,
+      "terminal_member": "process_receipt.json",
+      "terminal_status": "passed_external_terminal"
+    },
+    "format": "strict-track2-v525-v524-phase-a-worker-receipt-format-readonly-reconciliation-execution-authority-v1",
+    "reconciler_candidate_contract_exact": {
+      "candidate_verified": true,
+      "commit_semantics": "current_exact1_visibility_after_noreplace_directory_rename",
+      "crash_durability_claimed": false,
+      "external_terminal_required": true,
+      "format": "strict-track2-v525-v524-phase-a-worker-receipt-format-readonly-reconciliation-receipt-v1",
+      "passed": null,
+      "postcommit_parent_dir_fsync_best_effort": true,
+      "publication_success_claimed": false,
+      "standalone_consumable": false,
+      "status": "computation_verified_readonly_launcher_consumer_schema_mismatch"
+    },
+    "runtime_observation_exact": {
+      "execution_authority_materialized": true,
+      "oof_executed": false,
+      "phase_a_driver_executed": false,
+      "phase_a_launcher_executed": false,
+      "phase_a_replayed": false,
+      "phase_a_worker_invocations": 0,
+      "qualification_mutated": false,
+      "readonly_reconciler_executed": false,
+      "rng_proxy_delegate_invocations": 0,
+      "training_launched": false
+    },
+    "status": "authorized_exact_one_external_v525_readonly_reconciler_attempt",
+    "top_keys": [
+      "authority_design_contract",
+      "authority_materializer_source",
+      "authorization",
+      "check_key_set_sha256",
+      "check_keys",
+      "checks",
+      "checks_sha256",
+      "execution_boundary",
+      "external_terminal_evidence_contract",
+      "failure_forensic_source",
+      "format",
+      "historical_absences",
+      "input_post_snapshot",
+      "input_pre_snapshot",
+      "input_snapshots_exactly_equal",
+      "normalization_contract",
+      "passed",
+      "readonly_reconciler_source",
+      "reconciler_candidate_contract",
+      "reconciliation_output_root",
+      "required_absences",
+      "rng_proxy_current_only_source",
+      "runtime_observation",
+      "source_aliases",
+      "source_closure",
+      "source_closure_sha256",
+      "source_role_order",
+      "status",
+      "v524_attempt_intent",
+      "v524_attempt_intent_source",
+      "v524_attempt_stderr",
+      "v524_attempt_stderr_source",
+      "v524_attempt_stdout",
+      "v524_attempt_stdout_source",
+      "v524_attempt_terminal",
+      "v524_attempt_terminal_source",
+      "v524_attempt_tree",
+      "v524_authority_design_contract_source",
+      "v524_authority_materializer_source",
+      "v524_authority_receipt",
+      "v524_authority_receipt_source",
+      "v524_authority_registration_tree",
+      "v524_authority_semantics",
+      "v524_execution_partition",
+      "v524_process_a_receipt",
+      "v524_process_a_receipt_source",
+      "v524_process_b_receipt",
+      "v524_process_b_receipt_source",
+      "v524_qualification_independent_audit",
+      "v524_qualification_independent_audit_source",
+      "v524_qualification_report",
+      "v524_qualification_report_source",
+      "v524_qualification_terminal",
+      "v524_qualification_terminal_source",
+      "v524_qualification_tree"
+    ]
+  },
+  "authorization": {
+    "cache_reuse_authorized": false,
+    "dev_hidden_final_outcome_read_authorized": false,
+    "driver_invocations_authorized": 0,
+    "launcher_invocations_authorized": 0,
+    "oof_authorized": false,
+    "oof_invocations_authorized": 0,
+    "phase_a_replay_authorized": false,
+    "phase_a_replay_invocations_authorized": 0,
+    "qualification_mutation_authorized": false,
+    "qualification_readonly_validation_authorized": true,
+    "readonly_reconciler_invocations_authorized": 1,
+    "readonly_reconciler_invocations_consumed": 0,
+    "retry_authorized": false,
+    "reward_read_authorized": false,
+    "rng_proxy_delegate_invocations_authorized": 0,
+    "training_authorized": false,
+    "training_invocations_authorized": 0,
+    "worker_invocations_authorized": 0
+  },
+  "current_absences_after_authority": {
+    "authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_execution_authority_seed1661_20260827.registration-prep"
+    },
+    "external_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_attempt_seed1661_20260827.attempt-prep"
+    },
+    "external_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_attempt_seed1661_20260827"
+    },
+    "reconciliation_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_seed1661_20260827.reconciliation-prep"
+    },
+    "reconciliation_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_seed1661_20260827"
+    }
+  },
+  "execution_boundary": {
+    "authority_materialization_only": true,
+    "dev_hidden_final_outcome_reads": 0,
+    "oof_invocations": 0,
+    "phase_a_driver_invocations": 0,
+    "phase_a_launcher_invocations": 0,
+    "phase_a_replay_invocations": 0,
+    "phase_a_worker_invocations": 0,
+    "readonly_reconciler_invocations": 0,
+    "reward_reads": 0,
+    "rng_proxy_delegate_invocations": 0,
+    "training_invocations": 0
+  },
+  "external_terminal_evidence_contract": {
+    "authoritative_success_only_via_external_terminal": true,
+    "candidate_and_evidence_dual_bind_required": true,
+    "candidate_expected_file_count": 1,
+    "candidate_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_seed1661_20260827",
+    "current_exact1_candidate_required": true,
+    "current_exact6_evidence_required": true,
+    "evidence_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_attempt_seed1661_20260827.attempt-prep",
+    "evidence_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_attempt_seed1661_20260827",
+    "expected_file_count": 6,
+    "format": "strict-track2-v525-v524-phase-a-worker-receipt-format-readonly-reconciliation-external-terminal-evidence-v1",
+    "fresh_transport_helper_source_required": true,
+    "fresh_transport_script_source_required": true,
+    "phase_a_replay_authorized": false,
+    "postcommit_diagnostics_adjudicated_by_external_terminal": true,
+    "retry_authorized": false,
+    "terminal_member": "process_receipt.json",
+    "terminal_status": "passed_external_terminal"
+  },
+  "failure_forensic_source": {
+    "logical_bytes": 8137,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v525_v524_phase_a_worker_receipt_format_failure_forensic.json",
+    "sha256": "ea04aede510143cf9f1c6388c222b64397a8f5dfdf3c15a5c10c56a7d5b058d5"
+  },
+  "format": "strict-track2-v525-v524-phase-a-worker-receipt-format-readonly-reconciliation-execution-authority-design-contract-v1",
+  "historical_absences": {
+    "authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_execution_authority_seed1661_20260827.registration-prep"
+    },
+    "authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_execution_authority_seed1661_20260827"
+    },
+    "external_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_attempt_seed1661_20260827.attempt-prep"
+    },
+    "external_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_attempt_seed1661_20260827"
+    },
+    "reconciliation_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_seed1661_20260827.reconciliation-prep"
+    },
+    "reconciliation_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_seed1661_20260827"
+    }
+  },
+  "lineage": {
+    "fresh_authority_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_execution_authority_seed1661_20260827",
+    "fresh_reconciliation_output_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_seed1661_20260827",
+    "name": "v525_v524_phase_a_worker_receipt_format_readonly_reconciliation",
+    "qualification_computation_replay_required": false,
+    "sole_normalization": "process_a_and_process_b_receipt_format",
+    "supersedes_v524_failed_launcher_consumer_no_retry": true
+  },
+  "normalization_contract": {
+    "new_computation_claimed": false,
+    "normalized_worker_receipts": {
+      "process_a": {
+        "artifact": {
+          "baseline_raw_array_sha256": "25c993f5a270209fb3338f67de32f1fc697919629856cd656ae05912b47dfd31",
+          "cache_npz_bytes": 937558066,
+          "cache_npz_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/cache/scalar_v169_temporal_cache.npz",
+          "cache_npz_sha256": "375d66dd0066c8ef9ae51d1564d7f09c68886cc6986cf1ddf20480e6662cceb8"
+        },
+        "call_events_bytes": 5431045,
+        "call_events_count": 1000,
+        "call_events_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/call_events.ndjson",
+        "call_events_sha256": "9b83ed569d597e887cba4d483f4fae145cdaf9330a0866f51f49eea6799bed89",
+        "calls": 1000,
+        "context_repeat5_digest_sha256": "d807392c0c13cfe80f187ee046a3fffae1800ea3a5bc4800e540602674d803dc",
+        "dev_outcome_success_hidden_final_used": false,
+        "driver_completion_receipt_future_owned": true,
+        "durable_call_completed_markers": 1000,
+        "durable_call_markers_in_process_log": true,
+        "durable_call_started_markers": 1000,
+        "execution_order": "canonical_0_to_999",
+        "folds": 0,
+        "format": "strict-track2-v524-v523-rng-isolated-cache-worker-receipt-v1",
+        "fresh_process_identity": {
+          "attempt_nonce": "47886e62417d642ef403788ca0c03a17587053e441f09983a4928912bf9d4d0b",
+          "expected_identity_relative_path": "process_a/identity.json",
+          "identity_schema_version": "strict-track2-v485-v169-cache-worker-identity-v2",
+          "intent_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/attempt_intent.json",
+          "intent_sha256": "6aca4bd61f854bed82eb4a28bda0129097b8e1145ee83d98445dd2f4afd9ce05",
+          "linux_boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+          "pid": 64199,
+          "proc_self_stat_starttime_ticks": "194723611",
+          "role": "process_a",
+          "sys_executable_resolved_path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+          "sys_executable_sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788",
+          "worker_source_sha256": "51653b8cebea6fa5f75ccb5a3f3ffc4d3dd4bfc6436fac3c49a494102556252a"
+        },
+        "guard_event_manifest_sha256": "2c40a2fbc3e5163f8686dac2f98b62f07d6fbf5ee671b3a9e32856004194b9a3",
+        "identity_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/identity.json",
+        "identity_sha256": "2c7d584e4c0aadbcd8a205d9147adb52d842485877ecb4aed8da3b28541e4872",
+        "other_warning_count": 0,
+        "output_digest_sha256": "068a361b2c95ad3aabb519f7d26ee68d457b6a3d63bb82fecf2b88593202bc4b",
+        "output_sha256_array_digest_sha256": "2b406e65f5b6a3be5b6e40a42560967b7889072140dffb64dc1123123c99ab23",
+        "passed": true,
+        "phase_a_preregistration_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_prereg_seed1660_20260826/preregistration.json",
+        "phase_a_preregistration_sha256": "133c13ffc994671f2309d98ca294f47e0b838e291156d1523f211dc9f3c60da7",
+        "policy_updates": 0,
+        "postregistration_authority_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826/authority_receipt.json",
+        "postregistration_authority_sha256": "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf",
+        "process_log_future_owned_by_driver": true,
+        "process_wall_end_ns": 1787761796820029946,
+        "progress_bytes": 224675,
+        "progress_count": 1002,
+        "progress_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/progress.ndjson",
+        "progress_sha256": "16e7144f6e15023ff64d29ca9303459dc8c294e9a6ae96703c40dc8b80e90013",
+        "raw_warning_count": 1000,
+        "request_digest_sha256": "70d815807948a465f542bf2d689a7f8740779e38dd6afa8f5a0735104d44c457",
+        "request_sha256_array_digest_sha256": "56ae28fd05160fa54c579d48f3e7b6d23e45a6f277c348120fdd829fce7f966c",
+        "reward_loaded": false,
+        "rl_authorized": false,
+        "rng_event_manifest_sha256": "408bc306c00efa07a0e73a951f286f0dc88266adf29d7a8b6c75e41f9913f455",
+        "rng_isolation_delegate_completed_count": 1000,
+        "rng_isolation_delegate_started_count": 1000,
+        "rng_isolation_event_count": 1000,
+        "rng_isolation_event_manifest_sha256": "6729f91825e9e998ccedf532e7d48ed8e06f347db2fc91944cbd046dcd49b9af",
+        "rng_isolation_numpy_all_four_stages_equal_count": 1000,
+        "rng_isolation_python_all_four_stages_equal_count": 1000,
+        "rng_isolation_torch_cpu_exit_restored_count": 1000,
+        "rng_isolation_torch_cuda_exit_restored_count": 1000,
+        "rng_proxy_source": {
+          "logical_bytes": 8926,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+          "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+        },
+        "rng_unchanged_count": 1000,
+        "role": "A",
+        "sample_id_sha256": "702746827e553786bb026ac120cb58745fef3d3f554c33891809001cc37639f0",
+        "seed_digest_sha256": "3edfdbd88100e4aed0e6f522bd9f97b2e218be1cce489d715a222a1a0f217416",
+        "source_and_ancestry": {
+          "auditor_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v524_v523_phase_a_rng_isolated_qualification.py",
+            "sha256": "fce5b2bfa906183f49c1fe96e4bae88bddf8efb891917a56e2bfe0a7804b5078"
+          },
+          "authority_receipt": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826/authority_receipt.json",
+            "sha256": "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf"
+          },
+          "contract": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v482_v169_cache_determinism_scope_repair_contract.json",
+            "sha256": "8c4a583aa19de6927cc1ef787920b65317893e27ad01371d0b95b622f260cf64"
+          },
+          "driver_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v524_v523_phase_a_cache_qualification.py",
+            "sha256": "c9f7c836781bb8311a37024068be6e5d080a5b8e56c44fffc2cef85002447e64"
+          },
+          "formal": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_prereg_seed1660_20260826/preregistration.json",
+            "sha256": "133c13ffc994671f2309d98ca294f47e0b838e291156d1523f211dc9f3c60da7"
+          },
+          "interpreter": {
+            "lexical_path": "/root/autodl-tmp/conda_envs/rlinf_track2/bin/python",
+            "numpy_version": "1.26.4",
+            "python_version": "3.11.15",
+            "resolved_bytes": 25555040,
+            "resolved_path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+            "resolved_sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788",
+            "torch_version": "2.7.0+cu128"
+          },
+          "parent_failure": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/launcher_failure_receipt.json",
+            "sha256": "dbe3e10d5e7d47d9690c42ebf7f8658fcb10b5aafcd9f6bd19cbf4accb381106"
+          },
+          "parent_preregistration": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/preregistration.json",
+            "sha256": "426d4f7a774520458f6af41d20660cf31202791f99603dacec114f771da6a881"
+          },
+          "rng_proxy_source": {
+            "logical_bytes": 8926,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+            "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+          },
+          "runtime": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/v482_temporal8_residual_runtime.py",
+            "sha256": "6939e3f6f52c1eb83bfd4324372d7e75ed4ee6d493777a39f38c26e5f4db7471"
+          },
+          "scope_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+            "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5"
+          },
+          "v169_closure": {
+            "digest": "5fc181bf1049b0e763ef47716f5e3356445de8eb6b2eb3de07dd2d70cd4346f3",
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v474_v473_median4_parent_release_seed1618_20260824/v169_closure.json",
+            "sha256": "f8b4891fc12fdbc87a7abd93b8a7709cc77614b294e6a7dfa6cd109dac43fb29"
+          },
+          "worker_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v524_v523_phase_a_cache_qualification_worker.py",
+            "sha256": "51653b8cebea6fa5f75ccb5a3f3ffc4d3dd4bfc6436fac3c49a494102556252a"
+          }
+        },
+        "source_and_ancestry_sha256": "89284e412f37350857da536b0fc9299c498700c843851359155b58693c31f83f",
+        "status": "passed_unreviewed_process_output",
+        "training_launched": false,
+        "warning_count": 1000
+      },
+      "process_b": {
+        "artifact": {
+          "baseline_raw_array_sha256": "25c993f5a270209fb3338f67de32f1fc697919629856cd656ae05912b47dfd31",
+          "cleanup_authorized": false,
+          "memmap_bytes": 1572864000,
+          "memmap_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_b/baseline_canonical.memmap",
+          "memmap_retained": true,
+          "memmap_sha256": "25c993f5a270209fb3338f67de32f1fc697919629856cd656ae05912b47dfd31"
+        },
+        "call_events_bytes": 5431045,
+        "call_events_count": 1000,
+        "call_events_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_b/call_events.ndjson",
+        "call_events_sha256": "66ac9f81e846768ea95629050a544804ea4e1cb245f7b41f388b208fcc82cd24",
+        "calls": 1000,
+        "context_repeat5_digest_sha256": "d807392c0c13cfe80f187ee046a3fffae1800ea3a5bc4800e540602674d803dc",
+        "dev_outcome_success_hidden_final_used": false,
+        "driver_completion_receipt_future_owned": true,
+        "durable_call_completed_markers": 1000,
+        "durable_call_markers_in_process_log": true,
+        "durable_call_started_markers": 1000,
+        "execution_order": "reverse_999_to_0",
+        "folds": 0,
+        "format": "strict-track2-v524-v523-rng-isolated-cache-worker-receipt-v1",
+        "fresh_process_identity": {
+          "attempt_nonce": "47886e62417d642ef403788ca0c03a17587053e441f09983a4928912bf9d4d0b",
+          "expected_identity_relative_path": "process_b/identity.json",
+          "identity_schema_version": "strict-track2-v485-v169-cache-worker-identity-v2",
+          "intent_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/attempt_intent.json",
+          "intent_sha256": "6aca4bd61f854bed82eb4a28bda0129097b8e1145ee83d98445dd2f4afd9ce05",
+          "linux_boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+          "pid": 64724,
+          "proc_self_stat_starttime_ticks": "194806035",
+          "role": "process_b",
+          "sys_executable_resolved_path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+          "sys_executable_sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788",
+          "worker_source_sha256": "51653b8cebea6fa5f75ccb5a3f3ffc4d3dd4bfc6436fac3c49a494102556252a"
+        },
+        "guard_event_manifest_sha256": "8405707451b3e74aef2c2c40823532af2fc5880fd78a702c2223b85ed74ec849",
+        "identity_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_b/identity.json",
+        "identity_sha256": "c71de8e7f82e9cd05c03df56310c18501a034656968ce1808b3aa35d3d92b3e1",
+        "other_warning_count": 0,
+        "output_digest_sha256": "068a361b2c95ad3aabb519f7d26ee68d457b6a3d63bb82fecf2b88593202bc4b",
+        "output_sha256_array_digest_sha256": "2b406e65f5b6a3be5b6e40a42560967b7889072140dffb64dc1123123c99ab23",
+        "passed": true,
+        "phase_a_preregistration_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_prereg_seed1660_20260826/preregistration.json",
+        "phase_a_preregistration_sha256": "133c13ffc994671f2309d98ca294f47e0b838e291156d1523f211dc9f3c60da7",
+        "policy_updates": 0,
+        "postregistration_authority_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826/authority_receipt.json",
+        "postregistration_authority_sha256": "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf",
+        "process_log_future_owned_by_driver": true,
+        "process_wall_end_ns": 1787762514413822925,
+        "progress_bytes": 224675,
+        "progress_count": 1002,
+        "progress_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_b/progress.ndjson",
+        "progress_sha256": "e71d70d259d6247ade318ee9fe71a364513ad8051ae6a33dd541986b6adb95d4",
+        "raw_warning_count": 1000,
+        "request_digest_sha256": "70d815807948a465f542bf2d689a7f8740779e38dd6afa8f5a0735104d44c457",
+        "request_sha256_array_digest_sha256": "56ae28fd05160fa54c579d48f3e7b6d23e45a6f277c348120fdd829fce7f966c",
+        "reward_loaded": false,
+        "rl_authorized": false,
+        "rng_event_manifest_sha256": "a409c6c53982c9a4cf7888eed5e94ca23d40a0228bd5ede47c608b4ab926ba4d",
+        "rng_isolation_delegate_completed_count": 1000,
+        "rng_isolation_delegate_started_count": 1000,
+        "rng_isolation_event_count": 1000,
+        "rng_isolation_event_manifest_sha256": "a01252d9145b11faaaecb451f6675e0c4212865f57c45992d79ed902e5ef2c57",
+        "rng_isolation_numpy_all_four_stages_equal_count": 1000,
+        "rng_isolation_python_all_four_stages_equal_count": 1000,
+        "rng_isolation_torch_cpu_exit_restored_count": 1000,
+        "rng_isolation_torch_cuda_exit_restored_count": 1000,
+        "rng_proxy_source": {
+          "logical_bytes": 8926,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+          "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+        },
+        "rng_unchanged_count": 1000,
+        "role": "B",
+        "sample_id_sha256": "702746827e553786bb026ac120cb58745fef3d3f554c33891809001cc37639f0",
+        "seed_digest_sha256": "3edfdbd88100e4aed0e6f522bd9f97b2e218be1cce489d715a222a1a0f217416",
+        "source_and_ancestry": {
+          "auditor_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v524_v523_phase_a_rng_isolated_qualification.py",
+            "sha256": "fce5b2bfa906183f49c1fe96e4bae88bddf8efb891917a56e2bfe0a7804b5078"
+          },
+          "authority_receipt": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826/authority_receipt.json",
+            "sha256": "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf"
+          },
+          "contract": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v482_v169_cache_determinism_scope_repair_contract.json",
+            "sha256": "8c4a583aa19de6927cc1ef787920b65317893e27ad01371d0b95b622f260cf64"
+          },
+          "driver_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v524_v523_phase_a_cache_qualification.py",
+            "sha256": "c9f7c836781bb8311a37024068be6e5d080a5b8e56c44fffc2cef85002447e64"
+          },
+          "formal": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_prereg_seed1660_20260826/preregistration.json",
+            "sha256": "133c13ffc994671f2309d98ca294f47e0b838e291156d1523f211dc9f3c60da7"
+          },
+          "interpreter": {
+            "lexical_path": "/root/autodl-tmp/conda_envs/rlinf_track2/bin/python",
+            "numpy_version": "1.26.4",
+            "python_version": "3.11.15",
+            "resolved_bytes": 25555040,
+            "resolved_path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+            "resolved_sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788",
+            "torch_version": "2.7.0+cu128"
+          },
+          "parent_failure": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/launcher_failure_receipt.json",
+            "sha256": "dbe3e10d5e7d47d9690c42ebf7f8658fcb10b5aafcd9f6bd19cbf4accb381106"
+          },
+          "parent_preregistration": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/preregistration.json",
+            "sha256": "426d4f7a774520458f6af41d20660cf31202791f99603dacec114f771da6a881"
+          },
+          "rng_proxy_source": {
+            "logical_bytes": 8926,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+            "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+          },
+          "runtime": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/v482_temporal8_residual_runtime.py",
+            "sha256": "6939e3f6f52c1eb83bfd4324372d7e75ed4ee6d493777a39f38c26e5f4db7471"
+          },
+          "scope_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+            "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5"
+          },
+          "v169_closure": {
+            "digest": "5fc181bf1049b0e763ef47716f5e3356445de8eb6b2eb3de07dd2d70cd4346f3",
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v474_v473_median4_parent_release_seed1618_20260824/v169_closure.json",
+            "sha256": "f8b4891fc12fdbc87a7abd93b8a7709cc77614b294e6a7dfa6cd109dac43fb29"
+          },
+          "worker_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v524_v523_phase_a_cache_qualification_worker.py",
+            "sha256": "51653b8cebea6fa5f75ccb5a3f3ffc4d3dd4bfc6436fac3c49a494102556252a"
+          }
+        },
+        "source_and_ancestry_sha256": "89284e412f37350857da536b0fc9299c498700c843851359155b58693c31f83f",
+        "status": "passed_unreviewed_process_output",
+        "training_launched": false,
+        "warning_count": 1000
+      }
+    },
+    "normalized_worker_receipts_canonical_sha256": "c409c2b8f85641c23bc68fb06512cd664c84108d4b8b629480906193737f4b32",
+    "original_worker_receipts": {
+      "process_a": {
+        "artifact": {
+          "baseline_raw_array_sha256": "25c993f5a270209fb3338f67de32f1fc697919629856cd656ae05912b47dfd31",
+          "cache_npz_bytes": 937558066,
+          "cache_npz_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/cache/scalar_v169_temporal_cache.npz",
+          "cache_npz_sha256": "375d66dd0066c8ef9ae51d1564d7f09c68886cc6986cf1ddf20480e6662cceb8"
+        },
+        "call_events_bytes": 5431045,
+        "call_events_count": 1000,
+        "call_events_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/call_events.ndjson",
+        "call_events_sha256": "9b83ed569d597e887cba4d483f4fae145cdaf9330a0866f51f49eea6799bed89",
+        "calls": 1000,
+        "context_repeat5_digest_sha256": "d807392c0c13cfe80f187ee046a3fffae1800ea3a5bc4800e540602674d803dc",
+        "dev_outcome_success_hidden_final_used": false,
+        "driver_completion_receipt_future_owned": true,
+        "durable_call_completed_markers": 1000,
+        "durable_call_markers_in_process_log": true,
+        "durable_call_started_markers": 1000,
+        "execution_order": "canonical_0_to_999",
+        "folds": 0,
+        "format": "strict-track2-v523-v522-rng-isolated-cache-worker-receipt-v1",
+        "fresh_process_identity": {
+          "attempt_nonce": "47886e62417d642ef403788ca0c03a17587053e441f09983a4928912bf9d4d0b",
+          "expected_identity_relative_path": "process_a/identity.json",
+          "identity_schema_version": "strict-track2-v485-v169-cache-worker-identity-v2",
+          "intent_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/attempt_intent.json",
+          "intent_sha256": "6aca4bd61f854bed82eb4a28bda0129097b8e1145ee83d98445dd2f4afd9ce05",
+          "linux_boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+          "pid": 64199,
+          "proc_self_stat_starttime_ticks": "194723611",
+          "role": "process_a",
+          "sys_executable_resolved_path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+          "sys_executable_sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788",
+          "worker_source_sha256": "51653b8cebea6fa5f75ccb5a3f3ffc4d3dd4bfc6436fac3c49a494102556252a"
+        },
+        "guard_event_manifest_sha256": "2c40a2fbc3e5163f8686dac2f98b62f07d6fbf5ee671b3a9e32856004194b9a3",
+        "identity_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/identity.json",
+        "identity_sha256": "2c7d584e4c0aadbcd8a205d9147adb52d842485877ecb4aed8da3b28541e4872",
+        "other_warning_count": 0,
+        "output_digest_sha256": "068a361b2c95ad3aabb519f7d26ee68d457b6a3d63bb82fecf2b88593202bc4b",
+        "output_sha256_array_digest_sha256": "2b406e65f5b6a3be5b6e40a42560967b7889072140dffb64dc1123123c99ab23",
+        "passed": true,
+        "phase_a_preregistration_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_prereg_seed1660_20260826/preregistration.json",
+        "phase_a_preregistration_sha256": "133c13ffc994671f2309d98ca294f47e0b838e291156d1523f211dc9f3c60da7",
+        "policy_updates": 0,
+        "postregistration_authority_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826/authority_receipt.json",
+        "postregistration_authority_sha256": "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf",
+        "process_log_future_owned_by_driver": true,
+        "process_wall_end_ns": 1787761796820029946,
+        "progress_bytes": 224675,
+        "progress_count": 1002,
+        "progress_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/progress.ndjson",
+        "progress_sha256": "16e7144f6e15023ff64d29ca9303459dc8c294e9a6ae96703c40dc8b80e90013",
+        "raw_warning_count": 1000,
+        "request_digest_sha256": "70d815807948a465f542bf2d689a7f8740779e38dd6afa8f5a0735104d44c457",
+        "request_sha256_array_digest_sha256": "56ae28fd05160fa54c579d48f3e7b6d23e45a6f277c348120fdd829fce7f966c",
+        "reward_loaded": false,
+        "rl_authorized": false,
+        "rng_event_manifest_sha256": "408bc306c00efa07a0e73a951f286f0dc88266adf29d7a8b6c75e41f9913f455",
+        "rng_isolation_delegate_completed_count": 1000,
+        "rng_isolation_delegate_started_count": 1000,
+        "rng_isolation_event_count": 1000,
+        "rng_isolation_event_manifest_sha256": "6729f91825e9e998ccedf532e7d48ed8e06f347db2fc91944cbd046dcd49b9af",
+        "rng_isolation_numpy_all_four_stages_equal_count": 1000,
+        "rng_isolation_python_all_four_stages_equal_count": 1000,
+        "rng_isolation_torch_cpu_exit_restored_count": 1000,
+        "rng_isolation_torch_cuda_exit_restored_count": 1000,
+        "rng_proxy_source": {
+          "logical_bytes": 8926,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+          "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+        },
+        "rng_unchanged_count": 1000,
+        "role": "A",
+        "sample_id_sha256": "702746827e553786bb026ac120cb58745fef3d3f554c33891809001cc37639f0",
+        "seed_digest_sha256": "3edfdbd88100e4aed0e6f522bd9f97b2e218be1cce489d715a222a1a0f217416",
+        "source_and_ancestry": {
+          "auditor_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v524_v523_phase_a_rng_isolated_qualification.py",
+            "sha256": "fce5b2bfa906183f49c1fe96e4bae88bddf8efb891917a56e2bfe0a7804b5078"
+          },
+          "authority_receipt": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826/authority_receipt.json",
+            "sha256": "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf"
+          },
+          "contract": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v482_v169_cache_determinism_scope_repair_contract.json",
+            "sha256": "8c4a583aa19de6927cc1ef787920b65317893e27ad01371d0b95b622f260cf64"
+          },
+          "driver_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v524_v523_phase_a_cache_qualification.py",
+            "sha256": "c9f7c836781bb8311a37024068be6e5d080a5b8e56c44fffc2cef85002447e64"
+          },
+          "formal": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_prereg_seed1660_20260826/preregistration.json",
+            "sha256": "133c13ffc994671f2309d98ca294f47e0b838e291156d1523f211dc9f3c60da7"
+          },
+          "interpreter": {
+            "lexical_path": "/root/autodl-tmp/conda_envs/rlinf_track2/bin/python",
+            "numpy_version": "1.26.4",
+            "python_version": "3.11.15",
+            "resolved_bytes": 25555040,
+            "resolved_path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+            "resolved_sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788",
+            "torch_version": "2.7.0+cu128"
+          },
+          "parent_failure": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/launcher_failure_receipt.json",
+            "sha256": "dbe3e10d5e7d47d9690c42ebf7f8658fcb10b5aafcd9f6bd19cbf4accb381106"
+          },
+          "parent_preregistration": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/preregistration.json",
+            "sha256": "426d4f7a774520458f6af41d20660cf31202791f99603dacec114f771da6a881"
+          },
+          "rng_proxy_source": {
+            "logical_bytes": 8926,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+            "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+          },
+          "runtime": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/v482_temporal8_residual_runtime.py",
+            "sha256": "6939e3f6f52c1eb83bfd4324372d7e75ed4ee6d493777a39f38c26e5f4db7471"
+          },
+          "scope_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+            "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5"
+          },
+          "v169_closure": {
+            "digest": "5fc181bf1049b0e763ef47716f5e3356445de8eb6b2eb3de07dd2d70cd4346f3",
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v474_v473_median4_parent_release_seed1618_20260824/v169_closure.json",
+            "sha256": "f8b4891fc12fdbc87a7abd93b8a7709cc77614b294e6a7dfa6cd109dac43fb29"
+          },
+          "worker_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v524_v523_phase_a_cache_qualification_worker.py",
+            "sha256": "51653b8cebea6fa5f75ccb5a3f3ffc4d3dd4bfc6436fac3c49a494102556252a"
+          }
+        },
+        "source_and_ancestry_sha256": "89284e412f37350857da536b0fc9299c498700c843851359155b58693c31f83f",
+        "status": "passed_unreviewed_process_output",
+        "training_launched": false,
+        "warning_count": 1000
+      },
+      "process_b": {
+        "artifact": {
+          "baseline_raw_array_sha256": "25c993f5a270209fb3338f67de32f1fc697919629856cd656ae05912b47dfd31",
+          "cleanup_authorized": false,
+          "memmap_bytes": 1572864000,
+          "memmap_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_b/baseline_canonical.memmap",
+          "memmap_retained": true,
+          "memmap_sha256": "25c993f5a270209fb3338f67de32f1fc697919629856cd656ae05912b47dfd31"
+        },
+        "call_events_bytes": 5431045,
+        "call_events_count": 1000,
+        "call_events_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_b/call_events.ndjson",
+        "call_events_sha256": "66ac9f81e846768ea95629050a544804ea4e1cb245f7b41f388b208fcc82cd24",
+        "calls": 1000,
+        "context_repeat5_digest_sha256": "d807392c0c13cfe80f187ee046a3fffae1800ea3a5bc4800e540602674d803dc",
+        "dev_outcome_success_hidden_final_used": false,
+        "driver_completion_receipt_future_owned": true,
+        "durable_call_completed_markers": 1000,
+        "durable_call_markers_in_process_log": true,
+        "durable_call_started_markers": 1000,
+        "execution_order": "reverse_999_to_0",
+        "folds": 0,
+        "format": "strict-track2-v523-v522-rng-isolated-cache-worker-receipt-v1",
+        "fresh_process_identity": {
+          "attempt_nonce": "47886e62417d642ef403788ca0c03a17587053e441f09983a4928912bf9d4d0b",
+          "expected_identity_relative_path": "process_b/identity.json",
+          "identity_schema_version": "strict-track2-v485-v169-cache-worker-identity-v2",
+          "intent_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/attempt_intent.json",
+          "intent_sha256": "6aca4bd61f854bed82eb4a28bda0129097b8e1145ee83d98445dd2f4afd9ce05",
+          "linux_boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+          "pid": 64724,
+          "proc_self_stat_starttime_ticks": "194806035",
+          "role": "process_b",
+          "sys_executable_resolved_path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+          "sys_executable_sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788",
+          "worker_source_sha256": "51653b8cebea6fa5f75ccb5a3f3ffc4d3dd4bfc6436fac3c49a494102556252a"
+        },
+        "guard_event_manifest_sha256": "8405707451b3e74aef2c2c40823532af2fc5880fd78a702c2223b85ed74ec849",
+        "identity_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_b/identity.json",
+        "identity_sha256": "c71de8e7f82e9cd05c03df56310c18501a034656968ce1808b3aa35d3d92b3e1",
+        "other_warning_count": 0,
+        "output_digest_sha256": "068a361b2c95ad3aabb519f7d26ee68d457b6a3d63bb82fecf2b88593202bc4b",
+        "output_sha256_array_digest_sha256": "2b406e65f5b6a3be5b6e40a42560967b7889072140dffb64dc1123123c99ab23",
+        "passed": true,
+        "phase_a_preregistration_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_prereg_seed1660_20260826/preregistration.json",
+        "phase_a_preregistration_sha256": "133c13ffc994671f2309d98ca294f47e0b838e291156d1523f211dc9f3c60da7",
+        "policy_updates": 0,
+        "postregistration_authority_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826/authority_receipt.json",
+        "postregistration_authority_sha256": "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf",
+        "process_log_future_owned_by_driver": true,
+        "process_wall_end_ns": 1787762514413822925,
+        "progress_bytes": 224675,
+        "progress_count": 1002,
+        "progress_path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_b/progress.ndjson",
+        "progress_sha256": "e71d70d259d6247ade318ee9fe71a364513ad8051ae6a33dd541986b6adb95d4",
+        "raw_warning_count": 1000,
+        "request_digest_sha256": "70d815807948a465f542bf2d689a7f8740779e38dd6afa8f5a0735104d44c457",
+        "request_sha256_array_digest_sha256": "56ae28fd05160fa54c579d48f3e7b6d23e45a6f277c348120fdd829fce7f966c",
+        "reward_loaded": false,
+        "rl_authorized": false,
+        "rng_event_manifest_sha256": "a409c6c53982c9a4cf7888eed5e94ca23d40a0228bd5ede47c608b4ab926ba4d",
+        "rng_isolation_delegate_completed_count": 1000,
+        "rng_isolation_delegate_started_count": 1000,
+        "rng_isolation_event_count": 1000,
+        "rng_isolation_event_manifest_sha256": "a01252d9145b11faaaecb451f6675e0c4212865f57c45992d79ed902e5ef2c57",
+        "rng_isolation_numpy_all_four_stages_equal_count": 1000,
+        "rng_isolation_python_all_four_stages_equal_count": 1000,
+        "rng_isolation_torch_cpu_exit_restored_count": 1000,
+        "rng_isolation_torch_cuda_exit_restored_count": 1000,
+        "rng_proxy_source": {
+          "logical_bytes": 8926,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+          "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+        },
+        "rng_unchanged_count": 1000,
+        "role": "B",
+        "sample_id_sha256": "702746827e553786bb026ac120cb58745fef3d3f554c33891809001cc37639f0",
+        "seed_digest_sha256": "3edfdbd88100e4aed0e6f522bd9f97b2e218be1cce489d715a222a1a0f217416",
+        "source_and_ancestry": {
+          "auditor_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v524_v523_phase_a_rng_isolated_qualification.py",
+            "sha256": "fce5b2bfa906183f49c1fe96e4bae88bddf8efb891917a56e2bfe0a7804b5078"
+          },
+          "authority_receipt": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826/authority_receipt.json",
+            "sha256": "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf"
+          },
+          "contract": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v482_v169_cache_determinism_scope_repair_contract.json",
+            "sha256": "8c4a583aa19de6927cc1ef787920b65317893e27ad01371d0b95b622f260cf64"
+          },
+          "driver_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v524_v523_phase_a_cache_qualification.py",
+            "sha256": "c9f7c836781bb8311a37024068be6e5d080a5b8e56c44fffc2cef85002447e64"
+          },
+          "formal": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_prereg_seed1660_20260826/preregistration.json",
+            "sha256": "133c13ffc994671f2309d98ca294f47e0b838e291156d1523f211dc9f3c60da7"
+          },
+          "interpreter": {
+            "lexical_path": "/root/autodl-tmp/conda_envs/rlinf_track2/bin/python",
+            "numpy_version": "1.26.4",
+            "python_version": "3.11.15",
+            "resolved_bytes": 25555040,
+            "resolved_path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+            "resolved_sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788",
+            "torch_version": "2.7.0+cu128"
+          },
+          "parent_failure": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/launcher_failure_receipt.json",
+            "sha256": "dbe3e10d5e7d47d9690c42ebf7f8658fcb10b5aafcd9f6bd19cbf4accb381106"
+          },
+          "parent_preregistration": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/preregistration.json",
+            "sha256": "426d4f7a774520458f6af41d20660cf31202791f99603dacec114f771da6a881"
+          },
+          "rng_proxy_source": {
+            "logical_bytes": 8926,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+            "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+          },
+          "runtime": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/v482_temporal8_residual_runtime.py",
+            "sha256": "6939e3f6f52c1eb83bfd4324372d7e75ed4ee6d493777a39f38c26e5f4db7471"
+          },
+          "scope_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+            "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5"
+          },
+          "v169_closure": {
+            "digest": "5fc181bf1049b0e763ef47716f5e3356445de8eb6b2eb3de07dd2d70cd4346f3",
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v474_v473_median4_parent_release_seed1618_20260824/v169_closure.json",
+            "sha256": "f8b4891fc12fdbc87a7abd93b8a7709cc77614b294e6a7dfa6cd109dac43fb29"
+          },
+          "worker_source": {
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v524_v523_phase_a_cache_qualification_worker.py",
+            "sha256": "51653b8cebea6fa5f75ccb5a3f3ffc4d3dd4bfc6436fac3c49a494102556252a"
+          }
+        },
+        "source_and_ancestry_sha256": "89284e412f37350857da536b0fc9299c498700c843851359155b58693c31f83f",
+        "status": "passed_unreviewed_process_output",
+        "training_launched": false,
+        "warning_count": 1000
+      }
+    },
+    "original_worker_receipts_canonical_sha256": "d00018deb7ea3ae660061e8879dc4a4f6d56bc65bd089c28c4a0580239c08101",
+    "recursive_diff": [
+      {
+        "normalized": "strict-track2-v524-v523-rng-isolated-cache-worker-receipt-v1",
+        "original": "strict-track2-v523-v522-rng-isolated-cache-worker-receipt-v1",
+        "path": [
+          "process_a",
+          "format"
+        ]
+      },
+      {
+        "normalized": "strict-track2-v524-v523-rng-isolated-cache-worker-receipt-v1",
+        "original": "strict-track2-v523-v522-rng-isolated-cache-worker-receipt-v1",
+        "path": [
+          "process_b",
+          "format"
+        ]
+      }
+    ],
+    "recursive_diff_canonical_sha256": "fdc7999068d0e630272e6cb226b6b342692b5f8324cd506d593b5993b5f52779",
+    "recursive_diff_count": 2,
+    "recursive_diff_full_paths": [
+      [
+        "process_a",
+        "format"
+      ],
+      [
+        "process_b",
+        "format"
+      ]
+    ],
+    "standalone_phase_a_success_claimed": false
+  },
+  "readonly_reconciler_source": {
+    "logical_bytes": 48538,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/reconcile_v525_v524_phase_a_worker_receipt_format_readonly.py",
+    "sha256": "81aa7da1eb525b5d03f8053da4dbce81e372b0660b6aa31e068dc3e2604b13f3"
+  },
+  "reconciler_candidate_contract": {
+    "candidate_verified": true,
+    "commit_semantics": "current_exact1_visibility_after_noreplace_directory_rename",
+    "crash_durability_claimed": false,
+    "external_terminal_required": true,
+    "format": "strict-track2-v525-v524-phase-a-worker-receipt-format-readonly-reconciliation-receipt-v1",
+    "passed": null,
+    "postcommit_parent_dir_fsync_best_effort": true,
+    "publication_success_claimed": false,
+    "standalone_consumable": false,
+    "status": "computation_verified_readonly_launcher_consumer_schema_mismatch"
+  },
+  "runtime_observation": {
+    "execution_authority_materialized": true,
+    "oof_executed": false,
+    "phase_a_driver_executed": false,
+    "phase_a_launcher_executed": false,
+    "phase_a_replayed": false,
+    "phase_a_worker_invocations": 0,
+    "qualification_mutated": false,
+    "readonly_reconciler_executed": false,
+    "rng_proxy_delegate_invocations": 0,
+    "training_launched": false
+  },
+  "seed": 1661,
+  "source_aliases": {
+    "authority_materializer": "authority_materializer_source",
+    "failure_forensic": "failure_forensic_source",
+    "readonly_reconciler": "readonly_reconciler_source",
+    "rng_proxy_current_only": "rng_proxy_current_only_source",
+    "v524_attempt_intent": "v524_attempt_intent_source",
+    "v524_attempt_stderr": "v524_attempt_stderr_source",
+    "v524_attempt_stdout": "v524_attempt_stdout_source",
+    "v524_attempt_terminal": "v524_attempt_terminal_source",
+    "v524_authority_design_contract": "v524_authority_design_contract_source",
+    "v524_authority_materializer": "v524_authority_materializer_source",
+    "v524_authority_receipt": "v524_authority_receipt_source",
+    "v524_process_a_receipt": "v524_process_a_receipt_source",
+    "v524_process_b_receipt": "v524_process_b_receipt_source",
+    "v524_qualification_independent_audit": "v524_qualification_independent_audit_source",
+    "v524_qualification_report": "v524_qualification_report_source",
+    "v524_qualification_terminal": "v524_qualification_terminal_source"
+  },
+  "source_closure": {
+    "authority_materializer": {
+      "logical_bytes": 27325,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_execution_authority.py",
+      "sha256": "3b8434571c7444c489689c2b7601bb56e79a46d79780843875f4cc5b6fcf9e82"
+    },
+    "failure_forensic": {
+      "logical_bytes": 8137,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v525_v524_phase_a_worker_receipt_format_failure_forensic.json",
+      "sha256": "ea04aede510143cf9f1c6388c222b64397a8f5dfdf3c15a5c10c56a7d5b058d5"
+    },
+    "readonly_reconciler": {
+      "logical_bytes": 48538,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/reconcile_v525_v524_phase_a_worker_receipt_format_readonly.py",
+      "sha256": "81aa7da1eb525b5d03f8053da4dbce81e372b0660b6aa31e068dc3e2604b13f3"
+    },
+    "rng_proxy_current_only": {
+      "logical_bytes": 8926,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+      "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+    },
+    "v524_attempt_intent": {
+      "logical_bytes": 5588,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_attempt_seed1660_20260826/intent.json",
+      "sha256": "225d3ea73d3d4f834dbfe6d591b457b5c9e8a17cc58c5bd48ea11344c59e58b6"
+    },
+    "v524_attempt_stderr": {
+      "logical_bytes": 0,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_attempt_seed1660_20260826/phase_a_stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "v524_attempt_stdout": {
+      "logical_bytes": 0,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_attempt_seed1660_20260826/phase_a_stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "v524_attempt_terminal": {
+      "logical_bytes": 38680,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_attempt_seed1660_20260826/terminal_receipt.json",
+      "sha256": "07c00c0a3f8bc52b2f0a642276be46f34d131473a876aecf9f354eca2e16498a"
+    },
+    "v524_authority_design_contract": {
+      "logical_bytes": 39332,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v524_v523_phase_a_exact_source_roles_repair_execution_authority_contract.json",
+      "sha256": "f3fdd5851231a984aa1ce04685a5433fd5f99e73065271969c30c62597c9b95d"
+    },
+    "v524_authority_materializer": {
+      "logical_bytes": 35575,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v524_v523_phase_a_exact_source_roles_repair_execution_authority.py",
+      "sha256": "1b33ba41297a998379cceebe3fcb4085a59f017d46dc481fdc2d3859622767dd"
+    },
+    "v524_authority_receipt": {
+      "logical_bytes": 64970,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826/authority_receipt.json",
+      "sha256": "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf"
+    },
+    "v524_process_a_receipt": {
+      "logical_bytes": 8871,
+      "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/receipt.json",
+      "sha256": "89b7ce9e0ee6263fba2cb5b7e393664330776cfa7914ad9715e6ff2ed7346414"
+    },
+    "v524_process_b_receipt": {
+      "logical_bytes": 8912,
+      "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_b/receipt.json",
+      "sha256": "90ac9ff4eab3a06c02a2937ebe0f35a20e68145862e418ef50048c07c2d15214"
+    },
+    "v524_qualification_independent_audit": {
+      "logical_bytes": 9935,
+      "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/independent_final_audit.json",
+      "sha256": "3d702b36a3589d737c9f21e0a1182c59f636753faa1143a2adc85d90d3a674bc"
+    },
+    "v524_qualification_report": {
+      "logical_bytes": 87681,
+      "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/qualification_report.json",
+      "sha256": "6514b497f994bc502fc46dc6c5a90865dbb126402935cfa359a1af2fe0fbc173"
+    },
+    "v524_qualification_terminal": {
+      "logical_bytes": 83762,
+      "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/terminal_receipt.json",
+      "sha256": "93d38e010b37275a740bf3ccae2b935b08e40b6953657c12838780e5e2b542a1"
+    }
+  },
+  "source_closure_sha256": "e5b3de5ab6c02fdb519dbafb3bc8520c2054ec889827cace50581109471257d4",
+  "source_role_order": [
+    "authority_materializer",
+    "readonly_reconciler",
+    "failure_forensic",
+    "v524_authority_design_contract",
+    "v524_authority_materializer",
+    "v524_authority_receipt",
+    "v524_attempt_intent",
+    "v524_attempt_stdout",
+    "v524_attempt_stderr",
+    "v524_attempt_terminal",
+    "v524_qualification_terminal",
+    "v524_qualification_report",
+    "v524_qualification_independent_audit",
+    "v524_process_a_receipt",
+    "v524_process_b_receipt",
+    "rng_proxy_current_only"
+  ],
+  "status": "design_only_frozen_sources_pending_independent_review_no_authority",
+  "v524_attempt_intent": {
+    "logical_bytes": 5588,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_attempt_seed1660_20260826/intent.json",
+    "sha256": "225d3ea73d3d4f834dbfe6d591b457b5c9e8a17cc58c5bd48ea11344c59e58b6"
+  },
+  "v524_attempt_stderr": {
+    "logical_bytes": 0,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_attempt_seed1660_20260826/phase_a_stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "v524_attempt_stdout": {
+    "logical_bytes": 0,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_attempt_seed1660_20260826/phase_a_stdout.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "v524_attempt_terminal": {
+    "logical_bytes": 38680,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_attempt_seed1660_20260826/terminal_receipt.json",
+    "sha256": "07c00c0a3f8bc52b2f0a642276be46f34d131473a876aecf9f354eca2e16498a"
+  },
+  "v524_attempt_tree": {
+    "canonical_json_triples_digest_sha256": "14c23172981c21dd6ec783fa187b6ee51aaa1fe9b01b8ca5620cc418ffe4ff91",
+    "file_count": 4,
+    "inventory": [
+      [
+        "intent.json",
+        "225d3ea73d3d4f834dbfe6d591b457b5c9e8a17cc58c5bd48ea11344c59e58b6",
+        5588
+      ],
+      [
+        "phase_a_stderr.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "phase_a_stdout.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "terminal_receipt.json",
+        "07c00c0a3f8bc52b2f0a642276be46f34d131473a876aecf9f354eca2e16498a",
+        38680
+      ]
+    ],
+    "logical_file_bytes": 44268,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_attempt_seed1660_20260826",
+    "sha256sum_lines_digest_sha256": "83b63f8a8174ea8d3e1077c263ff3d0dd43403d37992b45c99c811d365eb2c7a"
+  },
+  "v524_authority_receipt": {
+    "logical_bytes": 64970,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826/authority_receipt.json",
+    "sha256": "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf"
+  },
+  "v524_authority_registration_tree": {
+    "canonical_json_triples_digest_sha256": "8253ef78bf8eadcd7e47e3825cb94c109c2030f66103c4513c5829006136dd72",
+    "file_count": 1,
+    "inventory": [
+      [
+        "authority_receipt.json",
+        "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf",
+        64970
+      ]
+    ],
+    "logical_file_bytes": 64970,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826",
+    "sha256sum_lines_digest_sha256": "93f58f95c489f79f4d58cb36cd3d16815444b69674e6bd6270dbe09f1d956e7f"
+  },
+  "v524_authority_semantics": {
+    "check_count": 33,
+    "consumed_by_v524_attempt": true,
+    "current": true,
+    "passed": true,
+    "source_closure_count": 27,
+    "top_key_count": 71
+  },
+  "v524_execution_partition": {
+    "direct_phase_a_driver_invocations": 0,
+    "launcher_invocations": 1,
+    "nested_phase_a_driver_invocations": 1,
+    "oof_invocations": 0,
+    "phase_a_retry_invocations": 0,
+    "phase_a_worker_invocations": 2,
+    "rng_proxy_delegate_invocations": 2000,
+    "training_invocations": 0
+  },
+  "v524_process_a_receipt": {
+    "logical_bytes": 8871,
+    "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/receipt.json",
+    "sha256": "89b7ce9e0ee6263fba2cb5b7e393664330776cfa7914ad9715e6ff2ed7346414"
+  },
+  "v524_process_b_receipt": {
+    "logical_bytes": 8912,
+    "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_b/receipt.json",
+    "sha256": "90ac9ff4eab3a06c02a2937ebe0f35a20e68145862e418ef50048c07c2d15214"
+  },
+  "v524_qualification_independent_audit": {
+    "logical_bytes": 9935,
+    "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/independent_final_audit.json",
+    "sha256": "3d702b36a3589d737c9f21e0a1182c59f636753faa1143a2adc85d90d3a674bc"
+  },
+  "v524_qualification_report": {
+    "logical_bytes": 87681,
+    "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/qualification_report.json",
+    "sha256": "6514b497f994bc502fc46dc6c5a90865dbb126402935cfa359a1af2fe0fbc173"
+  },
+  "v524_qualification_terminal": {
+    "logical_bytes": 83762,
+    "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/terminal_receipt.json",
+    "sha256": "93d38e010b37275a740bf3ccae2b935b08e40b6953657c12838780e5e2b542a1"
+  },
+  "v524_qualification_tree": {
+    "canonical_json_triples_digest_sha256": "223308d02ed5a4a082b4de639292030444a627bbbac7f361fac1f9c6a7fcbd1f",
+    "file_count": 20,
+    "inventory": [
+      [
+        "attempt_intent.json",
+        "6aca4bd61f854bed82eb4a28bda0129097b8e1145ee83d98445dd2f4afd9ce05",
+        83777
+      ],
+      [
+        "independent_final_audit.json",
+        "3d702b36a3589d737c9f21e0a1182c59f636753faa1143a2adc85d90d3a674bc",
+        9935
+      ],
+      [
+        "independent_precleanup_audit.json",
+        "9ceeaf9d47e901b88628a095d18b8bdc785105ebfc2b6bd0f434ca573418ef32",
+        9629
+      ],
+      [
+        "process_a/cache/manifest.json",
+        "716d62575ea149242f0e0918ed508e22ae803ff12d3b66fb26bb4b8f5a3e6f94",
+        18453
+      ],
+      [
+        "process_a/cache/scalar_v169_temporal_cache.npz",
+        "375d66dd0066c8ef9ae51d1564d7f09c68886cc6986cf1ddf20480e6662cceb8",
+        937558066
+      ],
+      [
+        "process_a/call_events.ndjson",
+        "9b83ed569d597e887cba4d483f4fae145cdaf9330a0866f51f49eea6799bed89",
+        5431045
+      ],
+      [
+        "process_a/completion_receipt.json",
+        "87dc0cffd166298a9d5d260463ed5bf43cf5d9f58a7aa724c08386336944c201",
+        1615
+      ],
+      [
+        "process_a/identity.json",
+        "2c7d584e4c0aadbcd8a205d9147adb52d842485877ecb4aed8da3b28541e4872",
+        851
+      ],
+      [
+        "process_a/process.log",
+        "ed26dc2ab5f02459e12accd420889cb4e7ae89c06eee6d80573c18b341781f56",
+        467837
+      ],
+      [
+        "process_a/progress.ndjson",
+        "16e7144f6e15023ff64d29ca9303459dc8c294e9a6ae96703c40dc8b80e90013",
+        224675
+      ],
+      [
+        "process_a/receipt.json",
+        "89b7ce9e0ee6263fba2cb5b7e393664330776cfa7914ad9715e6ff2ed7346414",
+        8871
+      ],
+      [
+        "process_b/call_events.ndjson",
+        "66ac9f81e846768ea95629050a544804ea4e1cb245f7b41f388b208fcc82cd24",
+        5431045
+      ],
+      [
+        "process_b/completion_receipt.json",
+        "aca15ae882dfda926e108bd6243f90ddce3dfec9458ee17e88a8351e3d6e6d33",
+        1615
+      ],
+      [
+        "process_b/identity.json",
+        "c71de8e7f82e9cd05c03df56310c18501a034656968ce1808b3aa35d3d92b3e1",
+        851
+      ],
+      [
+        "process_b/process.log",
+        "a78896e81c0e9a9679b3efb3263872220cd6f1bef6285add3120fcce1bfc8136",
+        467837
+      ],
+      [
+        "process_b/progress.ndjson",
+        "e71d70d259d6247ade318ee9fe71a364513ad8051ae6a33dd541986b6adb95d4",
+        224675
+      ],
+      [
+        "process_b/receipt.json",
+        "90ac9ff4eab3a06c02a2937ebe0f35a20e68145862e418ef50048c07c2d15214",
+        8912
+      ],
+      [
+        "process_b_cleanup_receipt.json",
+        "9786761a7f8159d3115fe5ab45f604eba20927feb0be2b26ce75931e73a0fe44",
+        3470
+      ],
+      [
+        "qualification_report.json",
+        "6514b497f994bc502fc46dc6c5a90865dbb126402935cfa359a1af2fe0fbc173",
+        87681
+      ],
+      [
+        "terminal_receipt.json",
+        "93d38e010b37275a740bf3ccae2b935b08e40b6953657c12838780e5e2b542a1",
+        83762
+      ]
+    ],
+    "logical_file_bytes": 950124602,
+    "root": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826",
+    "sha256sum_lines_digest_sha256": "6cdde75692d37b7eead3333d867b22dc6404f545bb5861b2f30b425fb4270dac"
+  }
+}

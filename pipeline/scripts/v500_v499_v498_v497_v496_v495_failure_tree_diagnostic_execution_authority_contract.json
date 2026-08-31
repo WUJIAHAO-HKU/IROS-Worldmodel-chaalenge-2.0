@@ -1,0 +1,2137 @@
+{
+  "authority_materializer_source": {
+    "logical_bytes": 109256,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_execution_authority.py",
+    "sha256": "e717c1360e5691865dd299249630b3b4cef1965c68e8a457008b50415fe9afb5"
+  },
+  "authority_receipt_contract": {
+    "authorization_exact": {
+      "cache_authorized": false,
+      "dev_hidden_final_outcome_read_authorized": false,
+      "direct_corrected_inner_authorized": false,
+      "direct_r2_authorized": false,
+      "folds_authorized": 0,
+      "nested_corrected_inner_invocations_authorized": 1,
+      "nested_corrected_inner_only_via_outer": true,
+      "nested_r2_invocations_authorized": 1,
+      "nested_r2_only_via_corrected_inner": true,
+      "outer_attempts_authorized": 1,
+      "outer_attempts_consumed": 0,
+      "outer_execution_wrapper_authorized": true,
+      "phase_a_authorized": false,
+      "policy_updates": 0,
+      "retry_authorized": false,
+      "reward_read_authorized": false,
+      "rl_authorized": false,
+      "s1_authorized": false,
+      "submission_authorized": false,
+      "training_authorized": false,
+      "zero_update_authorized": false
+    },
+    "check_key_set_sha256": "46988adeebac00694cf33d65e7b654a5d5381b79b1f53ec1389fc2403a3e7575",
+    "check_keys": [
+      "authority_contract_current",
+      "authority_materializer_current",
+      "corrected_inner_current",
+      "corrected_inner_diff_exact",
+      "current_absences",
+      "diagnostic_normalization_tamper_suite_passed",
+      "execution_boundary",
+      "execution_interpreter_chain_exact",
+      "execution_interpreter_runtime_exact",
+      "f813_exact2",
+      "failed_v493_outer_exact4",
+      "failed_v493_outer_no_retry_partition",
+      "failed_v493_outer_terminal_exact",
+      "failed_v497_diagnostic_exact6",
+      "failed_v497_diagnostic_helper_current",
+      "failed_v497_diagnostic_partition_exact",
+      "failed_v497_diagnostic_process_exact",
+      "failed_v497_diagnostic_script_current",
+      "failed_v497_diagnostic_source_current",
+      "gpu_empty",
+      "historical_absences",
+      "input_snapshots_equal",
+      "materializer_checkpoint_double_snapshot_exact",
+      "materializer_checkpoint_named8_exact",
+      "materializer_checkpoint_stdout_fsynced",
+      "no_live_process",
+      "normalized_v498_process_current_only",
+      "outer_wrapper_current",
+      "phase_a_contract_current",
+      "phase_a_contract_spec_exact2",
+      "postregistration_static_exact1",
+      "r2_current",
+      "repair_formal_exact1",
+      "source_aliases_exact",
+      "source_closure_current",
+      "source_role_order_exact",
+      "v493_authority_contract_current",
+      "v493_authority_exact3",
+      "v493_authority_materialization_evidence_exact6",
+      "v493_authority_materializer_process_exact",
+      "v493_outer_wrapper_current",
+      "v493_process_schema_exact24",
+      "v494_authority_contract_current",
+      "v494_authority_materializer_current",
+      "v494_failure_forensic_exact",
+      "v494_failure_transport_script_current",
+      "v494_inner_wrapper_current",
+      "v494_materializer_failure_partition_exact",
+      "v494_outer_wrapper_current",
+      "v495_authority_contract_current",
+      "v495_authority_materializer_current",
+      "v495_inner_wrapper_current",
+      "v495_materializer_failure_exact6",
+      "v495_materializer_failure_process_exact",
+      "v495_outer_wrapper_current",
+      "v496_authority_contract_current",
+      "v496_authority_materializer_current",
+      "v496_inner_wrapper_current",
+      "v496_materializer_failure_exact6",
+      "v496_materializer_failure_partition_exact",
+      "v496_materializer_failure_process_exact",
+      "v496_outer_wrapper_current",
+      "v498_diagnostic_evidence_exact6",
+      "v498_diagnostic_helper_current",
+      "v498_diagnostic_process_exact",
+      "v498_diagnostic_receipt_exact",
+      "v498_diagnostic_registration_exact1",
+      "v498_diagnostic_script_current",
+      "v498_diagnostic_source_current",
+      "v498_named8_double_snapshot_exact",
+      "v499_adapter_evidence_exact6",
+      "v499_adapter_helper_current",
+      "v499_adapter_process_exact",
+      "v499_adapter_receipt_exact",
+      "v499_adapter_registration_exact1",
+      "v499_adapter_script_current",
+      "v499_adapter_source_current",
+      "v499_normalization_leafdiff_exact",
+      "validator_process_schema_tamper_suite_passed",
+      "validator_torch_version_scope_exact",
+      "validator_torch_version_tamper_suite_passed"
+    ],
+    "checks_sha256": "bfd6ba0845bcb47c3447b362568e51dfe2c048e241ddd2f04049827409c98f9f",
+    "format": "strict-track2-v500-v499-v498-v497-v496-v495-failure-tree-diagnostic-execution-authority-v1",
+    "runtime_observation_exact": {
+      "corrected_inner_wrapper_executed": false,
+      "execution_authority_materialized": true,
+      "folds": 0,
+      "outer_execution_wrapper_executed": false,
+      "phase_a_executed": false,
+      "policy_updates": 0,
+      "reconciler_r2_executed": false,
+      "training_launched": false,
+      "transparent_receipt_created": false
+    },
+    "status": "authorized_exact_one_external_v500_failure_tree_diagnostic_outer_attempt",
+    "top_keys": [
+      "authority_design_contract",
+      "authority_materializer_source",
+      "authorization",
+      "check_key_set_sha256",
+      "check_keys",
+      "checks",
+      "checks_sha256",
+      "corrected_inner_wrapper_source",
+      "execution_boundary",
+      "execution_interpreter_evidence",
+      "f813_registration_tree",
+      "failed_v493_outer_execution_tree",
+      "failed_v493_outer_terminal_receipt",
+      "failed_v497_diagnostic_failure_ancestry",
+      "failed_v497_diagnostic_failure_tree",
+      "failed_v497_diagnostic_helper_source",
+      "failed_v497_diagnostic_process_receipt",
+      "failed_v497_diagnostic_script_source",
+      "failed_v497_diagnostic_source",
+      "format",
+      "historical_absences",
+      "inner_attempt_root",
+      "input_post_snapshot",
+      "input_pre_snapshot",
+      "input_snapshots_exactly_equal",
+      "materializer_pre_root_checkpoint",
+      "materializer_pre_root_checkpoint_sha256",
+      "normalized_v498_diagnostic_process_receipt",
+      "outer_evidence_root",
+      "outer_execution_wrapper_source",
+      "passed",
+      "phase_a_design_contract_source",
+      "postregistration_static_registration_tree",
+      "reconciler_r2_source",
+      "repair_formal_registration_tree",
+      "required_absences",
+      "runtime_observation",
+      "source_aliases",
+      "source_closure",
+      "source_closure_sha256",
+      "source_role_order",
+      "status",
+      "transparent_static_receipt_path",
+      "v493_authority_contract",
+      "v493_authority_materialization_evidence_tree",
+      "v493_authority_materializer_process_receipt",
+      "v493_authority_materializer_process_schema",
+      "v493_authority_materializer_source",
+      "v493_authority_receipt",
+      "v493_authority_registration_tree",
+      "v493_inner_wrapper_source",
+      "v493_outer_wrapper_source",
+      "v494_authority_contract_source",
+      "v494_authority_materializer_source",
+      "v494_inner_wrapper_source",
+      "v494_materializer_failure_ancestry",
+      "v494_materializer_failure_forensic",
+      "v494_materializer_failure_transport_script",
+      "v494_outer_wrapper_source",
+      "v495_authority_contract_source",
+      "v495_authority_materializer_source",
+      "v495_inner_wrapper_source",
+      "v495_materializer_failure_ancestry",
+      "v495_materializer_failure_process_receipt",
+      "v495_materializer_failure_tree",
+      "v495_outer_wrapper_source",
+      "v496_authority_contract_source",
+      "v496_authority_materializer_source",
+      "v496_inner_wrapper_source",
+      "v496_materializer_failure_ancestry",
+      "v496_materializer_failure_process_receipt",
+      "v496_materializer_failure_tree",
+      "v496_outer_wrapper_source",
+      "v498_diagnostic_execution_evidence_tree",
+      "v498_diagnostic_helper_source",
+      "v498_diagnostic_process_receipt",
+      "v498_diagnostic_receipt",
+      "v498_diagnostic_registration_tree",
+      "v498_diagnostic_schema",
+      "v498_diagnostic_script_source",
+      "v498_diagnostic_source",
+      "v499_adapter_execution_evidence_tree",
+      "v499_adapter_helper_source",
+      "v499_adapter_process_receipt",
+      "v499_adapter_receipt",
+      "v499_adapter_registration_tree",
+      "v499_adapter_schema",
+      "v499_adapter_script_source",
+      "v499_adapter_source"
+    ]
+  },
+  "current_absences_after_authority": {
+    "corrected_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_inner_attempt_seed1642_20260825.attempt-prep"
+    },
+    "corrected_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_inner_attempt_seed1642_20260825"
+    },
+    "execution_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_execution_authority_seed1642_20260825.registration-prep"
+    },
+    "failed_v492_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v492_v491_v490_reconciliation_outer_execution_evidence_seed1634_20260825.outer-prep"
+    },
+    "failed_v493_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_inner_attempt_seed1635_20260825.attempt-prep"
+    },
+    "failed_v493_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_inner_attempt_seed1635_20260825"
+    },
+    "failed_v493_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_outer_execution_evidence_seed1635_20260825.outer-prep"
+    },
+    "failed_v494_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repair_execution_authority_seed1636_20260825.registration-prep"
+    },
+    "failed_v494_authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repair_execution_authority_seed1636_20260825"
+    },
+    "failed_v494_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_inner_attempt_seed1636_20260825.attempt-prep"
+    },
+    "failed_v494_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_inner_attempt_seed1636_20260825"
+    },
+    "failed_v494_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_outer_execution_evidence_seed1636_20260825.outer-prep"
+    },
+    "failed_v494_outer_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_outer_execution_evidence_seed1636_20260825"
+    },
+    "failed_v495_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repair_execution_authority_seed1637_20260825.registration-prep"
+    },
+    "failed_v495_authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repair_execution_authority_seed1637_20260825"
+    },
+    "failed_v495_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repaired_reconciliation_inner_attempt_seed1637_20260825.attempt-prep"
+    },
+    "failed_v495_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repaired_reconciliation_inner_attempt_seed1637_20260825"
+    },
+    "failed_v495_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repaired_reconciliation_outer_execution_evidence_seed1637_20260825.outer-prep"
+    },
+    "failed_v495_outer_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repaired_reconciliation_outer_execution_evidence_seed1637_20260825"
+    },
+    "failed_v496_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_seed1638_20260825.registration-prep"
+    },
+    "failed_v496_authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_seed1638_20260825"
+    },
+    "failed_v496_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_inner_attempt_seed1638_20260825.attempt-prep"
+    },
+    "failed_v496_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_inner_attempt_seed1638_20260825"
+    },
+    "failed_v496_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_outer_execution_evidence_seed1638_20260825.outer-prep"
+    },
+    "failed_v496_outer_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_outer_execution_evidence_seed1638_20260825"
+    },
+    "failed_v497_diagnostic_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1639_20260825.execution-prep"
+    },
+    "failed_v497_diagnostic_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1639_20260825.registration-prep"
+    },
+    "failed_v497_diagnostic_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1639_20260825"
+    },
+    "fresh_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1632_20260825.registration-prep"
+    },
+    "old_v490_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_attempt_seed1632_20260825.attempt-prep"
+    },
+    "old_v490_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_attempt_seed1632_20260825"
+    },
+    "outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_outer_execution_evidence_seed1642_20260825.outer-prep"
+    },
+    "outer_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_outer_execution_evidence_seed1642_20260825"
+    },
+    "qualification_root": {
+      "path": "/root/v485_v169_cache_qualification_seed1627_20260824"
+    },
+    "superseded_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_static_audit_seed1630_20260825.registration-prep"
+    },
+    "superseded_static_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_static_audit_seed1630_20260825"
+    },
+    "superseded_v491_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v491_v490_reconciliation_execution_authority_seed1633_20260825.registration-prep"
+    },
+    "superseded_v491_authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v491_v490_reconciliation_execution_authority_seed1633_20260825"
+    },
+    "superseded_v491_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v491_v490_reconciliation_outer_execution_evidence_seed1633_20260825.outer-prep"
+    },
+    "superseded_v491_outer_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v491_v490_reconciliation_outer_execution_evidence_seed1633_20260825"
+    },
+    "transparent_output": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json"
+    },
+    "transparent_tmp": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json.tmp"
+    },
+    "v489_superseded_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1631_20260825.registration-prep"
+    },
+    "v489_superseded_static_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1631_20260825"
+    },
+    "v490_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_authority_seed1632_20260825.registration-prep"
+    },
+    "v492_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v492_v491_v490_reconciliation_execution_authority_seed1634_20260825.registration-prep"
+    },
+    "v493_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_execution_authority_seed1635_20260825.registration-prep"
+    },
+    "v498_diagnostic_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1640_20260825.execution-prep"
+    },
+    "v498_diagnostic_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1640_20260825.registration-prep"
+    },
+    "v499_adapter_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v499_v498_diagnostic_process_receipt_transport_helper_copy_adapter_execution_evidence_seed1641_20260825.execution-prep"
+    },
+    "v499_adapter_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v499_v498_diagnostic_process_receipt_transport_helper_copy_adapter_seed1641_20260825.registration-prep"
+    }
+  },
+  "execution_boundary": {
+    "authority_materialization_only": true,
+    "corrected_inner_wrapper_invocations": 0,
+    "dev_hidden_final_outcome_reads": 0,
+    "outer_execution_wrapper_invocations": 0,
+    "phase_a_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "reward_reads": 0,
+    "training_invocations": 0
+  },
+  "execution_interpreter_contract": {
+    "intermediate": {
+      "lstat": {
+        "device": 2304,
+        "inode": 7529246267,
+        "mode": 41471,
+        "size": 10
+      },
+      "path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python",
+      "readlink": "python3.11"
+    },
+    "lexical": {
+      "lstat": {
+        "device": 2304,
+        "inode": 17217118070,
+        "mode": 41471,
+        "size": 49
+      },
+      "path": "/root/autodl-tmp/conda_envs/rlinf_track2/bin/python",
+      "readlink": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python"
+    },
+    "resolved": {
+      "logical_bytes": 25555040,
+      "lstat": {
+        "device": 2304,
+        "inode": 7529484239,
+        "mode": 33277,
+        "size": 25555040
+      },
+      "path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+      "sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788"
+    },
+    "runtime": {
+      "numpy_version": "1.26.4",
+      "python_version": "3.11.15 (main, Mar 11 2026, 17:20:07) [GCC 14.3.0]",
+      "sys_executable": "/root/autodl-tmp/conda_envs/rlinf_track2/bin/python",
+      "torch_version": "2.7.0+cu128"
+    }
+  },
+  "f813_registration_tree": {
+    "canonical_json_triples_digest_sha256": "a0602666a7e59d60e464b3bc76b31b2fbf501e3d37bbd0b18b2db8c1233971ec",
+    "file_count": 2,
+    "inventory": [
+      [
+        "immutable_evidence/v485_static_b73.log",
+        "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b",
+        6475
+      ],
+      [
+        "preregistration.json",
+        "f8137d02a692a9c6243f13ce8a7674e4ac90fbd31c85b3e8c32af82f8afa42a8",
+        21296
+      ]
+    ],
+    "logical_file_bytes": 27771,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824",
+    "sha256sum_lines_digest_sha256": "717d6ae12fbacbaafa147d03503140e5f807c028acc97a7294c84da2d79fe3fe"
+  },
+  "failed_v497_diagnostic_failure_ancestry": {
+    "authority_materializer_invocations": 0,
+    "corrected_inner_wrapper_invocations": 0,
+    "corrected_rule": "derive V496_PROCESS_PATH only from the exact V496_PROCESS_RECORD path and execute the shared production prepublish builder in live self-test",
+    "diagnostic_invocations": 1,
+    "failed_status": "failed_no_retry",
+    "outer_wrapper_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "retry_authorized": false,
+    "root_cause": "v497 diagnostic referenced undefined V496_PROCESS_PATH before diagnostic registration"
+  },
+  "failed_v497_diagnostic_failure_tree": {
+    "canonical_json_triples_digest_sha256": "02337d3883ddb46b16bfbf9d1e157dcc16ff4e462810e0de2e22a25082e5913d",
+    "file_count": 6,
+    "inventory": [
+      [
+        "argv.json",
+        "7a2ce339eaf422310a5f42046bd3fb66983c74e3f582f3032e5e5a2f0d1ad315",
+        11350
+      ],
+      [
+        "diagnostic_stderr.log",
+        "43077e085d04192f62354c584a19fdff5a5ea0c34e0cd160cd226d2b1ff69d27",
+        560
+      ],
+      [
+        "diagnostic_stdout.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "intent.json",
+        "79927b48f27cdc5d48454712863fe798e3baef4ab3efea1ac3d978cfaa399e83",
+        540
+      ],
+      [
+        "process_receipt.json",
+        "5ad649b013fe0e9b17af76992950c53f8043a536ae3f2ecb04f6c9f65f443425",
+        459
+      ],
+      [
+        "transport_helper.py",
+        "a8da83f408fa30c241b311caf86c4d0d7b065099dc7445dea0a1d75e192b44ed",
+        27893
+      ]
+    ],
+    "logical_file_bytes": 40802,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1639_20260825",
+    "sha256sum_lines_digest_sha256": "ed2c81a06f71937581b451f84e137640310b363f04d569fe1bf0da1a60377b8d"
+  },
+  "failed_v497_diagnostic_process_receipt": {
+    "logical_bytes": 459,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1639_20260825/process_receipt.json",
+    "sha256": "5ad649b013fe0e9b17af76992950c53f8043a536ae3f2ecb04f6c9f65f443425"
+  },
+  "format": "strict-track2-v500-v499-v498-v497-v496-v495-failure-tree-diagnostic-execution-authority-design-contract-v1",
+  "historical_absences": {
+    "corrected_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_inner_attempt_seed1642_20260825.attempt-prep"
+    },
+    "corrected_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_inner_attempt_seed1642_20260825"
+    },
+    "execution_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_execution_authority_seed1642_20260825.registration-prep"
+    },
+    "execution_authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_execution_authority_seed1642_20260825"
+    },
+    "failed_v492_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v492_v491_v490_reconciliation_outer_execution_evidence_seed1634_20260825.outer-prep"
+    },
+    "failed_v493_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_inner_attempt_seed1635_20260825.attempt-prep"
+    },
+    "failed_v493_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_inner_attempt_seed1635_20260825"
+    },
+    "failed_v493_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_outer_execution_evidence_seed1635_20260825.outer-prep"
+    },
+    "failed_v494_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repair_execution_authority_seed1636_20260825.registration-prep"
+    },
+    "failed_v494_authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repair_execution_authority_seed1636_20260825"
+    },
+    "failed_v494_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_inner_attempt_seed1636_20260825.attempt-prep"
+    },
+    "failed_v494_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_inner_attempt_seed1636_20260825"
+    },
+    "failed_v494_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_outer_execution_evidence_seed1636_20260825.outer-prep"
+    },
+    "failed_v494_outer_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_outer_execution_evidence_seed1636_20260825"
+    },
+    "failed_v495_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repair_execution_authority_seed1637_20260825.registration-prep"
+    },
+    "failed_v495_authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repair_execution_authority_seed1637_20260825"
+    },
+    "failed_v495_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repaired_reconciliation_inner_attempt_seed1637_20260825.attempt-prep"
+    },
+    "failed_v495_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repaired_reconciliation_inner_attempt_seed1637_20260825"
+    },
+    "failed_v495_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repaired_reconciliation_outer_execution_evidence_seed1637_20260825.outer-prep"
+    },
+    "failed_v495_outer_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repaired_reconciliation_outer_execution_evidence_seed1637_20260825"
+    },
+    "failed_v496_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_seed1638_20260825.registration-prep"
+    },
+    "failed_v496_authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_seed1638_20260825"
+    },
+    "failed_v496_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_inner_attempt_seed1638_20260825.attempt-prep"
+    },
+    "failed_v496_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_inner_attempt_seed1638_20260825"
+    },
+    "failed_v496_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_outer_execution_evidence_seed1638_20260825.outer-prep"
+    },
+    "failed_v496_outer_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_outer_execution_evidence_seed1638_20260825"
+    },
+    "failed_v497_diagnostic_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1639_20260825.execution-prep"
+    },
+    "failed_v497_diagnostic_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1639_20260825.registration-prep"
+    },
+    "failed_v497_diagnostic_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1639_20260825"
+    },
+    "fresh_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1632_20260825.registration-prep"
+    },
+    "old_v490_inner_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_attempt_seed1632_20260825.attempt-prep"
+    },
+    "old_v490_inner_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_attempt_seed1632_20260825"
+    },
+    "outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_outer_execution_evidence_seed1642_20260825.outer-prep"
+    },
+    "outer_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_outer_execution_evidence_seed1642_20260825"
+    },
+    "qualification_root": {
+      "path": "/root/v485_v169_cache_qualification_seed1627_20260824"
+    },
+    "superseded_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_static_audit_seed1630_20260825.registration-prep"
+    },
+    "superseded_static_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_static_audit_seed1630_20260825"
+    },
+    "superseded_v491_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v491_v490_reconciliation_execution_authority_seed1633_20260825.registration-prep"
+    },
+    "superseded_v491_authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v491_v490_reconciliation_execution_authority_seed1633_20260825"
+    },
+    "superseded_v491_outer_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v491_v490_reconciliation_outer_execution_evidence_seed1633_20260825.outer-prep"
+    },
+    "superseded_v491_outer_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v491_v490_reconciliation_outer_execution_evidence_seed1633_20260825"
+    },
+    "transparent_output": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json"
+    },
+    "transparent_tmp": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json.tmp"
+    },
+    "v489_superseded_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1631_20260825.registration-prep"
+    },
+    "v489_superseded_static_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1631_20260825"
+    },
+    "v490_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_authority_seed1632_20260825.registration-prep"
+    },
+    "v492_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v492_v491_v490_reconciliation_execution_authority_seed1634_20260825.registration-prep"
+    },
+    "v493_authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_execution_authority_seed1635_20260825.registration-prep"
+    },
+    "v498_diagnostic_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1640_20260825.execution-prep"
+    },
+    "v498_diagnostic_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1640_20260825.registration-prep"
+    },
+    "v499_adapter_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v499_v498_diagnostic_process_receipt_transport_helper_copy_adapter_execution_evidence_seed1641_20260825.execution-prep"
+    },
+    "v499_adapter_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v499_v498_diagnostic_process_receipt_transport_helper_copy_adapter_seed1641_20260825.registration-prep"
+    }
+  },
+  "lineage": {
+    "authority_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_execution_authority_seed1642_20260825.registration-prep",
+    "execution_authority_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_execution_authority_seed1642_20260825",
+    "inner_attempt_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_inner_attempt_seed1642_20260825.attempt-prep",
+    "inner_attempt_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_inner_attempt_seed1642_20260825",
+    "outer_evidence_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_outer_execution_evidence_seed1642_20260825.outer-prep",
+    "outer_evidence_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_outer_execution_evidence_seed1642_20260825",
+    "qualification_root": "/root/v485_v169_cache_qualification_seed1627_20260824",
+    "transparent_static_receipt_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json"
+  },
+  "materializer_checkpoint_contract": {
+    "failure_stdout_line_count": 1,
+    "format": "strict-track2-v500-materializer-pre-root-diagnostic-checkpoint-v1",
+    "predicate_names": [
+      "root_exact",
+      "file_count_exact",
+      "logical_file_bytes_exact",
+      "sha256sum_lines_digest_exact",
+      "canonical_json_triples_digest_exact",
+      "process_receipt_inventory_row_exact",
+      "process_receipt_sha256_exact",
+      "process_receipt_logical_bytes_exact"
+    ],
+    "success_stdout_line_count": 2,
+    "top_keys": [
+      "authorization",
+      "false_predicate_names",
+      "format",
+      "immutable_input_snapshot_sha256",
+      "normalized_v498_diagnostic_process_receipt_sha256",
+      "passed",
+      "predicate_names",
+      "predicates",
+      "predicates_sha256",
+      "root_cause_boundary",
+      "runtime_observation",
+      "seed",
+      "snapshot_1",
+      "snapshot_2",
+      "snapshots_exactly_equal",
+      "status",
+      "v498_diagnostic_execution_evidence_tree",
+      "v498_diagnostic_process_receipt",
+      "v498_diagnostic_receipt",
+      "v498_diagnostic_registration_tree",
+      "v499_adapter_execution_evidence_tree",
+      "v499_adapter_process_receipt",
+      "v499_adapter_receipt",
+      "v499_adapter_registration_tree"
+    ]
+  },
+  "normalized_v498_diagnostic_process_receipt": {
+    "argv": {
+      "logical_bytes": 14317,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1640_20260825/argv.json",
+      "sha256": "acad443504876013e78d1f277372986f4391170bbc220c713b1961e51ea408e2"
+    },
+    "authority_materializer_invocations": 0,
+    "cleanup": {
+      "group_empty": true,
+      "kill_sent": false,
+      "reaped": true,
+      "started": true,
+      "term_sent": false
+    },
+    "corrected_inner_wrapper_invocations": 0,
+    "diagnostic_invocations": 1,
+    "diagnostic_receipt": {
+      "logical_bytes": 14528,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1640_20260825/diagnostic_receipt.json",
+      "sha256": "2bb515bba9039d3bac3545c1780bb82d9c7609aafa8a64012f9c9574eec5da20"
+    },
+    "diagnostic_registration_tree": {
+      "canonical_json_triples_digest_sha256": "ab4b91264ecf854be7df5263643c0def7deec74bb76c22ce455ee089a57a2a96",
+      "file_count": 1,
+      "inventory": [
+        [
+          "diagnostic_receipt.json",
+          "2bb515bba9039d3bac3545c1780bb82d9c7609aafa8a64012f9c9574eec5da20",
+          14528
+        ]
+      ],
+      "logical_file_bytes": 14528,
+      "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1640_20260825",
+      "sha256sum_lines_digest_sha256": "99991dff3106be728dbec3c0c0bd61df41313a894a19a6cf3b0b71fb21d74d93"
+    },
+    "diagnostic_returncode": 0,
+    "format": "strict-track2-v498-pre-authority-diagnostic-process-receipt-v1",
+    "helper_returncode": 0,
+    "intent": {
+      "logical_bytes": 545,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1640_20260825/intent.json",
+      "sha256": "ecc51adb493e4c2ec7dab31473132d74ff56dc06589387e7b84152eb0936740f"
+    },
+    "outer_wrapper_invocations": 0,
+    "passed": true,
+    "post_snapshot": {
+      "diagnostic_inputs": {
+        "diagnostic_source": {
+          "logical_bytes": 38424,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/diagnose_v498_v497_v496_v495_failure_tree_pre_authority.py",
+          "sha256": "328d88b9dd5c2268f27c612322785eeca3cfe053018b00512492f984f8332fe6"
+        },
+        "failed_v497_ancestry": {
+          "diagnostic_prep_absent": true,
+          "diagnostic_root_absent": true,
+          "diagnostic_source": {
+            "logical_bytes": 26978,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/diagnose_v497_v496_v495_failure_tree_pre_authority.py",
+            "sha256": "6ad8f54b53fc2178330f27e9bc772de8fc7357a27752f17a309b835f8f796ecb"
+          },
+          "execution_tree": {
+            "canonical_json_triples_digest_sha256": "02337d3883ddb46b16bfbf9d1e157dcc16ff4e462810e0de2e22a25082e5913d",
+            "file_count": 6,
+            "inventory": [
+              [
+                "argv.json",
+                "7a2ce339eaf422310a5f42046bd3fb66983c74e3f582f3032e5e5a2f0d1ad315",
+                11350
+              ],
+              [
+                "diagnostic_stderr.log",
+                "43077e085d04192f62354c584a19fdff5a5ea0c34e0cd160cd226d2b1ff69d27",
+                560
+              ],
+              [
+                "diagnostic_stdout.log",
+                "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                0
+              ],
+              [
+                "intent.json",
+                "79927b48f27cdc5d48454712863fe798e3baef4ab3efea1ac3d978cfaa399e83",
+                540
+              ],
+              [
+                "process_receipt.json",
+                "5ad649b013fe0e9b17af76992950c53f8043a536ae3f2ecb04f6c9f65f443425",
+                459
+              ],
+              [
+                "transport_helper.py",
+                "a8da83f408fa30c241b311caf86c4d0d7b065099dc7445dea0a1d75e192b44ed",
+                27893
+              ]
+            ],
+            "logical_file_bytes": 40802,
+            "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1639_20260825",
+            "sha256sum_lines_digest_sha256": "ed2c81a06f71937581b451f84e137640310b363f04d569fe1bf0da1a60377b8d"
+          },
+          "no_retry": true,
+          "process_receipt": {
+            "logical_bytes": 459,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1639_20260825/process_receipt.json",
+            "sha256": "5ad649b013fe0e9b17af76992950c53f8043a536ae3f2ecb04f6c9f65f443425"
+          },
+          "stderr": {
+            "logical_bytes": 560,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1639_20260825/diagnostic_stderr.log",
+            "sha256": "43077e085d04192f62354c584a19fdff5a5ea0c34e0cd160cd226d2b1ff69d27"
+          },
+          "transport_helper": {
+            "logical_bytes": 27893,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v497_v496_v495_failure_tree_pre_authority_diagnostic_once.py",
+            "sha256": "a8da83f408fa30c241b311caf86c4d0d7b065099dc7445dea0a1d75e192b44ed"
+          },
+          "transport_script": {
+            "logical_bytes": 1166,
+            "path": "/root/v497_pre_authority_diagnostic_once.sh",
+            "sha256": "eb0f0908c5c2185627bfb59fa02b46279ba929deb04d06253e0d36835c6f4104"
+          }
+        },
+        "required_absences": {
+          "failed_v497_diagnostic_prep": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1639_20260825.registration-prep"
+          },
+          "failed_v497_diagnostic_root": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1639_20260825"
+          },
+          "qualification_root": {
+            "absent": true,
+            "path": "/root/v485_v169_cache_qualification_seed1627_20260824"
+          },
+          "transparent_output": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json"
+          },
+          "transparent_tmp": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json.tmp"
+          },
+          "v496_authority_prep": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_seed1638_20260825.registration-prep"
+          },
+          "v496_authority_root": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_seed1638_20260825"
+          },
+          "v496_inner_prep": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_inner_attempt_seed1638_20260825.attempt-prep"
+          },
+          "v496_inner_root": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_inner_attempt_seed1638_20260825"
+          },
+          "v496_outer_prep": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_outer_execution_evidence_seed1638_20260825.outer-prep"
+          },
+          "v496_outer_root": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_outer_execution_evidence_seed1638_20260825"
+          }
+        },
+        "v495_failure_snapshot": {
+          "canonical_json_triples_digest_sha256": "9669dad691e0f9d8ca4005c62bb4568647c3815dd21e0407aa9d2663042c4290",
+          "file_count": 6,
+          "inventory": [
+            [
+              "argv.json",
+              "54cda5c2853e9b9d74c1abc11b3c56ef51de5a1650487d8813c4454fdc17b8a3",
+              16203
+            ],
+            [
+              "intent.json",
+              "e339933407261a528b516d9bb3759fffdc853fc7998416b5f1e66b745a032828",
+              542
+            ],
+            [
+              "materializer_stderr.log",
+              "bfe41948b189d59af0aa4644bc3be1d32d4a2dea8537d6b867ba3c51a4cdbc75",
+              544
+            ],
+            [
+              "materializer_stdout.log",
+              "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              0
+            ],
+            [
+              "process_receipt.json",
+              "72d3814fbb56053b0b03dc2225ee5aabf62f999a3cf12be3b5206dc22898b8f4",
+              411
+            ],
+            [
+              "transport_helper.py",
+              "f2ad3a5a10fb419c0fdd1595997e212c5ec1ccfbb6f6ec3c23410d7ab9b31727",
+              14439
+            ]
+          ],
+          "logical_file_bytes": 32139,
+          "process_receipt_record": {
+            "logical_bytes": 411,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repair_execution_authority_materialization_evidence_seed1637_20260825/process_receipt.json",
+            "sha256": "72d3814fbb56053b0b03dc2225ee5aabf62f999a3cf12be3b5206dc22898b8f4"
+          },
+          "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repair_execution_authority_materialization_evidence_seed1637_20260825",
+          "sha256sum_lines_digest_sha256": "21a38be60c37efd2e14b3f8319889b5e53cf7d65da07f82f6b7812f50b0bac1b"
+        },
+        "v496_failure_process_receipt": {
+          "logical_bytes": 411,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825/process_receipt.json",
+          "sha256": "5ac38bcdf03f25f9e80c0a6fd184c5e8f12763447a6a91aec264e659be47662d"
+        },
+        "v496_failure_transport_helper": {
+          "logical_bytes": 14530,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825/transport_helper.py",
+          "sha256": "df90feed74fa40eb0dba758cb285be9766fed0ca6ff8a79285a468ea40a23305"
+        },
+        "v496_failure_tree": {
+          "canonical_json_triples_digest_sha256": "c78038212aee67743f08dc936a539ad5d99a6ff931b87f12b5b294dfa4a0dac0",
+          "file_count": 6,
+          "inventory": [
+            [
+              "argv.json",
+              "327cb32d890f937f7b0fec53902cf721af8df9a6195de9d82c01fbad7afb5f8b",
+              18856
+            ],
+            [
+              "intent.json",
+              "c5bb3b6759f53a1de617f42cfbc343e6caf2dcb94916caba8cf3047bc025d06a",
+              557
+            ],
+            [
+              "materializer_stderr.log",
+              "1ce5cb2055a08736e0a4927af4817f08bbd1c1e421e132574deff4bc70a471fa",
+              531
+            ],
+            [
+              "materializer_stdout.log",
+              "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              0
+            ],
+            [
+              "process_receipt.json",
+              "5ac38bcdf03f25f9e80c0a6fd184c5e8f12763447a6a91aec264e659be47662d",
+              411
+            ],
+            [
+              "transport_helper.py",
+              "df90feed74fa40eb0dba758cb285be9766fed0ca6ff8a79285a468ea40a23305",
+              14530
+            ]
+          ],
+          "logical_file_bytes": 34885,
+          "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825",
+          "sha256sum_lines_digest_sha256": "ab63f37f6275193a97db39cc71d37b32f4f653f87e78c375ddb460558b4e1f9e"
+        },
+        "v496_sources": {
+          "authority_contract": {
+            "logical_bytes": 46664,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_contract.json",
+            "sha256": "33aad023e6275e21702c569261aec754e58c151622055ab3beb0c81434ac335c"
+          },
+          "authority_materializer": {
+            "logical_bytes": 62492,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority.py",
+            "sha256": "6a38efcb9e714cf58a694bac62eadd86cabc6e746d0fdd1195d168963de1cf06"
+          },
+          "inner_wrapper": {
+            "logical_bytes": 101600,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_inner.py",
+            "sha256": "c9b3fe91028ef43bcc70741eab01c62765a47a50f581ffd5c238dd399919d34f"
+          },
+          "outer_wrapper": {
+            "logical_bytes": 61068,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_outer.py",
+            "sha256": "09d5b725ba45bcf274d134fd40fdbea52795e68f6a8193149085b96d563a07c2"
+          }
+        }
+      },
+      "transport_helper": {
+        "logical_bytes": 27949,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_once.py",
+        "sha256": "f7072fae9b88ca1736818f1304191d5bfc4c2d550eb16f0a6f73bf2b8f3a1dce"
+      },
+      "transport_script": {
+        "logical_bytes": 1171,
+        "path": "/root/v498_pre_authority_diagnostic_once.sh",
+        "sha256": "c41a960cce856ddcf27933930b888a17cf61ee1de3552aa59a2867e8b1b0b8ea"
+      },
+      "v496_failure": {
+        "process_receipt": {
+          "logical_bytes": 411,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825/process_receipt.json",
+          "sha256": "5ac38bcdf03f25f9e80c0a6fd184c5e8f12763447a6a91aec264e659be47662d"
+        },
+        "tree": {
+          "canonical_json_triples_digest_sha256": "c78038212aee67743f08dc936a539ad5d99a6ff931b87f12b5b294dfa4a0dac0",
+          "file_count": 6,
+          "inventory": [
+            [
+              "argv.json",
+              "327cb32d890f937f7b0fec53902cf721af8df9a6195de9d82c01fbad7afb5f8b",
+              18856
+            ],
+            [
+              "intent.json",
+              "c5bb3b6759f53a1de617f42cfbc343e6caf2dcb94916caba8cf3047bc025d06a",
+              557
+            ],
+            [
+              "materializer_stderr.log",
+              "1ce5cb2055a08736e0a4927af4817f08bbd1c1e421e132574deff4bc70a471fa",
+              531
+            ],
+            [
+              "materializer_stdout.log",
+              "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              0
+            ],
+            [
+              "process_receipt.json",
+              "5ac38bcdf03f25f9e80c0a6fd184c5e8f12763447a6a91aec264e659be47662d",
+              411
+            ],
+            [
+              "transport_helper.py",
+              "df90feed74fa40eb0dba758cb285be9766fed0ca6ff8a79285a468ea40a23305",
+              14530
+            ]
+          ],
+          "logical_file_bytes": 34885,
+          "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825",
+          "sha256sum_lines_digest_sha256": "ab63f37f6275193a97db39cc71d37b32f4f653f87e78c375ddb460558b4e1f9e"
+        }
+      }
+    },
+    "pre_post_snapshots_exactly_equal": true,
+    "pre_snapshot": {
+      "diagnostic_inputs": {
+        "diagnostic_source": {
+          "logical_bytes": 38424,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/diagnose_v498_v497_v496_v495_failure_tree_pre_authority.py",
+          "sha256": "328d88b9dd5c2268f27c612322785eeca3cfe053018b00512492f984f8332fe6"
+        },
+        "failed_v497_ancestry": {
+          "diagnostic_prep_absent": true,
+          "diagnostic_root_absent": true,
+          "diagnostic_source": {
+            "logical_bytes": 26978,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/diagnose_v497_v496_v495_failure_tree_pre_authority.py",
+            "sha256": "6ad8f54b53fc2178330f27e9bc772de8fc7357a27752f17a309b835f8f796ecb"
+          },
+          "execution_tree": {
+            "canonical_json_triples_digest_sha256": "02337d3883ddb46b16bfbf9d1e157dcc16ff4e462810e0de2e22a25082e5913d",
+            "file_count": 6,
+            "inventory": [
+              [
+                "argv.json",
+                "7a2ce339eaf422310a5f42046bd3fb66983c74e3f582f3032e5e5a2f0d1ad315",
+                11350
+              ],
+              [
+                "diagnostic_stderr.log",
+                "43077e085d04192f62354c584a19fdff5a5ea0c34e0cd160cd226d2b1ff69d27",
+                560
+              ],
+              [
+                "diagnostic_stdout.log",
+                "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                0
+              ],
+              [
+                "intent.json",
+                "79927b48f27cdc5d48454712863fe798e3baef4ab3efea1ac3d978cfaa399e83",
+                540
+              ],
+              [
+                "process_receipt.json",
+                "5ad649b013fe0e9b17af76992950c53f8043a536ae3f2ecb04f6c9f65f443425",
+                459
+              ],
+              [
+                "transport_helper.py",
+                "a8da83f408fa30c241b311caf86c4d0d7b065099dc7445dea0a1d75e192b44ed",
+                27893
+              ]
+            ],
+            "logical_file_bytes": 40802,
+            "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1639_20260825",
+            "sha256sum_lines_digest_sha256": "ed2c81a06f71937581b451f84e137640310b363f04d569fe1bf0da1a60377b8d"
+          },
+          "no_retry": true,
+          "process_receipt": {
+            "logical_bytes": 459,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1639_20260825/process_receipt.json",
+            "sha256": "5ad649b013fe0e9b17af76992950c53f8043a536ae3f2ecb04f6c9f65f443425"
+          },
+          "stderr": {
+            "logical_bytes": 560,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1639_20260825/diagnostic_stderr.log",
+            "sha256": "43077e085d04192f62354c584a19fdff5a5ea0c34e0cd160cd226d2b1ff69d27"
+          },
+          "transport_helper": {
+            "logical_bytes": 27893,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v497_v496_v495_failure_tree_pre_authority_diagnostic_once.py",
+            "sha256": "a8da83f408fa30c241b311caf86c4d0d7b065099dc7445dea0a1d75e192b44ed"
+          },
+          "transport_script": {
+            "logical_bytes": 1166,
+            "path": "/root/v497_pre_authority_diagnostic_once.sh",
+            "sha256": "eb0f0908c5c2185627bfb59fa02b46279ba929deb04d06253e0d36835c6f4104"
+          }
+        },
+        "required_absences": {
+          "failed_v497_diagnostic_prep": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1639_20260825.registration-prep"
+          },
+          "failed_v497_diagnostic_root": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1639_20260825"
+          },
+          "qualification_root": {
+            "absent": true,
+            "path": "/root/v485_v169_cache_qualification_seed1627_20260824"
+          },
+          "transparent_output": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json"
+          },
+          "transparent_tmp": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json.tmp"
+          },
+          "v496_authority_prep": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_seed1638_20260825.registration-prep"
+          },
+          "v496_authority_root": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_seed1638_20260825"
+          },
+          "v496_inner_prep": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_inner_attempt_seed1638_20260825.attempt-prep"
+          },
+          "v496_inner_root": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_inner_attempt_seed1638_20260825"
+          },
+          "v496_outer_prep": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_outer_execution_evidence_seed1638_20260825.outer-prep"
+          },
+          "v496_outer_root": {
+            "absent": true,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_outer_execution_evidence_seed1638_20260825"
+          }
+        },
+        "v495_failure_snapshot": {
+          "canonical_json_triples_digest_sha256": "9669dad691e0f9d8ca4005c62bb4568647c3815dd21e0407aa9d2663042c4290",
+          "file_count": 6,
+          "inventory": [
+            [
+              "argv.json",
+              "54cda5c2853e9b9d74c1abc11b3c56ef51de5a1650487d8813c4454fdc17b8a3",
+              16203
+            ],
+            [
+              "intent.json",
+              "e339933407261a528b516d9bb3759fffdc853fc7998416b5f1e66b745a032828",
+              542
+            ],
+            [
+              "materializer_stderr.log",
+              "bfe41948b189d59af0aa4644bc3be1d32d4a2dea8537d6b867ba3c51a4cdbc75",
+              544
+            ],
+            [
+              "materializer_stdout.log",
+              "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              0
+            ],
+            [
+              "process_receipt.json",
+              "72d3814fbb56053b0b03dc2225ee5aabf62f999a3cf12be3b5206dc22898b8f4",
+              411
+            ],
+            [
+              "transport_helper.py",
+              "f2ad3a5a10fb419c0fdd1595997e212c5ec1ccfbb6f6ec3c23410d7ab9b31727",
+              14439
+            ]
+          ],
+          "logical_file_bytes": 32139,
+          "process_receipt_record": {
+            "logical_bytes": 411,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repair_execution_authority_materialization_evidence_seed1637_20260825/process_receipt.json",
+            "sha256": "72d3814fbb56053b0b03dc2225ee5aabf62f999a3cf12be3b5206dc22898b8f4"
+          },
+          "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repair_execution_authority_materialization_evidence_seed1637_20260825",
+          "sha256sum_lines_digest_sha256": "21a38be60c37efd2e14b3f8319889b5e53cf7d65da07f82f6b7812f50b0bac1b"
+        },
+        "v496_failure_process_receipt": {
+          "logical_bytes": 411,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825/process_receipt.json",
+          "sha256": "5ac38bcdf03f25f9e80c0a6fd184c5e8f12763447a6a91aec264e659be47662d"
+        },
+        "v496_failure_transport_helper": {
+          "logical_bytes": 14530,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825/transport_helper.py",
+          "sha256": "df90feed74fa40eb0dba758cb285be9766fed0ca6ff8a79285a468ea40a23305"
+        },
+        "v496_failure_tree": {
+          "canonical_json_triples_digest_sha256": "c78038212aee67743f08dc936a539ad5d99a6ff931b87f12b5b294dfa4a0dac0",
+          "file_count": 6,
+          "inventory": [
+            [
+              "argv.json",
+              "327cb32d890f937f7b0fec53902cf721af8df9a6195de9d82c01fbad7afb5f8b",
+              18856
+            ],
+            [
+              "intent.json",
+              "c5bb3b6759f53a1de617f42cfbc343e6caf2dcb94916caba8cf3047bc025d06a",
+              557
+            ],
+            [
+              "materializer_stderr.log",
+              "1ce5cb2055a08736e0a4927af4817f08bbd1c1e421e132574deff4bc70a471fa",
+              531
+            ],
+            [
+              "materializer_stdout.log",
+              "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              0
+            ],
+            [
+              "process_receipt.json",
+              "5ac38bcdf03f25f9e80c0a6fd184c5e8f12763447a6a91aec264e659be47662d",
+              411
+            ],
+            [
+              "transport_helper.py",
+              "df90feed74fa40eb0dba758cb285be9766fed0ca6ff8a79285a468ea40a23305",
+              14530
+            ]
+          ],
+          "logical_file_bytes": 34885,
+          "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825",
+          "sha256sum_lines_digest_sha256": "ab63f37f6275193a97db39cc71d37b32f4f653f87e78c375ddb460558b4e1f9e"
+        },
+        "v496_sources": {
+          "authority_contract": {
+            "logical_bytes": 46664,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_contract.json",
+            "sha256": "33aad023e6275e21702c569261aec754e58c151622055ab3beb0c81434ac335c"
+          },
+          "authority_materializer": {
+            "logical_bytes": 62492,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority.py",
+            "sha256": "6a38efcb9e714cf58a694bac62eadd86cabc6e746d0fdd1195d168963de1cf06"
+          },
+          "inner_wrapper": {
+            "logical_bytes": 101600,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_inner.py",
+            "sha256": "c9b3fe91028ef43bcc70741eab01c62765a47a50f581ffd5c238dd399919d34f"
+          },
+          "outer_wrapper": {
+            "logical_bytes": 61068,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_outer.py",
+            "sha256": "09d5b725ba45bcf274d134fd40fdbea52795e68f6a8193149085b96d563a07c2"
+          }
+        }
+      },
+      "transport_helper": {
+        "logical_bytes": 27949,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_once.py",
+        "sha256": "f7072fae9b88ca1736818f1304191d5bfc4c2d550eb16f0a6f73bf2b8f3a1dce"
+      },
+      "transport_script": {
+        "logical_bytes": 1171,
+        "path": "/root/v498_pre_authority_diagnostic_once.sh",
+        "sha256": "c41a960cce856ddcf27933930b888a17cf61ee1de3552aa59a2867e8b1b0b8ea"
+      },
+      "v496_failure": {
+        "process_receipt": {
+          "logical_bytes": 411,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825/process_receipt.json",
+          "sha256": "5ac38bcdf03f25f9e80c0a6fd184c5e8f12763447a6a91aec264e659be47662d"
+        },
+        "tree": {
+          "canonical_json_triples_digest_sha256": "c78038212aee67743f08dc936a539ad5d99a6ff931b87f12b5b294dfa4a0dac0",
+          "file_count": 6,
+          "inventory": [
+            [
+              "argv.json",
+              "327cb32d890f937f7b0fec53902cf721af8df9a6195de9d82c01fbad7afb5f8b",
+              18856
+            ],
+            [
+              "intent.json",
+              "c5bb3b6759f53a1de617f42cfbc343e6caf2dcb94916caba8cf3047bc025d06a",
+              557
+            ],
+            [
+              "materializer_stderr.log",
+              "1ce5cb2055a08736e0a4927af4817f08bbd1c1e421e132574deff4bc70a471fa",
+              531
+            ],
+            [
+              "materializer_stdout.log",
+              "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              0
+            ],
+            [
+              "process_receipt.json",
+              "5ac38bcdf03f25f9e80c0a6fd184c5e8f12763447a6a91aec264e659be47662d",
+              411
+            ],
+            [
+              "transport_helper.py",
+              "df90feed74fa40eb0dba758cb285be9766fed0ca6ff8a79285a468ea40a23305",
+              14530
+            ]
+          ],
+          "logical_file_bytes": 34885,
+          "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825",
+          "sha256sum_lines_digest_sha256": "ab63f37f6275193a97db39cc71d37b32f4f653f87e78c375ddb460558b4e1f9e"
+        }
+      }
+    },
+    "reconciler_r2_invocations": 0,
+    "retry_authorized": false,
+    "status": "passed_exact_once_no_authority_or_reconciliation_execution",
+    "stderr": {
+      "logical_bytes": 0,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1640_20260825/diagnostic_stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "logical_bytes": 661,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1640_20260825/diagnostic_stdout.log",
+      "sha256": "319b17ca80b72e2a063fd65432b00a04ee0871752feb401c914bc11ad29cb8e4"
+    },
+    "transport_helper": {
+      "logical_bytes": 27949,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_once.py",
+      "sha256": "f7072fae9b88ca1736818f1304191d5bfc4c2d550eb16f0a6f73bf2b8f3a1dce"
+    },
+    "transport_helper_copy": {
+      "logical_bytes": 27949,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1640_20260825/transport_helper.py",
+      "sha256": "f7072fae9b88ca1736818f1304191d5bfc4c2d550eb16f0a6f73bf2b8f3a1dce"
+    },
+    "transport_script": {
+      "logical_bytes": 1171,
+      "path": "/root/v498_pre_authority_diagnostic_once.sh",
+      "sha256": "c41a960cce856ddcf27933930b888a17cf61ee1de3552aa59a2867e8b1b0b8ea"
+    },
+    "wall_seconds": 0.19935353100299835
+  },
+  "phase_a_design_contract_record": {
+    "logical_bytes": 43960,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v482_v169_cache_determinism_scope_repair_contract.json",
+    "sha256": "8c4a583aa19de6927cc1ef787920b65317893e27ad01371d0b95b622f260cf64"
+  },
+  "postregistration_static_registration_tree": {
+    "canonical_json_triples_digest_sha256": "f6f282111030a26b66795634f5e0763783917f3f3094ab07ff3dd6bbf822dbd2",
+    "file_count": 1,
+    "inventory": [
+      [
+        "static_audit.json",
+        "441efdf607e8fb5aa10a42a542f984304c8e27b334bfbf3f7773c71a1b5ee3bb",
+        49008
+      ]
+    ],
+    "logical_file_bytes": 49008,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1632_20260825",
+    "sha256sum_lines_digest_sha256": "7492a038c1919e80de4f639d6dfb03425a7467c61e228279fa96d7c91ca8fdc1"
+  },
+  "repair_formal_registration_tree": {
+    "canonical_json_triples_digest_sha256": "e0c93a9b3442ef0cf5c6f47079a0d7a842bae40b1b6f3956998a203abdb46a78",
+    "file_count": 1,
+    "inventory": [
+      [
+        "preregistration.json",
+        "b3598de9a3d44f6d58a0a6a75c956174a68bc7dd610c6a8eb56124690709371b",
+        36181
+      ]
+    ],
+    "logical_file_bytes": 36181,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_prereg_seed1630_20260825",
+    "sha256sum_lines_digest_sha256": "2d7f2e23f8c4e52ea18e021e84c131e6f96d656c4e4af37c44fa4298694166e3"
+  },
+  "seed": 1642,
+  "source_aliases": {
+    "corrected_inner_wrapper": "corrected_inner_wrapper_source",
+    "failed_v497_diagnostic_helper": "failed_v497_diagnostic_helper_source",
+    "failed_v497_diagnostic_script": "failed_v497_diagnostic_script_source",
+    "failed_v497_diagnostic_source": "failed_v497_diagnostic_source",
+    "outer_execution_wrapper": "outer_execution_wrapper_source",
+    "phase_a_design_contract": "phase_a_design_contract_source",
+    "reconciler_r2": "reconciler_r2_source",
+    "v493_authority_contract": "v493_authority_contract",
+    "v493_authority_materializer": "v493_authority_materializer_source",
+    "v493_inner_wrapper": "v493_inner_wrapper_source",
+    "v493_outer_wrapper": "v493_outer_wrapper_source",
+    "v494_authority_contract": "v494_authority_contract_source",
+    "v494_authority_materializer": "v494_authority_materializer_source",
+    "v494_failure_forensic": "v494_materializer_failure_forensic",
+    "v494_failure_transport_script": "v494_materializer_failure_transport_script",
+    "v494_inner_wrapper": "v494_inner_wrapper_source",
+    "v494_outer_wrapper": "v494_outer_wrapper_source",
+    "v495_authority_contract": "v495_authority_contract_source",
+    "v495_authority_materializer": "v495_authority_materializer_source",
+    "v495_inner_wrapper": "v495_inner_wrapper_source",
+    "v495_outer_wrapper": "v495_outer_wrapper_source",
+    "v496_authority_contract": "v496_authority_contract_source",
+    "v496_authority_materializer": "v496_authority_materializer_source",
+    "v496_inner_wrapper": "v496_inner_wrapper_source",
+    "v496_outer_wrapper": "v496_outer_wrapper_source",
+    "v498_diagnostic_helper": "v498_diagnostic_helper_source",
+    "v498_diagnostic_script": "v498_diagnostic_script_source",
+    "v498_diagnostic_source": "v498_diagnostic_source",
+    "v499_adapter_helper": "v499_adapter_helper_source",
+    "v499_adapter_script": "v499_adapter_script_source",
+    "v499_adapter_source": "v499_adapter_source"
+  },
+  "source_closure": {
+    "corrected_inner_wrapper": {
+      "logical_bytes": 124674,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_inner.py",
+      "sha256": "132a91069dc219f70adc6a01292084a97b1e547f16d4cc0d3a6f28df231005ab"
+    },
+    "failed_v497_diagnostic_helper": {
+      "logical_bytes": 27893,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v497_v496_v495_failure_tree_pre_authority_diagnostic_once.py",
+      "sha256": "a8da83f408fa30c241b311caf86c4d0d7b065099dc7445dea0a1d75e192b44ed"
+    },
+    "failed_v497_diagnostic_script": {
+      "logical_bytes": 1166,
+      "path": "/root/v497_pre_authority_diagnostic_once.sh",
+      "sha256": "eb0f0908c5c2185627bfb59fa02b46279ba929deb04d06253e0d36835c6f4104"
+    },
+    "failed_v497_diagnostic_source": {
+      "logical_bytes": 26978,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/diagnose_v497_v496_v495_failure_tree_pre_authority.py",
+      "sha256": "6ad8f54b53fc2178330f27e9bc772de8fc7357a27752f17a309b835f8f796ecb"
+    },
+    "outer_execution_wrapper": {
+      "logical_bytes": 85248,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v500_v499_v498_v497_v496_v495_failure_tree_diagnostic_reconciliation_outer.py",
+      "sha256": "3d8949268c1eb3b8e9dfd84d9aea5084ea6a299fb48bb554972cfe0cc6f7d458"
+    },
+    "phase_a_design_contract": {
+      "logical_bytes": 43960,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v482_v169_cache_determinism_scope_repair_contract.json",
+      "sha256": "8c4a583aa19de6927cc1ef787920b65317893e27ad01371d0b95b622f260cf64"
+    },
+    "reconciler_r2": {
+      "logical_bytes": 51845,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/reconcile_v488_v487_c71_exact7_schema_repair.py",
+      "sha256": "9efc41eb2574b065ab4e83920f524ae47902079f9b40b9bcc6d31e6739bc1377"
+    },
+    "v493_authority_contract": {
+      "logical_bytes": 26569,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v493_v492_v490_corrected_reconciliation_execution_authority_contract.json",
+      "sha256": "0db696b01c8a561ce717b500b54bb3fd7c73e2f81b1ae6c117d92ed93de85e9f"
+    },
+    "v493_authority_materializer": {
+      "logical_bytes": 33691,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v493_v492_v490_corrected_reconciliation_execution_authority.py",
+      "sha256": "1d9a3fa94aa04c87afe309c0a7662c2ee51eb8eeda9d307132476252097699ad"
+    },
+    "v493_inner_wrapper": {
+      "logical_bytes": 75190,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v493_v492_v490_corrected_reconciliation_inner.py",
+      "sha256": "343577ec4050a63ecf86ba082b23b5c5b869f90de8abb9f9d10f22cc47510597"
+    },
+    "v493_outer_wrapper": {
+      "logical_bytes": 39225,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v493_v492_v490_corrected_reconciliation_outer.py",
+      "sha256": "658c13857de127e4661fb1a010c2736951de5bd972e53c56a577c7cda882fa0a"
+    },
+    "v494_authority_contract": {
+      "logical_bytes": 29803,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v494_v493_v490_interpreter_symlink_repair_execution_authority_contract.json",
+      "sha256": "2f4cef2671dfd5c443d5a7f53dc0ea7b770b520da84cba3512a363884d56bd4a"
+    },
+    "v494_authority_materializer": {
+      "logical_bytes": 39236,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v494_v493_v490_interpreter_symlink_repair_execution_authority.py",
+      "sha256": "5b9396fd74e1d161fa41610108d823f356313992364cba708ed869519fa0a421"
+    },
+    "v494_failure_forensic": {
+      "logical_bytes": 6409,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v495_v494_authority_materializer_failure_forensic_reconstructed.json",
+      "sha256": "248c4a94a24c3b793bb29b6cc07a5955a93694f7e22b1a9363ef5bb7ee0ba0dc"
+    },
+    "v494_failure_transport_script": {
+      "logical_bytes": 942,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v495_v494_failed_authority_materialization_transport_script.sh",
+      "sha256": "0d4669e9a1fa52ee98fe2c459e9e42d880116e4428270edcefb0f50e5b95d49c"
+    },
+    "v494_inner_wrapper": {
+      "logical_bytes": 79760,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v494_v493_v490_interpreter_symlink_repaired_reconciliation_inner.py",
+      "sha256": "1f2c9de60703f12c22966b7aeb3526a6c32e0d5a0e0258094c9d208b9a56f4bf"
+    },
+    "v494_outer_wrapper": {
+      "logical_bytes": 43024,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v494_v493_v490_interpreter_symlink_repaired_reconciliation_outer.py",
+      "sha256": "bea4b6df050afb22c833908725a6af7417b292984d8ddb4fbb972b99128d3df5"
+    },
+    "v495_authority_contract": {
+      "logical_bytes": 37084,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v495_v494_v490_interpreter_validator_repair_execution_authority_contract.json",
+      "sha256": "60d978a803bd148f6fe68906e71113cf33e61a3ae5bf77e22c8f2855c68c2823"
+    },
+    "v495_authority_materializer": {
+      "logical_bytes": 50978,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v495_v494_v490_interpreter_validator_repair_execution_authority.py",
+      "sha256": "b0f4b59212ea67754a12394bf1f5a8e7d2c5389c93c44207e0099d9f2850fe18"
+    },
+    "v495_inner_wrapper": {
+      "logical_bytes": 90261,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v495_v494_v490_interpreter_validator_repaired_reconciliation_inner.py",
+      "sha256": "b52e7eb29870141bda85eead81cbc1c3a47522ad86e6a7b6829f7052766a8f76"
+    },
+    "v495_outer_wrapper": {
+      "logical_bytes": 50749,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v495_v494_v490_interpreter_validator_repaired_reconciliation_outer.py",
+      "sha256": "3aae6deb4059e143cc40a3e10bdf6f1cf51e20e884c0459b4aa950e0d480d526"
+    },
+    "v496_authority_contract": {
+      "logical_bytes": 46664,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_contract.json",
+      "sha256": "33aad023e6275e21702c569261aec754e58c151622055ab3beb0c81434ac335c"
+    },
+    "v496_authority_materializer": {
+      "logical_bytes": 62492,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority.py",
+      "sha256": "6a38efcb9e714cf58a694bac62eadd86cabc6e746d0fdd1195d168963de1cf06"
+    },
+    "v496_inner_wrapper": {
+      "logical_bytes": 101600,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_inner.py",
+      "sha256": "c9b3fe91028ef43bcc70741eab01c62765a47a50f581ffd5c238dd399919d34f"
+    },
+    "v496_outer_wrapper": {
+      "logical_bytes": 61068,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v496_v495_v490_interpreter_validator_process_schema_repaired_reconciliation_outer.py",
+      "sha256": "09d5b725ba45bcf274d134fd40fdbea52795e68f6a8193149085b96d563a07c2"
+    },
+    "v498_diagnostic_helper": {
+      "logical_bytes": 27949,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_once.py",
+      "sha256": "f7072fae9b88ca1736818f1304191d5bfc4c2d550eb16f0a6f73bf2b8f3a1dce"
+    },
+    "v498_diagnostic_script": {
+      "logical_bytes": 1171,
+      "path": "/root/v498_pre_authority_diagnostic_once.sh",
+      "sha256": "c41a960cce856ddcf27933930b888a17cf61ee1de3552aa59a2867e8b1b0b8ea"
+    },
+    "v498_diagnostic_source": {
+      "logical_bytes": 38424,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/diagnose_v498_v497_v496_v495_failure_tree_pre_authority.py",
+      "sha256": "328d88b9dd5c2268f27c612322785eeca3cfe053018b00512492f984f8332fe6"
+    },
+    "v499_adapter_helper": {
+      "logical_bytes": 22997,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v499_v498_diagnostic_process_receipt_transport_helper_copy_adapter_once.py",
+      "sha256": "dc9978e304c9c18ec950626999deb340b2fd1b1171afc2ea3af7dfa2323cab70"
+    },
+    "v499_adapter_script": {
+      "logical_bytes": 2521,
+      "path": "/root/v499_diagnostic_adapter_once.sh",
+      "sha256": "dce9621f06b732f9627b8912a00910ebff0d5900a0aa48765a25f4e33030b2f2"
+    },
+    "v499_adapter_source": {
+      "logical_bytes": 28726,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/adapt_v499_v498_diagnostic_process_receipt_transport_helper_copy_path.py",
+      "sha256": "5456dfd102d08b2825bb2ba2d6ea44e01c5c5d443823799115c9f3ff105ed35c"
+    }
+  },
+  "source_closure_sha256": "ddc45d445b090a256583174d0b65b9dd701d6543cabd8bd506aad91356906c74",
+  "source_role_order": [
+    "v493_authority_contract",
+    "v493_authority_materializer",
+    "v493_outer_wrapper",
+    "v493_inner_wrapper",
+    "v494_authority_contract",
+    "v494_authority_materializer",
+    "v494_outer_wrapper",
+    "v494_inner_wrapper",
+    "v495_authority_contract",
+    "v495_authority_materializer",
+    "v495_outer_wrapper",
+    "v495_inner_wrapper",
+    "v496_authority_contract",
+    "v496_authority_materializer",
+    "v496_inner_wrapper",
+    "v496_outer_wrapper",
+    "v494_failure_forensic",
+    "v494_failure_transport_script",
+    "failed_v497_diagnostic_source",
+    "failed_v497_diagnostic_helper",
+    "failed_v497_diagnostic_script",
+    "v498_diagnostic_source",
+    "v498_diagnostic_helper",
+    "v498_diagnostic_script",
+    "v499_adapter_source",
+    "v499_adapter_helper",
+    "v499_adapter_script",
+    "phase_a_design_contract",
+    "reconciler_r2",
+    "corrected_inner_wrapper",
+    "outer_execution_wrapper"
+  ],
+  "status": "design_only_frozen_sources_pending_independent_review_no_authority",
+  "v493_authority_contract": {
+    "logical_bytes": 26569,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v493_v492_v490_corrected_reconciliation_execution_authority_contract.json",
+    "sha256": "0db696b01c8a561ce717b500b54bb3fd7c73e2f81b1ae6c117d92ed93de85e9f"
+  },
+  "v493_authority_materialization_evidence_tree": {
+    "canonical_json_triples_digest_sha256": "bfd6f0b735fe3848324aca53acafed5677eeb7b9fb80d95a3cdcf4ed1098be77",
+    "file_count": 6,
+    "inventory": [
+      [
+        "argv.json",
+        "c1371b211df11e525c02c14d15eb7b9c9da647d7bef1a749848a14c83c12495a",
+        13454
+      ],
+      [
+        "intent.json",
+        "ca001e93c2ba000f01dfe2e9d12211ac4f8de1dabf3dec1ab96cc32a5d5e35f5",
+        538
+      ],
+      [
+        "materializer_stderr.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "materializer_stdout.log",
+        "5c99c66c6e8d439041fe67da37dfe0745b287dbc591fd6b6d051c0ef07978b37",
+        1062
+      ],
+      [
+        "process_receipt.json",
+        "babcfda7fad625ea7d0b7a34592e119d6287fa4b34dcfbda743f7473a0fe4789",
+        19613
+      ],
+      [
+        "transport_helper.py",
+        "ad0cd66d9f9c5c17a116b1ae9c3b40679e88739de2e396ebfc33ade9993c0dcd",
+        11817
+      ]
+    ],
+    "logical_file_bytes": 46484,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_execution_authority_materialization_evidence_seed1635_20260825",
+    "sha256sum_lines_digest_sha256": "e410b1ea2c6446dfc4bab2c65e9ebc29c0e50ead6cee38667510050f79e03198"
+  },
+  "v493_authority_materializer_process_receipt": {
+    "logical_bytes": 19613,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_execution_authority_materialization_evidence_seed1635_20260825/process_receipt.json",
+    "sha256": "babcfda7fad625ea7d0b7a34592e119d6287fa4b34dcfbda743f7473a0fe4789"
+  },
+  "v493_authority_materializer_process_schema": {
+    "exact_keys": [
+      "argv",
+      "authority_receipt",
+      "authority_tree",
+      "cleanup",
+      "corrected_inner_wrapper_invocations",
+      "failed_v492_outer_terminal_receipt",
+      "format",
+      "helper_returncode",
+      "intent",
+      "materializer_invocations",
+      "materializer_returncode",
+      "outer_wrapper_invocations",
+      "passed",
+      "post_snapshot",
+      "pre_post_snapshots_exactly_equal",
+      "pre_snapshot",
+      "r2_invocations",
+      "retry_authorized",
+      "status",
+      "stderr",
+      "stdout",
+      "transport_helper",
+      "transport_helper_copy",
+      "wall_seconds"
+    ],
+    "forbidden_keys": [
+      "inner_wrapper_invocations"
+    ],
+    "key_set_sha256": "e477a875bc016fad9215afb62b61d8f1878d61aad2b734afa90eba2d3c897b71",
+    "record": {
+      "logical_bytes": 19613,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_execution_authority_materialization_evidence_seed1635_20260825/process_receipt.json",
+      "sha256": "babcfda7fad625ea7d0b7a34592e119d6287fa4b34dcfbda743f7473a0fe4789"
+    },
+    "required_values": {
+      "cleanup": {
+        "group_empty": true,
+        "reaped": true
+      },
+      "corrected_inner_wrapper_invocations": 0,
+      "materializer_invocations": 1,
+      "outer_wrapper_invocations": 0,
+      "passed": true,
+      "pre_post_snapshots_exactly_equal": true,
+      "r2_invocations": 0,
+      "retry_authorized": false,
+      "status": "passed_exact_once_no_outer_or_inner_execution"
+    }
+  },
+  "v493_authority_receipt": {
+    "logical_bytes": 60534,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_execution_authority_seed1635_20260825/authority_receipt.json",
+    "sha256": "2a93aebbfb968c8134b92b4ed7bf2e809a32085483d1e745a9393997f55167c7"
+  },
+  "v493_authority_registration_tree": {
+    "canonical_json_triples_digest_sha256": "81f6dd5d4319564c9e80488033198f073ecfbe7ac944924624705f387475db29",
+    "file_count": 1,
+    "inventory": [
+      [
+        "authority_receipt.json",
+        "2a93aebbfb968c8134b92b4ed7bf2e809a32085483d1e745a9393997f55167c7",
+        60534
+      ]
+    ],
+    "logical_file_bytes": 60534,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_execution_authority_seed1635_20260825",
+    "sha256sum_lines_digest_sha256": "5c1f1fb01b0ef5ad93d34d459a1370b012a18ec4bb493157fcaf5709303033c3"
+  },
+  "v493_outer_failure_ancestry": {
+    "corrected_rule": "bind exact lexical and intermediate symlinks, resolved regular target, hash, bytes, and runtime versions",
+    "failed_status": "failed_no_retry",
+    "reconciler_r2_invocations": 0,
+    "retry_authorized": false,
+    "root_cause": "superseded corrected inner required lexical RLPY symlink to be regular nonsymlink",
+    "superseded_corrected_inner_wrapper_invocations": 1,
+    "superseded_outer_wrapper_invocations": 1
+  },
+  "v493_outer_failure_tree": {
+    "canonical_json_triples_digest_sha256": "e09a1b83fca92c950c1e7b79d373bc3c63a65e6f9974011dc38806496ee64a9a",
+    "file_count": 4,
+    "inventory": [
+      [
+        "corrected_inner_stderr.log",
+        "dc6653fc33e1f9f9fbc9d2cc45eb7412eb21be89512c0b52c55b9cb77da739ff",
+        2289
+      ],
+      [
+        "corrected_inner_stdout.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "intent.json",
+        "7321e85b5330359abb6c7f2946fa6e92ef692c0ec7d6e87d615ca1083738ff40",
+        13380
+      ],
+      [
+        "terminal_receipt.json",
+        "92b37ba5e4d6e9dd9fdb677db53ca1b14115b8b16d548c5e1ccd07eca70de0f6",
+        944
+      ]
+    ],
+    "logical_file_bytes": 16613,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_outer_execution_evidence_seed1635_20260825",
+    "sha256sum_lines_digest_sha256": "1369b6ed7c053b1bf283ece7b3bb400bf9c0dc37b4322c1d8f4c08a96e0a77a0"
+  },
+  "v493_outer_terminal_receipt": {
+    "logical_bytes": 944,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v493_v492_v490_corrected_reconciliation_outer_execution_evidence_seed1635_20260825/terminal_receipt.json",
+    "sha256": "92b37ba5e4d6e9dd9fdb677db53ca1b14115b8b16d548c5e1ccd07eca70de0f6"
+  },
+  "v494_authority_contract": {
+    "logical_bytes": 29803,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v494_v493_v490_interpreter_symlink_repair_execution_authority_contract.json",
+    "sha256": "2f4cef2671dfd5c443d5a7f53dc0ea7b770b520da84cba3512a363884d56bd4a"
+  },
+  "v494_materializer_failure_ancestry": {
+    "corrected_inner_wrapper_invocations": 0,
+    "corrected_rule": "allow exactly one no-alias torch import and one Load torch.__version__ inside execution_interpreter_evidence; reject every other torch import, name, attribute, and call",
+    "failed_status": "frozen_reconstructed_v494_materializer_prestate_failure_no_retry",
+    "materializer_invocations": 1,
+    "native_exit_code": 1,
+    "native_persistent_capture_available": false,
+    "outer_wrapper_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "retry_authorized": false,
+    "root_cause": "v494 validator blanket-forbade function-local torch import required for exact runtime version evidence",
+    "tool_capture_logical_bytes": 787,
+    "tool_capture_sha256": "4a65e33de2de1da29e8a36d39e5374e43b66435aa5e6bc3722ccfca574fb4a4c"
+  },
+  "v494_materializer_failure_forensic": {
+    "logical_bytes": 6409,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v495_v494_authority_materializer_failure_forensic_reconstructed.json",
+    "sha256": "248c4a94a24c3b793bb29b6cc07a5955a93694f7e22b1a9363ef5bb7ee0ba0dc"
+  },
+  "v494_materializer_failure_transport_script": {
+    "logical_bytes": 942,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v495_v494_failed_authority_materialization_transport_script.sh",
+    "sha256": "0d4669e9a1fa52ee98fe2c459e9e42d880116e4428270edcefb0f50e5b95d49c"
+  },
+  "v495_authority_contract": {
+    "logical_bytes": 37084,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v495_v494_v490_interpreter_validator_repair_execution_authority_contract.json",
+    "sha256": "60d978a803bd148f6fe68906e71113cf33e61a3ae5bf77e22c8f2855c68c2823"
+  },
+  "v495_materializer_failure_ancestry": {
+    "corrected_inner_wrapper_invocations": 0,
+    "corrected_rule": "validate exact24 process receipt with corrected_inner_wrapper_invocations int zero and reject stale, missing, both, extra, nonzero, and bool variants",
+    "failed_status": "failed_no_retry",
+    "materializer_invocations": 1,
+    "native_exit_code": 1,
+    "outer_wrapper_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "retry_authorized": false,
+    "root_cause": "v495 materializer required stale inner_wrapper_invocations absent from immutable v493 process receipt"
+  },
+  "v495_materializer_failure_process_receipt": {
+    "logical_bytes": 411,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repair_execution_authority_materialization_evidence_seed1637_20260825/process_receipt.json",
+    "sha256": "72d3814fbb56053b0b03dc2225ee5aabf62f999a3cf12be3b5206dc22898b8f4"
+  },
+  "v495_materializer_failure_tree": {
+    "canonical_json_triples_digest_sha256": "9669dad691e0f9d8ca4005c62bb4568647c3815dd21e0407aa9d2663042c4290",
+    "file_count": 6,
+    "inventory": [
+      [
+        "argv.json",
+        "54cda5c2853e9b9d74c1abc11b3c56ef51de5a1650487d8813c4454fdc17b8a3",
+        16203
+      ],
+      [
+        "intent.json",
+        "e339933407261a528b516d9bb3759fffdc853fc7998416b5f1e66b745a032828",
+        542
+      ],
+      [
+        "materializer_stderr.log",
+        "bfe41948b189d59af0aa4644bc3be1d32d4a2dea8537d6b867ba3c51a4cdbc75",
+        544
+      ],
+      [
+        "materializer_stdout.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "process_receipt.json",
+        "72d3814fbb56053b0b03dc2225ee5aabf62f999a3cf12be3b5206dc22898b8f4",
+        411
+      ],
+      [
+        "transport_helper.py",
+        "f2ad3a5a10fb419c0fdd1595997e212c5ec1ccfbb6f6ec3c23410d7ab9b31727",
+        14439
+      ]
+    ],
+    "logical_file_bytes": 32139,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v495_v494_v490_interpreter_validator_repair_execution_authority_materialization_evidence_seed1637_20260825",
+    "sha256sum_lines_digest_sha256": "21a38be60c37efd2e14b3f8319889b5e53cf7d65da07f82f6b7812f50b0bac1b"
+  },
+  "v496_authority_contract": {
+    "logical_bytes": 46664,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_contract.json",
+    "sha256": "33aad023e6275e21702c569261aec754e58c151622055ab3beb0c81434ac335c"
+  },
+  "v496_materializer_failure_ancestry": {
+    "corrected_inner_wrapper_invocations": 0,
+    "corrected_rule": "persist eight named expected/observed predicates and two independent snapshots before authority-root creation",
+    "failed_status": "failed_no_retry",
+    "materializer_invocations": 1,
+    "outer_wrapper_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "retry_authorized": false,
+    "root_cause": "v496 combined predicate failed; specific transient predicate unavailable because v496 did not persist per-predicate diagnostics; read-only postmortem all eight pass"
+  },
+  "v496_materializer_failure_process_receipt": {
+    "logical_bytes": 411,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825/process_receipt.json",
+    "sha256": "5ac38bcdf03f25f9e80c0a6fd184c5e8f12763447a6a91aec264e659be47662d"
+  },
+  "v496_materializer_failure_tree": {
+    "canonical_json_triples_digest_sha256": "c78038212aee67743f08dc936a539ad5d99a6ff931b87f12b5b294dfa4a0dac0",
+    "file_count": 6,
+    "inventory": [
+      [
+        "argv.json",
+        "327cb32d890f937f7b0fec53902cf721af8df9a6195de9d82c01fbad7afb5f8b",
+        18856
+      ],
+      [
+        "intent.json",
+        "c5bb3b6759f53a1de617f42cfbc343e6caf2dcb94916caba8cf3047bc025d06a",
+        557
+      ],
+      [
+        "materializer_stderr.log",
+        "1ce5cb2055a08736e0a4927af4817f08bbd1c1e421e132574deff4bc70a471fa",
+        531
+      ],
+      [
+        "materializer_stdout.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "process_receipt.json",
+        "5ac38bcdf03f25f9e80c0a6fd184c5e8f12763447a6a91aec264e659be47662d",
+        411
+      ],
+      [
+        "transport_helper.py",
+        "df90feed74fa40eb0dba758cb285be9766fed0ca6ff8a79285a468ea40a23305",
+        14530
+      ]
+    ],
+    "logical_file_bytes": 34885,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v496_v495_v490_interpreter_validator_process_schema_repair_execution_authority_materialization_evidence_seed1638_20260825",
+    "sha256sum_lines_digest_sha256": "ab63f37f6275193a97db39cc71d37b32f4f653f87e78c375ddb460558b4e1f9e"
+  },
+  "v498_diagnostic_execution_evidence_tree": {
+    "canonical_json_triples_digest_sha256": "2c3b56d838eeb3c936a0f9aad5c8ba8a149a7bc4b3f24c1f9aff0f254337b393",
+    "file_count": 6,
+    "inventory": [
+      [
+        "argv.json",
+        "acad443504876013e78d1f277372986f4391170bbc220c713b1961e51ea408e2",
+        14317
+      ],
+      [
+        "diagnostic_stderr.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "diagnostic_stdout.log",
+        "319b17ca80b72e2a063fd65432b00a04ee0871752feb401c914bc11ad29cb8e4",
+        661
+      ],
+      [
+        "intent.json",
+        "ecc51adb493e4c2ec7dab31473132d74ff56dc06589387e7b84152eb0936740f",
+        545
+      ],
+      [
+        "process_receipt.json",
+        "fa7269bdacac994efd5ef8eb44cf9d3d1c7014e5b9aa902e95a5f4243609fabd",
+        26493
+      ],
+      [
+        "transport_helper.py",
+        "f7072fae9b88ca1736818f1304191d5bfc4c2d550eb16f0a6f73bf2b8f3a1dce",
+        27949
+      ]
+    ],
+    "logical_file_bytes": 69965,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1640_20260825",
+    "sha256sum_lines_digest_sha256": "17a283bf1f1957c484091c4e44920368c2203e7f7ea05df22ad975582e0b774b"
+  },
+  "v498_diagnostic_process_receipt": {
+    "logical_bytes": 26493,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_execution_evidence_seed1640_20260825/process_receipt.json",
+    "sha256": "fa7269bdacac994efd5ef8eb44cf9d3d1c7014e5b9aa902e95a5f4243609fabd"
+  },
+  "v498_diagnostic_receipt": {
+    "logical_bytes": 14528,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1640_20260825/diagnostic_receipt.json",
+    "sha256": "2bb515bba9039d3bac3545c1780bb82d9c7609aafa8a64012f9c9574eec5da20"
+  },
+  "v498_diagnostic_registration_tree": {
+    "canonical_json_triples_digest_sha256": "ab4b91264ecf854be7df5263643c0def7deec74bb76c22ce455ee089a57a2a96",
+    "file_count": 1,
+    "inventory": [
+      [
+        "diagnostic_receipt.json",
+        "2bb515bba9039d3bac3545c1780bb82d9c7609aafa8a64012f9c9574eec5da20",
+        14528
+      ]
+    ],
+    "logical_file_bytes": 14528,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v498_v497_v496_v495_failure_tree_pre_authority_diagnostic_seed1640_20260825",
+    "sha256sum_lines_digest_sha256": "99991dff3106be728dbec3c0c0bd61df41313a894a19a6cf3b0b71fb21d74d93"
+  },
+  "v498_diagnostic_schema": {
+    "status": "passed_no_execution_authority",
+    "top_key_set_sha256": "4f1dcb3e6aca63e9685234c0749b6759463cb70e6e5ab62bda8c959221600f89",
+    "top_keys": [
+      "all_predicates_passed",
+      "authorization",
+      "diagnostic_source",
+      "failed_v497_ancestry",
+      "format",
+      "passed",
+      "predicate_name_key_set_sha256",
+      "predicate_names",
+      "predicates",
+      "predicates_sha256",
+      "required_absences",
+      "root_cause_boundary",
+      "runtime_observation",
+      "seed",
+      "snapshot_1",
+      "snapshot_2",
+      "snapshots_exactly_equal",
+      "status",
+      "v496_authority_sources",
+      "v496_failure_no_retry",
+      "v496_failure_process_receipt",
+      "v496_failure_transport_helper",
+      "v496_failure_tree"
+    ]
+  },
+  "v499_adapter_execution_evidence_tree": {
+    "canonical_json_triples_digest_sha256": "d5d10783ba4dd7a318f01bb48d66a0f7b998d4b8f9bd06e08afa8b6e31e73fec",
+    "file_count": 6,
+    "inventory": [
+      [
+        "adapter_stderr.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "adapter_stdout.log",
+        "7fef2ba34b95730228330d85cdbfc90521c36c7acf57d21bdd94328afb0fd82c",
+        939
+      ],
+      [
+        "argv.json",
+        "baab6ed71a6f5d554d073b63fac626892da3889b48b08d1bc39e07060ab4b097",
+        4017
+      ],
+      [
+        "intent.json",
+        "6059df871a99094bb39ae370035bf758f122f8b22a65e90c94439b91aad96874",
+        479
+      ],
+      [
+        "process_receipt.json",
+        "af93c880fe04d94186017b70b7060acb2d9f68afb1f3290718caa9c6a1276f59",
+        5063
+      ],
+      [
+        "transport_helper.py",
+        "dc9978e304c9c18ec950626999deb340b2fd1b1171afc2ea3af7dfa2323cab70",
+        22997
+      ]
+    ],
+    "logical_file_bytes": 33495,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v499_v498_diagnostic_process_receipt_transport_helper_copy_adapter_execution_evidence_seed1641_20260825",
+    "sha256sum_lines_digest_sha256": "e47fcb2bc9e902084b8f47aac1ae00d4d4965197476008eaa7c518db5487b866"
+  },
+  "v499_adapter_process_receipt": {
+    "logical_bytes": 5063,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v499_v498_diagnostic_process_receipt_transport_helper_copy_adapter_execution_evidence_seed1641_20260825/process_receipt.json",
+    "sha256": "af93c880fe04d94186017b70b7060acb2d9f68afb1f3290718caa9c6a1276f59"
+  },
+  "v499_adapter_receipt": {
+    "logical_bytes": 78314,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v499_v498_diagnostic_process_receipt_transport_helper_copy_adapter_seed1641_20260825/adapter_receipt.json",
+    "sha256": "1d7a82bf22ed9791b30f7760033c9cbf4289fd7e46f051cbbf401cf516380b49"
+  },
+  "v499_adapter_registration_tree": {
+    "canonical_json_triples_digest_sha256": "d0d8cba6979fc6c76c9d2b1071ed21fb4a8e27beeb4a421a93ab16ee1c4b55dc",
+    "file_count": 1,
+    "inventory": [
+      [
+        "adapter_receipt.json",
+        "1d7a82bf22ed9791b30f7760033c9cbf4289fd7e46f051cbbf401cf516380b49",
+        78314
+      ]
+    ],
+    "logical_file_bytes": 78314,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v499_v498_diagnostic_process_receipt_transport_helper_copy_adapter_seed1641_20260825",
+    "sha256sum_lines_digest_sha256": "ee325fa0c2aa4abda52b024b61b6c74f03ecf62ce7f0483e736c91716559f27c"
+  },
+  "v499_adapter_schema": {
+    "status": "passed_readonly_exact_one_leaf_process_receipt_normalization_no_authority",
+    "top_key_set_sha256": "656b80abeed36a815550fc48edd51093a6754b5c593895331cc22214a7388bee",
+    "top_keys": [
+      "adapter_source",
+      "authorization",
+      "canonical_json_leaf_diff",
+      "canonical_json_leaf_diff_count",
+      "corrected_transport_helper_copy",
+      "diagnostic_execution_evidence_tree",
+      "diagnostic_receipt",
+      "diagnostic_registration_tree",
+      "diagnostic_source",
+      "format",
+      "input_post_snapshot_1",
+      "input_post_snapshot_2",
+      "input_pre_snapshot_1",
+      "input_pre_snapshot_2",
+      "input_snapshots_exactly_equal",
+      "normalization_exactly_one_leaf",
+      "normalized_process_receipt",
+      "normalized_process_receipt_sha256",
+      "original_process_key_set_sha256",
+      "original_process_receipt",
+      "original_process_receipt_record",
+      "original_process_receipt_sha256",
+      "passed",
+      "required_absences",
+      "runtime_observation",
+      "seed",
+      "stale_transport_helper_copy",
+      "status",
+      "synthetic_tamper_evidence",
+      "transport_helper_copy_mapping",
+      "transport_helper_source",
+      "transport_script_source"
+    ]
+  }
+}

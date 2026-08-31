@@ -1,0 +1,84 @@
+{
+  "authorization": {
+    "retry_authorized": false,
+    "successor_alias_restore_authorized": false,
+    "v503_alias_restore_attempt_consumed": true,
+    "v503_alias_restore_retry_authorized": false,
+    "v503_compact_wrapper_authorized": false,
+    "v503_reconciler_r2_authorized": false
+  },
+  "corrected_rule": "enumerate the frozen F813 tree recursively; accept ordinary nonsymlink directories as traversal containers, inventory only ordinary nonsymlink files by relative path, and reject every symlink and every non-regular non-directory filesystem object",
+  "failed_sources": {
+    "design": {
+      "logical_bytes": 3524,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v503_v502_v485_volatile_static_log_alias_restore_design.json",
+      "sha256": "f81d11e37f307ff13ca5029142e1a4e3835fd276956cad4aefda191cfd5a03d6"
+    },
+    "helper": {
+      "logical_bytes": 32646,
+      "path": "/root/restore_v503_v485_volatile_static_log_alias_once.py",
+      "sha256": "ac2a3a71d476681eadf8459b2ad0f07266f08c5f2d2091b8fbe3f6fde24dc94e"
+    },
+    "script": {
+      "logical_bytes": 3626,
+      "path": "/root/v503_restore_v485_volatile_static_log_alias_once.sh",
+      "sha256": "b26e81b6f4823379348f590a9362fc78d4f2fa1b92e5f105eae75829391af07c"
+    }
+  },
+  "f813_registration_tree": {
+    "canonical_json_triples_digest_sha256": "a0602666a7e59d60e464b3bc76b31b2fbf501e3d37bbd0b18b2db8c1233971ec",
+    "file_count": 2,
+    "inventory": [
+      [
+        "immutable_evidence/v485_static_b73.log",
+        "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b",
+        6475
+      ],
+      [
+        "preregistration.json",
+        "f8137d02a692a9c6243f13ce8a7674e4ac90fbd31c85b3e8c32af82f8afa42a8",
+        21296
+      ]
+    ],
+    "logical_file_bytes": 27771,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824",
+    "sha256sum_lines_digest_sha256": "717d6ae12fbacbaafa147d03503140e5f807c028acc97a7294c84da2d79fe3fe"
+  },
+  "format": "strict-track2-v504-v503-v502-v485-alias-restore-pre-evidence-failure-forensic-reconstructed-v1",
+  "invocation_partition": {
+    "alias_restore_helper_invocations": 1,
+    "alias_restore_invocations": 0,
+    "alias_restore_script_invocations": 1,
+    "direct_reconciler_wrapper_invocations": 0,
+    "phase_a_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "training_invocations": 0
+  },
+  "native_transport": {
+    "argv": [
+      "/bin/bash",
+      "/root/v503_restore_v485_volatile_static_log_alias_once.sh"
+    ],
+    "exit_code": 1,
+    "persistent_native_capture_available": false,
+    "stderr_capture_kind": "tool_captured_exact_text_reconstructed_no_persistent_native_log",
+    "stderr_logical_bytes": 1072,
+    "stderr_sha256": "6f206d82e41d780d9fa9d9993bd6bf45c92d758cffbf47d9d5cfd4506b71fb35",
+    "stderr_text": "Traceback (most recent call last):\n  File \"/root/restore_v503_v485_volatile_static_log_alias_once.py\", line 711, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/root/restore_v503_v485_volatile_static_log_alias_once.py\", line 554, in main\n    before = immutable_snapshot(self_record, script_record, design_record)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/restore_v503_v485_volatile_static_log_alias_once.py\", line 254, in immutable_snapshot\n    \"f813\": validate_f813(),\n            ^^^^^^^^^^^^^^^\n  File \"/root/restore_v503_v485_volatile_static_log_alias_once.py\", line 201, in validate_f813\n    tree = exact_tree(F813_ROOT)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/restore_v503_v485_volatile_static_log_alias_once.py\", line 189, in exact_tree\n    raise RuntimeError(f\"tree member: {path}\")\nRuntimeError: tree member: /root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/immutable_evidence\n",
+    "stdout_logical_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "passed": true,
+  "root_cause": "the v503 helper exact_tree implementation recursively enumerated the legitimate ordinary immutable_evidence directory but incorrectly rejected that directory as an invalid tree member before any evidence root or alias target was created",
+  "runtime_poststate": {
+    "evidence_prep_absent": true,
+    "evidence_root_absent": true,
+    "gpu_processes_empty": true,
+    "matching_processes_empty": true,
+    "process_receipt_absent": true,
+    "target_absent": true,
+    "target_temporary_absent": true
+  },
+  "seed": 1646,
+  "status": "frozen_reconstructed_pre_evidence_failure_no_retry"
+}

@@ -1,0 +1,63 @@
+{
+  "format": "strict-track2-v157-hybrid-action-gate-preregistration-v1",
+  "created_at": "2026-08-11T04:31:00+08:00",
+  "objective": "Eliminate the diagnosed V15.6 routing blind spot for official RL reset windows that combine demonstration history a0..a3 with newly sampled Pi0.5 future actions, without modifying or selecting those policy actions.",
+  "frozen_inputs": {
+    "joint_windows": "artifacts/strict_track2_joint_augmentation_20260810/formal_joint_parent_windows_full128",
+    "source_manifest": "window_sources.json",
+    "base_candidate_parent": "v155_joint_domain_parent_3000/checkpoints/checkpoint_step_001500",
+    "base_v15_release": "artifacts/releases/track2_v15_best",
+    "candidate_blend": 0.12,
+    "corrected_rollout_probes": [
+      "v156_bridge_audit_absstate_historyfix_seed1235/rollout_000000.npz",
+      "v156_bridge_audit_absstate_historyfix_seed1237/rollout_000000.npz"
+    ]
+  },
+  "hybrid_construction": {
+    "history": "episode-disjoint official demonstration history a0..a3",
+    "current_absolute_state": "official future_actions[0], corresponding to context image o4",
+    "motion_profile": "same-arm Pi0.5 future trajectory minus its first future action",
+    "hybrid_future": "official current absolute state plus the Pi0.5 motion profile",
+    "labels": {
+      "official_demo_history_plus_demo_future": "baseline",
+      "pi05_history_plus_pi05_future": "candidate",
+      "official_demo_history_plus_anchored_pi05_future": "candidate"
+    },
+    "train_validation_separation": "construct train hybrids only from train episodes and validation hybrids only from validation episodes",
+    "pairing": "deterministic same-arm permutation",
+    "success_labels_used": false
+  },
+  "classifier": {
+    "type": "two-layer MLP",
+    "hidden_features": 128,
+    "steps": 2500,
+    "learning_rate": 0.0015,
+    "weight_decay": 0.01,
+    "seed": 20260812,
+    "max_train_per_source": 3000
+  },
+  "admission_gates": {
+    "heldout_official_accuracy_min": 0.99,
+    "heldout_onpolicy_accuracy_min": 0.99,
+    "heldout_hybrid_accuracy_min": 0.99,
+    "corrected_rollout_probe_candidate_fraction_min": 1.0,
+    "official_demo_parent_bit_exact": true,
+    "actions_forwarded_unchanged": true,
+    "participant_action_selection": false,
+    "mpc": false
+  },
+  "data_policy": {
+    "official_public_50_episodes": true,
+    "declared_public_RoboTwin_pi05_trajectories": true,
+    "development22_or_development32_used": false,
+    "acceptance128_used": false,
+    "official_request_or_private_evaluation_data_used": false
+  },
+  "promotion_order": [
+    "heldout gate and corrected rollout probe gates",
+    "full frozen-parent visual and official-reward alignment screens",
+    "freeze V15.7 service",
+    "one official fixed-budget Pi0.5/reward/RL training run",
+    "historical dev22 prescreen before untouched dev32"
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "format": "strict-track2-v522-v521-phase-a-authority-split-state-forensic-v1",
+  "status": "immutable_v520_authority_valid_v521_transport_evidence_failed_no_retry_no_downstream_execution",
+  "passed": true,
+  "captured_at_date": "2026-08-26",
+  "lineage": {
+    "name": "v522_v521_phase_a_authority_split_state",
+    "v520_authority_valid": true,
+    "v521_transport_helper_terminal_failed": true,
+    "authority_valid_superseded_without_downstream_execution": true,
+    "old_v521_helper_and_script_no_retry": true
+  },
+  "v520_materialized_authority_receipt": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826/authority_receipt.json",
+    "sha256": "3e71dff7f0756d966593e8d3200b5fc8370e9849251b16fe61393583afd7735f",
+    "logical_bytes": 121101
+  },
+  "v520_materialized_authority_registration_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826",
+    "inventory": [["authority_receipt.json", "3e71dff7f0756d966593e8d3200b5fc8370e9849251b16fe61393583afd7735f", 121101]],
+    "file_count": 1,
+    "logical_file_bytes": 121101,
+    "sha256sum_lines_digest_sha256": "4edaba7bee39d41a02b7c40bea968ecefb85f5c18290c4ae3f84446aea7cb222",
+    "canonical_json_triples_digest_sha256": "47f93414dc9073eb4c69799ed89a82866e5749fd1f57f1368495463aef6e8dbe"
+  },
+  "v520_materialized_authority_schema": {
+    "format_status": "authorized_exact_one_external_v520_phase_a_cache_qualification_attempt",
+    "passed": true,
+    "top_key_count": 68,
+    "check_count": 33,
+    "source_closure_count": 23
+  },
+  "v521_materialization_evidence_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826",
+    "inventory": [
+      ["argv.json", "553b915934e23f8141aae88283f4781b435ea0d1d36315e8035b3494c73762b2", 16598],
+      ["intent.json", "a8e54f3f09fd5bf711b57b418feb479c0758a0a1c6185452aebf888ecb9ce99d", 518],
+      ["materializer_stderr.log", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 0],
+      ["materializer_stdout.log", "a24a7f6cd0a558168f3eb83d35975f43eb4648432428e486e861ae84838e6f71", 1251],
+      ["process_receipt.json", "906fcd5468d0a94fa29ddb4ff98b826de39566609532b06810ab87c21801aab2", 3447],
+      ["transport_helper.py", "de2403b17513ffc817a50de79e97b931e4fdd9ac818ffc4156a99ed5a3f5f7a3", 78449]
+    ],
+    "file_count": 6,
+    "logical_file_bytes": 100263,
+    "sha256sum_lines_digest_sha256": "4afec5aa009fc6008ec82bc2e86c54bcc0990ba85ec427a82cb8c0545c892eba",
+    "canonical_json_triples_digest_sha256": "9af08453ab635c0147072cbcad4389e0f3dc1f27d020b9f77cc44c626a2a4cfd"
+  },
+  "v521_materialization_process_receipt": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/process_receipt.json",
+    "sha256": "906fcd5468d0a94fa29ddb4ff98b826de39566609532b06810ab87c21801aab2",
+    "logical_bytes": 3447,
+    "status": "failed_no_retry",
+    "passed": false,
+    "error_type": "RuntimeError",
+    "error": "v520 transport collection failure forensic"
+  },
+  "v521_materialization_stdout": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/materializer_stdout.log",
+    "sha256": "a24a7f6cd0a558168f3eb83d35975f43eb4648432428e486e861ae84838e6f71",
+    "logical_bytes": 1251,
+    "line_count": 2,
+    "line_origin": "transport_helper",
+    "materializer_native_stdout_empty": true,
+    "authority_receipt_sha256": "3e71dff7f0756d966593e8d3200b5fc8370e9849251b16fe61393583afd7735f",
+    "committed_success": true
+  },
+  "v521_materialization_stderr": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/materializer_stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logical_bytes": 0,
+    "empty": true
+  },
+  "sole_snapshot_transition": {
+    "logical_path": ["roots_after_failure", "authority_root", "absent"],
+    "historical_value": true,
+    "current_value": false,
+    "current_state": "present",
+    "authority_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826",
+    "transition_cause": "successful_fcf7_authority_materialization_exact1",
+    "transition_is_valid": true,
+    "transport_post_snapshot_predicate_is_stale": true
+  },
+  "other_seven_historical_absences_current": [
+    "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826.registration-prep",
+    "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1656_20260826",
+    "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1656_20260826.execution-prep",
+    "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_cache_qualification_attempt_seed1656_20260826",
+    "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_cache_qualification_attempt_seed1656_20260826.attempt-prep",
+    "/root/v520_v519_phase_a_cache_qualification_seed1656_20260826",
+    "/root/v520_v519_phase_a_cache_qualification_seed1656_20260826.attempt-prep"
+  ],
+  "execution_partition": {
+    "v521_transport_helper_invocations": 1,
+    "v520_authority_materializer_invocations": 1,
+    "v520_phase_a_launcher_invocations": 0,
+    "v520_phase_a_driver_invocations": 0,
+    "v520_phase_a_worker_invocations": 0,
+    "v520_rng_proxy_delegate_invocations": 0,
+    "v520_independent_auditor_invocations": 0,
+    "phase_a_qualification_outputs_created": 0,
+    "training_invocations": 0,
+    "cache_reuse_invocations": 0,
+    "reward_reads": 0,
+    "dev_hidden_final_outcome_reads": 0,
+    "retry_authorized": false
+  },
+  "frozen_downstream_sources": {
+    "v520_phase_a_launcher": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v520_v519_phase_a_cache_qualification.py", "sha256": "3ba99011c1a43e8fa38d9ebf04e011f48ebcdf0919e718413041dba4e867d36f", "logical_bytes": 64163},
+    "v520_phase_a_driver": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v520_v519_phase_a_cache_qualification.py", "sha256": "4a6afa63b5ef8eff84dd0a197e914ac96a4d32c8f1ac543014810b7949249a05", "logical_bytes": 45542},
+    "v520_phase_a_worker": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v520_v519_phase_a_cache_qualification_worker.py", "sha256": "deff45645f6ba4f650200d0d8d408f01ab107d1ff74eeb041eaa0a70fcf29e7b", "logical_bytes": 38774},
+    "v520_rng_proxy": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py", "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b", "logical_bytes": 8926},
+    "v520_independent_auditor": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v520_v519_phase_a_rng_isolated_qualification.py", "sha256": "6964cc0120489add4ba7397ea7bc1b43bb393ea75ba52e4d588031cbab460f42", "logical_bytes": 45074}
+  },
+  "v521_transport_sources": {
+    "failure_forensic": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v521_v520_authority_transport_collection_failure_forensic.json", "sha256": "ebb1ca52ec8f96cb1903b7e1955485a07eeeb77fd8e4b5373415e38fc8dd1d6a", "logical_bytes": 9234},
+    "transport_helper": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v521_v520_phase_a_rng_isolated_qualification_execution_authority_materializer_once.py", "sha256": "de2403b17513ffc817a50de79e97b931e4fdd9ac818ffc4156a99ed5a3f5f7a3", "logical_bytes": 78449},
+    "transport_script": {"path": "/root/v521_v520_phase_a_rng_isolated_qualification_authority_materialize_once.sh", "sha256": "d4c55f482ba6d351803a0e32ef01f7128f8a1273d540904929720af78ab9b846", "logical_bytes": 2575}
+  },
+  "service_health_pre_and_current_equal": {
+    "8005_v1_health": {"http_code": 200, "body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0", "body_bytes": 106, "json_model": {"api_version": "1.0", "model_version": "track2-v218-public-knn-blend-alpha070-route-aware", "status": "ready"}},
+    "18084_health": {"http_code": 200, "body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd", "body_bytes": 18, "json_model": {"status": "ready"}}
+  },
+  "process_and_gpu_state": {
+    "v520_phase_a_pids_pre": [],
+    "v520_phase_a_pids_current": [],
+    "gpu_compute_pids_pre": [],
+    "gpu_compute_pids_current": [],
+    "cleanup_reaped": true,
+    "cleanup_group_empty": true
+  },
+  "authorization": {
+    "fresh_v522_authority_design_authorized": false,
+    "v521_transport_retry_authorized": false,
+    "v520_phase_a_launcher_authorized_under_v521_failure": false,
+    "direct_phase_a_driver_authorized": false,
+    "training_authorized": false,
+    "cache_reuse_authorized": false,
+    "reward_read_authorized": false,
+    "dev_hidden_final_outcome_read_authorized": false
+  }
+}

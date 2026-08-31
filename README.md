@@ -18,16 +18,19 @@
 | Item | Status |
 | --- | --- |
 | Track 2 API contract | Passed locally |
-| Native-resolution world model | 256px autoregressive U-Net |
+| Native-resolution baseline | Motion-gated autoregressive/Direct Flow ensemble |
 | Episode-disjoint open-loop evaluation | Complete |
 | Multi-round sliding-window rollout | Complete |
-| Current U-Net with public pi05 + T5 reward + RLinf/GRPO | One-step run complete |
+| Best reproducible world-model candidate | Motion-gated two-small-model backend; strict gate not passed |
+| Public pi05 + T5 reward + RLinf/GRPO | Historical integration smoke only; paused pending strict prediction acceptance |
 | Official hidden evaluation | Not publicly available |
 
-This repository implements a deterministic, action-conditioned, autoregressive
-U-Net for the public Adjust Bottle fine-tuning data. Track 2 fixes the API and
-closed-loop evaluation protocol, not the world-model architecture. Wan2.2 is
-an official RLinf reference model, not a mandatory submission requirement.
+This repository contains deterministic Track 2 baselines and a reproducible
+motion-gated candidate for the public Adjust Bottle fine-tuning data. The active candidate
+may enter RL only after every one of the `682 x 8` held-out prediction frames has
+RGB MAE below `1/255`. Track 2 fixes the API and closed-loop evaluation protocol,
+not the world-model architecture; Wan2.2 is an official RLinf reference model,
+not a mandatory submission requirement.
 
 ## Pipeline
 
@@ -67,11 +70,11 @@ four actions as new context. The service itself is stateless: every
 ## Baseline
 
 ```text
-backend:       autoregressive-unet
-model version: autoregressive-unet-track2-native256-rollout8
-checkpoint:    artifacts/checkpoints/autoregressive-unet-track2-rollout8-v1/best
+backend:       autoregressive-flow-ensemble
+model version: autoregressive-horizon-largebatch-direct-flow-motion-gated-v3
+checkpoint:    artifacts/checkpoints/autoregressive-horizon-largebatch-direct-flow-motion-gated-v3
 resolution:    256 x 256 RGB
-rollout:       one action-conditioned frame at a time, recursively for 8 steps
+gate:          high observed motion -> autoregressive; low motion -> 50/50 Direct Flow blend
 ```
 
 The fixed split is episode-disjoint: 40 training episodes, 5 validation
@@ -80,10 +83,10 @@ recursive rollouts rather than only one-step teacher-forced targets.
 
 | Public-data split | Windows | Candidate MAE (RGB 0-255) | Copy-last MAE | Improvement |
 | --- | ---: | ---: | ---: | ---: |
-| Validation | 682 | **7.57** | 15.33 | **50.6% lower** |
-| Local test | 667 | **6.27** | 15.11 | **58.5% lower** |
+| Validation | 682 | **6.064** | 15.334 | **60.5% lower** |
+| Local test | 667 | **5.197** | 15.108 | **65.6% lower** |
 
-Reports: [validation JSON](artifacts/evaluations/autoregressive_unet_rollout8_track2_native256_validation_all.json) and [local-test JSON](artifacts/evaluations/autoregressive_unet_rollout8_track2_native256_local_test_all.json).
+Reports: [validation JSON](artifacts/evaluations/autoregressive_horizon_largebatch_direct_flow_motion_gate_validation_all.json) and [local-test JSON](artifacts/evaluations/autoregressive_horizon_largebatch_direct_flow_motion_gate_local_test_all.json). Horizon-weighted and batch-8 refinement reduce the motion-autoregressive parent by 8.19% on validation and 8.24% on local-test. The observable-motion gate contributes another 0.64% and 0.79%, without regressing high-motion MAE. It still fails the required all-eight-frame `1/255` gate.
 
 ## Visual Results
 
@@ -117,7 +120,7 @@ export PYTHONPATH="$PWD/pipeline"
 conda run -n go1 pytest -q pipeline/tests
 ```
 
-Expected result: `4 passed`.
+Expected result: `36 passed`.
 
 ### 2. Verify and adapt public data
 
@@ -138,16 +141,31 @@ conda run -n go1 python pipeline/scripts/make_episode_split.py \
   --output artifacts/splits/adjust_bottle_50episodes_full.json
 ```
 
-### 3. Train the current candidate
+### 3. Rebuild the autoregressive candidate
 
 ```bash
-conda run -n go1 python pipeline/scripts/train_autoregressive_unet.py \
-  --windows artifacts/adjust_bottle_windows_full \
-  --split-manifest artifacts/splits/adjust_bottle_50episodes_full.json \
-  --output artifacts/checkpoints/autoregressive-unet-track2-rollout8-v1 \
-  --init-autoregressive-checkpoint artifacts/checkpoints/autoregressive-unet-track2-native256-v2/best \
-  --steps 5000 --batch-size 2 --learning-rate 1e-5 \
-  --train-rollout-steps 8 --validation-interval 500 --validation-batches 32
+bash pipeline/scripts/run_autoregressive_rebuild.sh
+bash pipeline/scripts/run_autoregressive_motion_rebuild_pilot.sh
+bash pipeline/scripts/run_autoregressive_horizon_pilot.sh
+bash pipeline/scripts/run_autoregressive_horizon_largebatch_refine.sh
+```
+
+The launcher reconstructs the one-step and rollout-8 stages, resumes atomically
+after interruption, runs the paired 64-window promotion check, and performs the
+full 682-window evaluation only when the pilot improves by at least 1%. The
+second launcher applies motion-aware fine-tuning and runs local-test only after
+its independent pilot and full-validation gates pass. The third launcher gives
+later rollout horizons more loss weight while keeping the mean loss scale fixed.
+
+After the cross-validated motion-gate report promotes, create the deployable
+two-small-model package:
+
+```bash
+conda run -n go1 python pipeline/scripts/package_autoregressive_flow_motion_gate.py \
+  --autoregressive-checkpoint artifacts/checkpoints/autoregressive-unet-track2-rollout8-horizon-largebatch-refine-v1/best \
+  --direct-flow-checkpoint artifacts/checkpoints/direct-flow-unet-track2-formal-v2/best \
+  --selection-report artifacts/evaluations/autoregressive_horizon_largebatch_refine_direct_flow_motion_gate_full682.json \
+  --output artifacts/checkpoints/autoregressive-horizon-largebatch-direct-flow-motion-gated-v3
 ```
 
 ### 4. Start the service and run the API contract test
@@ -155,9 +173,9 @@ conda run -n go1 python pipeline/scripts/train_autoregressive_unet.py \
 Terminal A:
 
 ```bash
-WAM_BACKEND=autoregressive-unet \
-WAM_CHECKPOINT_DIR=artifacts/checkpoints/autoregressive-unet-track2-rollout8-v1/best \
-WAM_MODEL_VERSION=autoregressive-unet-track2-native256-rollout8 \
+WAM_BACKEND=autoregressive-flow-ensemble \
+WAM_CHECKPOINT_DIR=artifacts/checkpoints/autoregressive-horizon-largebatch-direct-flow-motion-gated-v3 \
+WAM_MODEL_VERSION=autoregressive-horizon-largebatch-direct-flow-motion-gated-v3 \
 WAM_BEARER_TOKEN=local-dev-token WAM_PORT=8001 \
 conda run -n go1 python pipeline/scripts/serve.py
 ```
@@ -169,7 +187,7 @@ export PYTHONPATH="$PWD/pipeline"
 conda run -n go1 python pipeline/scripts/contract_test.py \
   --base-url http://127.0.0.1:8001 \
   --token local-dev-token \
-  --model-version autoregressive-unet-track2-native256-rollout8
+  --model-version autoregressive-horizon-largebatch-direct-flow-motion-gated-v3
 ```
 
 The contract test covers health, capabilities, one- and eight-sample batches,
@@ -199,8 +217,11 @@ conda run -n go1 bash pipeline/scripts/run_public_rlinf_track2.sh \
 ```
 
 Before the RLinf command, download the published policy/reward resources, start
-the model service, and start `wam_pipeline.rlinf_bridge.server`. Full commands
-are in [the concise SOP](快速跑通官方pipeline.md).
+the accepted model service, and start `wam_pipeline.rlinf_bridge.server`. Set
+`WAM_CHECKPOINT_DIR`, `WAM_BACKEND=autoregressive-flow-ensemble`, and
+`WAM_STRICT_EVALUATION` to the full `682 x 8` evaluation JSON; the RLinf command
+rejects missing, partial, stale, or failing evidence. Full commands are in
+[the concise SOP](快速跑通官方pipeline.md).
 
 ## Evaluation Boundary
 
@@ -241,8 +262,8 @@ regenerate them with the included scripts.
 
 1. Improve sustained bottle and robot-arm motion with motion-aware sampling,
    losses, and longer closed-loop validation.
-2. Run the frozen autoregressive candidate through multi-step public RLinf on a
-   dedicated API/bridge port and record policy-return stability.
+2. After the formal model passes the `682 x 8` gate, run it through multi-step
+   public RLinf on a dedicated API/bridge port and record policy-return stability.
 3. Run Wan2.2/DiffSynth as a reference baseline when GPU capacity permits, then
    compare both models under the same API and RLinf protocol.
 4. Freeze the best model version, package the service, rerun contract and

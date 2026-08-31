@@ -1,0 +1,954 @@
+{
+  "active_source_paths": {
+    "authority_design_contract": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_execution_authority_contract.json",
+    "authority_materializer": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v541_v540_fixed_budget_all200_training_execution_authority.py",
+    "fixed_budget_trainer": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/train_v541_v540_fixed_budget_all200.py",
+    "fixed_budget_training_independent_auditor": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v541_v540_fixed_budget_all200.py",
+    "fixed_budget_training_launcher": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v541_v540_fixed_budget_all200.py",
+    "fixed_budget_training_manifest": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_manifest.json",
+    "fixed_budget_training_preregistration": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_preregistration.json"
+  },
+  "active_source_records": {
+    "authority_materializer": {
+      "logical_bytes": 16336,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v541_v540_fixed_budget_all200_training_execution_authority.py",
+      "sha256": "e3243165dd9fee10caa49ea99cdba2532c5cbf441a909fb1b92c5fbe5e779015"
+    },
+    "fixed_budget_trainer": {
+      "logical_bytes": 46906,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/train_v541_v540_fixed_budget_all200.py",
+      "sha256": "67896c46f6df51aa3a29076376ff5df0ac7980f8fe97a0f0212907d02f42e316"
+    },
+    "fixed_budget_training_independent_auditor": {
+      "logical_bytes": 4784,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v541_v540_fixed_budget_all200.py",
+      "sha256": "57e628ba412532cb12d97d9927b8ad574899e14b50c2934e8e88f8adba175a98"
+    },
+    "fixed_budget_training_launcher": {
+      "logical_bytes": 2697,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v541_v540_fixed_budget_all200.py",
+      "sha256": "8b9a569f19f08a23b448f87e6e7e1d7a95d20e4b048874aece9d9e213ec3f16b"
+    },
+    "fixed_budget_training_manifest": {
+      "logical_bytes": 6497,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_manifest.json",
+      "sha256": "c973dcb5a6d2d1418e957c04d3d3cf2655977e3dd35a72bc42a0e911d360ab64"
+    },
+    "fixed_budget_training_preregistration": {
+      "logical_bytes": 5698,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_preregistration.json",
+      "sha256": "d429b0aa8e8386e28fe6e90db2981da5c7cc57f64d0dcb250a69d66784a0bd34"
+    }
+  },
+  "active_source_role_order": [
+    "authority_design_contract",
+    "authority_materializer",
+    "fixed_budget_training_preregistration",
+    "fixed_budget_training_manifest",
+    "fixed_budget_trainer",
+    "fixed_budget_training_independent_auditor",
+    "fixed_budget_training_launcher"
+  ],
+  "authority_materializer_source": {
+    "logical_bytes": 16336,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v541_v540_fixed_budget_all200_training_execution_authority.py",
+    "sha256": "e3243165dd9fee10caa49ea99cdba2532c5cbf441a909fb1b92c5fbe5e779015"
+  },
+  "authority_receipt_contract": {
+    "active_source_paths_exact": {
+      "authority_design_contract": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_execution_authority_contract.json",
+      "authority_materializer": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v541_v540_fixed_budget_all200_training_execution_authority.py",
+      "fixed_budget_trainer": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/train_v541_v540_fixed_budget_all200.py",
+      "fixed_budget_training_independent_auditor": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v541_v540_fixed_budget_all200.py",
+      "fixed_budget_training_launcher": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v541_v540_fixed_budget_all200.py",
+      "fixed_budget_training_manifest": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_manifest.json",
+      "fixed_budget_training_preregistration": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_preregistration.json"
+    },
+    "active_source_role_order_exact": [
+      "authority_design_contract",
+      "authority_materializer",
+      "fixed_budget_training_preregistration",
+      "fixed_budget_training_manifest",
+      "fixed_budget_trainer",
+      "fixed_budget_training_independent_auditor",
+      "fixed_budget_training_launcher"
+    ],
+    "authority_active_source_records_count": 7,
+    "authority_design_record_included": true,
+    "authorization_exact": {
+      "auditor_import_invocations_authorized": 1,
+      "backward_invocations_authorized": 500,
+      "config_selection_invocations_authorized": 0,
+      "early_stop_invocations_authorized": 0,
+      "final_checkpoint_writes_authorized": 1,
+      "fixed_budget_training_boundary_invocations_authorized": 1,
+      "fixed_budget_training_boundary_invocations_consumed": 0,
+      "forward_invocations_authorized": 500,
+      "gradient_clip_invocations_authorized": 500,
+      "hidden_private_or_final_input_authorized": false,
+      "intermediate_checkpoint_writes_authorized": 0,
+      "loss_invocations_authorized": 500,
+      "optimizer_step_invocations_authorized": 500,
+      "optimizer_zero_grad_invocations_authorized": 500,
+      "output_publication_invocations_authorized": 1,
+      "resume_invocations_authorized": 0,
+      "retry_authorized": false,
+      "scheduler_instances_authorized": 0,
+      "scheduler_step_invocations_authorized": 0,
+      "search_invocations_authorized": 0,
+      "training_authorized": true,
+      "training_launcher_invocations_authorized": 1,
+      "training_trainer_invocations_authorized": 1
+    },
+    "base_training_contract_exact": {
+      "action_head_only": true,
+      "base_and_inputs_readonly": true,
+      "channels": 16,
+      "gradient_accumulation_steps": 1,
+      "gradient_clip_global_norm": 1.0,
+      "model": "TemporalResidualUNet128FiLM",
+      "optimizer": {
+        "betas": [
+          0.9,
+          0.95
+        ],
+        "eps": 1e-08,
+        "learning_rate": 0.0003,
+        "name": "AdamW",
+        "weight_decay": 0.0001
+      },
+      "precision": {
+        "autocast": "bf16",
+        "loss_accumulation": "fp32",
+        "master_parameters": "fp32"
+      },
+      "scheduler": "none",
+      "trainable_parameter_count": 878579,
+      "training_seed": 1624
+    },
+    "budget_contract_exact": {
+      "all200_schedule_seed": 2624,
+      "all200_schedule_sha256": "8546544fdfbbe793b65e9012e8b1e17f65091de241f4d2a180cd284b1c5ed49f",
+      "all200_schedule_shape": [
+        500,
+        2
+      ],
+      "backward_calls": 500,
+      "batch_sequences": 2,
+      "branch_labels": [
+        "factual",
+        "no_transport",
+        "scale_0p4",
+        "scale_1p25",
+        "reverse_direction_0p4"
+      ],
+      "branches_per_context": 5,
+      "checkpoint_writes": 1,
+      "contexts": 200,
+      "early_stop_calls": 0,
+      "fold_training_calls": 0,
+      "forward_calls": 500,
+      "gradient_clip_calls": 500,
+      "intermediate_checkpoint_writes": 0,
+      "loss_calls": 500,
+      "optimizer_steps": 500,
+      "optimizer_zero_grad_calls": 500,
+      "prefix_frame_examples_per_step": 16,
+      "prefix_frames_per_sequence": 8,
+      "publication_calls": 1,
+      "resume_calls": 0,
+      "retry_calls": 0,
+      "schedule_flatten_exact_permutation_start": 0,
+      "schedule_flatten_exact_permutation_stop_exclusive": 1000,
+      "schedule_no_drop_no_pad_no_repeat": true,
+      "scheduler_instances": 0,
+      "scheduler_steps": 0,
+      "search_calls": 0,
+      "sequence_instances": 1000,
+      "total_prefix_frame_examples": 8000
+    },
+    "check_key_set_sha256": "fbf69773eb361d33cac274be0731b07d1c7c63a66ef491f0a47940fc082968d6",
+    "check_keys": [
+      "contract_schema",
+      "preregistration_schema",
+      "manifest_schema",
+      "authorization_exact_strict",
+      "budget_arithmetic_exact",
+      "schedule_permutation_exact",
+      "runtime_boundary_exact",
+      "execution_boundary_exact",
+      "source_role_order_exact",
+      "source_aliases_exact",
+      "source_closure28_current",
+      "active_sources6_current",
+      "contract_active_records6",
+      "authority_active_records7",
+      "v540_exact8_current",
+      "v540_authority_immutable_consumed0",
+      "v540_durable_boundary1",
+      "v540_metrics_not_parsed",
+      "v534_oof_current_readonly",
+      "v524_qualification_exact20_readonly",
+      "v524_cache_current_readonly",
+      "v482_base_model_sources_current",
+      "v474_selection_current",
+      "base_data_sources_readonly",
+      "fresh_roots6_absent",
+      "input_prepost_equal",
+      "services_current",
+      "gpu_empty",
+      "execution_pids_empty",
+      "all_unsafe_disabled",
+      "publish_noreplace_exact1",
+      "lineage_exact",
+      "two_stage_boundary_only",
+      "output_exact6_contract"
+    ],
+    "checks_sha256": "a8773dd31f86e98b4346244d8b9d3414c325d6d2eabb48789fe0a6bd161c760d",
+    "contract_active_source_records_count": 6,
+    "contract_active_source_records_exact": {
+      "authority_materializer": {
+        "logical_bytes": 16336,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v541_v540_fixed_budget_all200_training_execution_authority.py",
+        "sha256": "e3243165dd9fee10caa49ea99cdba2532c5cbf441a909fb1b92c5fbe5e779015"
+      },
+      "fixed_budget_trainer": {
+        "logical_bytes": 46906,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/train_v541_v540_fixed_budget_all200.py",
+        "sha256": "67896c46f6df51aa3a29076376ff5df0ac7980f8fe97a0f0212907d02f42e316"
+      },
+      "fixed_budget_training_independent_auditor": {
+        "logical_bytes": 4784,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v541_v540_fixed_budget_all200.py",
+        "sha256": "57e628ba412532cb12d97d9927b8ad574899e14b50c2934e8e88f8adba175a98"
+      },
+      "fixed_budget_training_launcher": {
+        "logical_bytes": 2697,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v541_v540_fixed_budget_all200.py",
+        "sha256": "8b9a569f19f08a23b448f87e6e7e1d7a95d20e4b048874aece9d9e213ec3f16b"
+      },
+      "fixed_budget_training_manifest": {
+        "logical_bytes": 6497,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_manifest.json",
+        "sha256": "c973dcb5a6d2d1418e957c04d3d3cf2655977e3dd35a72bc42a0e911d360ab64"
+      },
+      "fixed_budget_training_preregistration": {
+        "logical_bytes": 5698,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_preregistration.json",
+        "sha256": "d429b0aa8e8386e28fe6e90db2981da5c7cc57f64d0dcb250a69d66784a0bd34"
+      }
+    },
+    "contract_design_record_excluded_to_avoid_self_hash_cycle": true,
+    "execution_boundary_exact": {
+      "auditor_import_invocations": 0,
+      "authority_materialization_only": true,
+      "authority_publication_noreplace": true,
+      "direct_training_authorized": false,
+      "fixed_budget_training_boundary_invocations": 0,
+      "hidden_private_final_reward_inputs_authorized": false,
+      "metrics_semantic_parse_or_config_selection_authorized": false,
+      "optimizer_step_invocations": 0,
+      "output_publication_invocations": 0,
+      "postcommit_diagnostics_best_effort_success_priority": true,
+      "rollback_retry_or_second_publish_after_commit": false,
+      "training_execution_authorized": false,
+      "training_launcher_invocations": 0,
+      "training_trainer_invocations": 0
+    },
+    "format": "strict-track2-v541-v540-fixed-budget-all200-training-execution-authority-v1",
+    "output_contract_exact": {
+      "build_order": [
+        "attempt_intent.json",
+        "training_events.ndjson",
+        "checkpoint.pt",
+        "training_receipt.json",
+        "independent_audit.json",
+        "source_manifest.json"
+      ],
+      "exact_count": 6,
+      "exact_names": [
+        "attempt_intent.json",
+        "checkpoint.pt",
+        "independent_audit.json",
+        "source_manifest.json",
+        "training_events.ndjson",
+        "training_receipt.json"
+      ],
+      "held_o_rdwr_excl_nofollow_members": 6,
+      "noreplace_directory_publication": true,
+      "postcommit_success_priority": true
+    },
+    "runtime_observation_exact": {
+      "actual_oof_execution_invocations": 0,
+      "auditor_import_invocations": 0,
+      "authority_materializer_invocations": 1,
+      "backward_invocations": 0,
+      "config_selection_invocations": 0,
+      "early_stop_invocations": 0,
+      "final_checkpoint_writes": 0,
+      "fixed_budget_training_boundary_invocations": 0,
+      "fold_training_invocations": 0,
+      "forward_invocations": 0,
+      "gradient_clip_invocations": 0,
+      "hidden_private_final_reward_read_invocations": 0,
+      "intermediate_checkpoint_writes": 0,
+      "loss_invocations": 0,
+      "optimizer_step_invocations": 0,
+      "optimizer_zero_grad_invocations": 0,
+      "output_publication_invocations": 0,
+      "public_s1_zero_update_invocations": 0,
+      "resume_invocations": 0,
+      "retry_invocations": 0,
+      "scheduler_instances": 0,
+      "scheduler_step_invocations": 0,
+      "search_invocations": 0,
+      "training_launcher_invocations": 0,
+      "training_trainer_invocations": 0
+    },
+    "source_closure_contract_count": 28,
+    "status": "authorized_exact_one_fixed_budget_training_boundary_pending_external_execution",
+    "top_keys": [
+      "active_source_paths",
+      "active_source_records",
+      "active_source_role_order",
+      "authority_design_contract",
+      "authority_materializer_source",
+      "authorization",
+      "base_training_contract",
+      "budget_contract",
+      "check_key_set_sha256",
+      "check_keys",
+      "checks",
+      "checks_sha256",
+      "execution_boundary",
+      "fixed_budget_trainer_source",
+      "fixed_budget_training_independent_auditor_source",
+      "fixed_budget_training_launcher_source",
+      "fixed_budget_training_manifest_source",
+      "fixed_budget_training_preregistration_source",
+      "format",
+      "fresh_attempt_root",
+      "fresh_output_root",
+      "historical_absences",
+      "input_post_snapshot",
+      "input_pre_snapshot",
+      "input_snapshots_exactly_equal",
+      "lineage",
+      "output_contract",
+      "passed",
+      "required_absences",
+      "runtime_observation",
+      "seed",
+      "source_aliases",
+      "source_closure",
+      "source_closure_sha256",
+      "source_role_order",
+      "status",
+      "v474_public_s1_selection_source",
+      "v482_model_design_contract_source",
+      "v482_preregistration_source",
+      "v482_runtime_source_source",
+      "v482_trainer_source_source",
+      "v524_cache_manifest_source",
+      "v524_qualification_audit_source",
+      "v524_qualification_report_source",
+      "v524_qualification_terminal_source",
+      "v534_actual_oof_execution_receipt_source",
+      "v534_actual_oof_independent_audit_source",
+      "v534_actual_oof_source_manifest_source",
+      "v534_authority_receipt_source",
+      "v540_attempt_intent_source",
+      "v540_authority_receipt_source",
+      "v540_execution_receipt_source",
+      "v540_gate_transition",
+      "v540_independent_audit_source",
+      "v540_public_s1_events_source",
+      "v540_public_s1_metrics_source",
+      "v540_source_manifest_source",
+      "v540_zero_update_receipt_source",
+      "v540_zero_update_trace_source"
+    ],
+    "v540_gate_transition_exact": {
+      "config_or_budget_selected_from_v540_metrics": false,
+      "exact_count": 8,
+      "metrics_semantic_parse_authorized": false,
+      "passed_ancestry_only": true,
+      "retry_authorized": false,
+      "root": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828",
+      "tree_canonical_sha256": "71117c8570f8fd62865eb2573b2b2a402eeec78ca8a83881c9bdd442c434459f",
+      "tree_lines_sha256": "24dee8d2fee5ee7e8a2e6aa3ca130ee9ad0935c8def7fed5baa1ceb35bd544fc",
+      "tree_total_logical_bytes": 6999111
+    }
+  },
+  "authorization": {
+    "auditor_import_invocations_authorized": 1,
+    "backward_invocations_authorized": 500,
+    "config_selection_invocations_authorized": 0,
+    "early_stop_invocations_authorized": 0,
+    "final_checkpoint_writes_authorized": 1,
+    "fixed_budget_training_boundary_invocations_authorized": 1,
+    "fixed_budget_training_boundary_invocations_consumed": 0,
+    "forward_invocations_authorized": 500,
+    "gradient_clip_invocations_authorized": 500,
+    "hidden_private_or_final_input_authorized": false,
+    "intermediate_checkpoint_writes_authorized": 0,
+    "loss_invocations_authorized": 500,
+    "optimizer_step_invocations_authorized": 500,
+    "optimizer_zero_grad_invocations_authorized": 500,
+    "output_publication_invocations_authorized": 1,
+    "resume_invocations_authorized": 0,
+    "retry_authorized": false,
+    "scheduler_instances_authorized": 0,
+    "scheduler_step_invocations_authorized": 0,
+    "search_invocations_authorized": 0,
+    "training_authorized": true,
+    "training_launcher_invocations_authorized": 1,
+    "training_trainer_invocations_authorized": 1
+  },
+  "base_training_contract": {
+    "action_head_only": true,
+    "base_and_inputs_readonly": true,
+    "channels": 16,
+    "gradient_accumulation_steps": 1,
+    "gradient_clip_global_norm": 1.0,
+    "model": "TemporalResidualUNet128FiLM",
+    "optimizer": {
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-08,
+      "learning_rate": 0.0003,
+      "name": "AdamW",
+      "weight_decay": 0.0001
+    },
+    "precision": {
+      "autocast": "bf16",
+      "loss_accumulation": "fp32",
+      "master_parameters": "fp32"
+    },
+    "scheduler": "none",
+    "trainable_parameter_count": 878579,
+    "training_seed": 1624
+  },
+  "budget_contract": {
+    "all200_schedule_seed": 2624,
+    "all200_schedule_sha256": "8546544fdfbbe793b65e9012e8b1e17f65091de241f4d2a180cd284b1c5ed49f",
+    "all200_schedule_shape": [
+      500,
+      2
+    ],
+    "backward_calls": 500,
+    "batch_sequences": 2,
+    "branch_labels": [
+      "factual",
+      "no_transport",
+      "scale_0p4",
+      "scale_1p25",
+      "reverse_direction_0p4"
+    ],
+    "branches_per_context": 5,
+    "checkpoint_writes": 1,
+    "contexts": 200,
+    "early_stop_calls": 0,
+    "fold_training_calls": 0,
+    "forward_calls": 500,
+    "gradient_clip_calls": 500,
+    "intermediate_checkpoint_writes": 0,
+    "loss_calls": 500,
+    "optimizer_steps": 500,
+    "optimizer_zero_grad_calls": 500,
+    "prefix_frame_examples_per_step": 16,
+    "prefix_frames_per_sequence": 8,
+    "publication_calls": 1,
+    "resume_calls": 0,
+    "retry_calls": 0,
+    "schedule_flatten_exact_permutation_start": 0,
+    "schedule_flatten_exact_permutation_stop_exclusive": 1000,
+    "schedule_no_drop_no_pad_no_repeat": true,
+    "scheduler_instances": 0,
+    "scheduler_steps": 0,
+    "search_calls": 0,
+    "sequence_instances": 1000,
+    "total_prefix_frame_examples": 8000
+  },
+  "current_absences_after_authority": {
+    "attempt_prep": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v541_v540_fixed_budget_all200_training_attempt_seed1672_20260828.attempt-prep"
+    },
+    "attempt_root": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v541_v540_fixed_budget_all200_training_attempt_seed1672_20260828"
+    },
+    "authority_prep": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v541_v540_fixed_budget_all200_training_execution_authority_seed1672_20260828.authority-prep"
+    },
+    "output_prep": {
+      "absent": true,
+      "path": "/root/v541_v540_fixed_budget_all200_training_seed1624_20260828.training-prep"
+    },
+    "output_root": {
+      "absent": true,
+      "path": "/root/v541_v540_fixed_budget_all200_training_seed1624_20260828"
+    }
+  },
+  "execution_boundary": {
+    "auditor_import_invocations": 0,
+    "authority_materialization_only": true,
+    "authority_publication_noreplace": true,
+    "direct_training_authorized": false,
+    "fixed_budget_training_boundary_invocations": 0,
+    "hidden_private_final_reward_inputs_authorized": false,
+    "metrics_semantic_parse_or_config_selection_authorized": false,
+    "optimizer_step_invocations": 0,
+    "output_publication_invocations": 0,
+    "postcommit_diagnostics_best_effort_success_priority": true,
+    "rollback_retry_or_second_publish_after_commit": false,
+    "training_execution_authorized": false,
+    "training_launcher_invocations": 0,
+    "training_trainer_invocations": 0
+  },
+  "fixed_budget_trainer_source": {
+    "logical_bytes": 46906,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/train_v541_v540_fixed_budget_all200.py",
+    "sha256": "67896c46f6df51aa3a29076376ff5df0ac7980f8fe97a0f0212907d02f42e316"
+  },
+  "fixed_budget_training_independent_auditor_source": {
+    "logical_bytes": 4784,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v541_v540_fixed_budget_all200.py",
+    "sha256": "57e628ba412532cb12d97d9927b8ad574899e14b50c2934e8e88f8adba175a98"
+  },
+  "fixed_budget_training_launcher_source": {
+    "logical_bytes": 2697,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v541_v540_fixed_budget_all200.py",
+    "sha256": "8b9a569f19f08a23b448f87e6e7e1d7a95d20e4b048874aece9d9e213ec3f16b"
+  },
+  "fixed_budget_training_manifest_source": {
+    "logical_bytes": 6497,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_manifest.json",
+    "sha256": "c973dcb5a6d2d1418e957c04d3d3cf2655977e3dd35a72bc42a0e911d360ab64"
+  },
+  "fixed_budget_training_preregistration_source": {
+    "logical_bytes": 5698,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_preregistration.json",
+    "sha256": "d429b0aa8e8386e28fe6e90db2981da5c7cc57f64d0dcb250a69d66784a0bd34"
+  },
+  "format": "strict-track2-v541-v540-fixed-budget-all200-training-execution-authority-design-contract-v1",
+  "historical_absences": {
+    "attempt_prep": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v541_v540_fixed_budget_all200_training_attempt_seed1672_20260828.attempt-prep"
+    },
+    "attempt_root": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v541_v540_fixed_budget_all200_training_attempt_seed1672_20260828"
+    },
+    "authority_prep": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v541_v540_fixed_budget_all200_training_execution_authority_seed1672_20260828.authority-prep"
+    },
+    "authority_root": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v541_v540_fixed_budget_all200_training_execution_authority_seed1672_20260828"
+    },
+    "output_prep": {
+      "absent": true,
+      "path": "/root/v541_v540_fixed_budget_all200_training_seed1624_20260828.training-prep"
+    },
+    "output_root": {
+      "absent": true,
+      "path": "/root/v541_v540_fixed_budget_all200_training_seed1624_20260828"
+    }
+  },
+  "lineage": {
+    "base_model_data_and_sources_readonly": true,
+    "canonical_v541_training_not_performed": true,
+    "formal_all200_exact500_budget_frozen": true,
+    "fresh_fixed_budget_training_authority_only": true,
+    "hidden_private_final_reward_inputs_denied": true,
+    "retry_search_earlystop_resume_authorized": false,
+    "v482_model_and_training_components_frozen": true,
+    "v524_qualification_exact20_readonly": true,
+    "v534_actual_oof_folds_reused_readonly": true,
+    "v540_durable_boundary_one_current": true,
+    "v540_metrics_semantic_parse_or_config_selection_authorized": false,
+    "v540_public_s1_zero_update_passed_current": true
+  },
+  "output_contract": {
+    "build_order": [
+      "attempt_intent.json",
+      "training_events.ndjson",
+      "checkpoint.pt",
+      "training_receipt.json",
+      "independent_audit.json",
+      "source_manifest.json"
+    ],
+    "exact_count": 6,
+    "exact_names": [
+      "attempt_intent.json",
+      "checkpoint.pt",
+      "independent_audit.json",
+      "source_manifest.json",
+      "training_events.ndjson",
+      "training_receipt.json"
+    ],
+    "held_o_rdwr_excl_nofollow_members": 6,
+    "noreplace_directory_publication": true,
+    "postcommit_success_priority": true
+  },
+  "runtime_observation": {
+    "actual_oof_execution_invocations": 0,
+    "auditor_import_invocations": 0,
+    "authority_materializer_invocations": 1,
+    "backward_invocations": 0,
+    "config_selection_invocations": 0,
+    "early_stop_invocations": 0,
+    "final_checkpoint_writes": 0,
+    "fixed_budget_training_boundary_invocations": 0,
+    "fold_training_invocations": 0,
+    "forward_invocations": 0,
+    "gradient_clip_invocations": 0,
+    "hidden_private_final_reward_read_invocations": 0,
+    "intermediate_checkpoint_writes": 0,
+    "loss_invocations": 0,
+    "optimizer_step_invocations": 0,
+    "optimizer_zero_grad_invocations": 0,
+    "output_publication_invocations": 0,
+    "public_s1_zero_update_invocations": 0,
+    "resume_invocations": 0,
+    "retry_invocations": 0,
+    "scheduler_instances": 0,
+    "scheduler_step_invocations": 0,
+    "search_invocations": 0,
+    "training_launcher_invocations": 0,
+    "training_trainer_invocations": 0
+  },
+  "seed": 1672,
+  "source_aliases": {
+    "authority_materializer": "authority_materializer_source",
+    "fixed_budget_trainer": "fixed_budget_trainer_source",
+    "fixed_budget_training_independent_auditor": "fixed_budget_training_independent_auditor_source",
+    "fixed_budget_training_launcher": "fixed_budget_training_launcher_source",
+    "fixed_budget_training_manifest": "fixed_budget_training_manifest_source",
+    "fixed_budget_training_preregistration": "fixed_budget_training_preregistration_source",
+    "v474_public_s1_selection": "v474_public_s1_selection_source",
+    "v482_model_design_contract": "v482_model_design_contract_source",
+    "v482_preregistration": "v482_preregistration_source",
+    "v482_runtime_source": "v482_runtime_source_source",
+    "v482_trainer_source": "v482_trainer_source_source",
+    "v524_cache_manifest": "v524_cache_manifest_source",
+    "v524_qualification_audit": "v524_qualification_audit_source",
+    "v524_qualification_report": "v524_qualification_report_source",
+    "v524_qualification_terminal": "v524_qualification_terminal_source",
+    "v534_actual_oof_execution_receipt": "v534_actual_oof_execution_receipt_source",
+    "v534_actual_oof_independent_audit": "v534_actual_oof_independent_audit_source",
+    "v534_actual_oof_source_manifest": "v534_actual_oof_source_manifest_source",
+    "v534_authority_receipt": "v534_authority_receipt_source",
+    "v540_attempt_intent": "v540_attempt_intent_source",
+    "v540_authority_receipt": "v540_authority_receipt_source",
+    "v540_execution_receipt": "v540_execution_receipt_source",
+    "v540_independent_audit": "v540_independent_audit_source",
+    "v540_public_s1_events": "v540_public_s1_events_source",
+    "v540_public_s1_metrics": "v540_public_s1_metrics_source",
+    "v540_source_manifest": "v540_source_manifest_source",
+    "v540_zero_update_receipt": "v540_zero_update_receipt_source",
+    "v540_zero_update_trace": "v540_zero_update_trace_source"
+  },
+  "source_closure": {
+    "authority_materializer": {
+      "logical_bytes": 16336,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v541_v540_fixed_budget_all200_training_execution_authority.py",
+      "sha256": "e3243165dd9fee10caa49ea99cdba2532c5cbf441a909fb1b92c5fbe5e779015"
+    },
+    "fixed_budget_trainer": {
+      "logical_bytes": 46906,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/train_v541_v540_fixed_budget_all200.py",
+      "sha256": "67896c46f6df51aa3a29076376ff5df0ac7980f8fe97a0f0212907d02f42e316"
+    },
+    "fixed_budget_training_independent_auditor": {
+      "logical_bytes": 4784,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v541_v540_fixed_budget_all200.py",
+      "sha256": "57e628ba412532cb12d97d9927b8ad574899e14b50c2934e8e88f8adba175a98"
+    },
+    "fixed_budget_training_launcher": {
+      "logical_bytes": 2697,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v541_v540_fixed_budget_all200.py",
+      "sha256": "8b9a569f19f08a23b448f87e6e7e1d7a95d20e4b048874aece9d9e213ec3f16b"
+    },
+    "fixed_budget_training_manifest": {
+      "logical_bytes": 6497,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_manifest.json",
+      "sha256": "c973dcb5a6d2d1418e957c04d3d3cf2655977e3dd35a72bc42a0e911d360ab64"
+    },
+    "fixed_budget_training_preregistration": {
+      "logical_bytes": 5698,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v541_v540_fixed_budget_all200_training_preregistration.json",
+      "sha256": "d429b0aa8e8386e28fe6e90db2981da5c7cc57f64d0dcb250a69d66784a0bd34"
+    },
+    "v474_public_s1_selection": {
+      "logical_bytes": 297226,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v474_v473_parent_s1_seed1617_r6_20260824/action_only_selection.json",
+      "sha256": "b8e8002897b9ec0e1b386eda6d72a6bc2a09c8e322764a1c6c27b96cf902bd19"
+    },
+    "v482_model_design_contract": {
+      "logical_bytes": 37030,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v482_temporal_film_residual_model_design_contract.json",
+      "sha256": "19eea774f4b8871528054a352bf6c7ed6cefd39afcfc1956c9cf7a969335fddb"
+    },
+    "v482_preregistration": {
+      "logical_bytes": 294684,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/preregistration.json",
+      "sha256": "426d4f7a774520458f6af41d20660cf31202791f99603dacec114f771da6a881"
+    },
+    "v482_runtime_source": {
+      "logical_bytes": 21745,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/v482_temporal8_residual_runtime.py",
+      "sha256": "6939e3f6f52c1eb83bfd4324372d7e75ed4ee6d493777a39f38c26e5f4db7471"
+    },
+    "v482_trainer_source": {
+      "logical_bytes": 48428,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/train_v482_temporal8_residual_5fold.py",
+      "sha256": "674b68afed3b6c39663d629db38be11aa2c752e54692458b43d4254eb08b8c1d"
+    },
+    "v524_cache_manifest": {
+      "logical_bytes": 18453,
+      "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/cache/manifest.json",
+      "sha256": "716d62575ea149242f0e0918ed508e22ae803ff12d3b66fb26bb4b8f5a3e6f94"
+    },
+    "v524_qualification_audit": {
+      "logical_bytes": 9935,
+      "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/independent_final_audit.json",
+      "sha256": "3d702b36a3589d737c9f21e0a1182c59f636753faa1143a2adc85d90d3a674bc"
+    },
+    "v524_qualification_report": {
+      "logical_bytes": 87681,
+      "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/qualification_report.json",
+      "sha256": "6514b497f994bc502fc46dc6c5a90865dbb126402935cfa359a1af2fe0fbc173"
+    },
+    "v524_qualification_terminal": {
+      "logical_bytes": 83762,
+      "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/terminal_receipt.json",
+      "sha256": "93d38e010b37275a740bf3ccae2b935b08e40b6953657c12838780e5e2b542a1"
+    },
+    "v534_actual_oof_execution_receipt": {
+      "logical_bytes": 10373,
+      "path": "/root/v534_v533_actual_oof_seed1667_20260827/execution_receipt.json",
+      "sha256": "1a094542b3edd53cf47ef6d6379a2fa2de7cdf31483a65df0fc2d8cba195fb7b"
+    },
+    "v534_actual_oof_independent_audit": {
+      "logical_bytes": 1705,
+      "path": "/root/v534_v533_actual_oof_seed1667_20260827/independent_audit.json",
+      "sha256": "223f718b5bb2aa396452cb85ff522cfdb9465ea4cea14ce46cf74dabd8eab8ff"
+    },
+    "v534_actual_oof_source_manifest": {
+      "logical_bytes": 710,
+      "path": "/root/v534_v533_actual_oof_seed1667_20260827/source_manifest.json",
+      "sha256": "5be99639ca21497d2ca6f76fe2f8704fdb2e4838d06934c113e2773e67ea62f6"
+    },
+    "v534_authority_receipt": {
+      "logical_bytes": 324362,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v534_v533_actual_oof_environment_repair_execution_authority_seed1667_20260827/authority_receipt.json",
+      "sha256": "54c7d75b911f4a70a28d9eb69b77cccd321d18a636f1d4ce82e086d68dda599e"
+    },
+    "v540_attempt_intent": {
+      "logical_bytes": 2549,
+      "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/attempt_intent.json",
+      "sha256": "d7329427acb04f7b7fb5bcc001170054c2242ec27c6bb74b6f49e1f2a265e5bc"
+    },
+    "v540_authority_receipt": {
+      "logical_bytes": 137938,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v540_v539_public_s1_zero_update_poststage_owned_output_prep_repair_execution_authority_seed1671_20260828/authority_receipt.json",
+      "sha256": "832933eaf3feed93c8ad34d2d31a242e85014b53f6f1f2169864628c2a5ce077"
+    },
+    "v540_execution_receipt": {
+      "logical_bytes": 1064,
+      "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/execution_receipt.json",
+      "sha256": "37ac8e40a86b278da825b08c30881fe826e79bda4fe2cabf72da2ef30464d90a"
+    },
+    "v540_independent_audit": {
+      "logical_bytes": 1666,
+      "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/independent_audit.json",
+      "sha256": "ec3edb4a2b246774985cf56ac4f49674b03ad916f01d6e5ef277afdea967f808"
+    },
+    "v540_public_s1_events": {
+      "logical_bytes": 30183,
+      "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/public_s1_events.ndjson",
+      "sha256": "be326fd4a4aec16c997fc75bf5f50d5149fd0243641ed8a1a537a1f9e7e69067"
+    },
+    "v540_public_s1_metrics": {
+      "logical_bytes": 333,
+      "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/public_s1_metrics.json",
+      "sha256": "58479ec6370a2d50ebedc57de6b393a716e03710ddb96facf809c78576a5fbb8"
+    },
+    "v540_source_manifest": {
+      "logical_bytes": 710,
+      "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/source_manifest.json",
+      "sha256": "8b5866a5af3517a7d7720c87e16f3ef0a4d5554f7822939a0990f6d029467f05"
+    },
+    "v540_zero_update_receipt": {
+      "logical_bytes": 641,
+      "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/zero_update_receipt.json",
+      "sha256": "14eb16fbe797850b016397423c0213aee72000372f239ad18e5ebe81bb69e381"
+    },
+    "v540_zero_update_trace": {
+      "logical_bytes": 6961965,
+      "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/zero_update_trace.json",
+      "sha256": "28f800555a4667aae78bf686cd9f6217fb5daa372f4d8fb8a1998f49f60bd8a8"
+    }
+  },
+  "source_closure_sha256": "486289bde3401480b22fa62fecdca5973ab7594949fe7658ef489b5da97c849c",
+  "source_role_order": [
+    "authority_materializer",
+    "fixed_budget_training_preregistration",
+    "fixed_budget_training_manifest",
+    "fixed_budget_trainer",
+    "fixed_budget_training_independent_auditor",
+    "fixed_budget_training_launcher",
+    "v540_authority_receipt",
+    "v540_attempt_intent",
+    "v540_execution_receipt",
+    "v540_independent_audit",
+    "v540_public_s1_events",
+    "v540_public_s1_metrics",
+    "v540_source_manifest",
+    "v540_zero_update_receipt",
+    "v540_zero_update_trace",
+    "v534_authority_receipt",
+    "v534_actual_oof_execution_receipt",
+    "v534_actual_oof_independent_audit",
+    "v534_actual_oof_source_manifest",
+    "v482_preregistration",
+    "v482_runtime_source",
+    "v482_model_design_contract",
+    "v482_trainer_source",
+    "v524_cache_manifest",
+    "v524_qualification_terminal",
+    "v524_qualification_report",
+    "v524_qualification_audit",
+    "v474_public_s1_selection"
+  ],
+  "status": "design_only_frozen_fixed_budget_training_sources_pending_independent_authority_materialization",
+  "v474_public_s1_selection_source": {
+    "logical_bytes": 297226,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v474_v473_parent_s1_seed1617_r6_20260824/action_only_selection.json",
+    "sha256": "b8e8002897b9ec0e1b386eda6d72a6bc2a09c8e322764a1c6c27b96cf902bd19"
+  },
+  "v482_model_design_contract_source": {
+    "logical_bytes": 37030,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v482_temporal_film_residual_model_design_contract.json",
+    "sha256": "19eea774f4b8871528054a352bf6c7ed6cefd39afcfc1956c9cf7a969335fddb"
+  },
+  "v482_preregistration_source": {
+    "logical_bytes": 294684,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/preregistration.json",
+    "sha256": "426d4f7a774520458f6af41d20660cf31202791f99603dacec114f771da6a881"
+  },
+  "v482_runtime_source_source": {
+    "logical_bytes": 21745,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/v482_temporal8_residual_runtime.py",
+    "sha256": "6939e3f6f52c1eb83bfd4324372d7e75ed4ee6d493777a39f38c26e5f4db7471"
+  },
+  "v482_trainer_source_source": {
+    "logical_bytes": 48428,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/train_v482_temporal8_residual_5fold.py",
+    "sha256": "674b68afed3b6c39663d629db38be11aa2c752e54692458b43d4254eb08b8c1d"
+  },
+  "v524_cache_manifest_source": {
+    "logical_bytes": 18453,
+    "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/process_a/cache/manifest.json",
+    "sha256": "716d62575ea149242f0e0918ed508e22ae803ff12d3b66fb26bb4b8f5a3e6f94"
+  },
+  "v524_qualification_audit_source": {
+    "logical_bytes": 9935,
+    "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/independent_final_audit.json",
+    "sha256": "3d702b36a3589d737c9f21e0a1182c59f636753faa1143a2adc85d90d3a674bc"
+  },
+  "v524_qualification_report_source": {
+    "logical_bytes": 87681,
+    "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/qualification_report.json",
+    "sha256": "6514b497f994bc502fc46dc6c5a90865dbb126402935cfa359a1af2fe0fbc173"
+  },
+  "v524_qualification_terminal_source": {
+    "logical_bytes": 83762,
+    "path": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826/terminal_receipt.json",
+    "sha256": "93d38e010b37275a740bf3ccae2b935b08e40b6953657c12838780e5e2b542a1"
+  },
+  "v534_actual_oof_execution_receipt_source": {
+    "logical_bytes": 10373,
+    "path": "/root/v534_v533_actual_oof_seed1667_20260827/execution_receipt.json",
+    "sha256": "1a094542b3edd53cf47ef6d6379a2fa2de7cdf31483a65df0fc2d8cba195fb7b"
+  },
+  "v534_actual_oof_independent_audit_source": {
+    "logical_bytes": 1705,
+    "path": "/root/v534_v533_actual_oof_seed1667_20260827/independent_audit.json",
+    "sha256": "223f718b5bb2aa396452cb85ff522cfdb9465ea4cea14ce46cf74dabd8eab8ff"
+  },
+  "v534_actual_oof_source_manifest_source": {
+    "logical_bytes": 710,
+    "path": "/root/v534_v533_actual_oof_seed1667_20260827/source_manifest.json",
+    "sha256": "5be99639ca21497d2ca6f76fe2f8704fdb2e4838d06934c113e2773e67ea62f6"
+  },
+  "v534_authority_receipt_source": {
+    "logical_bytes": 324362,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v534_v533_actual_oof_environment_repair_execution_authority_seed1667_20260827/authority_receipt.json",
+    "sha256": "54c7d75b911f4a70a28d9eb69b77cccd321d18a636f1d4ce82e086d68dda599e"
+  },
+  "v540_attempt_intent_source": {
+    "logical_bytes": 2549,
+    "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/attempt_intent.json",
+    "sha256": "d7329427acb04f7b7fb5bcc001170054c2242ec27c6bb74b6f49e1f2a265e5bc"
+  },
+  "v540_authority_receipt_source": {
+    "logical_bytes": 137938,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v540_v539_public_s1_zero_update_poststage_owned_output_prep_repair_execution_authority_seed1671_20260828/authority_receipt.json",
+    "sha256": "832933eaf3feed93c8ad34d2d31a242e85014b53f6f1f2169864628c2a5ce077"
+  },
+  "v540_execution_receipt_source": {
+    "logical_bytes": 1064,
+    "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/execution_receipt.json",
+    "sha256": "37ac8e40a86b278da825b08c30881fe826e79bda4fe2cabf72da2ef30464d90a"
+  },
+  "v540_gate_transition": {
+    "config_or_budget_selected_from_v540_metrics": false,
+    "exact_count": 8,
+    "metrics_semantic_parse_authorized": false,
+    "passed_ancestry_only": true,
+    "retry_authorized": false,
+    "root": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828",
+    "tree_canonical_sha256": "71117c8570f8fd62865eb2573b2b2a402eeec78ca8a83881c9bdd442c434459f",
+    "tree_lines_sha256": "24dee8d2fee5ee7e8a2e6aa3ca130ee9ad0935c8def7fed5baa1ceb35bd544fc",
+    "tree_total_logical_bytes": 6999111
+  },
+  "v540_independent_audit_source": {
+    "logical_bytes": 1666,
+    "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/independent_audit.json",
+    "sha256": "ec3edb4a2b246774985cf56ac4f49674b03ad916f01d6e5ef277afdea967f808"
+  },
+  "v540_public_s1_events_source": {
+    "logical_bytes": 30183,
+    "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/public_s1_events.ndjson",
+    "sha256": "be326fd4a4aec16c997fc75bf5f50d5149fd0243641ed8a1a537a1f9e7e69067"
+  },
+  "v540_public_s1_metrics_source": {
+    "logical_bytes": 333,
+    "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/public_s1_metrics.json",
+    "sha256": "58479ec6370a2d50ebedc57de6b393a716e03710ddb96facf809c78576a5fbb8"
+  },
+  "v540_source_manifest_source": {
+    "logical_bytes": 710,
+    "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/source_manifest.json",
+    "sha256": "8b5866a5af3517a7d7720c87e16f3ef0a4d5554f7822939a0990f6d029467f05"
+  },
+  "v540_zero_update_receipt_source": {
+    "logical_bytes": 641,
+    "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/zero_update_receipt.json",
+    "sha256": "14eb16fbe797850b016397423c0213aee72000372f239ad18e5ebe81bb69e381"
+  },
+  "v540_zero_update_trace_source": {
+    "logical_bytes": 6961965,
+    "path": "/root/v540_v539_public_s1_zero_update_gate_seed1671_20260828/zero_update_trace.json",
+    "sha256": "28f800555a4667aae78bf686cd9f6217fb5daa372f4d8fb8a1998f49f60bd8a8"
+  }
+}

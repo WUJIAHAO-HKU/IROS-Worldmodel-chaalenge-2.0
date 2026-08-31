@@ -1,0 +1,37 @@
+{
+  "format": "strict-track2-v157-deadwork-target-cache-preregistration-v1",
+  "registered_at": "2026-08-11T17:12:00+08:00",
+  "scope": "inference resource scheduling only",
+  "parent_model_version": "track2-v15.7-hybrid-action-gated-reward-safe-blend12",
+  "hypothesis": "Moving already-required right-arm/structure rejection predicates ahead of unused ECC and lazily retaining exact selected target arrays will reduce rollout latency without changing any output pixel.",
+  "changes": [
+    "return the unchanged parent immediately for left-arm samples before descriptor search and 24 ECC calls",
+    "evaluate the unchanged v14.1 intact-prefix and final-ratio gates before descriptor search and ECC",
+    "cache exact owned uint8 target_frames arrays only after the unchanged route selects a candidate"
+  ],
+  "frozen": [
+    "all V15.7 weights and release artifacts",
+    "active-arm computation",
+    "structure masks, thresholds and route conditions",
+    "visual/motion descriptors, shortlist size, distance normalization and ECC",
+    "photometric calibration, blending and output rounding",
+    "official Pi0.5, reward, GRPO and public reference budget"
+  ],
+  "pre_optimization_real_context_probe": {
+    "source_npz": "artifacts/strict_track2_joint_augmentation_20260810/v157_full_budget_service/bridge_audit/rollout_000002.npz",
+    "source_npz_sha256": "ec18efab4d4978a28494810e9d609287fd2863af4ae32c3975e7ef4134c82ba8",
+    "slice": [0, 8],
+    "active_arms": [1, 1, 1, 1, 1, 1, 1, 1],
+    "prediction_sha256": "edd059cd3997faf34ee8af60326c2aea1460a4f080de8d17aac0ac8d5d421d6e",
+    "captured_by_existing_service_pid": 921640,
+    "service_started_before_source_replacement": true
+  },
+  "acceptance": {
+    "right_arm_batch8_cold_prediction_sha256_exact": true,
+    "right_arm_batch8_hot_prediction_sha256_exact": true,
+    "synthetic_left_or_tied_arm_prediction_sha256_exact": true,
+    "unit_tests_pass": true,
+    "formal_enable_only_after_equivalence_report_passes": true
+  },
+  "formal_result": false
+}

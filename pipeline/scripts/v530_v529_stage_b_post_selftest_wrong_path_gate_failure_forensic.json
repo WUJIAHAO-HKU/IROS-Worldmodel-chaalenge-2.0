@@ -1,0 +1,196 @@
+{
+  "format": "strict-track2-v530-v529-stage-b-post-selftest-wrong-path-gate-failure-forensic-v1",
+  "status": "transport_selftest_passed_then_readonly_wrong_path_gate_failed_no_normal_no_retry",
+  "classification": "immutable_post_selftest_outer_collection_failure_forensic",
+  "seed": 1664,
+  "retry_authorized": false,
+  "failure_cause": "post_selftest_readonly_candidate_digest_gate_used_wrong_job_runs_root_instead_of_canonical_artifacts_root",
+  "execution_sequence": {
+    "atomic_noreplace_final5_deployment_completed": true,
+    "transport_selftest_issued_invocations": 1,
+    "transport_selftest_native_returncode": 0,
+    "post_selftest_readonly_gate_issued_invocations": 1,
+    "post_selftest_readonly_gate_native_returncode": 1,
+    "stage_b_normal_invocations": 0,
+    "external_terminal_helper_invocations": 0,
+    "current_oof_readonly_gate_validator_invocations": 0,
+    "historical_oof_readonly_gate_validator_invocations": 1,
+    "oof_model_execution_invocations": 0,
+    "phase_a_invocations": 0,
+    "training_invocations": 0,
+    "cache_reuse_invocations": 0,
+    "reward_read_invocations": 0,
+    "dev_hidden_final_outcome_read_invocations": 0,
+    "submission_invocations": 0
+  },
+  "transport_selftest_tool_record": {
+    "issued_command_exact": "ssh 5090-autodl-new \"/bin/bash /root/v529_v527_stage_b_candidate_external_terminal_once.sh --transport-self-test\"",
+    "native_returncode": 0,
+    "tool_wall_time_seconds": 3.7917541999999997,
+    "combined_output_exact": "{\"oof_model_execution_invocations\": 0, \"passed\": true, \"read_only_self_test\": true, \"snapshot_sha256\": \"3214482d65426e0b11cc928f481615f5978b2fe808551598965b7eb29d8e8020\", \"validator_invocations\": 0}\n",
+    "separate_stdout_stderr": "unavailable_tool_merged_streams",
+    "persistent_stdout_log_created": false,
+    "persistent_stderr_log_created": false,
+    "persistent_selftest_record_created": false
+  },
+  "post_selftest_readonly_gate_tool_record": {
+    "issued_command_exact": "ssh 5090-autodl-new \"/usr/bin/sha256sum -- '/root/autodl-tmp/IROS_WAM_2.0 challenge/job_runs/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827/oof_readonly_gate_validation_receipt.json' && /usr/bin/stat -c '%s' -- '/root/autodl-tmp/IROS_WAM_2.0 challenge/job_runs/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827/oof_readonly_gate_validation_receipt.json'\"",
+    "native_returncode": 1,
+    "combined_output_exact": "/usr/bin/sha256sum: '/root/autodl-tmp/IROS_WAM_2.0 challenge/job_runs/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827/oof_readonly_gate_validation_receipt.json': No such file or directory\n",
+    "separate_stdout_stderr": "unavailable_tool_merged_streams",
+    "per_command_wall_time_seconds": "unavailable_not_captured",
+    "enclosing_sequential_tool_call_wall_time_seconds": 1.4,
+    "stopped_on_this_first_command": true,
+    "wrong_path_current_absent": true,
+    "wrong_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/job_runs/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827/oof_readonly_gate_validation_receipt.json",
+    "correct_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827/oof_readonly_gate_validation_receipt.json"
+  },
+  "final5_current": [
+    {
+      "role": "mapped_fixture_failure_forensic",
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v529_v527_stage_b_mapped_fixture_default_argument_canonical_publication_forensic.json",
+      "sha256": "4ab9cd21892d4efddd7c6b52ecd9f42b21f324f9b9013854f6e1f1ae8c379576",
+      "logical_bytes": 7575
+    },
+    {
+      "role": "external_terminal_design_contract",
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v529_v527_stage_b_candidate_external_terminal_design_contract.json",
+      "sha256": "6bdf6ddc527a1eac7eccff9cf5763e615e557668cf624c1a595b7d927334fcfc",
+      "logical_bytes": 7604
+    },
+    {
+      "role": "external_terminal_helper",
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v529_v527_stage_b_candidate_external_terminal_once.py",
+      "sha256": "a7c9c3ea215b32d840c08fe0d696be146af32cf6a3ade953552022cac1888181",
+      "logical_bytes": 23561
+    },
+    {
+      "role": "transport_script",
+      "path": "/root/v529_v527_stage_b_candidate_external_terminal_once.sh",
+      "sha256": "7c61e88246168e6633c38e1bda03bc695e91ebd63d4f6e6fbec823bd4f8b0966",
+      "logical_bytes": 917
+    },
+    {
+      "role": "noncyclic_transport_deployment_record",
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v529_v527_stage_b_candidate_external_terminal_transport_deployment_record.json",
+      "sha256": "fdd816ce4ee1d820c4d09f01bad2201392817eaa2bfcbae1971c95fe13735804",
+      "logical_bytes": 828
+    }
+  ],
+  "candidate_current": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827",
+    "prep_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827.attempt-prep",
+    "prep_absent": true,
+    "receipt": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827/oof_readonly_gate_validation_receipt.json",
+      "sha256": "5b443f2275c9caced1974a0fa0f10e8da414faa15f672eae83fd4a8630861439",
+      "logical_bytes": 152048
+    },
+    "tree": {
+      "file_count": 1,
+      "logical_file_bytes": 152048,
+      "sha256sum_lines_digest_sha256": "f24ddda2f9f6ec36377d23ea358e950aad1428c008893c89f12cdf3db1eb4e8c",
+      "canonical_json_triples_digest_sha256": "044c7542ae00fb51f06d3a1d1fbb3454c7559ac1aadf531cc24802384ae79703"
+    },
+    "top_key_count": 29,
+    "format": "strict-track2-v527-v526-v525-oof-readonly-gate-validation-candidate-v1",
+    "status": "readonly_oof_gate_inputs_verified_candidate_pending_external_terminal",
+    "passed": null,
+    "oof_gate_passed": null,
+    "candidate_verified": true,
+    "input_validation_passed": true,
+    "standalone_consumable": false,
+    "external_terminal_required": true,
+    "publication_success_claimed": false,
+    "qualification_mutated": false,
+    "input_snapshots_exactly_equal": true,
+    "validator_invocations_authorized": 1,
+    "validator_invocations_consumed": 1
+  },
+  "fresh_external_output_current": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v529_v527_stage_b_candidate_external_terminal_evidence_seed1663_20260827",
+    "root_absent": true,
+    "prep_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v529_v527_stage_b_candidate_external_terminal_evidence_seed1663_20260827.evidence-prep",
+    "prep_absent": true,
+    "terminal_temp": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v529_v527_stage_b_candidate_external_terminal_evidence_seed1663_20260827/.process_receipt.json.noreplace-tmp",
+    "terminal_temp_absent": true,
+    "failed_terminal_temp": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v529_v527_stage_b_candidate_external_terminal_evidence_seed1663_20260827/.process_receipt.json.failed-noreplace-tmp",
+    "failed_terminal_temp_absent": true
+  },
+  "current_closure": {
+    "stage_a_authority": {
+      "receipt_sha256": "e658fc7e8ac7ae0afc431bdc0a1b756fd202d933cfae0bec61e693e3d3e71b4a",
+      "receipt_bytes": 181901,
+      "file_count": 1,
+      "top_key_count": 70,
+      "check_count": 33,
+      "checks_all_strict_true": true,
+      "source_count": 27,
+      "tree_sha256sum_lines_digest_sha256": "5981090a1c10fad6dd891bd876b40d25607a6e14482acac85f583f2eb837dae2",
+      "tree_canonical_json_triples_digest_sha256": "1c412acd847ea10f26092fe985de4ee7c3cc8089cc09da039ef277a6b69e3996"
+    },
+    "stage_a_evidence": {
+      "file_count": 6,
+      "logical_file_bytes": 129006,
+      "tree_sha256sum_lines_digest_sha256": "ab7181c0e582cff8309baf38ace668e1dfb7093cafda70d6bae6d7193badc954",
+      "tree_canonical_json_triples_digest_sha256": "500d11e3a320dbf4844f22f5080fae363d7107d3651aa7d83235510f7c7657db",
+      "process_receipt_sha256": "fbdb4b9ab022f8f61bc4d4ff9716b1d200f8d4eb3ad42929e94673b99325a591",
+      "process_receipt_bytes": 40939,
+      "passed": true,
+      "authority_materializer_invocations": 1,
+      "oof_readonly_gate_validator_invocations": 0
+    },
+    "v528_deployment_evidence": {
+      "file_count": 1,
+      "receipt_sha256": "681b30606e5029049e6dd7ecadcde6ed1da82b799fa6c77ba7bd0c8d4917ea22",
+      "receipt_bytes": 33739,
+      "tree_sha256sum_lines_digest_sha256": "3cafca4e7e1a56917efa95784c72544d83ed4a88b4045001ee705d7366a47d15",
+      "tree_canonical_json_triples_digest_sha256": "d22a5c337b1f9422f576d3c24710dc8753e4eeed2c5d9d530fcec433000dad84"
+    },
+    "qualification": {
+      "file_count": 20,
+      "logical_file_bytes": 950124602,
+      "tree_sha256sum_lines_digest_sha256": "6cdde75692d37b7eead3333d867b22dc6404f545bb5861b2f30b425fb4270dac",
+      "tree_canonical_json_triples_digest_sha256": "223308d02ed5a4a082b4de639292030444a627bbbac7f361fac1f9c6a7fcbd1f"
+    },
+    "normalized_qualification_view": {
+      "original_worker_receipts_canonical_sha256": "d00018deb7ea3ae660061e8879dc4a4f6d56bc65bd089c28c4a0580239c08101",
+      "normalized_worker_receipts_canonical_sha256": "c409c2b8f85641c23bc68fb06512cd664c84108d4b8b629480906193737f4b32",
+      "recursive_diff_canonical_sha256": "fdc7999068d0e630272e6cb226b6b342692b5f8324cd506d593b5993b5f52779",
+      "recursive_diff_count": 2,
+      "recursive_diff_full_paths": [
+        ["process_a", "format"],
+        ["process_b", "format"]
+      ]
+    },
+    "services": [
+      {
+        "url": "http://127.0.0.1:8005/v1/health",
+        "http_code": 200,
+        "body_bytes": 106,
+        "body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0"
+      },
+      {
+        "url": "http://127.0.0.1:18084/health",
+        "http_code": 200,
+        "body_bytes": 18,
+        "body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd"
+      }
+    ],
+    "linux_boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+    "relevant_execution_pids": [],
+    "gpu_compute_pids": []
+  },
+  "audit": {
+    "remote_readonly_audit_timestamp_utc": "2026-08-26T23:43:51.580261+00:00",
+    "final5_exact_current": true,
+    "candidate_unchanged": true,
+    "correct_candidate_current": true,
+    "wrong_expanded_candidate_absent": true,
+    "fresh_external_root_prep_and_temps_absent": true,
+    "services_current": true,
+    "relevant_execution_pids_empty": true,
+    "gpu_compute_pids_empty": true,
+    "no_normal_or_external_terminal_helper_execution": true
+  }
+}

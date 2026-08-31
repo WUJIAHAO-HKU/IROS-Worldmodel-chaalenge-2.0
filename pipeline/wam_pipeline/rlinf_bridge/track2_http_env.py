@@ -21,6 +21,8 @@ from rlinf.data.datasets.world_model import NpyTrajectoryDatasetWrapper
 from rlinf.envs.world_model.base_world_env import BaseWorldEnv
 from rlinf.envs.world_model.http_payload import decode_payload, encode_payload
 
+from .reward_shaping import shape_progress_rewards
+
 
 class _Track2HttpClient:
     """Client for the local pickle transport between RLinf and the bridge."""
@@ -109,6 +111,11 @@ class Track2HttpEnv(BaseWorldEnv):
         self.current_obs: torch.Tensor | None = None
         self.condition_action: torch.Tensor | None = None
         self.task_descriptions: list[str] = [""] * self.num_envs
+        self.latest_official_reward = torch.zeros(
+            self.num_envs, dtype=torch.float32, device=self.device
+        )
+        self.peak_official_reward = torch.zeros_like(self.latest_official_reward)
+        self.initial_official_reward = torch.zeros_like(self.latest_official_reward)
         self._is_offloaded = False
 
     def _build_dataset(self, cfg):
@@ -146,6 +153,11 @@ class Track2HttpEnv(BaseWorldEnv):
                 (self.num_envs,), float(episode_len), dtype=torch.float32, device=self.device
             ),
             "reward": self.returns / float(episode_len),
+            "official_reward_last": self.latest_official_reward.clone(),
+            "official_reward_peak": self.peak_official_reward.clone(),
+            "official_reward_gain": (
+                self.latest_official_reward - self.initial_official_reward
+            ),
         }
         return infos
 
@@ -160,16 +172,23 @@ class Track2HttpEnv(BaseWorldEnv):
         return image.mul(2.0).sub(1.0)
 
     def _wrap_obs(self) -> dict[str, Any]:
-        if self.current_obs is None:
+        if self.current_obs is None or self.condition_action is None:
             raise RuntimeError("reset must be called before observations are requested")
         latest = self.current_obs[:, :, 0, -1]
         images = latest.permute(0, 2, 3, 1).add(1.0).mul(127.5).clamp(0, 255).to(torch.uint8)
+        # Pi0.5's RoboTwin data configuration applies AbsoluteActions on model
+        # output: the predicted joint deltas are added to the state supplied in
+        # this observation.  Returning zeros here silently left actions in delta
+        # space, while both the Track 2 API and its training trajectories use
+        # absolute 14-D joint positions.  The last condition action is exactly
+        # the state associated with ``latest`` at reset and after every chunk.
+        states = self.condition_action[:, -1].to(
+            self.device, dtype=torch.float32
+        ).contiguous()
         return {
             "main_images": images,
             "wrist_images": None,
-            "states": torch.zeros(
-                (self.num_envs, self.action_dim), dtype=torch.float32, device=self.device
-            ),
+            "states": states,
             "task_descriptions": self.task_descriptions,
         }
 
@@ -214,6 +233,10 @@ class Track2HttpEnv(BaseWorldEnv):
             action_history = torch.zeros(
                 self.condition_frame_length, self.action_dim, dtype=torch.float32
             )
+            # Five context images o0..o4 carry states/actions a0..a4.  The
+            # bridge uses a0..a3 for the first four transitions, while Pi0.5
+            # is anchored at the latest absolute state a4.
+            action_history[0] = first["action"].float()
             action_history[1:] = torch.stack(
                 [frame["action"].float() for frame in target_items]
             )
@@ -225,6 +248,16 @@ class Track2HttpEnv(BaseWorldEnv):
         self.condition_action = torch.stack(conditions).to(self.device)
         self.task_descriptions = instructions
         self._reset_metrics()
+        if bool(self.cfg.get("initialize_reward_baseline", False)):
+            baseline = self._infer_frame_rewards(self.current_obs[:, :, 0, -1:])[:, 0]
+        else:
+            baseline = torch.zeros(
+                self.num_envs, dtype=torch.float32, device=self.device
+            )
+        self.initial_official_reward = baseline.detach()
+        self.latest_official_reward = baseline.detach().clone()
+        self.peak_official_reward = baseline.detach().clone()
+        self.prev_step_reward = float(self.cfg.reward_coef) * baseline.detach()
         response = self._http_client.reset(
             {
                 "current_obs": self.current_obs.detach().cpu(),
@@ -237,26 +270,50 @@ class Track2HttpEnv(BaseWorldEnv):
             raise RuntimeError(f"unexpected Track 2 bridge reset response: {response}")
         return self._wrap_obs(), {}
 
-    def _infer_next_chunk_rewards(self) -> torch.Tensor:
-        if self.current_obs is None:
-            raise RuntimeError("reset must be called before reward inference")
-        frames = self.current_obs[:, :, 0, -self.chunk :]
+    def _infer_frame_rewards(self, frames: torch.Tensor) -> torch.Tensor:
+        if frames.ndim != 5 or frames.shape[1] != 3:
+            raise ValueError("reward frames must be [batch,3,time,height,width]")
+        time = frames.shape[2]
         flat_frames = frames.permute(0, 2, 1, 3, 4).reshape(
-            self.num_envs * self.chunk, 3, *self.image_size
+            self.num_envs * time, 3, *self.image_size
         )
-        instructions = [task for task in self.task_descriptions for _ in range(self.chunk)]
+        instructions = [task for task in self.task_descriptions for _ in range(time)]
         rewards = self.reward_model.compute_reward(
             flat_frames.add(1.0).div(2.0).float(), task_descriptions=instructions
         )
-        return rewards.reshape(self.num_envs, self.chunk)
+        return rewards.reshape(self.num_envs, time)
+
+    def _infer_next_chunk_rewards(self) -> torch.Tensor:
+        if self.current_obs is None:
+            raise RuntimeError("reset must be called before reward inference")
+        return self._infer_frame_rewards(self.current_obs[:, :, 0, -self.chunk :])
 
     def _calc_step_reward(self, chunk_rewards: torch.Tensor) -> torch.Tensor:
         scaled = float(self.cfg.reward_coef) * chunk_rewards
-        reward_diffs = torch.empty_like(scaled)
-        reward_diffs[:, 0] = scaled[:, 0] - self.prev_step_reward
-        reward_diffs[:, 1:] = scaled[:, 1:] - scaled[:, :-1]
-        self.prev_step_reward = scaled[:, -1]
-        return reward_diffs if self.use_rel_reward else chunk_rewards
+        self.latest_official_reward = chunk_rewards[:, -1].detach()
+        self.peak_official_reward = torch.maximum(
+            self.peak_official_reward, chunk_rewards.max(dim=1).values.detach()
+        )
+        if not self.use_rel_reward:
+            self.prev_step_reward = scaled[:, -1].detach()
+            return scaled
+        shaped, next_score = shape_progress_rewards(
+            scaled,
+            self.prev_step_reward,
+            delta_weight=float(self.cfg.get("delta_reward_weight", 1.0)),
+            terminal_weight=float(self.cfg.get("terminal_progress_weight", 0.0)),
+            peak_weight=float(self.cfg.get("peak_progress_weight", 0.0)),
+            positive_delta_weight=float(
+                self.cfg.get("positive_delta_reward_weight", 0.0)
+            ),
+            reward_clip=(
+                float(self.cfg.reward_clip)
+                if self.cfg.get("reward_clip", None) is not None
+                else None
+            ),
+        )
+        self.prev_step_reward = next_score
+        return shaped
 
     @torch.no_grad()
     def chunk_step(self, policy_output_action):
@@ -315,6 +372,9 @@ class Track2HttpEnv(BaseWorldEnv):
             return
         self.reward_model = self.reward_model.to("cpu")
         self.prev_step_reward = self.prev_step_reward.cpu()
+        self.latest_official_reward = self.latest_official_reward.cpu()
+        self.peak_official_reward = self.peak_official_reward.cpu()
+        self.initial_official_reward = self.initial_official_reward.cpu()
         self.reset_state_ids = self.reset_state_ids.cpu()
         if self.current_obs is not None:
             self.current_obs = self.current_obs.cpu()
@@ -330,6 +390,9 @@ class Track2HttpEnv(BaseWorldEnv):
             return
         self.reward_model = self.reward_model.to(self.device)
         self.prev_step_reward = self.prev_step_reward.to(self.device)
+        self.latest_official_reward = self.latest_official_reward.to(self.device)
+        self.peak_official_reward = self.peak_official_reward.to(self.device)
+        self.initial_official_reward = self.initial_official_reward.to(self.device)
         self.reset_state_ids = self.reset_state_ids.to(self.device)
         if self.current_obs is not None:
             self.current_obs = self.current_obs.to(self.device)
@@ -352,6 +415,9 @@ class Track2HttpEnv(BaseWorldEnv):
                 "task_descriptions": self.task_descriptions,
                 "elapsed_steps": self.elapsed_steps,
                 "prev_step_reward": self.prev_step_reward.cpu(),
+                "latest_official_reward": self.latest_official_reward.cpu(),
+                "peak_official_reward": self.peak_official_reward.cpu(),
+                "initial_official_reward": self.initial_official_reward.cpu(),
             },
             buffer,
         )

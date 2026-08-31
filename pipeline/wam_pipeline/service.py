@@ -4,19 +4,29 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import os
 import time
 from collections import OrderedDict
 from dataclasses import dataclass
 from typing import Any
 
+import numpy as np
 from fastapi import FastAPI, Header, Request
 from fastapi.responses import JSONResponse
 
 from .backends import ModelBackend, build_backend
 from .contracts import RequestValidationError, payload_digest, validate_predict_payload
-from .images import ImageValidationError, encode_png_base64
-from .profile import API_VERSION, MAX_CONCURRENCY, MAX_REQUEST_BYTES, capabilities
+from .images import ImageValidationError, encode_png_base64_batch
+from .profile import (
+    API_VERSION,
+    MAX_BATCH_SIZE,
+    MAX_CONCURRENCY,
+    MAX_REQUEST_BYTES,
+    capabilities,
+)
+
+LOGGER = logging.getLogger(__name__)
 
 
 @dataclass
@@ -26,6 +36,21 @@ class ServiceSettings:
     backend_name: str = "synthetic"
     checkpoint_dir: str | None = None
     device: str = "cuda"
+    batch_workers: int = 1
+    native_batch_enabled: bool = False
+    native_batch_micro_size: int = MAX_BATCH_SIZE
+    release_cuda_cache: bool = False
+    image_codec_workers: int = 1
+
+    def __post_init__(self) -> None:
+        if self.batch_workers < 1:
+            raise ValueError("batch_workers must be at least one")
+        if not 1 <= self.native_batch_micro_size <= MAX_BATCH_SIZE:
+            raise ValueError(
+                f"native_batch_micro_size must be between one and {MAX_BATCH_SIZE}"
+            )
+        if self.image_codec_workers < 1:
+            raise ValueError("image_codec_workers must be at least one")
 
 
 class IdempotencyCache:
@@ -67,10 +92,64 @@ def create_app(settings: ServiceSettings, backend: ModelBackend | None = None) -
     """Create an app whose only prediction output is future RGB frames."""
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
     app.state.settings = settings
-    app.state.backend = backend or build_backend(settings.backend_name, settings.checkpoint_dir, settings.device)
+    app.state.backend = backend or build_backend(
+        settings.backend_name,
+        settings.checkpoint_dir,
+        settings.device,
+        v15_library_dir=os.environ.get("WAM_V15_LIBRARY_DIR"),
+        v216_library_index=os.environ.get("WAM_V216_LIBRARY_INDEX"),
+    )
     app.state.cache = IdempotencyCache()
     app.state.semaphore = asyncio.Semaphore(MAX_CONCURRENCY)
+    app.state.batch_workers = settings.batch_workers
+    app.state.native_batch_enabled = settings.native_batch_enabled
+    app.state.native_batch_micro_size = settings.native_batch_micro_size
+    app.state.release_cuda_cache = settings.release_cuda_cache
+    app.state.image_codec_workers = settings.image_codec_workers
+    app.state.backend_warmed = False
     app.state.ready = True
+
+    async def predict_one(sample):
+        frames = await asyncio.to_thread(
+            app.state.backend.predict,
+            sample.frames,
+            sample.history_actions,
+            sample.future_actions,
+            sample.seed,
+            sample.instruction,
+        )
+        if frames.shape != (8, 256, 256, 3) or frames.dtype.name != "uint8":
+            raise RuntimeError("backend returned an invalid Track 2 frame tensor")
+        if app.state.release_cuda_cache:
+            import torch
+
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        return frames
+
+    async def predict_native_batch(samples):
+        frames_by_sample = []
+        micro_size = app.state.native_batch_micro_size
+        for begin in range(0, len(samples), micro_size):
+            micro = samples[begin : begin + micro_size]
+            frames = await asyncio.to_thread(
+                app.state.backend.predict_batch,
+                np.stack([sample.frames for sample in micro]),
+                np.stack([sample.history_actions for sample in micro]),
+                np.stack([sample.future_actions for sample in micro]),
+                np.asarray([sample.seed for sample in micro], dtype=np.int64),
+                [sample.instruction for sample in micro],
+            )
+            expected = (len(micro), 8, 256, 256, 3)
+            if frames.shape != expected or frames.dtype.name != "uint8":
+                raise RuntimeError("backend returned an invalid Track 2 batch tensor")
+            frames_by_sample.extend(frames)
+            if app.state.release_cuda_cache:
+                import torch
+
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+        return frames_by_sample
 
     def authorized(authorization: str | None) -> bool:
         return authorization == f"Bearer {settings.bearer_token}"
@@ -111,7 +190,9 @@ def create_app(settings: ServiceSettings, backend: ModelBackend | None = None) -
         if cache_state == "hit":
             return JSONResponse(status_code=200, content=cached)
         try:
-            parsed = validate_predict_payload(payload, settings.model_version)
+            parsed = validate_predict_payload(
+                payload, settings.model_version, settings.image_codec_workers
+            )
         except (RequestValidationError, ImageValidationError) as exc:
             message = str(exc)
             if "unsupported" in message:
@@ -123,20 +204,49 @@ def create_app(settings: ServiceSettings, backend: ModelBackend | None = None) -
             return _error(429, "OVERLOADED", "maximum concurrency reached", parsed.request_id, True)
         async with app.state.semaphore:
             try:
-                predictions = []
-                for sample in parsed.samples:
-                    frames = await asyncio.to_thread(
-                        app.state.backend.predict,
-                        sample.frames,
-                        sample.history_actions,
-                        sample.future_actions,
-                        sample.seed,
-                        sample.instruction,
+                frames_by_sample = []
+                remaining_samples = list(parsed.samples)
+                native_batch = getattr(app.state.backend, "predict_batch", None)
+                if (
+                    app.state.native_batch_enabled
+                    and native_batch is not None
+                    and len(remaining_samples) > 1
+                ):
+                    frames_by_sample = await predict_native_batch(remaining_samples)
+                    remaining_samples = []
+                    app.state.backend_warmed = True
+                # Composite backends load their immutable runtime lazily.  Warm
+                # exactly one sample before enabling intra-request parallelism,
+                # preventing concurrent duplicate checkpoint loads.
+                if not app.state.backend_warmed and remaining_samples:
+                    frames_by_sample.append(await predict_one(remaining_samples.pop(0)))
+                    app.state.backend_warmed = True
+                if app.state.batch_workers == 1:
+                    for sample in remaining_samples:
+                        frames_by_sample.append(await predict_one(sample))
+                else:
+                    worker_slots = asyncio.Semaphore(app.state.batch_workers)
+
+                    async def bounded_predict(sample):
+                        async with worker_slots:
+                            return await predict_one(sample)
+
+                    frames_by_sample.extend(
+                        await asyncio.gather(
+                            *(bounded_predict(sample) for sample in remaining_samples)
+                        )
                     )
-                    if frames.shape != (8, 256, 256, 3) or frames.dtype.name != "uint8":
-                        raise RuntimeError("backend returned an invalid Track 2 frame tensor")
+                encoded_frames = encode_png_base64_batch(
+                    [frame for frames in frames_by_sample for frame in frames],
+                    app.state.image_codec_workers,
+                )
+                predictions = []
+                for index, sample in enumerate(parsed.samples):
                     predictions.append(
-                        {"sample_id": sample.sample_id, "frames": [encode_png_base64(frame) for frame in frames]}
+                        {
+                            "sample_id": sample.sample_id,
+                            "frames": encoded_frames[index * 8 : (index + 1) * 8],
+                        }
                     )
                 response = {
                     "api_version": API_VERSION,
@@ -145,6 +255,7 @@ def create_app(settings: ServiceSettings, backend: ModelBackend | None = None) -
                     "predictions": predictions,
                 }
             except Exception:
+                LOGGER.exception("Track 2 world-model inference failed request_id=%s", parsed.request_id)
                 return _error(500, "INTERNAL", "world-model inference failed", parsed.request_id, True)
         app.state.cache.put(parsed.request_id, digest, response)
         return JSONResponse(status_code=200, content=response)
@@ -159,4 +270,11 @@ def settings_from_env() -> ServiceSettings:
         backend_name=os.environ.get("WAM_BACKEND", "synthetic"),
         checkpoint_dir=os.environ.get("WAM_CHECKPOINT_DIR"),
         device=os.environ.get("WAM_DEVICE", "cuda"),
+        batch_workers=int(os.environ.get("WAM_BATCH_WORKERS", "1")),
+        native_batch_enabled=os.environ.get("WAM_NATIVE_BATCH_ENABLED", "0") == "1",
+        native_batch_micro_size=int(
+            os.environ.get("WAM_NATIVE_BATCH_MICRO_SIZE", str(MAX_BATCH_SIZE))
+        ),
+        release_cuda_cache=os.environ.get("WAM_RELEASE_CUDA_CACHE", "0") == "1",
+        image_codec_workers=int(os.environ.get("WAM_IMAGE_CODEC_WORKERS", "1")),
     )

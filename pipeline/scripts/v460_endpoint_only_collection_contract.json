@@ -1,0 +1,53 @@
+{
+  "format": "strict-track2-v461-endpoint-only-collection-contract-v1",
+  "seed": 1611,
+  "status": "READY_STAGING_V461_ACTION_DIFFERENCE_BOUND_NOT_DEPLOYED",
+  "classification": "public-train paired simulator endpoint collection only; no reward, model training, policy update, RL, formal evaluation, submission, development, final, or hidden data authority",
+  "selection_parent": {
+    "format": "strict-track2-v461-endpoint200-preregistration-v1",
+    "parent_contract_sha256": "d23af656e4069ba0c09f61e85ef8ce108e433f53bad28f2e2e07cb9f4f4c608b",
+    "contexts": 200,
+    "batches": 10,
+    "contexts_per_batch": 20,
+    "selection_is_immutable": true
+  },
+  "supersedes": {"lineage": "v460", "reason": "v460 selection admitted three rows whose scale_1p25 right6 endpoint action L2 was below the collector 0.01 gate", "reuse_v460_rows": false},
+  "collector": {
+    "sha256": "6c64e4a42f273f43b9e64523bf12e4dc5f24618d5673848db6c1582b5547e846",
+    "interface": "collect_one(spec,support_root,task_config,out_dir,lower,upper)",
+    "variants": ["factual", "no_transport", "scale_0p4", "scale_1p25", "reverse_direction_0p4", "factual_duplicate"],
+    "same_seed_reset_and_prefix_history_replay_per_branch": true,
+    "future_single_chunk_call": true,
+    "endpoint_only": true,
+    "authoritative_resize_rgb_256": true,
+    "source_window_consumed": false,
+    "public_endpoint_diagnostic_consumed": false,
+    "runtime_provenance_required": "manifest must bind collector sys.executable/sys.prefix and native open3d/toppra/mplib/sapien module file/version before simulator collection",
+    "forbidden_npz_or_row_fields": ["source_window", "source_window_sha256", "target_frames", "public_factual_endpoint_sha256", "factual_public_endpoint_rgb_mae", "factual_public_endpoint_rgb_mae_diagnostic", "reward", "success", "done", "outcome", "policy_action"]
+  },
+  "ancestry": {
+    "v455_collector_sha256": "24f53c12adc62c56f09bba3fca3eebb65ee5020db1eec2b488fd7ac7a9b039f3",
+    "v457_receipt_sha256": "790b8954c659c8038e778eecfba6cebdb84f8e5a477c2956d2755e58c7cf24d4",
+    "v457_preregistration_sha256": "a272626c5e9022a9808088ce5458e249e429802f9b3189ddb24f2e93283562eb",
+    "role": "immutable evidence only; v455 collector is never imported or executed by v460"
+  },
+  "short_gates_unchanged_from_parent": {
+    "contexts_with_at_least_three_effects_per_batch": 16,
+    "each_transport_effect_contexts_per_batch": 14,
+    "duplicate_rgb_mae_max": 0.5,
+    "effect_rgb_mae_min": 1.0,
+    "effect_qpos_l2_min_or": 0.01,
+    "effect_bottle_l2_min_or": 0.005,
+    "gpu_peak_mib_max": 24576,
+    "batch_wall_seconds_max": 900,
+    "batch_output_bytes_max": 41943040
+  },
+  "guards": {
+    "all_selected_rows_retained": true,
+    "technical_effect_whole_batch_gate_only": true,
+    "reward_success_done_consumed": false,
+    "model_training": false,
+    "policy_updates": 0,
+    "rl_authorized": false
+  }
+}

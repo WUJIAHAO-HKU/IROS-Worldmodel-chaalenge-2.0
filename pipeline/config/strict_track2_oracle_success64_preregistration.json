@@ -1,0 +1,42 @@
+{
+  "format": "strict-track2-robotwin-oracle-success64-preregistration-v1",
+  "created_at": "2026-08-11T04:35:00+08:00",
+  "purpose": "Fill the diagnosed shortage of successful right-arm contact and grasp dynamics with same-simulator offline data for V15.7 world-model training only.",
+  "source": "public RoboTwin adjust_bottle deterministic mplib expert and public assets",
+  "replacement_for_failed_smoke": {
+    "prior_target": 128,
+    "prior_data_collected": false,
+    "reason_for_64": "Bound collection time and disk while retaining an episode-disjoint, arm-stratified validation split."
+  },
+  "collection": {
+    "target_successful_episodes": 64,
+    "scan_seeds": "ascending nonnegative integers",
+    "retain_rule": "planner reports success and public environment check_success is true",
+    "planner": "mplib",
+    "embodiment": "aloha-agilex dual arm",
+    "head_camera": "D435 RGB",
+    "save_frequency": 15,
+    "domain_randomization": false
+  },
+  "split": {
+    "validation_episodes": 8,
+    "rule": "episode-disjoint SHA-256 ranking stratified by active arm after collection",
+    "split_seed": 20260813,
+    "minimum_train_per_arm": 16,
+    "minimum_validation_per_arm": 2
+  },
+  "prohibited_uses": [
+    "policy behavior cloning",
+    "policy action injection",
+    "MPC or candidate action selection",
+    "official reward, Pi0.5, RL algorithm, or RL budget modification",
+    "development22, development32, or final acceptance seed reuse"
+  ],
+  "admission_gates": {
+    "all_episodes_planner_and_environment_success": true,
+    "all_frames_and_actions_finite_and_temporally_contiguous": true,
+    "both_arms_present_in_train_and_validation": true,
+    "seed_disjoint_from_all_policy_development_and_acceptance_manifests": true,
+    "provenance_and_data_merkle_hashes_recorded": true
+  }
+}

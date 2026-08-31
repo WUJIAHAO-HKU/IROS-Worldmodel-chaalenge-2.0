@@ -1,0 +1,39 @@
+{
+  "format": "strict-track2-action-domain-gate-preregistration-v1",
+  "created_at": "2026-08-11T02:45:00+08:00",
+  "objective": "Route demonstration-like action sequences to frozen V15 and Pi0.5-like action sequences to the on-policy dynamics expert, using request actions only.",
+  "not_action_selection": {
+    "actions_modified": false,
+    "actions_ranked": false,
+    "actions_scaled": false,
+    "mpc": false,
+    "policy_output_forwarded_unchanged": true
+  },
+  "data": {
+    "joint_windows": "artifacts/strict_track2_joint_augmentation_20260810/formal_joint_parent_windows_full128",
+    "source_labels": "window_sources.json",
+    "episode_disjoint": true,
+    "replicas_excluded": true,
+    "success_labels_used": false,
+    "real_acceptance_seeds_used": false
+  },
+  "features": "flattened raw 4-history plus 8-future 14D actions, first differences, per-dimension mean/std, and left/right motion energy",
+  "classifier": {
+    "type": "two-layer MLP",
+    "hidden_features": 64,
+    "steps": 1500,
+    "learning_rate": 0.002,
+    "weight_decay": 0.01,
+    "seed": 20260811
+  },
+  "admission_gates": {
+    "heldout_balanced_accuracy": 0.99,
+    "heldout_official_accuracy": 0.99,
+    "heldout_onpolicy_accuracy": 0.99,
+    "official_demo_parent_bit_exact": true,
+    "onpolicy_overall_rgb_improvement_percent": 3.0,
+    "onpolicy_left_rgb_improvement_percent": 3.0,
+    "onpolicy_right_rgb_improvement_percent": 3.0,
+    "official_demo_visual_nonregression_percent": 0.0
+  }
+}

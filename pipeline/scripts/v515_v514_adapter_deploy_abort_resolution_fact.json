@@ -1,0 +1,69 @@
+{
+  "format": "strict-track2-v515-v514-adapter-deploy-abort-resolution-fact-v1",
+  "status": "frozen_post_abort_resolution_no_adapter_execution",
+  "timestamp_ns": 1787692834656406916,
+  "hostname": "autodl-container-074042af4d-d3994172",
+  "boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+  "aborted_command": "/root/autodl-tmp/conda_envs/rlinf_track2/bin/python /dev/shm/deploy_v514_readonly_adapter_sources_noreplace.py",
+  "command_started": true,
+  "command_client_abort_seconds": 1.1,
+  "returncode": "unknown",
+  "stdout": "unknown_due_client_abort",
+  "resolved_deployment_state": {
+    "old_design": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v514_v513_alias_restore_readonly_remediation_adapter_design.json",
+      "sha256": "0def1a960a7813f5d43a8a1d5f22ff6a489663d0efa15620b50b9b5a16c6c40d",
+      "logical_bytes": 6813,
+      "regular": true
+    },
+    "old_helper": {
+      "path": "/root/run_v514_v513_alias_restore_readonly_remediation_adapter_once.py",
+      "sha256": "0f76ff7837db390e7190b99cc69809038f0fd96083547930ff1e950024f48a10",
+      "logical_bytes": 13857,
+      "regular": true
+    },
+    "old_script": {
+      "path": "/root/v514_v513_alias_restore_readonly_remediation_adapter_once.sh",
+      "sha256": "b7eec6f6738d766c4aa01b0e2ae6265b039f374ed5ae2da6c12f2e59b841eb84",
+      "logical_bytes": 3297,
+      "regular": true
+    },
+    "owned_deployment_temps": [],
+    "old_adapter_root_lexists": false,
+    "old_adapter_prep_lexists": false,
+    "old_adapter_invocations": 0,
+    "old_selftest_invocations": 0,
+    "old_normal_invocations": 0
+  },
+  "current_alias": {
+    "path": "/dev/shm/v485_static_b73.log",
+    "sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b",
+    "logical_bytes": 6475,
+    "regular": true,
+    "symlink": false
+  },
+  "f813_registration_tree": {
+    "file_count": 3,
+    "logical_file_bytes": 89691,
+    "sha256sum_lines_digest_sha256": "8628f5659dacbe3ede05699866ace077c4158e71b4c1020dcfadaf84d9d038b6",
+    "canonical_json_triples_digest_sha256": "2c307584b6d902252365dd39b26dc6f59f38ac3b143034dc2d63529c83e9edaf"
+  },
+  "services": {
+    "8005": {
+      "http_code": 200,
+      "raw_body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0",
+      "raw_body_logical_bytes": 106,
+      "status": "ready",
+      "model_version": "track2-v218-public-knn-blend-alpha070-route-aware"
+    },
+    "18084": {
+      "http_code": 200,
+      "raw_body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd",
+      "raw_body_logical_bytes": 18,
+      "status": "ready"
+    }
+  },
+  "matching_processes_empty": true,
+  "gpu_compute_processes_empty": true,
+  "retry_authorized": false
+}

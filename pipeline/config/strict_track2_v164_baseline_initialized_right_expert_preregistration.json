@@ -1,0 +1,29 @@
+{
+  "format": "strict-track2-v164-baseline-initialized-right-expert-preregistration-v1",
+  "registered_at": "2026-08-11T06:10:00+08:00",
+  "diagnosis": "V163 starts from the closed-loop expert that already hallucinates right-arm terminal success on failure windows; adding successful demos cannot reliably undo that inherited endpoint bias. V164 instead starts from the reward-safe frozen V15 autoregressive parent and learns only a small right-arm correction from balanced official-success/on-policy-failure data.",
+  "fixed_training": {
+    "initialization": "track2_v15_best/v8/baseline/autoregressive",
+    "data": "v163_mixed_reward_windows",
+    "arm_filter": "right",
+    "steps": 400,
+    "checkpoint_interval": 50,
+    "learning_rate": 5e-8,
+    "reward_objective": "probability",
+    "probability_scale_floor": 0.01,
+    "reward_loss_weight": 1.0,
+    "reward_delta_weight": 2.0,
+    "reward_terminal_weight": 10.0,
+    "success_weight": 1.0,
+    "late_weight": 2.0,
+    "seed": 1640
+  },
+  "promotion": "Select the earliest checkpoint that strictly preserves right terminal MAE/correlation and delta MAE, then maximize right contact visual improvement.",
+  "track2_guards": {
+    "official_reward_model_modified": false,
+    "world_model_training_only": true,
+    "policy_actions_modified": false,
+    "participant_action_selection": false,
+    "mpc": false
+  }
+}

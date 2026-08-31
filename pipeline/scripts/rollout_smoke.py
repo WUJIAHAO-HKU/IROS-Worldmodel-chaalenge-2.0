@@ -15,12 +15,30 @@ from wam_pipeline.data import load_window_npz
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--window", required=True)
-    parser.add_argument("--backend", choices=("synthetic", "ivideogpt", "residual-unet"), required=True)
+    parser.add_argument(
+        "--backend",
+        choices=("synthetic", "ivideogpt", "track2-wan", "official-rlinf-wan", "residual-unet", "flow-residual-unet", "temporal-unet", "direct-video-unet", "direct-flow-unet", "wan-flow-ensemble", "autoregressive-flow-ensemble", "local-motion-texture-fusion", "multisource-flow-unet", "autoregressive-unet", "hybrid-unet"),
+        required=True,
+    )
     parser.add_argument("--checkpoint-dir")
     parser.add_argument("--device", default="cuda")
+    parser.add_argument("--wan-base-model")
+    parser.add_argument("--wan-inference-steps", type=int, default=30)
+    parser.add_argument("--wan-inference-solver", choices=("euler", "heun"), default="euler")
+    parser.add_argument("--official-diffsynth-root")
+    parser.add_argument("--official-wan-inference-steps", type=int, default=5)
     args = parser.parse_args()
     window = load_window_npz(args.window)
-    backend = build_backend(args.backend, args.checkpoint_dir, args.device)
+    backend = build_backend(
+        args.backend,
+        args.checkpoint_dir,
+        args.device,
+        wan_base_model=args.wan_base_model,
+        wan_inference_steps=args.wan_inference_steps,
+        wan_inference_solver=args.wan_inference_solver,
+        official_diffsynth_root=args.official_diffsynth_root,
+        official_wan_inference_steps=args.official_wan_inference_steps,
+    )
     first_actions = window.future_actions.copy()
     first = backend.predict(window.context_frames, window.history_actions, first_actions, seed=0, instruction=None)
     # Eight transitions have elapsed: p3..p7 are five observations, and u4..u7

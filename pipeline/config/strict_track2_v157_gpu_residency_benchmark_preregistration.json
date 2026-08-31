@@ -1,0 +1,16 @@
+{
+  "format": "strict-track2-v157-gpu-residency-benchmark-preregistration-v1",
+  "registered_at": "2026-08-11T07:36:00+08:00",
+  "parent_model_version": "track2-v15.7-hybrid-action-gated-reward-safe-blend12",
+  "golden_npz_sha256": "ec18efab4d4978a28494810e9d609287fd2863af4ae32c3975e7ef4134c82ba8",
+  "device": "cuda",
+  "official_service_max_batch_size": 8,
+  "batch_workers": 1,
+  "acceptance": {
+    "maximum_steady_state_latency_seconds_for_32_environments": 60.0,
+    "maximum_peak_gpu_memory_mib_for_co_residency": 1200,
+    "report_exact_pixel_mismatches": true,
+    "model_weights_unchanged": true
+  },
+  "scope": "Resource and deterministic-output diagnostic only; not a formal policy result."
+}

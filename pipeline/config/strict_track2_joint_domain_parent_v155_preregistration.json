@@ -1,0 +1,64 @@
+{
+  "format": "strict-track2-joint-domain-parent-preregistration-v1",
+  "experiment": "v15.5-joint-domain-parent",
+  "created_at": "2026-08-11T02:05:00+08:00",
+  "objective": "Learn one domain-general dynamics parent from the supplied 50 demonstrations and audited baseline-Pi0.5 RoboTwin rollouts, without source routing, before the final development32 policy candidate.",
+  "track2_constraints": {
+    "official_pi05_unchanged": true,
+    "official_reward_model_unchanged": true,
+    "official_rl_config_and_budget_unchanged": true,
+    "mpc_action_selection": false,
+    "real_acceptance128_used_for_training_or_selection": false
+  },
+  "data": {
+    "official_demonstrations": "artifacts/adjust_bottle_windows_full",
+    "official_episode_split": "artifacts/splits/adjust_bottle_38train_2dev_v19.json",
+    "onpolicy_source": "128 public RoboTwin adjust_bottle episodes executed by the frozen official Pi0.5 baseline",
+    "onpolicy_windows": "artifacts/strict_track2_joint_augmentation_20260810/onpolicy_windows_full128_stride4",
+    "joint_windows": "artifacts/strict_track2_joint_augmentation_20260810/formal_joint_parent_windows_full128",
+    "episode_disjoint": true,
+    "right_arm_train_repeat_factor": 2,
+    "synthetic_or_onpolicy_success_not_used_for_split_selection": true
+  },
+  "training": {
+    "initialization": "artifacts/releases/track2_v15_best/v8/baseline/autoregressive",
+    "steps": 3000,
+    "checkpoint_interval": 250,
+    "learning_rate": 0.000002,
+    "batch_size": 1,
+    "closed_loop_rollout_steps": 8,
+    "motion_weight": 3.0,
+    "temporal_delta_weight": 1.0,
+    "texture_laplacian_weight": 0.5,
+    "high_motion_oversample_factor": 3.0,
+    "selection_seed": 20260811
+  },
+  "selection": {
+    "checkpoint_candidates": [500, 1000, 1500, 2000, 2500, 3000],
+    "primary": "maximize the minimum RGB improvement across official-left, official-right, onpolicy-left, and onpolicy-right",
+    "required_parent_gates_percent": {
+      "official_overall_rgb": 0.0,
+      "official_left_rgb": 0.0,
+      "official_right_rgb": 0.0,
+      "official_overall_contact": 0.0,
+      "official_texture": 0.0,
+      "official_temporal": 0.0,
+      "onpolicy_overall_rgb": 3.0,
+      "onpolicy_left_rgb": 3.0,
+      "onpolicy_right_rgb": 3.0,
+      "onpolicy_overall_contact": 3.0,
+      "onpolicy_texture": 0.0,
+      "onpolicy_temporal": 0.0
+    },
+    "fallback": "If no direct checkpoint passes, fit a single preregistered scalar residual blend with frozen V15 and choose the largest strength passing every gate.",
+    "fallback_blend_strengths": [0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875]
+  },
+  "policy_gate": {
+    "development32_candidate_limit_remaining": 1,
+    "required_absolute_success_percentage_point_gain": 3.0,
+    "required_relative_success_percent_gain": 3.0,
+    "left_and_right_success_nonregression": true,
+    "overall_left_right_grasp_nonregression": true,
+    "acceptance128_locked_until_development_pass": true
+  }
+}

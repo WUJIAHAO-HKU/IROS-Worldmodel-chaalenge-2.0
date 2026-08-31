@@ -1,0 +1,84 @@
+{
+  "format": "strict-track2-v156-aligned-absolute-policy-candidate-preregistration-v1",
+  "registered_at": "2026-08-11T04:13:00+08:00",
+  "candidate_index_within_valid_v156_prescreen": 2,
+  "reused_actor_seed": {
+    "actor_seed": 1235,
+    "allowed_reason": "The earlier seed1235 run was invalidated before any real RoboTwin evaluation because its first history window violated the Track 2 transition contract. This is the first valid use of seed1235.",
+    "invalid_run_record": "pipeline/config/strict_track2_invalid_history_alignment_seed1235_record.json"
+  },
+  "parent": {
+    "model_version": "track2-v15.6-action-gated-reward-safe-blend12",
+    "release": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v156_action_gated_reward_safe_blend12_formal_release",
+    "frozen": true,
+    "synthetic_data_used_for_this_parent": false
+  },
+  "interface_contract": {
+    "initial_context": "o0..o4",
+    "initial_history_actions": "a0..a3",
+    "policy_observation_absolute_state": "a4",
+    "subsequent_history_actions": "u4..u7 from the preceding generated chunk",
+    "proxy_sha256": "e94064a79bcd14454fd5021532f8605c0dd944c440849fd5fc65967789e7a2b6",
+    "bridge_sha256": "1f6d231fe7548b99b13fee4a601ad283ca9be2fc8d841347e0a4a9083c4f1d7f",
+    "alignment_auditor_sha256": "57d2bf8466219f794b2cb83b68ad18e1d132edbdfd0d24a016e4ad83a53f45a3",
+    "reference_window": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/adjust_bottle_windows_full/episode49_00000.npz",
+    "require_bit_exact_context_and_history": true,
+    "actions_forwarded_unchanged": true
+  },
+  "official_training": {
+    "actor_seed": 1235,
+    "run_label": "official_replica_v156_absstate_historyfix_seed1235",
+    "global_steps": 1,
+    "rollout_epoch": 1,
+    "group_size": 2,
+    "max_episode_steps": 8,
+    "pi05_modified": false,
+    "reward_model_modified": false,
+    "rl_algorithm_or_budget_modified": false,
+    "participant_action_selection": false,
+    "mpc": false
+  },
+  "rollout_gate": {
+    "initial_context_and_history_bit_exact": true,
+    "absolute_action_contract": true,
+    "candidate_routes_required": "2/2",
+    "replay_bit_exact": true,
+    "nonzero_group_action_difference": true
+  },
+  "historical_dev22_prescreen": {
+    "batch_order": [0, 1],
+    "batch00_count": 16,
+    "batch01_count": 6,
+    "run_batch01_only_if_mathematically_eligible_after_batch00": true,
+    "batch00_minimum_to_continue": {
+      "successes": 2,
+      "grasps": 12,
+      "right_grasps": 9,
+      "right_successes": 0
+    },
+    "final_minimum": {
+      "successes": 8,
+      "grasps": 18,
+      "left_success_nonregression": true,
+      "right_success_nonregression": true,
+      "left_grasp_nonregression": true,
+      "right_grasp_nonregression": true
+    }
+  },
+  "promotion": {
+    "development32_locked_until_full_dev22_pass": true,
+    "development32_required_successes": 10,
+    "development32_baseline_successes": 9,
+    "acceptance128_locked_until_development32_pass": true
+  },
+  "next_parent_strategy_if_rejected": {
+    "may_use_declared_offline_synthetic_RoboTwin_data": true,
+    "must_change_parent_meaningfully_before_more_actor_seeds": true,
+    "joint_targets": [
+      "motion-conditioned structure and contact fidelity",
+      "small-text and gripper temporal persistence",
+      "official reward ranking fidelity",
+      "balanced left/right downstream policy utility"
+    ]
+  }
+}

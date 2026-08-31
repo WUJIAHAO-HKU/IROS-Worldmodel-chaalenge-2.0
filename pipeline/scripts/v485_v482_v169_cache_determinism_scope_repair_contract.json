@@ -1,0 +1,568 @@
+{
+  "format": "strict-track2-v485-v482-v169-cache-determinism-qualification-design-contract-v7",
+  "status": "phase_a_design_only_pending_independent_static_review_and_postregistration_smoke_authority",
+  "seed": 1627,
+  "classification": "mechanical recovery from a pre-training CUDA median deterministic-algorithm guard failure; no fold, optimizer step, policy update, S1, zero-update, RL, reward, dev, hidden, final or submission access occurred or is authorized",
+  "immutable_failed_parent": {
+    "v482_r3_formal": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/preregistration.json",
+      "sha256": "426d4f7a774520458f6af41d20660cf31202791f99603dacec114f771da6a881"
+    },
+    "launcher_source": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v482_temporal8_residual_s0.sh",
+      "sha256": "20d2d5a5a4035751f81d3cff8f560e400996c158cb6302b848d38213ea5fb96f"
+    },
+    "static_auditor_source": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v482_temporal8_residual_static.py",
+      "sha256": "088447774ad4ae0b67ec3470e4170ca5c8527e5fdfd0ee12fc000549bf785a2e"
+    },
+    "static_audit_receipt": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/static_audit.json",
+      "sha256": "a7ff12ac94c023096d191a299d9e799cad3860cf15124190928034b30fcd77c8"
+    },
+    "launcher_failure_receipt": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/launcher_failure_receipt.json",
+      "sha256": "dbe3e10d5e7d47d9690c42ebf7f8658fcb10b5aafcd9f6bd19cbf4accb381106"
+    },
+    "launcher_stage_log": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/launcher_stage.log",
+      "sha256": "cf51ff5e7b15688a86d5f0d78f75a39598a85f6341ed71506a70bee7aa6f1b41"
+    },
+    "trainer_hard_failure_receipt": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/s0_result.partial/hard_failure_receipt.json",
+      "sha256": "19e12513c5c74c9f1e7b063f917371c057416c52c92bb7ecf16c740d5c320652"
+    },
+    "restore_v218_log": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/restore_v218.log",
+      "sha256": "bf36c8bfe0d2f0af1690b20840a80e622e67e3029daab4b4985a88fc2989acb1"
+    },
+    "required_failure_facts": {
+      "stage": "trainer_hard_failure",
+      "error_type": "RuntimeError",
+      "error_contains": "median CUDA with indices output does not have a deterministic implementation",
+      "policy_updates": 0,
+      "all200_training_performed": false,
+      "completed_folds": 0,
+      "retry_authorized": false,
+      "v218_health_restored": true,
+      "gpu_and_process_group_empty_before_restore": true
+    },
+    "required_absence": [
+      {"kind": "directory", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/s0_result"},
+      {"kind": "file", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/s0_audit.json"},
+      {"kind": "file", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/release_audit.json"},
+      {"kind": "file", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/launcher_success_receipt.json"},
+      {"kind": "directory", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_release_seed1624_20260824"},
+      {"kind": "directory", "path": "/dev/shm/v482_v169_temporal_cache_seed1624"}
+    ],
+    "only_partial_result_file": "s0_result.partial/hard_failure_receipt.json"
+  },
+  "immutable_failed_parent_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824",
+    "file_count": 8,
+    "logical_file_bytes": 311188,
+    "sha256sum_lines_digest_sha256": "c89795cb9d3cc0508eed02cac2b5f9cd4489efab4342a38a36c6d4599bff97b9",
+    "algorithm": "cd root; find . -type f -print0 | sort -z | xargs -0 sha256sum; sha256 of exact emitted lines including ./ relative paths and two spaces",
+    "failed_cache_root": "/dev/shm/v482_v169_temporal_cache_seed1624",
+    "failed_cache_root_absent": true,
+    "failed_cache_partial_root": "/dev/shm/v482_v169_temporal_cache_seed1624.partial",
+    "failed_cache_partial_exact_empty_directory": true,
+    "failed_cache_partial_file_count": 0,
+    "failed_cache_partial_file_bytes": 0,
+    "fold_checkpoint_count": 0,
+    "training_metric_or_result_file_count": 0
+  },
+  "unchanged_parent_semantics": {
+    "rule": "v485 must consume the exact v482 r3 formal dataset/model/folds/controls/loss/gates/thresholds/seeds/schedules/initial states and may differ only in the cache-scoped deterministic guard, cache-smoke/reconciliation ancestry, source hashes and new lineage paths",
+    "dataset_section_canonical_sha256": "4a405b3fdb824acde098637da6126ce4d20bb054a837122bdc3336ac2747f6e4",
+    "action_bounds_section_canonical_sha256": "5322346c202f33c18ee7bf38fd36d0ad65650ad2adb860976717df916858f3fa",
+    "fold_schedules_section_canonical_sha256": "56573fd4fe468c26f38c0f1edec39e8407179f30627bedd2eff042a33dc223b7",
+    "phase_shuffle_section_canonical_sha256": "0e2d7cf3d0a3e6c76fcfb254019f5264b188ac4b77cf17435d832835bfab5bfd",
+    "initial_states_section_canonical_sha256": "b8c0601d5faa3f1bb79d7e1151a9ff7cd67ebd87c5c68adbe38fde7fee5fefe2",
+    "all200_schedule_section_canonical_sha256": "1b46de11d28d1e178f993a73d87bfdf85697000e8e7103fd6ed84eed8cae7f70",
+    "all200_initial_state_section_canonical_sha256": "97802650dd23de1d05fbf9b23b5a4feb381bcbdb57f7fafa23dad0c81bde826f",
+    "chosen_model_contract_section_sha256": "83b4d6d4687ce4e67e1991eb8e0f88d28e17446006a342c5a00a9782e5c3438e",
+    "three_head_controls_contract_section_sha256": "88b559822da678833756a85163b2e4e693d5ce3daac70648bad8e373bafe5a04",
+    "loss_contract_section_sha256": "973a4c69006b316a3d8d5683e84dd7c8c1252432148de3baf2d276141d77ef17",
+    "ten_gates_contract_section_sha256": "23a2e7a41c388078e86c986eaa344e32bdd84c80a66ac4ed1eb1ec3246a982d7",
+    "temporal_gates_contract_section_sha256": "845723916455e7942d2758352300308ef19c11d3188265c658bab50ec0c613ba",
+    "fold_pass_early_stop_contract_section_sha256": "e4e5f943bee406a12fad193fc9c8655159435986aa9a9cf9923252b11f9f55f0",
+    "trainable_parameter_count": 878579,
+    "fold_count": 5,
+    "heads": ["action", "context_only", "phase_shuffle"],
+    "steps_per_head_per_fold": 400,
+    "all200_action_steps": 500,
+    "threshold_change_allowed": false,
+    "model_or_capacity_change_allowed": false,
+    "data_or_fold_change_allowed": false
+  },
+  "only_permitted_code_change": {
+    "scope": "each of the exact 1000 immutable Track2V169ArmRoutedRuntime.predict scalar cache calls in Phase-A qualification only; no training process shares this scope",
+    "entry_preconditions": {
+      "torch_deterministic_algorithms_enabled": true,
+      "torch_deterministic_warn_only_enabled": false,
+      "training_model_constructed": false,
+      "optimizer_constructed": false,
+      "fold_or_all200_step_started": false
+    },
+    "operation": "immediately before one v169.predict call, record CPU/CUDA RNG-state SHAs and call torch.use_deterministic_algorithms(True,warn_only=True); under warnings.catch_warnings(record=True) with simplefilter(always), execute exactly one scalar v169.predict; synchronize CUDA before hashing the uint8 output",
+    "allowed_warning": {
+      "category": "UserWarning",
+      "exact_message": "median CUDA with indices output does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:93.)",
+      "cadence_status": "frozen from reviewed r2 two-fresh-process 24-call evidence",
+      "count_per_process": 1000,
+      "count_per_predict": 1,
+      "different_category_or_message": "terminal qualification failure"
+    },
+    "finally": "in a mandatory finally block call torch.use_deterministic_algorithms(True,warn_only=False), assert deterministic algorithms enabled and warn-only false, and assert CPU/CUDA RNG-state SHAs unchanged; restoration failure is terminal",
+    "outside_scope": "deterministic algorithms must remain true and warn-only false before/after every predict, during cache serialization and throughout any later training/OOF/metric/all200/package/audit lineage",
+    "forbidden": [
+      "torch.use_deterministic_algorithms(False) anywhere",
+      "global or stage-wide warn_only=true",
+      "any warning other than the exact single median CUDA indices warning inside one predict scope",
+      "catching or suppressing cache exceptions",
+      "alternate median implementation",
+      "CPU fallback",
+      "precision/dtype/device/batch/order/seed change",
+      "cache output editing, averaging, tolerance or retry",
+      "any change outside the mechanical scoped guard and provenance checks"
+    ]
+  },
+  "warning_cadence_qualification_evidence": {
+    "aggregate_receipt": {
+      "path_at_review": "/dev/shm/v482_v169_detcompat_smoke_r3_failure_r2_20260824/receipt.json",
+      "sha256": "60255ef41d9f3fd40497cd083ac6b044baac775067cfbdb47e8989eb1f1cf932"
+    },
+    "forward_receipt": {
+      "path_at_review": "/dev/shm/v482_v169_detcompat_smoke_r3_failure_r2_20260824.forward/receipt.json",
+      "sha256": "3ac3aa995f6a62a1876a4df6a4b63797b1437466b4b480843a3660815716e56b"
+    },
+    "reverse_receipt": {
+      "path_at_review": "/dev/shm/v482_v169_detcompat_smoke_r3_failure_r2_20260824.reverse/receipt.json",
+      "sha256": "1c479969ae9d8a4f90c9cbe139c8c48bdbb85be2b586d803c9b04f705e81682e"
+    },
+    "worker_source_sha256": "b7db9eba1b7b8a0492691886013a8f5f01426c7162767da571cc955b597999e7",
+    "facts": {
+      "fresh_processes": 2,
+      "calls_per_process": 12,
+      "total_calls": 24,
+      "allowed_warning_per_call": 1,
+      "other_warning_count": 0,
+      "repeat8_byteexact": true,
+      "forward_reverse_identity_byteexact": true,
+      "gpu_peak_mib": 6430,
+      "training_launched": false,
+      "policy_updates": 0,
+      "v218_dual_health_restored": true
+    },
+    "known_limitation_and_full_run_requirement": "r2 evidence did not record warning category or CPU/CUDA RNG-state hashes; Phase-A 1000-call sources and receipts must independently record and hard-gate category UserWarning and pre/post RNG equality for every call"
+  },
+  "fresh_process_cache_smoke": {
+    "status": "Phase-A qualification required before any separate v485 training preregistration",
+    "processes": 2,
+    "interpreter": "exact v482 r3 execution interpreter closure",
+    "requests_per_process": 1000,
+    "process_a_order": "canonical sample_id0..999; writes the only candidate cache using the frozen NPZ/manifest contract",
+    "process_b_order": "fixed reverse permutation sample_id999..0 in a fresh process; validates streaming and never writes or edits process-A cache",
+    "common_inputs": "exact r3 repeat5 contexts, history, branch future, stable seed, instruction and v169 closure; no RGB target, dev, reward, success, outcome, hidden or final inspection is used for selection",
+    "per_request_required_evidence": [
+      "sample_id,episode,start,branch,request_sha256,seed",
+      "output uint8 shape[8,256,256,3] and output_sha256",
+      "deterministic enabled true throughout and warn_only false/true/false event sequence",
+      "allowed warning cadence exactly matches the separately frozen technical cadence receipt and no other warning occurs",
+      "CPU and every CUDA-device RNG-state SHA before and after",
+      "source/formal/v169 closure SHA"
+    ],
+    "byteexact_gates": {
+      "a_equals_b_per_identity_after_identity_sort": true,
+      "canonical_baseline_raw_array_sha256_equal_across_both": true,
+      "request_and_output_manifest_sha256_equal_across_both_after_identity_sort": true,
+      "all_2000_outputs_exact_schema_and_uint8": true,
+      "all_guard_and_rng_checks_true": true,
+      "no_missing_extra_duplicate_or_filtered_identity": true
+    },
+    "process_b_streaming_reorder": "write each reverse-order output into a previously absent uint8 memmap at canonical sample_id offset, fsync, then hash canonical contiguous raw bytes; retain the memmap unchanged until an independent auditor reopens and rehashes it and atomically commits a PASS receipt; only then delete it and write/fsync a cleanup receipt binding its former path/SHA/bytes and audit receipt; do not retain a second training cache",
+    "canonical_reusable_cache": "only process A cache may be proposed for later immutable reuse; B is proof-only; reuse requires a separate reconciliation receipt and training execution preregistration, and is not authorized by this contract",
+    "on_fail": "freeze immutable Phase-A failure receipt; no retry, alternate order, tolerance, cache reuse, training, S1, zero-update or RL",
+    "on_pass": "only authorize drafting and independent review of a separate Phase-B training execution preregistration that binds the qualified cache; do not directly authorize training"
+  },
+  "cache_artifact_and_manifest_contract": {
+    "cache_array_shape": [200, 5, 8, 256, 256, 3],
+    "cache_array_dtype": "uint8",
+    "npz_exact_keys": ["baseline", "seed", "request_sha256", "output_sha256", "sample_id"],
+    "npz_shape_contract": {
+      "baseline": [200, 5, 8, 256, 256, 3],
+      "seed": [200, 5],
+      "request_sha256": [200, 5],
+      "output_sha256": [200, 5],
+      "sample_id": [200, 5]
+    },
+    "npz_exact_array_contract": {
+      "baseline": {"dtype": "uint8", "shape": [200, 5, 8, 256, 256, 3], "c_contiguous": true, "raw_bytes": 1572864000},
+      "seed": {"dtype": "int64-native-little-endian", "shape": [200, 5], "c_contiguous": true},
+      "request_sha256": {"dtype": "<U64", "shape": [200, 5], "c_contiguous": true, "content": "lowercase ASCII hex64 only"},
+      "output_sha256": {"dtype": "<U64", "shape": [200, 5], "c_contiguous": true, "content": "lowercase ASCII hex64 only"},
+      "sample_id": {"dtype": "int64-native-little-endian", "shape": [200, 5], "c_contiguous": true, "content": "exact reshape(arange(1000),[200,5]) row-major"},
+      "npz_key_order": ["baseline", "seed", "request_sha256", "output_sha256", "sample_id"],
+      "allow_pickle": false
+    },
+    "process_b_memmap_contract": {"dtype": "uint8", "shape": [200, 5, 8, 256, 256, 3], "c_order": true, "raw_bytes": 1572864000, "canonical_sample_id_offsets": true},
+    "manifest_exact_fields": [
+      "format",
+      "cache_npz_path",
+      "cache_npz_sha256",
+      "cache_npz_logical_bytes",
+      "baseline_raw_array_sha256",
+      "npz_key_order",
+      "npz_array_schema",
+      "ordered_scalar_requests",
+      "request_digest_sha256",
+      "output_digest_sha256",
+      "seed_digest_sha256",
+      "request_sha256_array_digest_sha256",
+      "output_sha256_array_digest_sha256",
+      "sample_id_sha256",
+      "context_repeat5_digest_sha256",
+      "context_repeat5_sha256",
+      "guard_event_manifest_sha256",
+      "rng_event_manifest_sha256",
+      "source_and_ancestry_sha256",
+      "process_a_worker_receipt_path",
+      "process_a_worker_receipt_sha256",
+      "phase_a_preregistration_path",
+      "phase_a_preregistration_sha256",
+      "phase_a_formal_path",
+      "phase_a_formal_sha256",
+      "process_a_payload_tree_algorithm",
+      "process_a_payload_tree_file_count",
+      "process_a_payload_tree_logical_file_bytes",
+      "process_a_payload_tree_sha256sum_lines_digest_sha256",
+      "process_a_payload_tree_canonical_json_digest_sha256"
+    ],
+    "ordered_scalar_requests": 1000,
+    "hash_semantics": {
+      "cache_npz_sha256": "SHA256 of the exact compressed process-A NPZ file bytes",
+      "baseline_raw_array_sha256": "SHA256 of C-contiguous uint8 baseline[200,5,8,256,256,3] raw bytes only",
+      "seed_digest_sha256": "SHA256 of C-contiguous int64 seed[200,5] raw bytes",
+      "request_sha256_array_digest_sha256": "SHA256 of the exact C-contiguous NumPy <U64 request_sha256[200,5] array bytes; distinct from ordered concatenated request_digest_sha256",
+      "output_sha256_array_digest_sha256": "SHA256 of the exact C-contiguous NumPy <U64 output_sha256[200,5] array bytes; distinct from ordered concatenated output_digest_sha256",
+      "sample_id_sha256": "SHA256 of C-contiguous int64 sample_id[200,5] raw bytes",
+      "process_b_required_equality": "independently rehashed process-B canonical memmap raw SHA must equal process-A baseline_raw_array_sha256; it is never compared to cache_npz_sha256"
+    },
+    "whole_directory_commit": "private same-filesystem directory, fsync NPZ/manifest/receipts and directory, atomic rename to absent final cache root, parent fsync; no overwrite",
+    "acyclic_process_a_manifest_order": "child writes/fsyncs identity, NPZ, call_events and progress; child writes/fsyncs process-A worker receipt that does not claim or hash the still-open driver-owned process.log or any future completion receipt; child then writes/fsyncs manifest binding that worker receipt and the exact child-owned process-A payload tree. Driver later waits for child exit, closes/fsyncs/hashes process.log and writes the completion receipt. Later stage receipts rehash all earlier files under independently labelled later-stage trees. No file is rewritten.",
+    "process_a_payload_tree_definition": "complete exact child-owned regular-file inventory under process_a at manifest time, excluding cache/manifest.json itself, driver-owned still-open process.log, and future completion_receipt.json; manifest and both excluded driver-owned artifacts are separately hashed by precleanup and every later stage; no other exclusion, extra, missing, symlink, partial or temporary entry",
+    "later_training_preflight": "independently rehash NPZ, all arrays, every request/output hash, exact manifest and smoke reconciliation before any model or optimizer construction"
+  },
+  "phase_a_output_and_receipt_schema": {
+    "whole_output_commit": "all outputs live under one previously absent Phase-A root; each process uses a private same-filesystem staging directory and atomic whole-directory promotion with file/directory/parent fsync",
+    "required_relative_outputs": [
+      "attempt_intent.json",
+      "process_a/identity.json",
+      "process_a/cache/scalar_v169_temporal_cache.npz",
+      "process_a/cache/manifest.json",
+      "process_a/call_events.ndjson",
+      "process_a/progress.ndjson",
+      "process_a/process.log",
+      "process_a/receipt.json",
+      "process_a/completion_receipt.json",
+      "process_b/identity.json",
+      "process_b/call_events.ndjson",
+      "process_b/progress.ndjson",
+      "process_b/process.log",
+      "process_b/receipt.json",
+      "process_b/completion_receipt.json",
+      "independent_precleanup_audit.json",
+      "process_b_cleanup_receipt.json",
+      "independent_final_audit.json",
+      "qualification_report.json",
+      "terminal_receipt.json"
+    ],
+    "process_b_memmap_lifecycle": {
+      "relative_path": "process_b/baseline_canonical.memmap",
+      "required_during_process_b_and_precleanup_audit": true,
+      "required_exact_bytes_during_audit": 1572864000,
+      "required_after_cleanup_and_at_terminal": false,
+      "terminal_required_absent": true,
+      "terminal_cleanup_receipt_required_present": true
+    },
+    "staged_non_self_referential_tree_contract": {
+      "common_inventory_rule": "at each named stage recursively enumerate regular files using relative POSIX paths, reject every symlink/socket/device/FIFO, reject every .tmp/.partial/unregistered file, record ordered [relative_path,sha256,logical_bytes], file_count and logical_file_bytes",
+      "sha256sum_lines_algorithm": "for each stage inventory sorted by relative POSIX path emit lowercase_sha256 + two spaces + relative_path + newline; hash exact UTF-8 bytes",
+      "canonical_json_algorithm": "SHA256 canonical compact JSON of that stage's ordered [relative_path,sha256,logical_bytes] triples",
+      "stage_1_process_a_payload": {
+        "owner": "process_a/cache/manifest.json",
+        "timing": "after process-A receipt is fsynced and before manifest creation",
+        "root": "process_a",
+        "exclude_exact": ["cache/manifest.json", "process.log", "completion_receipt.json"],
+        "required_present": ["identity.json", "cache/scalar_v169_temporal_cache.npz", "call_events.ndjson", "progress.ndjson", "receipt.json"],
+        "field_prefix": "process_a_payload_tree",
+        "meaning": "complete child-owned process-A payload at that time; manifest, driver-owned final log and driver completion receipt are separately hashed by precleanup and every later stage"
+      },
+      "stage_2_precleanup_input": {
+        "owner": "independent_precleanup_audit.json",
+        "timing": "after A manifest and all B evidence/memmap are fsynced, immediately before writing the precleanup audit",
+        "root": "Phase-A output root",
+        "exclude_exact": ["independent_precleanup_audit.json", "process_b_cleanup_receipt.json", "independent_final_audit.json", "qualification_report.json", "terminal_receipt.json"],
+        "required_present": ["attempt_intent.json", "process_a/cache/manifest.json", "process_a/process.log", "process_a/completion_receipt.json", "process_b/baseline_canonical.memmap", "process_b/process.log", "process_b/completion_receipt.json"],
+        "field_prefix": "precleanup_input_tree",
+        "meaning": "complete immutable A+B evidence presented to the independent audit, including the live B memmap; audit file itself is not self-hashed"
+      },
+      "stage_3_pre_cleanup_state": {
+        "owner": "process_b_cleanup_receipt.json",
+        "timing": "after the PASS precleanup audit is fsynced and while B memmap still exists, immediately before deletion",
+        "root": "Phase-A output root",
+        "exclude_exact": ["process_b_cleanup_receipt.json", "independent_final_audit.json", "qualification_report.json", "terminal_receipt.json"],
+        "required_present": ["independent_precleanup_audit.json", "process_b/baseline_canonical.memmap"],
+        "field_prefix": "pre_cleanup_state_tree",
+        "removal_facts": "receipt binds exact former memmap path/SHA/bytes, PASS precleanup audit path/SHA, deletion success, parent-directory fsync, and post-delete absence; it never claims a post-cleanup tree that would contain itself"
+      },
+      "stage_4_terminal_base": {
+        "owner": "independent_final_audit.json",
+        "timing": "after cleanup receipt is fsynced and B memmap absence is confirmed, immediately before writing final audit",
+        "root": "Phase-A output root",
+        "exclude_exact": ["independent_final_audit.json", "qualification_report.json", "terminal_receipt.json"],
+        "required_present": ["process_b_cleanup_receipt.json"],
+        "required_absent": ["process_b/baseline_canonical.memmap"],
+        "field_prefix": "terminal_base_tree",
+        "meaning": "complete post-cleanup evidence base; final audit itself is separately hashed by later stages"
+      },
+      "stage_5_pre_report": {
+        "owner": "qualification_report.json",
+        "timing": "after final audit PASS is fsynced, immediately before writing qualification report",
+        "root": "Phase-A output root",
+        "exclude_exact": ["qualification_report.json", "terminal_receipt.json"],
+        "required_present": ["independent_final_audit.json"],
+        "field_prefix": "pre_report_tree",
+        "meaning": "complete terminal-base tree plus final audit"
+      },
+      "stage_6_pre_terminal": {
+        "owner": "terminal_receipt.json",
+        "timing": "after qualification report is fsynced and immediately before writing terminal receipt",
+        "root": "Phase-A output root",
+        "exclude_exact": ["terminal_receipt.json"],
+        "required_present": "every required_relative_outputs entry except terminal_receipt.json",
+        "required_absent": ["process_b/baseline_canonical.memmap"],
+        "field_prefix": "pre_terminal_tree",
+        "meaning": "complete pre-terminal tree including qualification report; terminal receipt explicitly declares it excludes itself and never contains or predicts its own SHA/bytes"
+      },
+      "stage_relation": "tree digests from different stages MUST NOT be asserted equal. Each later owner independently rehashes all immutable prior files, verifies the immediately prior stage inventory as an exact subset with only the explicitly listed additions/removal, and records the new labelled stage inventory/digests.",
+      "terminal_no_extra_rule": "terminal receipt records the exact pre-terminal inventory and asserts the only atomic write after that inventory was terminal_receipt.json itself. A later Phase-B preregistration must independently enumerate the actual complete Phase-A root including terminal_receipt.json, bind its actual SHA/bytes, and reject any extra/missing/symlink entry before authorization."
+    },
+    "identity_log_progress_failure_lifecycle": {
+      "identity": "after intent commit, each fresh worker atomically writes its own process_a/identity.json or process_b/identity.json before importing/constructing v169; identity binds its role, exact expected path, attempt nonce and attempt_intent SHA256 plus the runtime tuple from fresh_process_identity_contract; immutable thereafter",
+      "call_events": "each process call_events.ndjson is append-only canonical JSON with exactly 1000 records and is fsynced before its receipt",
+      "progress": "each process progress.ndjson is append-only canonical JSON with exactly 1002 records: one start, 1000 call_committed in exact execution order, one process_complete; each call_committed binds call-event ordinal/request/output SHA; no overwrite/truncation",
+      "process_log": "driver creates each process.log with exclusive create before spawning that child and redirects the child's stdout and stderr to that one file for the entire child lifetime; child never opens/hashes/claims the log; after bounded wait returns, driver flushes/closes/fsyncs the log, hashes exact bytes, and never appends again",
+      "worker_receipt": "child writes process_a/receipt.json or process_b/receipt.json before exit, binding identity, call_events, progress, outputs and worker-local checks but explicitly not binding final process.log SHA/bytes, exit code or future completion receipt",
+      "driver_completion_receipt": "only driver writes process_a/completion_receipt.json or process_b/completion_receipt.json after the child is reaped or the frozen timeout/termination protocol finishes and after final log close/fsync/hash; receipt obeys driver_completion_receipt_exact_schema and is atomic/fsynced",
+      "success_completion": "success requires exit_code=0, child_completed=true, worker_passed=true, worker receipt PASS and immutable final log SHA/bytes; both A and B completion receipts must exist before independent_precleanup_audit starts",
+      "success_lifecycle": "on success, no failure_receipt.json exists anywhere; all required_relative_outputs exist exactly and B memmap is absent",
+      "pre_intent_failure_lifecycle": "before attempt_intent.json and the official Phase-A root are atomically committed, any formal/authority/source/interpreter/path/preflight failure MUST leave the Phase-A root absent; only the launcher writes an immutable external failure receipt/log under its separate attempt registry; no Phase-A-root failure file is permitted",
+      "post_intent_failure_lifecycle": "after attempt_intent.json and the official Phase-A root are atomically committed, any spawn/identity/worker/exit/timeout failure follows the unique failed-role-directory protocol: driver completes the timeout/termination/wait protocol if a child exists, closes/fsyncs/hashes partial/process.log, writes failed completion_receipt.json inside the partial role directory using explicit null/presence fields, fsyncs all existing files and that directory, atomically promotes the whole partial role directory to the formal-defined final role path and fsyncs Phase-A root; only then driver atomically writes exactly one root failure_receipt.json binding intent, attempt nonce, final role tree and completion receipt. No later success-stage owner file is written; existing identity/log/call_events/progress are frozen without truncation or repair.",
+      "failure_receipt_terminal_on_success": false,
+      "root_failure_receipt_required_only_after_intent_commit": true,
+      "external_launcher_failure_receipt_required_before_intent_commit": true,
+      "automatic_retry_authorized": false
+    },
+    "driver_completion_receipt_exact_schema": {
+      "exact_keys": [
+        "format",
+        "status",
+        "role",
+        "intent_path",
+        "intent_sha256",
+        "attempt_nonce",
+        "identity_present",
+        "identity_path",
+        "identity_sha256",
+        "worker_receipt_present",
+        "worker_receipt_path",
+        "worker_receipt_sha256",
+        "exit_type",
+        "exit_code",
+        "signal",
+        "wait_seconds",
+        "process_log_path",
+        "process_log_sha256",
+        "process_log_logical_bytes",
+        "child_completed",
+        "worker_passed",
+        "authorities"
+      ],
+      "format": "strict-track2-v485-v482-v169-cache-phase-a-driver-completion-v1",
+      "status_enum": ["passed", "failed"],
+      "role_enum": ["process_a", "process_b"],
+      "exit_type_enum": ["clean_exit", "nonzero_exit", "signal", "timeout", "spawn_error"],
+      "identity_presence_union": {
+        "present_true": "identity_path is the exact formal-defined final role path string and identity_sha256 is lowercase hex64",
+        "present_false": "identity_path is JSON null and identity_sha256 is JSON null; omission or empty string is forbidden"
+      },
+      "worker_receipt_presence_union": {
+        "present_true": "worker_receipt_path is the exact formal-defined final role path string and worker_receipt_sha256 is lowercase hex64",
+        "present_false": "worker_receipt_path is JSON null and worker_receipt_sha256 is JSON null; omission or empty string is forbidden"
+      },
+      "exit_union": {
+        "clean_exit": {"exit_code": 0, "signal": null, "child_completed": true},
+        "nonzero_exit": {"exit_code": "integer in [1,255]", "signal": null, "child_completed": true},
+        "signal": {"exit_code": null, "signal": "positive integer signal number", "child_completed": true},
+        "timeout": {"exit_code": null, "signal": null, "child_completed": true, "meaning": "bounded timeout occurred and child was subsequently terminated and reaped"},
+        "spawn_error": {"exit_code": null, "signal": null, "child_completed": false, "meaning": "no child process was created"}
+      },
+      "wait_seconds": "JSON number decoded as finite IEEE754 float64, >=0, seconds measured by time.monotonic_ns delta divided by 1e9; NaN/Inf/string/int sentinel forbidden",
+      "process_log": "path is exact formal-defined final role/process.log logical path even while file is created under partial; SHA is lowercase hex64; logical bytes is nonnegative integer",
+      "worker_passed": "boolean; true iff worker receipt is present and exact PASS and exit_type=clean_exit",
+      "passed_constraints": "status=passed iff identity_present=true, worker_receipt_present=true, exit_type=clean_exit, child_completed=true and worker_passed=true",
+      "failed_constraints": "status=failed, worker_passed=false and authorities all false; identity and worker receipt may each be absent only through their explicit presence=false/null union",
+      "authorities_exact": {
+        "cache_reuse_authorized": false,
+        "phase_b_preregistration_authorized": false,
+        "training_authorized": false,
+        "folds_authorized": 0,
+        "policy_updates": 0,
+        "s1_authorized": false,
+        "zero_update_authorized": false,
+        "rl_authorized": false,
+        "submission_authorized": false,
+        "retry_authorized": false
+      }
+    },
+    "per_process_directory_promotion_protocol": {
+      "initial_absence": "formal-defined final process_a and process_b directories and their sibling .partial directories must all be absent before intent commit",
+      "driver_pre_spawn": "after intent commit and before each spawn, driver exclusively creates same-filesystem process_a.partial or process_b.partial, exclusively creates partial/process.log, and passes that open handle as combined child stdout/stderr",
+      "child_paths": "child writes only inside its assigned partial role directory but all JSON logical path fields name the formal-defined final role path; child cannot write completion_receipt.json",
+      "success_promotion": "after child worker receipt and manifest/outputs are fsynced but while driver-owned process.log remains open, child fsyncs partial directory and atomically os.replace(partial_role_dir, final_role_dir), fsyncs Phase-A root, then returns silently; driver wait observes clean exit, closes/fsyncs/hashes final_role_dir/process.log and atomically writes/fsyncs final_role_dir/completion_receipt.json",
+      "failure_promotion": "child never promotes on failure. Driver finishes wait/termination if applicable, closes/fsyncs/hashes partial/process.log, atomically writes failed partial/completion_receipt.json, fsyncs all partial files and directory, atomically os.replace(partial_role_dir, final_role_dir), fsyncs Phase-A root, then writes root failure_receipt.json binding final completion and role tree",
+      "no_partial_terminal": "after either success completion or root failure receipt, no process_a.partial or process_b.partial directory exists",
+      "no_overwrite_or_reuse": true
+    },
+    "intent_and_call_events_closure": {
+      "attempt_intent": "must be atomically present and fsynced before either fresh worker is launched or imports/constructs v169; it MUST NOT bind future PID/startticks or any future identity tuple. It binds exact roles process_a/process_b, expected relative identity paths process_a/identity.json and process_b/identity.json, a lowercase hex64 attempt nonce generated before commit, execution interpreter path/SHA/version, exact worker/helper/source closure, identity schema version, Phase-A formal/contract/postregistration authority path/SHA, output root and the expected A/B orders.",
+      "identity_reverse_binding": "each worker, after process start and before any v169 import/constructor, reads and hashes committed attempt_intent.json, verifies its assigned role/path/nonce/executable/source/schema/order, then atomically writes identity.json containing intent_path, intent_sha256, attempt_nonce, role and its now-observable full process tuple; precleanup auditor requires both reverse bindings exact and the A/B full identity tuples different",
+      "process_a_call_events": "exactly 1000 newline-delimited canonical JSON records, one per canonical sample_id 0..999, with no extra/missing/duplicate/truncated line; file path/SHA/bytes/count bound by process-A receipt and all audits",
+      "process_b_call_events": "exactly 1000 newline-delimited canonical JSON records, one per reverse sample_id 999..0, with no extra/missing/duplicate/truncated line; file path/SHA/bytes/count bound by process-B receipt and all audits",
+      "each_event_required_fields": [
+        "ordinal",
+        "sample_id",
+        "episode",
+        "start",
+        "branch",
+        "seed",
+        "request_sha256",
+        "output_sha256",
+        "warning_category",
+        "warning_full_message",
+        "deterministic_before",
+        "warn_only_before",
+        "deterministic_inside",
+        "warn_only_inside",
+        "deterministic_after",
+        "warn_only_after",
+        "cpu_rng_before_sha256",
+        "cpu_rng_after_sha256",
+        "cuda_rng_before_sha256_by_device",
+        "cuda_rng_after_sha256_by_device"
+      ],
+      "intent_and_event_files_rehashed_by": ["independent_precleanup_audit", "independent_final_audit", "qualification_report", "terminal_receipt"]
+    },
+    "source_closure_contract": {
+      "exact_roles": [
+        "phase_a_materializer",
+        "phase_a_driver",
+        "phase_a_process_worker",
+        "phase_a_cache_scope_helper",
+        "phase_a_independent_auditor",
+        "phase_a_static_auditor",
+        "phase_a_launcher"
+      ],
+      "record_schema": {"path": "resolved regular file", "sha256": "lowercase hex64", "logical_bytes": "positive integer"},
+      "canonical_digest": "SHA256 canonical compact JSON of exact ordered role/path/sha256/logical_bytes records",
+      "requirements": "every source is exact-rehashed by materializer, driver before first model load, independent audits and terminal receipt; no dynamic/unregistered source or inline shell mutation",
+      "phase_a_formal_and_preregistration": "manifest and every receipt must bind the exact nonauthorizing formal path/SHA and the exact postregistration authority path/SHA that authorized this one Phase-A attempt"
+    },
+    "process_a_receipt_exact_semantics": [
+      "format/status/order=canonical/calls=1000/fresh PID and process start identity",
+      "formal/contract/authority/driver/helper/v169/interpreter source path+SHA closure",
+      "cache NPZ path/SHA/bytes and baseline raw array SHA",
+      "ordered request/output/seed/context manifests and SHA",
+      "exact1000 UserWarning category+full-message events and zero other warnings",
+      "exact1000 deterministic true-warnfalse/true-warntrue/true-warnfalse events",
+      "exact1000 CPU/all-CUDA pre/post RNG SHA equal events",
+      "policy updates0, training/folds/reward/dev/outcome false"
+    ],
+    "process_b_receipt_exact_semantics": [
+      "format/status/order=reverse/calls=1000/fresh process identity distinct from A",
+      "same immutable source closure and per-call warning/guard/RNG evidence",
+      "canonical-offset memmap path/SHA/bytes, baseline raw SHA, identity-sorted request/output manifest SHA",
+      "memmap retained=true and cleanup_authorized=false before independent audit"
+    ],
+    "independent_precleanup_audit_exact_semantics": [
+      "independently rehash every immutable source, receipt, A NPZ/key/array and B memmap before cleanup",
+      "recompute exact1000 identity membership/order mapping/request/output hashes",
+      "require A-vs-B per-identity byte equality and equal canonical baseline raw SHA",
+      "recompute exact warning category/full text/count and guard/RNG equality from call events",
+      "passed=true only if every check passes; training/cache reuse remains false"
+    ],
+    "cleanup_receipt_exact_semantics": "written only after independent precleanup audit PASS; binds that audit SHA and former B memmap path/SHA/bytes, records unlink success and parent-directory fsync",
+    "independent_final_audit_exact_semantics": "revalidates all retained A/B receipts/events, precleanup audit and cleanup receipt; requires B memmap absent and every other declared output byte unchanged; only this final audit may set Phase-A passed=true",
+    "qualification_report_authority": "binds final-audit SHA; PASS authorizes only separate cache reconciliation and Phase-B training preregistration materialization review; training/S1/zero/RL remain false"
+  },
+  "fresh_process_identity_contract": {
+    "fields": ["intent_path", "intent_sha256", "attempt_nonce", "role", "expected_identity_relative_path", "linux_boot_id", "pid", "proc_self_stat_starttime_ticks", "sys_executable_resolved_path", "sys_executable_sha256", "worker_source_sha256", "identity_schema_version"],
+    "intent_future_identity_fields_forbidden": ["pid", "proc_self_stat_starttime_ticks", "full_process_identity_tuple"],
+    "intent_predictable_fields_required": ["roles", "expected_identity_relative_paths", "attempt_nonce", "sys_executable_resolved_path", "sys_executable_sha256", "worker_source_sha256", "identity_schema_version"],
+    "a_and_b_full_identity_tuple_must_differ": true,
+    "pid_alone_may_be_reused": true,
+    "identity_receipt_must_reverse_bind_intent_sha256": true,
+    "identity_receipt_must_be_written_before_v169_import_or_constructor": true,
+    "precleanup_auditor_must_verify_both_reverse_bindings_and_tuple_difference": true
+  },
+  "phase_b_qualified_cache_consumer_boundary": {
+    "input": "only the independently audited and reconciled process-A cache NPZ+manifest+Phase-A final audit exact path/SHA/bytes",
+    "read_only": true,
+    "pre_model_fail_closed": "missing file, extra key, symlink, path drift, SHA/bytes/schema/order/manifest/event/audit mismatch hard-fails before importing or constructing any trainable model",
+    "v169_runtime_import_count": 0,
+    "v169_runtime_constructor_count": 0,
+    "v169_predict_call_count": 0,
+    "cache_build_or_rebuild_count": 0,
+    "cache_write_rewrite_delete_or_move_count": 0,
+    "cache_fallback_or_retry_count": 0,
+    "required_static_and_runtime_proof": "Phase-B trainer AST plus runtime receipt independently proves all zero counts and immutable read-only consumption; any alternative path is forbidden"
+  },
+  "phase_a_future_closure_placeholders": {
+    "cache_scope_helper_source": "PENDING_REVIEWED_MECHANICAL_SOURCE_SHA",
+    "qualification_driver_source": "PENDING_REVIEWED_SHA",
+    "qualification_auditor_source": "PENDING_REVIEWED_SHA",
+    "qualification_static_auditor_source": "PENDING_REVIEWED_SHA",
+    "phase_a_nonauthorizing_formal": "PENDING_SEPARATE_MATERIALIZATION",
+    "phase_a_postregistration_static_authority": "PENDING_AFTER_STATIC_REVIEW",
+    "phase_a_report_and_audit": "PENDING_FRESH_PROCESS_QUALIFICATION",
+    "qualified_cache_reconciliation_receipt": "PENDING_AFTER_PHASE_A_PASS",
+    "phase_b_training_preregistration": "PENDING_SEPARATE_LINEAGE_AFTER_PHASE_A_PASS"
+  },
+  "phase_a_formal_boundary": {
+    "format": "strict-track2-v485-v482-v169-cache-determinism-qualification-preregistration-v1",
+    "status_before_poststatic": "preregistered_cache_qualification_pending_postregistration_static_authority",
+    "output_root_must_be_absent": true,
+    "attempts_authorized_before_poststatic": 0,
+    "training_authorized": false,
+    "folds_authorized": 0,
+    "policy_updates": 0,
+    "phase_a_pass_may_authorize": "separate qualified-cache reconciliation and Phase-B training preregistration review only"
+  },
+  "authorization": {
+    "current_contract_authorizes_source_implementation": true,
+    "current_contract_authorizes_static_review": true,
+    "phase_a_cache_qualification_authorized": false,
+    "cache_reuse_authorized": false,
+    "execution_preregistration_materialization_authorized": false,
+    "training_authorized": false,
+    "folds_authorized": 0,
+    "policy_updates": 0,
+    "s1_authorized": false,
+    "zero_update_authorized": false,
+    "rl_authorized": false,
+    "submission_authorized": false,
+    "next_authority": "only a separately reviewed postregistration authority receipt may authorize the exact two-process Phase-A qualification; Phase-A PASS may authorize separate cache reconciliation and Phase-B training preregistration review, never training directly"
+  }
+}

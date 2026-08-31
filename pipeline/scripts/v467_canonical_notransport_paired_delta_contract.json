@@ -1,0 +1,133 @@
+{
+  "format": "strict-track2-v467-canonical-notransport-paired-delta-contract-v1",
+  "status": "preregistered_public_train_s0_authorized",
+  "classification": "public-train parent-world-model diagnostic; no reward, policy update, RL, dev/final, or submission",
+  "seed": 1616,
+  "lineage": {
+    "paired_endpoint_data": "immutable passed v461 public train40/right15 endpoint200 dataset and final audit",
+    "appearance_parent": "immutable frozen v169 release under the v463 symlink-aware closure contract",
+    "policy_modified": false,
+    "official_reward_loaded": false,
+    "rl_authorized": false
+  },
+  "request_contract": {
+    "context_frames": 5,
+    "history_actions": [4, 14],
+    "future_actions": [8, 14],
+    "endpoint_frame_index": 7,
+    "explicit_right_formula": "lower(instruction) contains 'right arm' and does not contain 'left arm'",
+    "postclose_formula": "finite arrays with history[-1,13] < 0.5 and all future[:,13] < 0.5",
+    "canonical_no_transport_future": "float32 copy of requested future; set every [:,7:13] exactly to float32 history[-1,7:13]; preserve [:,0:7] and [:,13] exactly",
+    "canonical_baseline": "one frozen-v169 prediction for canonical_no_transport_future, with the same context, history, instruction, and seed as the request",
+    "training_seed": "sha256('v466/1616/{episode}/{start}')[:8] little-endian modulo 2**31, identical for canonical and all comparator branches of one context",
+    "runtime_seed": "pass the caller-provided seed unchanged to the single canonical frozen-v169 call; A and D are deterministic and consume no RNG"
+  },
+  "target_decomposition": {
+    "B0": "float32 canonical frozen-v169 endpoint RGB at frame 7",
+    "Y0": "float32 simulator no_transport endpoint RGB",
+    "Yb": "float32 simulator endpoint RGB for branch b",
+    "appearance_target": "A*=Y0-B0",
+    "dynamics_target": "D*_b=Yb-Y0",
+    "no_transport_dynamics_target": "exact all-zero float32 tensor",
+    "candidate_continuous_endpoint": "B0 + A(context,B0) + D(context,requested_actions)",
+    "candidate_uint8_endpoint": "clip(round-to-nearest-even(candidate_continuous_endpoint),0,255).astype(uint8)"
+  },
+  "model_and_training": {
+    "working_resolution": 128,
+    "channels": 16,
+    "precision": "bf16 autocast with float32 loss accumulation",
+    "folds": "the immutable v461 episode-grouped 5 folds; 3 held-out right episodes per fold",
+    "steps_per_head": 50,
+    "batch_size": 8,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "gradient_clip": 1.0,
+    "appearance_head": "one A head per fold, trained only on the fit-fold no_transport samples; no action inputs",
+    "dynamics_heads": [
+      "action",
+      "context_only",
+      "phase_shuffle"
+    ],
+    "dynamics_architecture": "the same EndpointResidualUNet128FiLM architecture for all three heads",
+    "same_capacity_guard": "all three D heads have byte-identical initial state, architecture, optimizer hyperparameters, batch schedule, context-group schedule, step count, precision, B0, A prediction, and targets; optimizers are independent",
+    "action_features": "existing 223-dimensional request-only v458/v464 schema: normalized history+future 168, right6 endpoint delta 6, right6 anchor-relative path 48, postclose 1; arm tokens remain separate",
+    "context_only_features": "zero the 168+6+48 explicit action values; retain postclose=1 and the same arm tokens",
+    "phase_shuffle_features": "replace only explicit action values using the immutable within-episode donor map sorted by request-only phase score and float32 action SHA; retain postclose and arm tokens",
+    "appearance_loss": "L1(A,A*) + 0.25*gradient_L1(A,A*)",
+    "dynamics_loss": "L1(D,D*) + 0.25*gradient_L1(D,D*) + 0.5*L1((D_branch-D_no_transport),(D*_branch-D*_no_transport)) over the fixed five-branch context group",
+    "no_transport_guard": "during training/evaluation/runtime, if requested float32 future[:,7:13] is array_equal to float32 history[-1,7:13] broadcast over 8 steps, bypass D and use an exact zero tensor",
+    "all200_after_s0_only": "only after the immutable S0 receipt passes, train exactly one all200 A head for 50 steps and one all200 action D head for 50 steps using preregistered schedules"
+  },
+  "comparators_and_metrics": {
+    "frozen_v169_comparator": "for evaluation only, compute frozen-v169 outputs with each actual branch action, using the same branch-independent training seed; do not expose comparator RGB as a control input",
+    "control_endpoint": "B0 plus the same frozen A prediction plus the corresponding D-control prediction",
+    "causal_pairing": "retain the existing factual-anchored four paired differences per context for positive cosine and nonzero prediction metrics",
+    "mae_domain": "endpoint RGB frame 7 only, averaged in float64 over RGB pixels and then samples",
+    "fold_pass_semantics": "unchanged from v458/v464; a fold passes only when every preregistered fold-level ratio and causal gate passes"
+  },
+  "unchanged_kill_gates": {
+    "continuous_over_frozen_branch_v169_max": 0.95,
+    "uint8_over_frozen_branch_v169_max": 1.0,
+    "factual_branch_max": 1.0,
+    "each_counterfactual_branch_max": 0.98,
+    "action_over_context_only_max": 0.95,
+    "action_over_phase_shuffle_max": 0.97,
+    "positive_target_delta_cosine_fraction_min": 0.6,
+    "distinct_action_prediction_nonzero_fraction_min": 0.95,
+    "passing_folds_min": 4,
+    "improved_episodes_min": 12
+  },
+  "early_stop": {
+    "two_failed_folds": "hard stop immediately after a second failed fold because passing_folds_min=4 is then mathematically unreachable",
+    "s0_timeout_seconds_from_trainer_start": 480,
+    "whole_chain_timeout_seconds": 600,
+    "gpu_peak_mib_max": 28672,
+    "failure_behavior": "terminate, bounded join, kill/join the full process group; atomically write a failure receipt; never train all200 or package"
+  },
+  "runtime": {
+    "public_class": "Track2V467CanonicalNoTransportPairedDeltaParent",
+    "constructor": "(release_dir, device='cuda')",
+    "apis": [
+      "predict",
+      "predict_with_baseline",
+      "predict_batch",
+      "predict_batch_with_baseline"
+    ],
+    "baseline_return_semantics": "return the frozen-v169 prediction for the original requested future as baseline for diagnostics, while internally using the separately computed canonical B0 for A+D",
+    "left_and_gate0": "for non-explicit-right or non-postclose requests, return the original requested-action frozen-v169 output bitexact",
+    "frames_0_to_6": "always bitexact to the original requested-action frozen-v169 output",
+    "frame_7": "modify only for explicit-right and strict-postclose requests that pass the gate",
+    "no_transport": "D is exact zero; endpoint may contain only the preregistered appearance correction A",
+    "batch_equivalence": "batched and scalar APIs must be bitexact for identical requests",
+    "forbidden": [
+      "reward imports or runtime reward calls",
+      "dev/final/hidden data",
+      "action generation, selection, clipping, or policy modification",
+      "real submission or RL authorization"
+    ]
+  },
+  "closure_and_audit": {
+    "v461": "bind final receipt, selection, generation report, all 410 immutable dataset files, and their SHA256 values",
+    "v169": "reuse the passed v463 symlink-aware logical inventory: lexical link path, readlink text, resolved target constrained to the joint artifact root, target SHA, no cycles or duplicate resolved targets",
+    "sources": "bind prepare, trainer, runtime, packager, launcher, this contract, all schedules, and their SHA256 values",
+    "checkpoint": "bind feature schema, B0 formula, A/D decomposition, no_transport exact-zero guard, training scope, step=50, precision, schedule SHA, source SHA, preregistration SHA, and closure digest",
+    "release": "atomically package exactly the all200 A and action-D checkpoints, runtime, preregistration, S0 report, training report, contract, and manifest",
+    "static_tests": [
+      "left/gate0 full 8-frame bitexact",
+      "enabled frames 0:7 bitexact",
+      "no_transport D bitexact zero",
+      "scalar/batch bitexact",
+      "same-request seed forwarded unchanged",
+      "three D heads same initialization and schedules",
+      "no reward/dev/final/hidden/submit/RL imports or paths"
+    ]
+  },
+  "cost_estimate": {
+    "gpu": "one RTX 5090; expected peak below the observed v464 12522 MiB and hard-capped at 28672 MiB",
+    "v169_cache_order": "compute requested-action comparator and canonical-no_transport baseline sequentially in microbatches of 4, never concatenate both populations; unload frozen v169 and empty the CUDA cache before training A/D heads",
+    "cpu": "taskset CPUs 0-11, OMP 6, other BLAS thread pools 1",
+    "expected_wall_seconds": "300-420 for S0, including canonical and frozen branch-comparator v169 caches; hard stop at 480",
+    "fastest_falsification": "first fold metrics become available atomically; stop after the second failed fold; no all200 work before full S0 PASS"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "format": "strict-track2-v157-actor-offload-interim-result-v1",
+  "recorded_at": "2026-08-11T08:18:00+08:00",
+  "preregistration": "pipeline/config/strict_track2_v157_actor_offload_preregistration.json",
+  "status": "intentionally stopped after rollout feasibility was established; no policy-quality claim",
+  "passed": false,
+  "failed": false,
+  "completed_world_model_chunks": 13,
+  "expected_world_model_chunks_per_update": 200,
+  "cuda_oom": false,
+  "observed_interaction_memory_mib": {
+    "official_rollout": 7842,
+    "official_actor_offloaded": 1256,
+    "official_environment_reward_peak_observed": 4922,
+    "v157_idle": 864
+  },
+  "established": "Official actor offload removes the rollout-stage OOM and supports repeated V15.7 chunks without changing policy, reward, action or world-model numerics.",
+  "stop_reason": "The official rollout model remains resident during the subsequent actor training stage when rollout.enable_offload is false. Its 7.84 GiB plus the reloaded actor, environment and service leaves an unnecessarily high predicted backward-pass OOM risk. The next preregistered test enables the official complementary rollout offload and bounds diagnostic cache writing before spending the full update.",
+  "evidence": {
+    "launcher_log": "artifacts/strict_track2_official_20260810/runs/full_budget_actor_offload_v157_seed1238/launcher.log",
+    "launcher_log_sha256": "161623a1720edbc965c4e32dff1dfc8cb5dd5ef41808ff878b314bfa305c2539",
+    "bridge_audit_directory": "artifacts/strict_track2_official_20260810/v157_actor_offload_bridge/bridge_audit",
+    "bridge_audit_bytes_on_disk": 565182464
+  },
+  "invariants": {
+    "official_pi05_changed": false,
+    "official_reward_changed": false,
+    "official_actions_changed": false,
+    "official_loss_or_optimizer_changed": false,
+    "official_algorithm_or_budget_changed": false
+  }
+}

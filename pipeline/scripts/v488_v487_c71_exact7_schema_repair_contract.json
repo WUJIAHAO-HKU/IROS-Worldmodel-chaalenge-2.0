@@ -1,0 +1,79 @@
+{
+  "format": "strict-track2-v488-v487-c71-exact7-schema-repair-design-contract-v1",
+  "status": "design_only_frozen_sources_pending_independent_review_no_authority",
+  "classification": "nonauthorizing source-repair preregistration only; no reconciler, Phase-A, cache, training, reward, S1, zero-update, RL, or submission execution",
+  "lineage": {
+    "seed": 1630,
+    "registration_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_prereg_seed1630_20260825",
+    "postregistration_authority_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_authority_seed1630_20260825",
+    "attempt_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_attempt_seed1630_20260825",
+    "transparent_static_receipt_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json",
+    "postregistration_authority_required": true,
+    "old_v487_attempt_consumed": true,
+    "old_v487_retry_authorized": false
+  },
+  "materializer_source": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v488_v487_c71_exact7_schema_repair_preregistration.py", "sha256": "9181bfac0d66541ab9d2083617cde84e87bf7369a2630a5e29bf88c918934710", "logical_bytes": 13802},
+  "source_closure": {
+    "parent_v485_preregistration": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v485_v169_cache_qualification_prereg_seed1627_20260824/preregistration.json", "sha256": "b73fad8071d8df0b1bed3dc53212bf8a86b2350911620feac81d96a1505492e0", "logical_bytes": 55761},
+    "f813_reconciliation_preregistration": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/preregistration.json", "sha256": "f8137d02a692a9c6243f13ce8a7674e4ac90fbd31c85b3e8c32af82f8afa42a8", "logical_bytes": 21296},
+    "v487_authority_receipt": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v487_v486_phase_a_static_reconciliation_authority_seed1629_20260824/authority_receipt.json", "sha256": "2785b977b9423e8e0a493b420982bd9b9f4a2f28533c3bd8169cf25204b7b985", "logical_bytes": 45171},
+    "v487_authority_helper": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v487_authority_materializer_once_r2.py", "sha256": "a30d6028785df7a5aa7b85c214f194a049cc8a61898bd390bada25c060f6aea5", "logical_bytes": 28169},
+    "v487_helper_process_receipt": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v487_v486_phase_a_static_reconciliation_authority_materialization_evidence_r2_20260824/materializer_process_receipt.json", "sha256": "67097b38f9b391693b69825b7cd3c1131552d71f4f57de0d7838fdc7c29fe16e", "logical_bytes": 14226},
+    "old_reconciler_c71": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/reconcile_v486_v485_static_false_positive.py", "sha256": "c71ba00b0c92efda03f9df149263d0c476de86ea7338ba3719a72f3305959984", "logical_bytes": 36229},
+    "old_v487_wrapper": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v487_v486_v485_static_false_positive_reconciliation.py", "sha256": "41a0d93428d1b4ab224bbc3d7bfd8e4e3752522a3ea87de2439fbb57ed7d003b", "logical_bytes": 63286},
+    "future_reconciler_r2": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/reconcile_v488_v487_c71_exact7_schema_repair.py", "sha256": "9efc41eb2574b065ab4e83920f524ae47902079f9b40b9bcc6d31e6739bc1377", "logical_bytes": 51845}
+  },
+  "f813_registration_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824",
+    "inventory": [["immutable_evidence/v485_static_b73.log", "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b", 6475], ["preregistration.json", "f8137d02a692a9c6243f13ce8a7674e4ac90fbd31c85b3e8c32af82f8afa42a8", 21296]],
+    "file_count": 2,
+    "logical_file_bytes": 27771,
+    "sha256sum_lines_digest_sha256": "717d6ae12fbacbaafa147d03503140e5f807c028acc97a7294c84da2d79fe3fe",
+    "canonical_json_triples_digest_sha256": "a0602666a7e59d60e464b3bc76b31b2fbf501e3d37bbd0b18b2db8c1233971ec"
+  },
+  "v487_authority_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v487_v486_phase_a_static_reconciliation_authority_seed1629_20260824",
+    "inventory": [["authority_receipt.json", "2785b977b9423e8e0a493b420982bd9b9f4a2f28533c3bd8169cf25204b7b985", 45171]],
+    "file_count": 1,
+    "logical_file_bytes": 45171,
+    "sha256sum_lines_digest_sha256": "026ac1ad81804e35385f15ad0f128b1842ff3306136a90384421775ec4a9d8df",
+    "canonical_json_triples_digest_sha256": "9698c0542c095d6414a5b6ff7424fed58fbe9b51965b214ad6c2d02fdaf97c95"
+  },
+  "v487_helper_evidence_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v487_v486_phase_a_static_reconciliation_authority_materialization_evidence_r2_20260824",
+    "inventory": [["materializer_argv.json", "60ec3148552b0d8cdb964fa8774c4f9cabdac0124ba027826789cb4bb661cd2d", 8335], ["materializer_invocation_intent.json", "ccac977b3e781f39e5e7a75b33e1496bcd30cae461d38b415eb8f97138888859", 768], ["materializer_process_receipt.json", "67097b38f9b391693b69825b7cd3c1131552d71f4f57de0d7838fdc7c29fe16e", 14226], ["materializer_stderr.log", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 0], ["materializer_stdout.log", "bbb9af69f5963c88f6c679148fafe513e8f90648bdf587e7c263ef80a61182c9", 331]],
+    "file_count": 5,
+    "logical_file_bytes": 23660,
+    "sha256sum_lines_digest_sha256": "7a77a93e78f0a0b886c68cc0a8113e625a80165d5f1de2175043e24d16597ac3",
+    "canonical_json_triples_digest_sha256": "7ab72088a06e16cbd9487c7814b2211d4f8ba719fe80fb174ea2ce01f13e8349"
+  },
+  "failed_reconciliation_attempt_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v487_v486_phase_a_static_reconciliation_attempt_seed1629_20260824",
+    "inventory": [["intent.json", "f1d574c6852310d41233a01d9ec0f317a74e576e8fcfa525f0d3c0321ece4e25", 15360], ["reconciler_stderr.log", "a29513ff2f4b76fc5df5cf9ff584cdce4ed5605ea46046baa662792f8b65d1e8", 918], ["reconciler_stdout.log", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 0], ["terminal_receipt.json", "fed06b501af307c72be72c1e0586672c648423eb7681917a7e0b0a59470d7acb", 1951]],
+    "file_count": 4,
+    "logical_file_bytes": 18229,
+    "sha256sum_lines_digest_sha256": "ca710ba1a91040f33dfe045440e32543436eae45a3d579ef67038f36308f538e",
+    "canonical_json_triples_digest_sha256": "f68ed16cddce7e62fde972d41562f03b9feec5b119907e67426fa829d45910f8"
+  },
+  "exact7_schema_repair_proof": {
+    "roles_in_order": ["phase_a_materializer", "phase_a_driver", "phase_a_process_worker", "phase_a_cache_scope_helper", "phase_a_independent_auditor", "phase_a_static_auditor", "phase_a_launcher"],
+    "canonical_records_digest_sha256": "9adc5bdbfaa0022b745c44abac2ac2bd02f801f751ebce35d0116c0a8e8e53e0",
+    "old_c71_expected_exact3_keys": ["execution_source_records", "execution_sources", "execution_sources_digest_sha256"],
+    "f813_actual_exact4_keys": ["all_records_must_equal_parent_formal_and_old_receipt_and_current_files", "canonical_records_digest_sha256", "records", "roles_in_order"],
+    "underlying_records_roles_digest_map_all_equal": true,
+    "new_r2_required_rule": "strictly require f813 actual exact4 keyset; guard true; roles equal frozen role order; records equal parent-derived records; canonical digest equal derived digest; records-derived map equal parent execution_sources; no fallback, schema coercion, or write"
+  },
+  "required_absences_before_registration": {
+    "fresh_registration_root": {"kind": "directory", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_prereg_seed1630_20260825"},
+    "fresh_registration_prep": {"kind": "directory", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_prereg_seed1630_20260825.registration-prep"},
+    "fresh_authority_root": {"kind": "directory", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_authority_seed1630_20260825"},
+    "fresh_attempt_root": {"kind": "directory", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_attempt_seed1630_20260825"},
+    "transparent_output": {"kind": "file", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json"},
+    "transparent_output_tmp": {"kind": "file", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json.tmp"},
+    "qualification_root": {"kind": "directory", "path": "/root/v485_v169_cache_qualification_seed1627_20260824"
+    }
+  },
+  "formal_authorization_exact": {"readonly_source_repair_authorized": false, "postregistration_authority_required": true, "attempts_authorized": 0, "retry_old_v487_authorized": false, "phase_a_cache_qualification_authorized": false, "cache_reuse_authorized": false, "training_authorized": false, "folds_authorized": 0, "policy_updates": 0, "s1_authorized": false, "zero_update_authorized": false, "rl_authorized": false, "submission_authorized": false, "reward_read_authorized": false, "dev_hidden_final_outcome_read_authorized": false},
+  "runtime_observation_exact": {"repair_formal_registered": true, "reconciler_r2_executed": false, "transparent_receipt_created": false, "phase_a_executed": false, "training_launched": false, "folds": 0, "policy_updates": 0},
+  "current_design_authorization": {"repair_formal_materialization_authorized": false, "readonly_reconciliation_authorized": false, "attempts_authorized": 0, "phase_a_cache_qualification_authorized": false, "cache_reuse_authorized": false, "training_authorized": false, "folds_authorized": 0, "policy_updates": 0, "s1_authorized": false, "zero_update_authorized": false, "rl_authorized": false, "submission_authorized": false, "reward_read_authorized": false, "dev_hidden_final_outcome_read_authorized": false}
+}

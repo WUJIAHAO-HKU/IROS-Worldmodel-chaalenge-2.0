@@ -1,0 +1,54 @@
+{
+  "format": "strict-track2-policy-candidate-preregistration-v1",
+  "candidate_index": 2,
+  "registered_before_training": true,
+  "objective": "Separate official one-step GRPO sampling variance from the frozen V15.4 parent effect after candidate 1 lost one paired left-arm terminal success.",
+  "parent": {
+    "model_version": "track2-v15.4-post-residual",
+    "release": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v15_post_residual_strength150_release",
+    "frozen_release_tree_sha256_file_sha256": "90902b3460f3f15c315da77e316fc645d32366a9f9ee358ed0a939ce19231596",
+    "frozen_runtime_code_sha256_file_sha256": "21be9c3d84a92b0de858b1574c9d32981a4e6c822573509a541d4bc1d2fb0bcf",
+    "changes_from_candidate_1": "none"
+  },
+  "official_training": {
+    "actor_seed": 1240,
+    "run_label": "official_replica_v154_candidate2_seed1240",
+    "global_steps": 1,
+    "rollout_epoch": 1,
+    "group_size": 2,
+    "max_episode_steps": 8,
+    "pi05_modified": false,
+    "reward_model_modified": false,
+    "official_config_modified": false,
+    "participant_mpc": false
+  },
+  "seed_selection": {
+    "uses_acceptance128": false,
+    "uses_current_development32_for_seed_selection": false,
+    "evidence": "On the historical, already-consumed development22 split, seed 1240 was the only fixed-budget replica among seeds 1235-1240 with a +2 success gain (7 to 9).",
+    "guard": "Historical seed evidence is only a prior; candidate 2 must independently pass the preregistered development32 gates."
+  },
+  "candidate_1_evidence": {
+    "ranking_report_sha256": "03f1033b62e1524dc0197dc33477bacbabb8b52baabea5c614bb229d32f3912a",
+    "baseline_successes": 9,
+    "candidate_successes": 8,
+    "paired_gains": 0,
+    "paired_losses": 1,
+    "changed_seed": 200200007,
+    "grasp_nonregression": true
+  },
+  "development_gate": {
+    "seed_manifest": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_official_20260810/real_robotwin_eval/preregistered_initial_window_joint/development32/manifest.json",
+    "candidate_budget_index": 2,
+    "maximum_candidate_count": 3,
+    "success_absolute_improvement_percentage_points_min": 3.0,
+    "success_relative_improvement_percent_min": 3.0,
+    "left_success_nonregression": true,
+    "right_success_nonregression": true,
+    "overall_left_right_grasp_nonregression": true
+  },
+  "acceptance128": {
+    "consumed_by_this_candidate_before_development_pass": false,
+    "must_remain_unopened": true
+  }
+}

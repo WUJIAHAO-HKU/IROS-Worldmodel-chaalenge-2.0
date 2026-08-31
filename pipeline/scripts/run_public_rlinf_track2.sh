@@ -8,6 +8,12 @@ rlinf_root=${RLINF_ROOT:-third_party/WorldArena-2.0/RL_env_benchmark}
 resources=${OFFICIAL_RESOURCES:-artifacts/official_resources}
 reset_dataset=${RLINF_RESET_DATASET:-artifacts/rlinf_public_reset_adjust_bottle}
 bridge_url=${RLINF_BRIDGE_URL:-http://127.0.0.1:18080}
+strict_evaluation=${WAM_STRICT_EVALUATION:-artifacts/evaluations/multisource_flow_unet_formal_v1_validation_all.json}
+world_model_checkpoint=${WAM_CHECKPOINT_DIR:-}
+world_model_backend=${WAM_BACKEND:-multisource-flow-unet}
+# This is intentionally explicit: candidates remain blocked unless their
+# full held-out report used this same all-frame RGB threshold.
+world_model_accept_mae=${WAM_ACCEPT_MAE:-2.5}
 
 # Preserve caller-provided absolute paths while resolving defaults from the repo root.
 resolve_path() {
@@ -20,6 +26,29 @@ resolve_path() {
 rlinf_root=$(resolve_path "$rlinf_root")
 resources=$(resolve_path "$resources")
 reset_dataset=$(resolve_path "$reset_dataset")
+strict_evaluation=$(resolve_path "$strict_evaluation")
+
+[[ -n "$world_model_checkpoint" ]] || {
+  echo "WAM_CHECKPOINT_DIR must identify the exact world-model checkpoint accepted for RLinf" >&2
+  exit 2
+}
+world_model_checkpoint=$(resolve_path "$world_model_checkpoint")
+
+acceptance_args=()
+if [[ "$world_model_backend" == "wan-flow-ensemble" ]]; then
+  [[ -n "${WAM_WAN_BASE_MODEL:-}" ]] || { echo "WAM_WAN_BASE_MODEL is required for wan-flow-ensemble" >&2; exit 2; }
+  acceptance_args+=(--wan-base-model "$(resolve_path "$WAM_WAN_BASE_MODEL")")
+fi
+
+python pipeline/scripts/require_strict_world_model_acceptance.py \
+  --evaluation "$strict_evaluation" \
+  --windows artifacts/adjust_bottle_windows_full \
+  --split-manifest artifacts/splits/adjust_bottle_50episodes_full.json \
+  --checkpoint-dir "$world_model_checkpoint" \
+  --backend "$world_model_backend" \
+  --accept-mae "$world_model_accept_mae" \
+  "${acceptance_args[@]}" \
+  --output "$world_model_checkpoint/strict_acceptance.json"
 
 python pipeline/scripts/check_official_rlinf_resources.py \
   --resources "$resources" --rlinf-root "$rlinf_root" --reset-dataset "$reset_dataset"

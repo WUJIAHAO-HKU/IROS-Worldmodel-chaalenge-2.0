@@ -1,0 +1,87 @@
+diff --git a/rlinf/workers/actor/fsdp_actor_worker.py b/rlinf/workers/actor/fsdp_actor_worker.py
+--- a/rlinf/workers/actor/fsdp_actor_worker.py
++++ b/rlinf/workers/actor/fsdp_actor_worker.py
+@@ -13,5 +13,6 @@
+ # limitations under the License.
+ 
++import os
+ import time
+ from functools import partial
+ from typing import Optional
+@@ -1423,3 +1424,76 @@ class EmbodiedFSDPActor(FSDPModelManager, Worker):
+             )
+ 
++        if os.environ.get("TRACK2_ABORT_AFTER_PREUPDATE_LOGPROB_AUDIT") == "1":
++            observed = prev_logprobs.detach().float()
++            recomputed = output_dict["logprobs"].detach().float()
++            self.model.freeze_vlm()
++            with torch.no_grad(), self.amp_context:
++                frozen_vlm_output_dict = self.model(
++                    forward_inputs=forward_inputs,
++                    compute_logprobs=True,
++                    compute_entropy=self.cfg.algorithm.entropy_bonus > 0,
++                    compute_values=compute_values,
++                    use_cache=False,
++                    **kwargs,
++                )
++            frozen_vlm_recomputed = frozen_vlm_output_dict["logprobs"].detach().float()
++            self.model.train()
++            was_training = self.model.training
++            self.model.eval()
++            with torch.no_grad(), self.amp_context:
++                eval_output_dict = self.model(
++                    forward_inputs=forward_inputs,
++                    compute_logprobs=True,
++                    compute_entropy=self.cfg.algorithm.entropy_bonus > 0,
++                    compute_values=compute_values,
++                    use_cache=False,
++                    **kwargs,
++                )
++            if was_training:
++                self.model.train()
++            eval_recomputed = eval_output_dict["logprobs"].detach().float()
++            if not (
++                observed.shape
++                == recomputed.shape
++                == frozen_vlm_recomputed.shape
++                == eval_recomputed.shape
++            ):
++                raise RuntimeError(
++                    "TRACK2_PREUPDATE_LOGPROB_SHAPE_MISMATCH "
++                    f"rollout={tuple(observed.shape)} train={tuple(recomputed.shape)} "
++                    f"eval={tuple(eval_recomputed.shape)}"
++                )
++            delta = recomputed - observed
++            flat_delta = delta.flatten()
++            eval_delta = (eval_recomputed - observed).flatten()
++            train_eval_delta = (recomputed - eval_recomputed).flatten()
++            frozen_vlm_delta = (frozen_vlm_recomputed - observed).flatten()
++            if flat_delta.numel() == 0:
++                raise RuntimeError("TRACK2_PREUPDATE_LOGPROB_EMPTY")
++            ratio = flat_delta.clamp(-20.0, 20.0).exp()
++            eval_ratio = eval_delta.clamp(-20.0, 20.0).exp()
++            clipped = (
++                ratio < 1.0 - float(self.cfg.algorithm.clip_ratio_low)
++            ) | (ratio > 1.0 + float(self.cfg.algorithm.clip_ratio_high))
++            self.log_info(
++                "TRACK2_PREUPDATE_LOGPROB_AUDIT "
++                "comparison=first_train_forward_vs_rollout_behavior"
++                f" shape={tuple(delta.shape)}"
++                f" element_count={flat_delta.numel()}"
++                f" delta_mean={flat_delta.mean().item():.9g}"
++                f" delta_abs_mean={flat_delta.abs().mean().item():.9g}"
++                f" delta_abs_max={flat_delta.abs().max().item():.9g}"
++                f" ratio_mean={ratio.mean().item():.9g}"
++                f" ratio_abs_error_mean={(ratio - 1.0).abs().mean().item():.9g}"
++                f" clip_fraction={clipped.float().mean().item():.9g}"
++                f" exact_equal_fraction={(flat_delta == 0).float().mean().item():.9g}"
++                f" eval_delta_abs_mean={eval_delta.abs().mean().item():.9g}"
++                f" eval_ratio_abs_error_mean={(eval_ratio - 1.0).abs().mean().item():.9g}"
++                f" eval_exact_equal_fraction={(eval_delta == 0).float().mean().item():.9g}"
++                f" train_eval_delta_abs_mean={train_eval_delta.abs().mean().item():.9g}"
++                f" frozen_vlm_delta_abs_mean={frozen_vlm_delta.abs().mean().item():.9g}"
++                f" frozen_vlm_exact_equal_fraction={(frozen_vlm_delta == 0).float().mean().item():.9g}"
++            )
++            raise RuntimeError("TRACK2_EXPECTED_ABORT_AFTER_PREUPDATE_LOGPROB_AUDIT")
++
+         if SupportedModel(self.cfg.actor.model.model_type) in [

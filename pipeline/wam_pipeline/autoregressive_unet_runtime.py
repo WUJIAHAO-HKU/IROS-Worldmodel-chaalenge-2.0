@@ -48,3 +48,36 @@ class Track2AutoregressiveUNet:
                 history = torch.cat([history[:, 1:], action[:, None]], dim=1)
         prediction = torch.stack(predictions, dim=1).mul(255).round().to(torch.uint8)
         return prediction.squeeze(0).permute(0, 2, 3, 1).cpu().numpy().copy()
+
+    def predict_batch(
+        self,
+        context_frames,
+        history_actions,
+        future_actions,
+        seeds,
+        instructions,
+    ):
+        """Roll a complete request batch forward in eight model calls.
+
+        The network is deterministic; ``seeds`` and ``instructions`` remain in
+        the public signature for contract parity but do not alter this model.
+        """
+        del seeds, instructions
+        batch = int(context_frames.shape[0])
+        if context_frames.shape != (batch, CONTEXT_FRAMES, 256, 256, 3) or context_frames.dtype != np.uint8:
+            raise ValueError("context frames must be [B,5,256,256,3] uint8")
+        if history_actions.shape != (batch, 4, ACTION_DIM) or future_actions.shape != (batch, 8, ACTION_DIM):
+            raise ValueError("actions must be [B,4,14] history and [B,8,14] future")
+        torch = self.torch
+        context = torch.from_numpy(np.ascontiguousarray(context_frames)).permute(0, 1, 4, 2, 3).float().div(255.0).to(self.device)
+        history = torch.from_numpy(np.ascontiguousarray((history_actions - self.mean) / self.std)).to(self.device)
+        future = torch.from_numpy(np.ascontiguousarray((future_actions - self.mean) / self.std)).to(self.device)
+        predictions = []
+        with torch.inference_mode():
+            for action in future.unbind(dim=1):
+                next_frame = self.model(context, torch.cat([history, action[:, None]], dim=1)).clamp(0.0, 1.0)
+                predictions.append(next_frame)
+                context = torch.cat([context[:, 1:], next_frame[:, None]], dim=1)
+                history = torch.cat([history[:, 1:], action[:, None]], dim=1)
+        prediction = torch.stack(predictions, dim=1).mul(255).round().to(torch.uint8)
+        return prediction.permute(0, 1, 3, 4, 2).cpu().numpy().copy()

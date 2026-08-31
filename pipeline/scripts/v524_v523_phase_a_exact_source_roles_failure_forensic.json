@@ -1,0 +1,123 @@
+{
+  "format": "strict-track2-v524-v523-phase-a-exact-source-roles-failure-forensic-v1",
+  "status": "failed_no_retry_frozen_pre_worker_exact_source_roles_mismatch",
+  "seed": 1660,
+  "failed_seed": 1659,
+  "retry_authorized": false,
+  "v523_attempt_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v523_v522_phase_a_cache_qualification_attempt_seed1659_20260826",
+    "inventory": [
+      ["intent.json", "cbd460967ee5f5b4aaf7c9787f4f264b292f208db502b6b43e0302a5bc5ca3e0", 5597],
+      ["phase_a_stderr.log", "7885f62cee9a2ecff6bf08299cf93cdfb6ddec9e0fe8810337af4da80bc4e866", 947],
+      ["phase_a_stdout.log", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 0],
+      ["terminal_receipt.json", "1365c0c9f7e7adb8034c92c6d226a4cde9164178b8a8a85e5d929d4c3c7588a2", 38156]
+    ],
+    "file_count": 4,
+    "logical_file_bytes": 44700,
+    "sha256sum_lines_digest_sha256": "8a8fe960f79b3f026b187488babe3dc3886658520e9081a524179e728a938f5a",
+    "canonical_json_triples_digest_sha256": "c67c41bdef17f340dfd3f9b6cb18a642eeadaeb0e4d97e21ab539aa2b9c90419"
+  },
+  "v523_records": {
+    "intent": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v523_v522_phase_a_cache_qualification_attempt_seed1659_20260826/intent.json", "sha256": "cbd460967ee5f5b4aaf7c9787f4f264b292f208db502b6b43e0302a5bc5ca3e0", "logical_bytes": 5597},
+    "terminal": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v523_v522_phase_a_cache_qualification_attempt_seed1659_20260826/terminal_receipt.json", "sha256": "1365c0c9f7e7adb8034c92c6d226a4cde9164178b8a8a85e5d929d4c3c7588a2", "logical_bytes": 38156},
+    "stdout": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v523_v522_phase_a_cache_qualification_attempt_seed1659_20260826/phase_a_stdout.log", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "logical_bytes": 0},
+    "stderr": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v523_v522_phase_a_cache_qualification_attempt_seed1659_20260826/phase_a_stderr.log", "sha256": "7885f62cee9a2ecff6bf08299cf93cdfb6ddec9e0fe8810337af4da80bc4e866", "logical_bytes": 947}
+  },
+  "failure": {
+    "launcher_status": "failed_no_retry",
+    "launcher_error": "Phase-A driver rc=1",
+    "launcher_error_type": "RuntimeError",
+    "driver_returncode": 1,
+    "driver_stderr_contains": "RuntimeError: exact seven source roles",
+    "qualification_output_created": false,
+    "qualification_terminal": null,
+    "qualification_tree": null
+  },
+  "execution_partition": {
+    "launcher_invocations": 1,
+    "nested_phase_a_driver_invocations": 1,
+    "direct_phase_a_driver_invocations": 0,
+    "phase_a_worker_invocations": 0,
+    "rng_proxy_delegate_invocations": 0,
+    "training_invocations": 0,
+    "retry_invocations": 0
+  },
+  "root_cause": {
+    "error": "exact seven source roles",
+    "failure_stage": "driver_pre_worker_actual_source_closure",
+    "formal_exact_roles_count": 7,
+    "driver_expected_roles_count": 8,
+    "shared_role_count": 4,
+    "formal_legacy_exact_roles": [
+      "phase_a_materializer",
+      "phase_a_driver",
+      "phase_a_process_worker",
+      "phase_a_cache_scope_helper",
+      "phase_a_independent_auditor",
+      "phase_a_static_auditor",
+      "phase_a_launcher"
+    ],
+    "driver_expected_exact_roles": [
+      "phase_a_preregistration_materializer",
+      "phase_a_driver",
+      "phase_a_process_worker",
+      "phase_a_rng_isolation_proxy",
+      "cache_scope_helper",
+      "phase_a_independent_auditor",
+      "phase_a_static_auditor",
+      "frozen_phase_a_launcher"
+    ],
+    "shared_roles": [
+      "phase_a_driver",
+      "phase_a_process_worker",
+      "phase_a_independent_auditor",
+      "phase_a_static_auditor"
+    ],
+    "driver_only_roles": [
+      "phase_a_preregistration_materializer",
+      "phase_a_rng_isolation_proxy",
+      "cache_scope_helper",
+      "frozen_phase_a_launcher"
+    ],
+    "formal_only_legacy_roles": [
+      "phase_a_materializer",
+      "phase_a_cache_scope_helper",
+      "phase_a_launcher"
+    ],
+    "sole_difference_class": "formal_legacy7_vs_existing_execution_sources_ordered8",
+    "semantic_repair_exact": {
+      "formal_exact_roles_source": "execution_source_records_roles_in_existing_order",
+      "formal_exact_roles_count": 8,
+      "source_record_contents_unchanged": true,
+      "execution_sources_digest_semantics_unchanged": true,
+      "worker_semantics_unchanged": true,
+      "rng_proxy_semantics_unchanged": true,
+      "per_call_rng_contract_semantics_unchanged": true
+    }
+  },
+  "cleanup_and_safety": {
+    "driver_cleanup": {"started": true, "returncode": 1, "reaped": true, "group_empty": true},
+    "attempt_prep_absent": true,
+    "qualification_root_absent": true,
+    "qualification_prep_absent": true,
+    "immutable_snapshots_exactly_equal": true,
+    "services_stopped": true,
+    "services_restored": true,
+    "service_health_exact_prepost_current": true,
+    "gpu_compute_pids": [],
+    "phase_a_pids": [],
+    "training_launched": false,
+    "cache_reused": false,
+    "reward_read": false,
+    "dev_hidden_final_outcome_read": false,
+    "policy_updates": 0,
+    "durable_call_markers_created": 0,
+    "runtime_delegate_calls": 0,
+    "raw_warnings_observed": 0
+  },
+  "independent_audit": {
+    "check_count": 15,
+    "all_checks_true": true,
+    "checks_sha256": "8f05330bea32d0e624181f29ca5e60d5f49efb7493447a7162080d286197da85"
+  }
+}

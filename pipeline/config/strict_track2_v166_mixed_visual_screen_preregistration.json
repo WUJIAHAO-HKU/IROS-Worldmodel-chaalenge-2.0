@@ -1,0 +1,33 @@
+{
+  "format": "strict-track2-v166-mixed-visual-screen-preregistration-v1",
+  "created_at": "2026-08-11T09:16:00+08:00",
+  "cache_builder_preregistration": {
+    "path": "pipeline/config/strict_track2_v157_mixed_visual_cache_preregistration.json",
+    "sha256": "28822f44df68a6e8f9f23762584492abba1be25fb8ffa6063976f823385d5416"
+  },
+  "evaluator": {
+    "script": "pipeline/scripts/evaluate_strict_track2_singlepass_student_against_v157_cache.py",
+    "script_sha256": "859ba6cd2a0f757e0f28e3e25cc7581e8eff4cd57db3a0bd62bd96599799509f"
+  },
+  "candidate_rule": "exact V16.6 best checkpoint already selected solely by episode-disjoint balanced ground-truth validation MAE",
+  "required_counts": {
+    "overall": 64,
+    "official": 32,
+    "synthetic": 32,
+    "official_left": 16,
+    "official_right": 16,
+    "synthetic_left": 16,
+    "synthetic_right": 16
+  },
+  "gates": {
+    "overall_rgb_improvement_percent_min": -1.0,
+    "official_rgb_improvement_percent_min": -1.0,
+    "official_left_rgb_improvement_percent_min": -1.0,
+    "official_right_rgb_improvement_percent_min": -1.0,
+    "official_texture_improvement_percent_min": -1.0,
+    "official_temporal_improvement_percent_min": -1.0,
+    "official_right_contact_improvement_percent_min": -1.0,
+    "synthetic_rgb_improvement_percent_min": -1.0
+  },
+  "promotion_guard": "This mixed visual gate is additional to, never a replacement for, the synthetic policy-state visual/reward/resource screen. Both must pass before a V16.6 policy update diagnostic."
+}

@@ -1,0 +1,39 @@
+{
+  "format": "strict-track2-full-official-budget-contract-v1",
+  "registered_at": "2026-08-11T06:05:00+08:00",
+  "official_source_config": "wan_robotwin_adjust_bottle_grpo_openpi_pi05.yaml",
+  "budget_provenance": {
+    "official_repository": "https://github.com/WorldArena2/WorldArena-2.0",
+    "official_commit": "6f5a981b34232fe77812b818a6ad7a4e6b8728ac",
+    "source_config_sha256": "97c4a6944e55ffb0f263e02d8ef8eb9cd176b821aee6d5776fd59b3df19136fb",
+    "classification": "official-public-full-reference-budget",
+    "organizer_hidden_evaluation_budget_claimed_equal": false,
+    "disclosure_boundary": "The official benchmark says held-out sample counts and aggregation parameters are not public. This contract governs a reproducible local reference run, not an organizer-certified held-out evaluation."
+  },
+  "allowed_transport_only_changes": [
+    "env default points to wan_robotwin_adjust_bottle_http_full",
+    "env_type is wan_wm_http",
+    "HTTP server URL and timeout are added",
+    "experiment name identifies HTTP full-budget run"
+  ],
+  "frozen_public_reference_budget": {
+    "max_epochs": 1000,
+    "total_num_envs": 32,
+    "group_size": 4,
+    "rollout_epoch": 8,
+    "eval_rollout_epoch": 1,
+    "max_episode_steps": 200,
+    "max_steps_per_rollout_epoch": 200,
+    "actor_micro_batch_size": 8,
+    "actor_global_batch_size": 6400,
+    "save_interval": 10,
+    "filter_rewards": true
+  },
+  "smoke_test_rule": "Resource feasibility may use an explicitly labeled max_steps=1 diagnostic override; no such checkpoint is a formal Track2 result.",
+  "formal_rule": "The local reference checkpoint must come from the unoverridden public full-reference configuration and must not be represented as an organizer-certified result.",
+  "prohibited": [
+    "participant MPC or candidate action selection",
+    "policy behavior cloning from participant synthetic data",
+    "changes to Pi0.5, official reward checkpoint, GRPO algorithm, or formal sample budget"
+  ]
+}

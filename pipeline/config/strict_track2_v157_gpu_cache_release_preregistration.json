@@ -1,0 +1,43 @@
+{
+  "format": "strict-track2-v157-gpu-cache-release-preregistration-v1",
+  "created_at": "2026-08-11T07:42:00+08:00",
+  "purpose": "Test whether the frozen V15.7 world model and the official full-budget Pi0.5 RL workers can coexist on one RTX 5090 by releasing only unused CUDA allocator cache at stage boundaries.",
+  "classification": "resource-feasibility diagnostic; not a policy-quality result and not a Track2 success claim",
+  "frozen_world_model": {
+    "release_directory": "artifacts/strict_track2_joint_augmentation_20260810/v157_hybrid_gate_blend12_formal_release",
+    "model_version": "track2-v15.7-hybrid-action-gated-reward-safe-blend12",
+    "weights_or_predictions_changed": false,
+    "device": "cuda",
+    "official_max_request_batch": 8,
+    "service_batch_workers": 1,
+    "release_cuda_cache_after_prediction": true
+  },
+  "official_rl": {
+    "config": "pipeline/official_patches/config/wan_robotwin_adjust_bottle_http_full_grpo_openpi_pi05.yaml",
+    "config_sha256": "2f0398e8e6c9be1a32cfe85e69519bb168e2b7edd09c4748eb7ebc8e87719363",
+    "diagnostic_max_steps": 1,
+    "policy_weights_changed": false,
+    "reward_changed": false,
+    "actions_changed": false,
+    "algorithm_or_formal_budget_changed": false,
+    "formal_training_claim": false
+  },
+  "transport_and_resource_only_patches": {
+    "service_py_sha256": "8e51e006d2f5f42e0c6376e34bca19ccc77d2703b2845154d448fd85192965c8",
+    "http_env_py_sha256": "40ef65a82c39eaa0c6c28b1669d3185706c630dc4c1fd30b5e9f09f79e5557ca",
+    "actor_worker_py_sha256": "24347c8d08e99fc273630f874ee5435e934a8fdfb028f0fb1c937c258edaeefb",
+    "rollout_worker_py_sha256": "0b6948272e53cda6ae18d90946073c417d1f844d7a1a0de4902747d990dbe37d",
+    "semantics": [
+      "observations remain numerically identical but cross the Ray channel as contiguous CPU tensors",
+      "the official 32-environment request is sharded into four ordered requests of at most eight samples",
+      "unused CUDA caching-allocator blocks are released after world-model prediction, after actor-to-rollout synchronization, and after each rollout result",
+      "no model parameter, observation value, action, reward, loss, optimizer, or policy budget is modified"
+    ]
+  },
+  "acceptance": {
+    "must_complete_first_world_model_chunk_without_cuda_oom": true,
+    "must_complete_one_official_training_update": true,
+    "must_record_per_process_gpu_memory": true,
+    "failure_does_not_change_frozen_v157_status": true
+  }
+}

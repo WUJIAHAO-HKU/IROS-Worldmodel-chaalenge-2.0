@@ -1,0 +1,140 @@
+{
+  "format": "strict-track2-v506-v505-v503-authority-transport-split-state-forensic-v1",
+  "status": "authority_materialized_exact_once_transport_failed_no_wrapper_execution",
+  "passed": true,
+  "date": "2026-08-25",
+  "prior_failure_forensic": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v505_v503_compact_authority_transport_seed_literal_failure_forensic_reconstructed.json",
+    "sha256": "1dcab7d213ba2cda8c3811bc5bdd3047f874c5758ea857d1f904779c079bca44",
+    "logical_bytes": 6145
+  },
+  "state_transition": {
+    "predicate_name": "prior_failure_forensic.runtime_roots.authority_root.absent",
+    "prior_expected": true,
+    "prior_observed": true,
+    "current_observed": false,
+    "transition_authorized": true,
+    "transition_cause": "bfdf materializer successfully committed the v503 authority registration exact1",
+    "sole_changed_runtime_root_predicate": true,
+    "other_prior_forensic_predicates_still_true": true
+  },
+  "authority_receipt": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_reconciliation_execution_authority_seed1645_20260825/authority_receipt.json",
+    "sha256": "394c65ae0ca0979b0ee3c9c774e3b69d68b7ff5e5b1e95e17f02da74c06b223b",
+    "logical_bytes": 46959
+  },
+  "authority_registration_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_reconciliation_execution_authority_seed1645_20260825",
+    "inventory": [
+      [
+        "authority_receipt.json",
+        "394c65ae0ca0979b0ee3c9c774e3b69d68b7ff5e5b1e95e17f02da74c06b223b",
+        46959
+      ]
+    ],
+    "file_count": 1,
+    "logical_file_bytes": 46959,
+    "sha256sum_lines_digest_sha256": "9ea3295006d6903176470df5f39933085721ab86ae779a29f7361db5b00e7489",
+    "canonical_json_triples_digest_sha256": "d5ca54ebee9f041c7509f8eb929ffb00e5c7ef9f804d4cb74d2963b448739f6a"
+  },
+  "authority_schema": {
+    "top_count": 46,
+    "top_key_set_sha256": "3eff6c73e2c11d14f185d48232bbe8017800be301d47a57a49063e413856c48c",
+    "check_count": 33,
+    "check_key_set_sha256": "55f9e0de975b9302ec0594c3efa111a6bdef66d1cdfdadc7d1269e16d68fff76",
+    "checks_sha256": "9815e5d74b8dc3b5cade0a704610383c8947612f3f9c0230600867ab6d80f167",
+    "source_closure_sha256": "e6b6ee5435e967edf8503693834907aea9736500287794a810e1ac81e8095935",
+    "status": "authorized_exact_one_external_compact_single_reconciler_attempt",
+    "passed": true
+  },
+  "v505_materialization_evidence_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v505_v503_compact_reconciliation_execution_authority_materialization_evidence_seed1646_20260825",
+    "inventory": [
+      ["argv.json", "bd504a1144f3d8dc85c5a260f63c4b154573b07fc7e0faa8c99c99a968dfca45", 13849],
+      ["intent.json", "0ccbcdc5748db9c17317b3d5c109728a2dc1cf697a795b8f1b0c62be073adb09", 494],
+      ["materializer_stderr.log", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 0],
+      ["materializer_stdout.log", "1f15250dbb9153126cba342f9166fa2472e00a48d7e6a903f679673741338eae", 1132],
+      ["process_receipt.json", "ff2b4b11c47cdd255b61b6941692f2793bf8e6125a0c93b70a8cea2f981fac59", 2982],
+      ["transport_helper.py", "5b633b5457713a4eddd3ee5c052db053363ff669a735a681bef701188d0482ad", 59592]
+    ],
+    "file_count": 6,
+    "logical_file_bytes": 78049,
+    "sha256sum_lines_digest_sha256": "8fc76a710e3b69710ff5e18c10e379ea7eb6c85f8050d2dd03b2aa3a85e699a3",
+    "canonical_json_triples_digest_sha256": "fa123c6edab77c8ee3b307dadb15e4bfe0056aa501dc8c2edbb58dac609ed450"
+  },
+  "v505_process_receipt": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v505_v503_compact_reconciliation_execution_authority_materialization_evidence_seed1646_20260825/process_receipt.json",
+    "sha256": "ff2b4b11c47cdd255b61b6941692f2793bf8e6125a0c93b70a8cea2f981fac59",
+    "logical_bytes": 2982
+  },
+  "v505_process_schema": {
+    "status": "failed_no_retry",
+    "passed": false,
+    "key_count": 20,
+    "key_set_sha256": "bec1155f4ac14d0a3e2f48a2e17627521a855b4d3ce9b36b4bacffcfb93580ce",
+    "error_type": "RuntimeError",
+    "error": "failed transport forensic",
+    "cleanup": {
+      "term_sent": false,
+      "kill_sent": false,
+      "reaped": true,
+      "group_empty": true
+    }
+  },
+  "stdout_record": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v505_v503_compact_reconciliation_execution_authority_materialization_evidence_seed1646_20260825/materializer_stdout.log",
+    "sha256": "1f15250dbb9153126cba342f9166fa2472e00a48d7e6a903f679673741338eae",
+    "logical_bytes": 1132
+  },
+  "stdout_contract": {
+    "line_count": 2,
+    "line_origin": "transport_helper",
+    "line_1": {
+      "sha256": "2cd2f23a0680817ffe1a08a7551ea701c260a648d45a97a2b435b0b6c712ab62",
+      "logical_bytes": 948,
+      "materializer_native_empty": true,
+      "authority_receipt_sha256": "394c65ae0ca0979b0ee3c9c774e3b69d68b7ff5e5b1e95e17f02da74c06b223b"
+    },
+    "line_2": {
+      "sha256": "6ad40a6d75de6d529737203278ddaffab3dc35522546893fee003cef75967a11",
+      "logical_bytes": 184,
+      "passed": true,
+      "committed_success": true
+    },
+    "native_stdout_before_helper": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logical_bytes": 0,
+      "eof_exact": true
+    }
+  },
+  "invocation_partition": {
+    "v503_failed_transport_helper_invocations": 1,
+    "v505_transport_helper_invocations": 1,
+    "authority_materializer_invocations": 1,
+    "direct_single_reconciler_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "phase_a_invocations": 0,
+    "training_invocations": 0
+  },
+  "runtime_absences": {
+    "authority_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_reconciliation_execution_authority_seed1645_20260825.registration-prep",
+    "v505_evidence_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v505_v503_compact_reconciliation_execution_authority_materialization_evidence_seed1646_20260825.execution-prep",
+    "old_evidence_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_reconciliation_execution_authority_materialization_evidence_seed1645_20260825",
+    "old_evidence_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_reconciliation_execution_authority_materialization_evidence_seed1645_20260825.execution-prep",
+    "wrapper_attempt_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_single_reconciler_attempt_seed1645_20260825",
+    "wrapper_attempt_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_single_reconciler_attempt_seed1645_20260825.attempt-prep"
+  },
+  "post_observation": {
+    "all_runtime_absences_true": true,
+    "lineage_processes_empty": true,
+    "gpu_compute_processes_empty": true
+  },
+  "authorization": {
+    "retry_old_helpers_authorized": false,
+    "retry_old_wrapper_authorized": false,
+    "direct_r2_authorized": false,
+    "fresh_authority_required_before_fresh_wrapper": true,
+    "phase_a_authorized": false,
+    "training_authorized": false
+  }
+}

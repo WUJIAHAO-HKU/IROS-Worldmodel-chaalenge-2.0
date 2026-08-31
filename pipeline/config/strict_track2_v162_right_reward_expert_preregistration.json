@@ -1,0 +1,33 @@
+{
+  "format": "strict-track2-v162-right-reward-expert-preregistration-v1",
+  "registered_at": "2026-08-11T05:55:00+08:00",
+  "diagnosis": "The previous shared expert was trained with batch size one and a 1e-5 probability normalization floor. Low-probability right-arm examples produced gradient spikes above 400 and the selected right checkpoint improves pixels but catastrophically distorts terminal reward.",
+  "fixed_training": {
+    "initialization": "formal_parent_onpolicy_expert_closedloop8_2000/checkpoint_step_002000",
+    "data": "episode-disjoint onpolicy_windows_full128_stride4 train split, right-arm windows only",
+    "steps": 400,
+    "checkpoint_interval": 50,
+    "learning_rate": 1e-7,
+    "reward_objective": "probability",
+    "probability_scale_floor": 0.01,
+    "reward_loss_weight": 0.5,
+    "reward_delta_weight": 2.0,
+    "reward_terminal_weight": 10.0,
+    "success_weight": 3.0,
+    "late_weight": 3.0,
+    "seed": 1620
+  },
+  "checkpoint_selection": [
+    "right terminal-gain MAE and terminal correlation nonregression",
+    "right delta-reward MAE nonregression",
+    "capture-success terminal nonregression",
+    "highest right contact visual improvement"
+  ],
+  "track2_guards": {
+    "official_reward_checkpoint_frozen": true,
+    "policy_or_evaluation_data_used": false,
+    "policy_actions_modified": false,
+    "participant_action_selection": false,
+    "mpc": false
+  }
+}

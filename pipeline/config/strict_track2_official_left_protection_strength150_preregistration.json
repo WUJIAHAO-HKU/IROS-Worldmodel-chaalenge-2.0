@@ -1,0 +1,26 @@
+{
+  "format": "strict-track2-official-left-protection-strength150-preregistration-v1",
+  "created_at": "2026-08-11T00:42:00+08:00",
+  "frozen_checkpoint_and_mask": "official-left protected advantage mask candidate",
+  "observed_at_strength_1_25": {
+    "official_reward_mae_improvement_percent": 2.769,
+    "official_right_reward_mae_improvement_percent": 6.6273,
+    "official_left_reward_mae_improvement_percent": 0.0,
+    "official_overall_rgb_improvement_percent": 0.00136,
+    "official_right_rgb_improvement_percent": 0.00511,
+    "maximum_observed_residual_255": 4.00002
+  },
+  "single_candidate_strength": 1.5,
+  "final_residual_clip_255": 8.0,
+  "all_other_model_mask_router_and_quantization_parameters_frozen": true,
+  "promotion_gates": {
+    "uint8_official_overall_rgb_non_regression_percent": 0.0,
+    "uint8_official_left_and_right_rgb_non_regression": true,
+    "uint8_synthetic_rgb_non_regression_percent": 0.0,
+    "official_reward_mae_improvement_percent_min": 3.0,
+    "synthetic_reward_mae_non_regression": true,
+    "left_and_right_reward_mae_non_regression": true,
+    "maximum_absolute_residual_255": 8.0
+  },
+  "policy_development_or_acceptance_consumed": false
+}

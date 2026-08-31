@@ -1,0 +1,111 @@
+{
+  "format": "strict-track2-v469-closed-form-residual-knn-contract-v1",
+  "status": "preregistered_public_train_s0_authorized",
+  "classification": "world-model-parent-diagnostic-nonformal",
+  "seed": 1616,
+  "purpose": "Replace the failed high-dimensional learned v468 A/D heads with one deterministic, train-only, episode-grouped five-fold KNN4 residual probe. This contract does not authorize S1, zero-update rollout, policy training, formal RL, hidden/final access, or submission.",
+  "immutable_inputs": {
+    "paired_data": "passed immutable v461 endpoint200 public train40/right15 data, selection, generation report, final audit, and all row hashes",
+    "folds": "exact immutable v461 outer episode folds; 3 held right episodes and 12 fit right episodes per fold",
+    "world_model": "exact frozen v169 release and library closure already bound by the passed v468 preregistration",
+    "forbidden": [
+      "dev data",
+      "final data",
+      "hidden data",
+      "official reward during model selection or fitting",
+      "outcome or success labels",
+      "policy action generation or modification",
+      "branch identity as a runtime feature"
+    ]
+  },
+  "v169_cache": {
+    "common_seed_formula": "int.from_bytes(sha256('v466/1616/{episode}/{start}').digest()[:8], 'little') mod 2**31; identical for all five branches of one context",
+    "requested_first": "in immutable context order and branch order factual,no_transport,scale_0p4,scale_1p25,reverse_direction_0p4, compute frozen-v169 requested-action endpoints Bb for exactly 1000 requests in microbatches of 4",
+    "canonical_second": "in the same immutable context order, replace only future[:,7:13] with history[-1,7:13], preserve all other action dimensions, and compute frozen-v169 canonical endpoints Bnt for exactly 200 requests in microbatches of 4",
+    "cache_dtype_shape": "uint8 RGB; requested [200,5,256,256,3], canonical [200,256,256,3]",
+    "closure": "atomically bind v169 release/library/source hashes, v461 row/action hashes, seed per context, request order, endpoint array hashes, and cache file SHA256",
+    "resource_order": "compute requested and canonical populations sequentially; never concatenate them; unload v169 and empty CUDA cache before all KNN/PCA-free CPU work"
+  },
+  "frozen_targets": {
+    "appearance": "C_star = Y_no_transport - B_no_transport",
+    "transport": "E_star_b = (Y_b - Y_no_transport) - (B_b - B_no_transport)",
+    "no_transport": "E_star_no_transport is exact zero and runtime E_no_transport is hard-set exact zero",
+    "candidate": "candidate_b = clip_0_255(B_b + C_hat + E_hat_b)",
+    "controls": "context-only and phase-shuffle candidates use the identical B_b and identical C_hat as action; only E_hat differs"
+  },
+  "frozen_features": {
+    "context_raw": "authoritative same-request branch_context_rgb[0] uint8 converted to float32, reshape (8,32,8,32,3), mean over axes (1,3), flatten to 192 values",
+    "context_normalization": "fit-fold per-dimension mean and population standard deviation with floor 1e-4; no PCA",
+    "action_raw": "54 request-only float values: right6 endpoint delta future[-1,7:13]-history[-1,7:13] followed by the 48-value anchor-relative path (future[:,7:13]-history[-1,7:13]).reshape(-1)",
+    "action_normalization": "fit-fold per-dimension mean and population standard deviation with floor 1e-4; no PCA",
+    "runtime_availability": "all features come only from the request context/history/future; no episode, start index, branch label, target, reward, or outcome is an input"
+  },
+  "frozen_estimator": {
+    "family": "uniform KNN",
+    "k": 4,
+    "weights": "uniform arithmetic mean; no distance weighting",
+    "appearance_library": "one C_star target per fit context; distance is mean squared normalized context difference",
+    "transport_library": "four E_star targets per fit context, exactly factual,scale_0p4,scale_1p25,reverse_direction_0p4; no_transport is excluded and hard-zero",
+    "action_distance": "mean squared normalized 54D action difference plus mean squared normalized 192D context difference",
+    "context_only_control": "same KNN4 library, target representation, normalization, tie-break, and averaging; distance uses context term and a zero action term for every query/library pair",
+    "phase_shuffle_control": "same KNN4 estimator but replace each query action descriptor with the preregistered v468 within-episode half-rotation donor action of the same branch; retain the original query context descriptor",
+    "tie_break": "stable ascending tuple (float64 distance, SHA256 of the fit request history+future float32 action bytes, SHA256 of the fit context RGB bytes); target-independent and contains no branch identity, episode, start, reward, or outcome",
+    "output": "average the four stored int16 residual RGB maps in float32; no output rank reduction, scaling, clipping, learned network, optimizer, or checkpoint selection",
+    "all200": "only after the immutable five-fold S0 passes, build exactly one deployment library from all 200 contexts with the same formulas and hyperparameters"
+  },
+  "unchanged_s0_gates": {
+    "per_fold": {
+      "continuous_candidate_mae_over_frozen_requested_v169_mae_max": 0.95,
+      "uint8_candidate_mae_over_frozen_requested_v169_mae_max": 1.0,
+      "factual_branch_ratio_max": 1.0,
+      "no_transport_branch_ratio_max": 0.98,
+      "scale_0p4_branch_ratio_max": 0.98,
+      "scale_1p25_branch_ratio_max": 0.98,
+      "reverse_direction_0p4_branch_ratio_max": 0.98,
+      "action_over_context_only_mae_max": 0.95,
+      "action_over_phase_shuffle_mae_max": 0.97,
+      "positive_delta_cosine_fraction_min": 0.6,
+      "nonzero_prediction_delta_fraction_min": 0.95
+    },
+    "aggregate": {
+      "passing_folds_min": 4,
+      "continuous_candidate_mae_over_frozen_requested_v169_mae_max": 0.95,
+      "uint8_candidate_mae_over_frozen_requested_v169_mae_max": 1.0,
+      "factual_branch_ratio_max": 1.0,
+      "all_other_branch_ratios_max": 0.98,
+      "action_over_context_only_mae_max": 0.95,
+      "action_over_phase_shuffle_mae_max": 0.97,
+      "positive_delta_cosine_fraction_min": 0.6,
+      "nonzero_prediction_delta_fraction_min": 0.95,
+      "improved_episodes_min": 12
+    },
+    "early_stop": "hard-stop after a second failed fold because passing_folds_min=4 is mathematically unreachable; do not build all200 library"
+  },
+  "runtime_guards": {
+    "scope": "explicit-right and strict postclose only",
+    "left_or_gate0": "return requested-action frozen-v169 output bitexact for all 8 frames",
+    "frames_0_to_6": "always bitexact to requested-action frozen-v169 output",
+    "frame_7": "only frame allowed to change for an enabled request",
+    "no_transport": "E exact zero; candidate may contain only the frozen KNN4 C correction",
+    "input_shapes": "fail closed unless context is N x 5 x H x W x 3, history is N x 4 x 14, future is N x 8 x 14, and frozen-v169 output is N x 8 x H x W x 3 uint8",
+    "no_online_adaptation": true
+  },
+  "evidence_before_freeze": {
+    "v468_failure": "two folds failed: overall ratios 1.014402 and 1.022139; action-vs-context 0.996305 and 0.999534; action-vs-phase-shuffle 0.996191 and 0.999340; both had zero episode wins",
+    "raw_delta_family_probe": "public train-only outer-fold pooled deployable KNN4 on raw D reached aggregate D/zero 0.809015, wins 410/800 and positive cosine 0.93125, whereas fixed ridge alpha1 reached 1.05075",
+    "selection_disclosure": "the raw-D outer-fold public-train results were already used to select KNN4 over fixed ridge1 and are iterative public-train development evidence, not an independent untouched holdout",
+    "limitation": "raw-D scale_0p4 and reverse branches exceeded 1.03 in several folds; therefore raw-D results select only the KNN4 estimator family. They do not pass this residual-E contract and do not authorize deployment. The residual C/E S0 is a single-shot preregistered public-train test, but because the same public fold structure informed the estimator-family choice it must not be represented as an independent untouched holdout."
+  },
+  "resource_budget": {
+    "gpu": "only frozen-v169 cache inference, microbatch4; KNN work is CPU-only after unload",
+    "cpu": "taskset 0-11, BLAS/OpenMP threads 6",
+    "ram_estimate": "under 5 GiB peak with int16 C/E libraries and fold-at-a-time predictions",
+    "persistent_storage_estimate": "under 1.2 GiB including uint8 v169 endpoints, int16 residual libraries, reports, and temporary fold outputs",
+    "expected_wall_seconds": "approximately 240-480 seconds including frozen-v169 cache; fail closed at 600 seconds"
+  },
+  "promotion": {
+    "s0_pass": "authorizes only packaging of the all200 diagnostic parent and one preregistered public S1; it does not authorize RL",
+    "s1_pass": "may authorize only raw-Pi0.5 zero-update trace under a separately frozen contract",
+    "formal": "formal RL, if ever authorized, must still start from raw Pi0.5 under the official fixed-budget contract; no v169 policy lineage is formal"
+  }
+}

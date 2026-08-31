@@ -1,0 +1,95 @@
+{
+  "format": "strict-track2-v523-v522-phase-a-per-call-rng-contract-failure-forensic-v1",
+  "status": "failed_no_retry_frozen_pre_worker_contract_mismatch",
+  "seed": 1659,
+  "retry_authorized": false,
+  "v522_attempt_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_attempt_seed1658_20260826",
+    "inventory": [
+      ["intent.json", "91d88f22afc173668efa99105250cb61f282dba0c539af9d290cd3488bab67b8", 5599],
+      ["phase_a_stderr.log", "7b93005b15a380978579c2972f9d417642943be44280370c75d2e97135906f57", 871],
+      ["phase_a_stdout.log", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 0],
+      ["terminal_receipt.json", "bcccd00812220679eda01419e775bb48147e917f22b90fd46a160120d9bde870", 69178]
+    ],
+    "file_count": 4,
+    "logical_file_bytes": 75648,
+    "sha256sum_lines_digest_sha256": "3017c094b9b5067bf134143361fe664e04ece28306855db8c0c671cfb452033b",
+    "canonical_json_triples_digest_sha256": "3fd62a21c9b9de6ea652f8fd42cf448bf39948e55f4f61a3d9b48c0a78e8d433"
+  },
+  "v522_records": {
+    "intent": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_attempt_seed1658_20260826/intent.json", "sha256": "91d88f22afc173668efa99105250cb61f282dba0c539af9d290cd3488bab67b8", "logical_bytes": 5599},
+    "terminal": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_attempt_seed1658_20260826/terminal_receipt.json", "sha256": "bcccd00812220679eda01419e775bb48147e917f22b90fd46a160120d9bde870", "logical_bytes": 69178},
+    "stdout": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_attempt_seed1658_20260826/phase_a_stdout.log", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "logical_bytes": 0},
+    "stderr": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_attempt_seed1658_20260826/phase_a_stderr.log", "sha256": "7b93005b15a380978579c2972f9d417642943be44280370c75d2e97135906f57", "logical_bytes": 871}
+  },
+  "failure": {
+    "launcher_status": "failed_no_retry",
+    "launcher_error": "Phase-A driver rc=1",
+    "launcher_error_type": "RuntimeError",
+    "driver_returncode": 1,
+    "driver_stderr_contains": "RuntimeError: v520 per-call RNG contract",
+    "qualification_output_created": false,
+    "qualification_terminal": null,
+    "qualification_tree": null
+  },
+  "execution_partition": {
+    "launcher_invocations": 1,
+    "nested_phase_a_driver_invocations": 1,
+    "direct_phase_a_driver_invocations": 0,
+    "phase_a_worker_invocations": 0,
+    "rng_proxy_delegate_invocations": 0,
+    "training_invocations": 0,
+    "retry_invocations": 0
+  },
+  "root_cause": {
+    "error": "v520 per-call RNG contract",
+    "authority_key_count": 21,
+    "driver_key_count": 17,
+    "shared_key_count": 17,
+    "shared_keys_exact": true,
+    "sole_difference_class": "driver_missing_authority_keys_exact4",
+    "driver_missing_authority_keys": [
+      "durable_process_log_markers_per_branch",
+      "durable_process_log_markers_per_call",
+      "process_log_marker_order_per_call",
+      "total_durable_process_log_markers"
+    ],
+    "missing_full_paths_and_values": [
+      {"path": ["per_call_rng_evidence_contract", "durable_process_log_markers_per_branch"], "authority_value": 2000, "driver_value_present": false},
+      {"path": ["per_call_rng_evidence_contract", "durable_process_log_markers_per_call"], "authority_value": 2, "driver_value_present": false},
+      {"path": ["per_call_rng_evidence_contract", "process_log_marker_order_per_call"], "authority_value": ["started", "completed"], "driver_value_present": false},
+      {"path": ["per_call_rng_evidence_contract", "total_durable_process_log_markers"], "authority_value": 4000, "driver_value_present": false}
+    ],
+    "semantic_repair_exact": {
+      "driver_per_call_contract_key_count": 21,
+      "durable_process_log_markers_per_call": 2,
+      "durable_process_log_markers_per_branch": 2000,
+      "total_durable_process_log_markers": 4000,
+      "process_log_marker_order_per_call": ["started", "completed"],
+      "branch_calls": {"A": 1000, "B": 1000},
+      "worker_entry_semantics_unchanged": true,
+      "rng_proxy_semantics_unchanged": true
+    }
+  },
+  "cleanup_and_safety": {
+    "driver_cleanup": {"started": true, "returncode": 1, "reaped": true, "group_empty": true},
+    "attempt_prep_absent": true,
+    "qualification_root_absent": true,
+    "qualification_prep_absent": true,
+    "services_stopped": true,
+    "services_restored": true,
+    "service_health_exact_prepost_current": true,
+    "gpu_compute_pids": [],
+    "phase_a_pids": [],
+    "training_launched": false,
+    "cache_reused": false,
+    "reward_read": false,
+    "dev_hidden_final_outcome_read": false,
+    "policy_updates": 0
+  },
+  "independent_audit": {
+    "check_count": 17,
+    "all_checks_true": true,
+    "checks_sha256": "f005367f1aafc950d3a70093aa8455f49d7795d33af59182718e434cf662437c"
+  }
+}

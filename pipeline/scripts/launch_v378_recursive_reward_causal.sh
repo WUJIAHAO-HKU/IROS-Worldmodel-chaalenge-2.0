@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT='/root/autodl-tmp/IROS_WAM_2.0 challenge';J="$ROOT/artifacts/strict_track2_joint_augmentation_20260810";RUN="$J/v378_source_routed_blended_cartesian_seed1541_20260823";PY=/root/miniconda3/envs/go1/bin/python;RLINF="$ROOT/third_party/WorldArena-2.0/WorldArena-2.0-main/RL_env_benchmark"
+test -s "$RUN/release_registration.json";test ! -e "$RUN/audit/recursive_reward_causal.json"
+export PYTHONPATH="$ROOT/pipeline:$ROOT/pipeline/scripts:$RLINF" OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 TOKENIZERS_PARALLELISM=false
+taskset -c 0-7 "$PY" "$ROOT/pipeline/scripts/audit_v378_recursive_reward_causal.py" --baseline-checkpoint-dir "$J/v355_v202_v354_parametric_arm_routed_release" --candidate-checkpoint-dir "$RUN/release" --library-index "$J/v214_public_right_knn_action_visual_diagnostic_seed1413/library/public_right_knn.npz" --windows "$ROOT/artifacts/adjust_bottle_windows_full" --instruction-map "$J/v205_v202_public_right_terminal_multichunk_seed1405/public_demo_split.json" --reward-checkpoint "$ROOT/artifacts/official_resources/reward_model/adjust_bottle/full_weights.pt" --t5-model "$ROOT/artifacts/official_resources/reward_model/t5-base" --preregistration "$RUN/release_registration.json" --output "$RUN/audit/recursive_reward_causal.json" --device cuda --inference-batch-size 8 --reward-batch-size 32 >"$RUN/audit/recursive_reward_causal.log" 2>&1
+touch "$RUN/RECURSIVE_REWARD_CAUSAL_COMPLETE";printf 'V378_RECURSIVE_REWARD_CAUSAL_COMPLETE\n'

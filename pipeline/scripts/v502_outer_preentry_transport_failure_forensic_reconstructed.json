@@ -1,0 +1,159 @@
+{
+  "authorization": {
+    "corrected_transport_authorized": false,
+    "dev_hidden_final_outcome_read_authorized": false,
+    "inner_execution_authorized": false,
+    "outer_execution_authorized": false,
+    "phase_a_authorized": false,
+    "reconciler_r2_authorized": false,
+    "retry_authorized": false,
+    "reward_read_authorized": false,
+    "training_authorized": false
+  },
+  "evidence_class": "reconstructed_from_codex_tool_capture_and_read_only_postfailure_state_native_persistent_capture_unavailable",
+  "f813_registration_tree_after_failure": {
+    "canonical_json_triples_digest_sha256": "a0602666a7e59d60e464b3bc76b31b2fbf501e3d37bbd0b18b2db8c1233971ec",
+    "file_count": 2,
+    "inventory": [
+      [
+        "immutable_evidence/v485_static_b73.log",
+        "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b",
+        6475
+      ],
+      [
+        "preregistration.json",
+        "f8137d02a692a9c6243f13ce8a7674e4ac90fbd31c85b3e8c32af82f8afa42a8",
+        21296
+      ]
+    ],
+    "logical_file_bytes": 27771,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824",
+    "sha256sum_lines_digest_sha256": "717d6ae12fbacbaafa147d03503140e5f807c028acc97a7294c84da2d79fe3fe"
+  },
+  "failure_stage": "ssh_transport_before_outer_python_entry",
+  "format": "strict-track2-v502-outer-preentry-transport-failure-forensic-reconstructed-v1",
+  "intended_command_argv": [
+    "/root/autodl-tmp/conda_envs/rlinf_track2/bin/python",
+    "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v502_v501_inner_binding_path_repaired_reconciliation_outer.py",
+    "--authority-contract",
+    "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v502_v501_inner_binding_path_repair_execution_authority_contract.json",
+    "--authority-contract-sha",
+    "f4686ddf218cf809e35d0410e8eabd7eb9400a4ed11adf48519284cf7a161d9f",
+    "--authority-receipt",
+    "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repair_execution_authority_seed1644_20260825/authority_receipt.json",
+    "--authority-receipt-sha",
+    "83e238d5b0c579b7e95ad1cd377021ab5daeb95c2e00af8189768ef28cd4c3e7",
+    "--wrapper-source",
+    "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v502_v501_inner_binding_path_repaired_reconciliation_outer.py",
+    "--wrapper-sha",
+    "d13655df4430a3975d56b97e80cd59c15f0f67573dc060db1ab2e189b01c1a1a"
+  ],
+  "invocation_partition_after_failure": {
+    "corrected_inner_wrapper_invocations": 0,
+    "outer_wrapper_invocations": 0,
+    "phase_a_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "training_invocations": 0
+  },
+  "native_exit_code": 1,
+  "native_persistent_capture_available": false,
+  "observed_transport_failure": {
+    "cause": "the local ssh client reconstructed a remote shell command and did not preserve the quoted path containing a space",
+    "observed_python_input_path": "/root/autodl-tmp/IROS_WAM_2.0",
+    "outer_python_entry_reached": false,
+    "remote_argv_native_capture_available": false,
+    "transport_corrective_rule": "invoke only a persistent no-space bash script which uses a bash argv array for the exact outer command"
+  },
+  "occurred": true,
+  "passed": true,
+  "required_absences_after_failure": {
+    "inner_attempt_prep": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repaired_reconciliation_inner_attempt_seed1644_20260825.attempt-prep"
+    },
+    "inner_attempt_root": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repaired_reconciliation_inner_attempt_seed1644_20260825"
+    },
+    "outer_evidence_prep": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repaired_reconciliation_outer_execution_evidence_seed1644_20260825.outer-prep"
+    },
+    "outer_evidence_root": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repaired_reconciliation_outer_execution_evidence_seed1644_20260825"
+    },
+    "qualification_root": {
+      "absent": true,
+      "path": "/root/v485_v169_cache_qualification_seed1627_20260824"
+    },
+    "transparent_receipt": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json"
+    },
+    "transparent_receipt_tmp": {
+      "absent": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json.tmp"
+    }
+  },
+  "runtime_observation_after_failure": {
+    "gpu_compute_processes": [],
+    "live_lineage_processes": [],
+    "observation_class": "read_only_postfailure_observation"
+  },
+  "source_records": {
+    "authority_contract": {
+      "logical_bytes": 163229,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v502_v501_inner_binding_path_repair_execution_authority_contract.json",
+      "sha256": "f4686ddf218cf809e35d0410e8eabd7eb9400a4ed11adf48519284cf7a161d9f"
+    },
+    "authority_materializer": {
+      "logical_bytes": 146883,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v502_v501_inner_binding_path_repair_execution_authority.py",
+      "sha256": "2d339b62a1187d87c22fcd4e1c585b2a7d0c42fe14049ab0534031b365557ff0"
+    },
+    "inner_wrapper": {
+      "logical_bytes": 154171,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v502_v501_inner_binding_path_repaired_reconciliation_inner.py",
+      "sha256": "db8d3f4d5c98e484a7fb6f26fad4a62cb056e0c42f801de31892eff267702075"
+    },
+    "outer_wrapper": {
+      "logical_bytes": 112571,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v502_v501_inner_binding_path_repaired_reconciliation_outer.py",
+      "sha256": "d13655df4430a3975d56b97e80cd59c15f0f67573dc060db1ab2e189b01c1a1a"
+    }
+  },
+  "status": "frozen_reconstructed_preentry_transport_failure_outer_attempt_not_consumed_corrected_transport_pending_review",
+  "tool_capture_disclosure": {
+    "native_stderr_persistent": false,
+    "native_stdout_persistent": false,
+    "stderr_available_in_codex_tool_capture": true,
+    "stderr_logical_bytes": 195,
+    "stderr_sha256": "a0832b6193777472f3b9058927e980e857473908ec2532fa2adce1072eb08b68",
+    "stderr_text": "  File \"/root/autodl-tmp/IROS_WAM_2.0\", line 2\n    EnvironmentNameNotFound: Could not find conda environment: rlinf_track2\n                                       ^^^^\nSyntaxError: invalid syntax\n",
+    "stdout_available_in_codex_tool_capture": true,
+    "stdout_logical_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_text": "",
+    "tool_wall_seconds": 3.1347833
+  },
+  "v502_authority_receipt": {
+    "logical_bytes": 314856,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repair_execution_authority_seed1644_20260825/authority_receipt.json",
+    "sha256": "83e238d5b0c579b7e95ad1cd377021ab5daeb95c2e00af8189768ef28cd4c3e7"
+  },
+  "v502_authority_registration_tree_after_failure": {
+    "canonical_json_triples_digest_sha256": "cb406cc543854456ca9237f4e3daf7daeab4894437dbe9fdbaa52f4cabffa47e",
+    "file_count": 1,
+    "inventory": [
+      [
+        "authority_receipt.json",
+        "83e238d5b0c579b7e95ad1cd377021ab5daeb95c2e00af8189768ef28cd4c3e7",
+        314856
+      ]
+    ],
+    "logical_file_bytes": 314856,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repair_execution_authority_seed1644_20260825",
+    "sha256sum_lines_digest_sha256": "ab41d8214582dc0b69b94634f9658341aa23507138e4c4889a17e15a66528df7"
+  }
+}

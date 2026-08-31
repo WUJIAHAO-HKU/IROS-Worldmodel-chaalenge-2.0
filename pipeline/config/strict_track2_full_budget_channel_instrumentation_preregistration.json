@@ -1,0 +1,19 @@
+{
+  "format": "strict-track2-full-budget-channel-instrumentation-preregistration-v1",
+  "registered_at": "2026-08-11T06:58:00+08:00",
+  "label": "full_budget_channel_instrumentation_v2_v157_seed1238",
+  "parent_model_version": "track2-v15.7-hybrid-action-gated-reward-safe-blend12",
+  "actor_seed": 1238,
+  "source_config": "wan_robotwin_adjust_bottle_http_full_grpo_openpi_pi05",
+  "diagnostic_override": {
+    "runner.max_steps": 1
+  },
+  "instrumentation": {
+    "env_worker_source_sha256": "ec4fb412105acd83d7160446b0d72ebe9dd0870220dbb9783187925ad5215301",
+    "rollout_worker_source_sha256": "cb8c8a224d0e60e2c77261b31936a3308035beb5dfa13ae6ec6ba7afc866205e",
+    "scope": "stage-boundary log messages only; no tensor, control-flow, model, reward, optimizer, algorithm, or budget changes"
+  },
+  "formal_result": false,
+  "checkpoint_must_not_be_reported_as_track2_final": true,
+  "stop_condition": "Stop once the exact blocking boundary is observed; a training update is not required for this instrumentation run."
+}

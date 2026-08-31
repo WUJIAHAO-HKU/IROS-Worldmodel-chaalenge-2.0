@@ -1,0 +1,150 @@
+{
+  "authority_state": {
+    "authorization_public_s1_zero_update_boundary_invocations_authorized": 1,
+    "authorization_public_s1_zero_update_boundary_invocations_consumed": 0,
+    "check_count": 31,
+    "current_exact1": true,
+    "logical_bytes": 128865,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v539_v535_public_s1_zero_update_runtime_package_repair_execution_authority_seed1670_20260828/authority_receipt.json",
+    "sha256": "0b43b24c004c6a00975d3b14ece7167b312b9735185b1241454e39f856894be4",
+    "source_role_count": 31,
+    "top_key_count": 64,
+    "unchanged_after_failure": true
+  },
+  "classification": "forensic_only_non_authority_non_execution_v539_public_s1_zero_update_poststage_owned_output_prep_absence_failure",
+  "current_readonly_state": {
+    "authority_prep_absent": true,
+    "authority_root_exact1_present": true,
+    "gpu_compute_pids": [],
+    "output_prep_absent_after_owned_cleanup": true,
+    "output_root_absent": true,
+    "public_s1_attempt_prep_absent": true,
+    "public_s1_attempt_root_absent": true,
+    "relevant_exact_argv_pids": [],
+    "service_health": {
+      "18084_health": {
+        "body_bytes": 18,
+        "body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd",
+        "status": "ready"
+      },
+      "8005_v1_health": {
+        "body_bytes": 106,
+        "body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0",
+        "model_version": "track2-v218-public-knn-blend-alpha070-route-aware",
+        "status": "ready"
+      }
+    }
+  },
+  "failure": {
+    "command": "/bin/bash /root/v539_v535_public_s1_zero_update_runtime_package_repair_gate_once.sh",
+    "error_message": "current required absence present",
+    "error_type": "RuntimeError",
+    "exit_code": 1,
+    "failed_source": {
+      "logical_bytes": 60880,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/evaluate_v539_v535_public_s1_zero_update_gate.py",
+      "sha256": "8bb00ea33adffa325048c0068345d2464d26a08d818e3fcf888453304b7fd63c"
+    },
+    "launcher_frame": {
+      "line": 55,
+      "operation": "module.execute(parsed)",
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v539_v535_public_s1_zero_update_gate.py"
+    },
+    "normal_invocation_count": 1,
+    "postquery_by_executor": false,
+    "raw_pty_combined_bytes": "unavailable_not_captured",
+    "raw_pty_combined_sha256": "unavailable_not_captured",
+    "retry_performed": false,
+    "session_id": 64866,
+    "stderr_stdout_split": "unavailable_combined_pty_only",
+    "terminal_frame": {
+      "line": 327,
+      "operation": "if any(os.path.lexists(row[\"path\"]) for row in EXPECTED_CURRENT_ABSENCES.values()): raise RuntimeError(\"current required absence present\")",
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/evaluate_v539_v535_public_s1_zero_update_gate.py"
+    },
+    "trigger_frame": {
+      "line": 524,
+      "operation": "validate_documents(prereg,manifest,contract,authority,args,require_fresh=False)",
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/evaluate_v539_v535_public_s1_zero_update_gate.py"
+    },
+    "wall_time_chunks_seconds": [
+      30.0051038,
+      30.0098456,
+      19.5230328
+    ],
+    "wall_time_total_seconds": "unavailable_not_reported_as_single_tool_total"
+  },
+  "failure_partition": {
+    "actual_oof_execution_invocations": 0,
+    "auditor_import_invocations_non_durable": 1,
+    "backward_calls": 0,
+    "buffer_updates": 0,
+    "cache_writes": 0,
+    "dev_hidden_final_outcome_read_invocations": 0,
+    "launcher_invocations_non_durable": 1,
+    "model_writes": 0,
+    "optimizer_steps": 0,
+    "parameter_updates": 0,
+    "public_rows_computed_non_durable": 44,
+    "public_s1_evaluator_invocations_non_durable": 1,
+    "public_s1_zero_update_boundary_invocations_non_durable": 1,
+    "reward_read_invocations": 0,
+    "runtime_package_load_invocations_non_durable": 1,
+    "scheduler_steps": 0,
+    "submission_invocations": 0,
+    "training_invocations": 0,
+    "transport_script_invocations_non_durable": 1,
+    "zero_update_gate_invocations_non_durable": 1
+  },
+  "format": "strict-track2-v540-v539-public-s1-zero-update-poststage-owned-output-prep-absence-failure-forensic-v1",
+  "historical_transport": {
+    "atomic_pair_deployment_exit_code": 0,
+    "canonical_self_test_exit_code": 0,
+    "deployment_record": {
+      "logical_bytes": 1390,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v539_v535_public_s1_zero_update_runtime_package_repair_gate_transport_deployment_record.json",
+      "sha256": "86aea2da97fa6e7bcac62f426b08cd71860fa318fb82f1243f7dc13af47aa128"
+    },
+    "retry_authorized": false,
+    "script": {
+      "logical_bytes": 12301,
+      "path": "/root/v539_v535_public_s1_zero_update_runtime_package_repair_gate_once.sh",
+      "sha256": "d1b12ed98773fd5c7ef10c3fbc90b5cd9ba3406e0cda18ba2bb6cc2b5303c599"
+    },
+    "self_test_actual_execution_calls": 0
+  },
+  "model_rng_cleanup": {
+    "committed": false,
+    "finally_model_parameter_buffer_restore_returned_without_replacing_original_exception": true,
+    "finally_module_mode_restore_returned_without_replacing_original_exception": true,
+    "finally_rng_restore_returned_without_replacing_original_exception": true,
+    "in_process_bitexact_state_after_exit": "not_durable_process_exited",
+    "owned_staged_exact8_removed": true,
+    "owned_staging_directory_removed": true
+  },
+  "root_cause": {
+    "conflicting_path": "/root/v539_v535_public_s1_zero_update_gate_seed1670_20260828.output-prep",
+    "expected_current_absence_count": 5,
+    "expected_current_absences_include_owned_output_prep": true,
+    "failure_phase": "after_runtime_44_public_rows_zero_update_auditor_and_exact8_staging_before_noreplace_output_commit",
+    "first_preentry_validation_passed_before_output_prep_creation": true,
+    "foreign_replacement_or_preexisting_residue": false,
+    "owned_by_current_evaluator_invocation": true,
+    "poststage_validate_documents_require_fresh_false_still_applied_unconditional_current_absence_gate": true
+  },
+  "source_review_explanation": {
+    "isolated_end_to_end_gap": "the isolated computation fixture did not traverse the production execute post-staging validate_documents call at evaluator line 524",
+    "transport_fixture_boundary": "custom readonly_execute stopped before prep creation and evaluation",
+    "why_failure_was_not_reproduced": "the conflicting owned output_prep exists only after the production execute method creates staging and reaches its second validation"
+  },
+  "status": "failed_no_retry_owned_output_prep_phase_misclassified_as_required_absence",
+  "successor_boundary": {
+    "fresh_authority_required": true,
+    "fresh_failure_forensic_required": true,
+    "old_authority_consumption_mutation_authorized": false,
+    "old_transport_retry_authorized": false,
+    "poststage_gate": "require authority_prep, attempt_root, attempt_prep, and output_root absent; require output_prep to be the current owned dev_inode directory containing held exact8 members with exact sha256, logical_bytes, EOF, and descriptor identity",
+    "preentry_gate": "require all five current absences including output_prep",
+    "production_end_to_end_fixture_required": "actual launcher to actual evaluator.execute through runtime, 44 public rows, zero-update, auditor, held exact8, poststage phase-aware validation, NOREPLACE publication, and restoration"
+  }
+}

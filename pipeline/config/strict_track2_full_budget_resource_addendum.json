@@ -1,0 +1,49 @@
+{
+  "format": "strict-track2-full-public-reference-budget-resource-addendum-v2",
+  "created_at": "2026-08-11T08:27:00+08:00",
+  "base_contract": "pipeline/config/strict_track2_full_official_budget_contract.json",
+  "budget_classification": "official-public-full-reference-budget; not organizer-certified hidden evaluation",
+  "allowed_resource_only_settings": {
+    "actor.enable_offload": true,
+    "rollout.enable_offload": true,
+    "weight_syncer.patch.transport_device": "cpu",
+    "bridge.audit_max_items": 1,
+    "service.release_cuda_cache_after_prediction": true,
+    "service.retrieval_source_cache": true,
+    "service.retrieval_target_cache": "lazy hot-candidate cache",
+    "service.v141_dead_route_pruning": true,
+    "service_and_bridge.png_codec_workers": 8,
+    "http_observation_transport": "CPU-contiguous"
+  },
+  "why_semantics_are_unchanged": [
+    "offload and reload move identical official tensors between CPU and CUDA only while each worker is idle",
+    "the CPU transport retains identical observation values and order",
+    "bounded auditing changes only local diagnostic file writing",
+    "allocator cache release frees only unreferenced blocks",
+    "retrieval source caching retains exact owned uint8 arrays already decoded for immutable descriptors and is enabled only after a fixed real-service request is pixel-identical",
+    "lazy target caching retains exact owned uint8 target arrays only after the unchanged retrieval route selects them",
+    "v14.1 dead-route pruning evaluates the existing right-arm and structure predicates before ECC; paths that could affect output still execute the unchanged search and alignment",
+    "both new runtime optimizations require byte-exact left-route and real right-arm batch-8 service probes before formal initialization",
+    "parallel PNG workers preserve input ordering and exact PNG bytes while moving independent protocol-only frame codecs onto otherwise idle CPU cores"
+  ],
+  "still_frozen": {
+    "max_epochs": 1000,
+    "total_num_envs": 32,
+    "group_size": 4,
+    "rollout_epoch": 8,
+    "max_episode_steps": 200,
+    "actor_micro_batch_size": 8,
+    "actor_global_batch_size": 6400,
+    "save_interval": 10,
+    "pi05_weights_and_sampling": true,
+    "reward_weights_and_protocol": true,
+    "grpo_loss_optimizer_and_hyperparameters": true
+  },
+  "prohibited": [
+    "formal runner.max_steps override",
+    "world-model or participant MPC action selection",
+    "policy behavior cloning from synthetic data",
+    "development22 or final128 data in world-model or policy training",
+    "claiming a resource diagnostic or world-model screen as Track2 success"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "format": "strict-track2-v157-complementary-offload-preregistration-v1",
+  "created_at": "2026-08-11T08:18:00+08:00",
+  "purpose": "Complete one exact full-budget update with frozen V15.7 by using official RLinf actor and rollout offload at their mutually idle stages and by recording only the first diagnostic bridge chunk.",
+  "classification": "resource-feasibility diagnostic; not a formal policy result",
+  "diagnostic_overrides": {
+    "runner.max_steps": 1,
+    "actor.seed": 1238,
+    "actor.enable_offload": true,
+    "rollout.enable_offload": true,
+    "weight_syncer.patch.transport_device": "cpu",
+    "bridge.audit_max_items": 1
+  },
+  "official_implementations_only": {
+    "actor_offload": "FSDPModelManager.offload_param_and_grad and offload_optimizer",
+    "rollout_offload": "HuggingFaceRolloutWorker.offload_model/reload_model",
+    "reason": "actor is idle during rollout; rollout is idle during actor update"
+  },
+  "unchanged": [
+    "Pi0.5 parameters and stochastic sampling",
+    "official reward checkpoint and prompt protocol",
+    "all observations, absolute 14-D actions and RGB predictions",
+    "GRPO loss, optimizer and hyperparameters",
+    "32 environments, group size 4, 8 rollout epochs, 200 steps, global batch 6400",
+    "formal 1000-update budget"
+  ],
+  "frozen_world_model": {
+    "release": "artifacts/strict_track2_joint_augmentation_20260810/v157_hybrid_gate_blend12_formal_release",
+    "model_version": "track2-v15.7-hybrid-action-gated-reward-safe-blend12",
+    "weights_changed": false,
+    "device": "cuda",
+    "native_batch_enabled": false
+  },
+  "acceptance": {
+    "all_200_world_model_chunks": true,
+    "all_8_rollout_epochs": true,
+    "official_reward_complete": true,
+    "one_GRPO_backward_and_optimizer_update": true,
+    "post_update_actor_to_rollout_weight_sync": true,
+    "no_cuda_oom": true,
+    "formal_result": false
+  }
+}

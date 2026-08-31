@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+BASE='/root/autodl-tmp/IROS_WAM_2.0 challenge'
+OFF="$BASE/artifacts/strict_track2_official_20260810"
+FIX="$OFF/run_registry/v227_rollout_reload_memory_fix_20260818"
+DATA_REG="$OFF/run_registry/v231b_right_transition_dataset_20260818"
+export TRACK2_RETRY_NAME='v232_v228_transition_rightsft_joint2_h8_step64_seed1432_20260818'
+export TRACK2_USE_EXPANDABLE_SEGMENTS=false
+export TRACK2_PREVIOUS_FAILURE="$FIX/v230_transition_diagnosis.json"
+export TRACK2_RETRY_BASE_CKPT="$OFF/runs/v228_v223_terminal_rightsft_cachefix_h8_step64_seed1426_20260818/wan_robotwin_adjust_bottle_http_full_grpo_openpi_pi05/checkpoints/global_step_64/actor/model_state_dict/full_weights.pt"
+export TRACK2_RETRY_INITIAL_POLICY_NAME='v228_v223_terminal_rightsft_cachefix_h8_step64_seed1426'
+export TRACK2_RETRY_ACTOR_SEED=1432
+export TRACK2_RETRY_ACTOR_LR=5e-6
+export TRACK2_RETRY_SFT_DATA='/root/autodl-tmp/iros_v15_rl_probability_audit_v2/artifacts/lerobot/adjust_bottle_train40_right_transition_v1'
+export TRACK2_RETRY_DATASET_AUDIT="$DATA_REG/dataset_audit.json"
+export TRACK2_RETRY_LOADER_AUDIT="$DATA_REG/transformed_loader_audit.json"
+export TRACK2_RETRY_ACTIVE_JOINT_WEIGHT=2.0
+export TRACK2_RETRY_ACTIVE_GRIPPER_WEIGHT=3.0
+export TRACK2_RETRY_INACTIVE_KEEP_WEIGHT=0.25
+export TRACK2_RETRY_PHYSICAL_WEIGHT_SUM=16.75
+exec bash "$BASE/pipeline/scripts/launch_v227_terminal_right_sft_retry.sh"

@@ -1,0 +1,30 @@
+{
+  "format": "strict-track2-v161-reward-dynamic-program-preregistration-v1",
+  "registered_at": "2026-08-11T05:46:00+08:00",
+  "hypothesis": "A low-dimensional, instruction-arm-specific output-strength schedule selected on an episode-disjoint subset can retain the expert's contact accuracy while matching the official frozen reward model's per-frame progress dynamics substantially better than a scalar blend.",
+  "candidate_strength_grid": [0.0, 0.05, 0.1, 0.12, 0.2, 0.35, 0.5, 0.75, 1.0],
+  "schedule_dimensions": "8 output positions x 2 instruction-routed arms",
+  "selection_split": "sha256(window basename) low bit = 0",
+  "confirmation_split": "sha256(window basename) low bit = 1",
+  "dynamic_program_cost": {
+    "absolute_reward_mae_weight": 1.0,
+    "frame_delta_reward_mae_weight": 1.0,
+    "terminal_reward_mae_extra_weight": 2.0,
+    "strength_smoothness_weight": 0.03,
+    "visual_strength_incentives": [0.0, 0.005, 0.01, 0.02]
+  },
+  "candidate_selection_order": [
+    "all reward terminal and terminal-correlation nonregression checks on confirmation split and full 64",
+    "texture and temporal visual nonregression",
+    "highest right-contact RGB improvement",
+    "highest overall RGB improvement"
+  ],
+  "track2_guards": {
+    "official_reward_model_frozen": true,
+    "official_pi05_and_rl_unchanged": true,
+    "request_actions_modified": false,
+    "participant_action_selection": false,
+    "mpc": false,
+    "development_or_acceptance_episodes_used": false
+  }
+}

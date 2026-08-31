@@ -1,0 +1,63 @@
+{
+  "format": "strict-track2-post-v15-residual-preregistration-v1",
+  "created_at": "2026-08-10T23:57:00+08:00",
+  "motivation": {
+    "observed_without_real_policy_acceptance_data": true,
+    "raw_step50_vs_formal_parent_official_rgb_improvement_percent": 14.659,
+    "raw_step50_vs_complete_v15_official_rgb_improvement_percent": -57.204,
+    "step50_inside_v15_official_rgb_improvement_percent": -39.847,
+    "synthetic_step50_inside_v15_rgb_improvement_percent": 16.185,
+    "finding": "The complete V15 is much stronger than its internal formal AR parent on official reset images. Replacing that parent breaks downstream calibrations, while synthetic-domain gains remain real.",
+    "hypothesis": "A bounded residual learned after the complete frozen V15 can preserve its official-domain quality and directly align its final eight frames with ground truth and the frozen official reward."
+  },
+  "immutable_track2_constraints": {
+    "frozen_base_world_model": "artifacts/releases/track2_v15_best",
+    "policy_base": "official unmodified Pi0.5 adjust_bottle",
+    "reward": "official frozen adjust_bottle reward model",
+    "rl_algorithm": "official RLinf GRPO",
+    "global_steps": 1,
+    "participant_mpc_or_candidate_action_selection": false
+  },
+  "data_boundary": {
+    "training": "formal_joint_parent_windows_full128 train_episodes, start=0 only",
+    "parent_validation": "formal_joint_parent_windows_full128 validation_episodes and official 50-episode validation split, start=0 only",
+    "cache_contents": "frozen complete-V15 predictions, supplied/synthetic targets, request actions and provenance",
+    "consumed_dev22_or_final128_allowed": false,
+    "new_development32_or_acceptance128_allowed": false,
+    "hidden_evaluator_payloads_allowed": false
+  },
+  "candidate": {
+    "architecture": "small post-V15 residual U-Net conditioned on V15 frame, last real context frame, horizon, active arm and active action",
+    "maximum_absolute_residual_255": 8.0,
+    "initial_gate_probability": 0.05,
+    "steps": 200,
+    "checkpoints": [50, 100, 200],
+    "batch_size_sequences": 1,
+    "learning_rate": 0.0001,
+    "visual_loss": "motion-weighted L1 + temporal delta + high-pass texture + accurate-pixel protection",
+    "reward_loss_weight": 0.02,
+    "reward_objective": "frozen official probability progress",
+    "sampling": "50 percent official / 50 percent synthetic, then equal left/right mass",
+    "seed": 1818
+  },
+  "parent_promotion_gates": {
+    "complete_v15_is_baseline": true,
+    "official_overall_rgb_mae_non_regression_percent": 0.0,
+    "official_overall_reward_mae_improvement_percent_min": 3.0,
+    "official_left_and_right_rgb_and_reward_non_regression": true,
+    "synthetic_rgb_and_reward_non_regression": true,
+    "maximum_absolute_residual_255_must_not_exceed": 8.0,
+    "all_requests_use_post_v15_refiner": true
+  },
+  "policy_evaluation": {
+    "development32_manifest": "real_robotwin_eval/preregistered_initial_window_joint/development32/manifest.json",
+    "development32_consumed_at_creation": false,
+    "maximum_policy_candidates": 3,
+    "acceptance128_manifest": "real_robotwin_eval/preregistered_initial_window_joint/acceptance128/manifest.json",
+    "acceptance128_consumed_at_creation": false,
+    "minimum_absolute_success_gain_percentage_points": 3.0,
+    "minimum_relative_success_gain_percent": 3.0,
+    "grasp_rate_non_regression": true,
+    "left_and_right_success_non_regression": true
+  }
+}

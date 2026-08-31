@@ -1,0 +1,118 @@
+{
+  "format": "strict-track2-v505-v503-compact-authority-transport-seed-literal-pre-popen-failure-forensic-v1",
+  "status": "failed_no_retry_pre_popen_schema_literal_mismatch",
+  "passed": false,
+  "date": "2026-08-25",
+  "failed_command": {
+    "argv": [
+      "/bin/bash",
+      "/root/v503_compact_reconciliation_authority_materialize_once.sh"
+    ],
+    "exit_code": 1,
+    "normal_invocations": 1,
+    "retry_authorized": false
+  },
+  "root_cause": {
+    "predicate": "contract.get(\"seed\") != 1644",
+    "helper_source_line": 306,
+    "expected_literal_in_failed_helper": 1644,
+    "actual_contract_seed": 1645,
+    "corrected_rule": "require exact integer contract seed 1645 and reject 1644, missing, bool, string, and extra-schema variants",
+    "failure_stage": "load_materializer_before_evidence_prep_and_before_popen",
+    "other_schema_predicates_passed": 12
+  },
+  "tool_capture": {
+    "native_persistent_capture_available": false,
+    "capture_kind": "ssh_exec_tool_capture_not_persistent",
+    "stdout": {
+      "logical_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr_text": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v503_v502_compact_reconciliation_execution_authority_materializer_once.py\", line 984, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v503_v502_compact_reconciliation_execution_authority_materializer_once.py\", line 959, in main\n    module, contract, contract_record, materializer_record = load_materializer()\n                                                             ^^^^^^^^^^^^^^^^^^^\n  File \"/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v503_v502_compact_reconciliation_execution_authority_materializer_once.py\", line 317, in load_materializer\n    raise RuntimeError(\"materializer/contract schema\")\nRuntimeError: materializer/contract schema\n"
+  },
+  "failed_transport_sources": {
+    "helper": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v503_v502_compact_reconciliation_execution_authority_materializer_once.py",
+      "sha256": "777ca1c6c4aee8398f87cf5ae523e58444c8fd6a8a6622fdc8ad84fb6dff7bba",
+      "logical_bytes": 52208
+    },
+    "script": {
+      "path": "/root/v503_compact_reconciliation_authority_materialize_once.sh",
+      "sha256": "f53920d3fed523df09266465f458d265e087a43b1ef3154acf7a4d2b78988b07",
+      "logical_bytes": 2546
+    }
+  },
+  "authority_sources": {
+    "contract": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v503_v502_compact_reconciliation_execution_authority_contract.json",
+      "sha256": "3cb53e7abcbeb54296085ae46ee5073cb842aaaf471e08da1b320dcf1ed9c1c1",
+      "logical_bytes": 22139
+    },
+    "materializer": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v503_v502_compact_reconciliation_execution_authority.py",
+      "sha256": "bfdf33ab525d3b9e98ea116604f309354160cf98021478c94c177caa5060d879",
+      "logical_bytes": 42234
+    },
+    "direct_wrapper": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v503_v502_compact_single_reconciler.py",
+      "sha256": "32c9f4c7c32566bb65b5a9d4ec4b53630a2941a9932345e35c3c911ec80aed9f",
+      "logical_bytes": 70711
+    },
+    "v502_failure_forensic": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v503_v502_outer_preintent_v494_ancestry_failure_forensic_reconstructed.json",
+      "sha256": "418f399030a0f0e13571c38a8e55ac36de45d2012616adef49d7452ab90a4ce9",
+      "logical_bytes": 8521
+    }
+  },
+  "invocation_partition": {
+    "transport_script_invocations": 1,
+    "transport_helper_invocations": 1,
+    "materializer_popen_invocations": 0,
+    "authority_materializer_invocations": 0,
+    "direct_single_reconciler_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "phase_a_invocations": 0,
+    "training_invocations": 0
+  },
+  "runtime_roots": {
+    "authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_reconciliation_execution_authority_seed1645_20260825",
+      "absent": true
+    },
+    "authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_reconciliation_execution_authority_seed1645_20260825.registration-prep",
+      "absent": true
+    },
+    "failed_evidence_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_reconciliation_execution_authority_materialization_evidence_seed1645_20260825",
+      "absent": true
+    },
+    "failed_evidence_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_reconciliation_execution_authority_materialization_evidence_seed1645_20260825.execution-prep",
+      "absent": true
+    },
+    "wrapper_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_single_reconciler_attempt_seed1645_20260825",
+      "absent": true
+    },
+    "wrapper_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v503_v502_compact_single_reconciler_attempt_seed1645_20260825.attempt-prep",
+      "absent": true
+    }
+  },
+  "post_failure_observation": {
+    "lineage_processes_empty": true,
+    "gpu_compute_processes_empty": true,
+    "six_authority_sources_exactly_unchanged": true,
+    "authority_registration_receipt_created": false,
+    "evidence_process_receipt_created": false
+  },
+  "authorization": {
+    "retry_authorized": false,
+    "same_transport_helper_retry_authorized": false,
+    "direct_wrapper_authorized_by_this_forensic": false,
+    "direct_r2_authorized": false,
+    "phase_a_authorized": false,
+    "training_authorized": false
+  }
+}

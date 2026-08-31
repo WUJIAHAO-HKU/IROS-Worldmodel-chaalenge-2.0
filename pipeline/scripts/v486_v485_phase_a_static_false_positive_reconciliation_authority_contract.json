@@ -1,0 +1,101 @@
+{
+  "format": "strict-track2-v486-v485-phase-a-static-false-positive-reconciliation-authority-design-contract-v1",
+  "status": "design_only_frozen_reconciler_pending_independent_review_no_execution_authority",
+  "classification": "read-only static reconciliation registration design; this contract itself authorizes no reconciliation, Phase-A cache run, cache reuse, training, folds, policy update, S1, zero-update, RL, submission, reward, dev, hidden, final, or outcome access",
+  "lineage": {
+    "seed": 1628,
+    "registration_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824",
+    "persistent_old_static_log_copy_relative_path": "immutable_evidence/v485_static_b73.log",
+    "transparent_static_receipt_relative_path": "transparent_static_audit.json",
+    "old_authority_candidates_permanently_superseded_unmaterialized": [
+      {"role": "authority_design_contract", "sha256": "2837cfa71fb3bf1ba295056e0b75bc8f48b82e24567c13c366a81eb2ff034c5e"},
+      {"role": "authority_materializer", "sha256": "ebbb40f74346a845809245ee9e73ee9fe50463ed5caa895f806006d60c5f46c8"}
+    ]
+  },
+  "frozen_parent": {
+    "preregistration": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v485_v169_cache_qualification_prereg_seed1627_20260824/preregistration.json", "sha256": "b73fad8071d8df0b1bed3dc53212bf8a86b2350911620feac81d96a1505492e0", "logical_bytes": 55761},
+    "phase_a_design_contract": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v482_v169_cache_determinism_scope_repair_contract.json", "sha256": "8c4a583aa19de6927cc1ef787920b65317893e27ad01371d0b95b622f260cf64"},
+    "old_static_source": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v485_v169_cache_qualification_static.py", "sha256": "d4cadd94141378f0cf89892847894abefc91357304f44d470698221a6613fc5f", "logical_bytes": 29437},
+    "old_failed_static_receipt": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v485_v169_cache_qualification_prereg_seed1627_20260824/static_audit.json", "sha256": "4a287cd3b92ff281a785f454f8844e9695a58fd4b1de277e054ab4c22df48afc", "logical_bytes": 7141},
+    "old_static_log_volatile_source": {"path": "/dev/shm/v485_static_b73.log", "sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b", "logical_bytes": 6475},
+    "old_registration_tree": {
+      "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v485_v169_cache_qualification_prereg_seed1627_20260824",
+      "inventory": [
+        ["preregistration.json", "b73fad8071d8df0b1bed3dc53212bf8a86b2350911620feac81d96a1505492e0", 55761],
+        ["static_audit.json", "4a287cd3b92ff281a785f454f8844e9695a58fd4b1de277e054ab4c22df48afc", 7141]
+      ],
+      "file_count": 2,
+      "logical_file_bytes": 62902,
+      "sha256sum_lines_digest_sha256": "f00ebe9d953b360b17fae68a2f32581a4add89bb90b86702be142c18b8e728df",
+      "canonical_json_triples_digest_sha256": "199e880325f99e75b7d70e566d8da17c51093bafba3da1c3acd20d4a85c22c63",
+      "algorithms": {"relative_paths": "relative POSIX from old registration root; sorted by relative path; regular non-symlink files only", "sha256sum_lines": "sha256 + two spaces + relative_path + newline", "canonical_json_triples": "compact JSON [[relative_path,sha256,logical_bytes],...] with no ASCII escaping"}
+    },
+    "required_absence": [
+      {"kind": "directory", "path": "/root/v485_v169_cache_qualification_seed1627_20260824"},
+      {"kind": "directory", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v485_v169_cache_qualification_prereg_seed1627_20260824/phase_a_launcher_attempts"},
+      {"kind": "file", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v485_v169_cache_qualification_prereg_seed1627_20260824/authority_receipt.json"}
+    ]
+  },
+  "exact7_source_closure": {
+    "roles_in_order": ["phase_a_materializer", "phase_a_driver", "phase_a_process_worker", "phase_a_cache_scope_helper", "phase_a_independent_auditor", "phase_a_static_auditor", "phase_a_launcher"],
+    "records": [
+      {"role": "phase_a_materializer", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v485_v169_cache_qualification_preregistration.py", "sha256": "4c31832a5b1436c8efda258cc41dde6b37f169debcf7d1c3ee2a98489c1e9f4b", "logical_bytes": 16459},
+      {"role": "phase_a_driver", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v485_v169_cache_qualification.py", "sha256": "9199d8489fe6aea732365552a2cdbe60f24408dc383bdbd31d4148f6a0931d0a", "logical_bytes": 28333},
+      {"role": "phase_a_process_worker", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v485_v169_cache_qualification_worker.py", "sha256": "f3c440c09e4cede17b5825c2117da7b39ee62c353c3538dd6e5c518f4da74cba", "logical_bytes": 31353},
+      {"role": "phase_a_cache_scope_helper", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py", "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5", "logical_bytes": 4519},
+      {"role": "phase_a_independent_auditor", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v485_v169_cache_qualification.py", "sha256": "e890c84b4a9086890a18a9b82f3dc9bab546ad7f43ea27e392efcf6862782737", "logical_bytes": 42699},
+      {"role": "phase_a_static_auditor", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v485_v169_cache_qualification_static.py", "sha256": "d4cadd94141378f0cf89892847894abefc91357304f44d470698221a6613fc5f", "logical_bytes": 29437},
+      {"role": "phase_a_launcher", "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v485_v169_cache_qualification.sh", "sha256": "f596a0411c9b0db03812440ab1ece036b27489e8f6bd978a443d1a2a9ae8587e", "logical_bytes": 23827}
+    ],
+    "canonical_records_digest_sha256": "9adc5bdbfaa0022b745c44abac2ac2bd02f801f751ebce35d0116c0a8e8e53e0",
+    "all_records_must_equal_parent_formal_and_old_receipt_and_current_files": true
+  },
+  "old_static_terminal_schema": {
+    "format": "strict-track2-v485-v169-cache-qualification-static-audit-v1",
+    "status": "failed",
+    "passed": false,
+    "check_count": 47,
+    "check_key_set_sha256": "57676e2e75b6c88cfcf521a1b1c4780315d43547158d1314df8e8444ed86834b",
+    "true_check_count": 44,
+    "false_check_names_exact": ["determinism_scope_exact", "driver_owned_full_lifetime_logs_and_completion", "no_training_reward_outcome"],
+    "runtime_observation_exact": {"phase_a_executed": false, "training_launched": false, "folds": 0, "policy_updates": 0, "rl_authorized": false},
+    "top_level_authorization_exact": {"phase_a_cache_qualification_authorized": false, "training_authorized": false, "submission_authorized": false}
+  },
+  "false_positive_recomputation_contract": {
+    "common": "parse and inspect the frozen current exact7 source bytes only; do not edit, import, execute, or substitute them; preserve the 44 old true checks exactly",
+    "determinism_scope_exact": "AST-walk actual calls to torch.use_deterministic_algorithms and reject only a real False positional or mode=False call; a quoted diagnostic string in the old static auditor is not a call; require the scope helper call sequence True/warn_only=True inside try and True/warn_only=False in finally plus the rng_after != rng_before hard guard",
+    "driver_owned_full_lifetime_logs_and_completion": "AST-resolve run_worker and accept its actual two-argument prepare_worker_log(partial, log_opener) call; require Popen stdout/stderr redirection, start_new_session, bounded wait(timeout), stream flush+fsync, driver-owned completion receipt, fsync tree and same-filesystem partial-to-final promotion",
+    "no_training_reward_outcome": "reject actual AST calls/imports/attribute operations for optimizer, backward, step, train_head, reward/model/outcome/dev/hidden/final data; do not reject provenance booleans or synthetic-fixture local variable names such as success; require worker terminal fields training_launched=false, folds=0, policy_updates=0, reward_loaded=false and dev_outcome_success_hidden_final_used=false",
+    "synthetic_fixtures_required": ["quoted False call is not an AST call", "real deterministic False call is rejected", "two-argument prepare_worker_log is accepted", "provenance booleans and synthetic success variable names are not forbidden operations"]
+  },
+  "future_reconciler_source": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/reconcile_v486_v485_static_false_positive.py", "sha256": "c71ba00b0c92efda03f9df149263d0c476de86ea7338ba3719a72f3305959984", "logical_bytes": 36229},
+  "reconciliation_registration_contract": {
+    "format": "strict-track2-v486-v485-phase-a-static-false-positive-reconciliation-preregistration-v1",
+    "status": "preregistered_exact_one_readonly_static_reconciliation_authorized",
+    "whole_directory_same_filesystem_staging_fsync_atomic_promote": true,
+    "registration_initial_files_exact": ["immutable_evidence/v485_static_b73.log", "preregistration.json"],
+    "registration_initial_inventory_nonselfreferential_spec": {"exact_relative_paths": ["immutable_evidence/v485_static_b73.log", "preregistration.json"], "file_count": 2, "persistent_log_sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b", "persistent_log_bytes": 6475, "preregistration_self_excluded_from_digest": true, "no_other_entries": true},
+    "volatile_log_must_be_rehashed_then_byte_copied_and_persistent_copy_rehashed": true,
+    "pre_promote_log_gate_exact": {"copied_persistent_log_sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b", "copied_persistent_log_bytes": 6475, "volatile_source_sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b", "volatile_source_bytes": 6475, "both_regular_nonsymlink": true, "must_run_after_staging_files_fsync_and_before_prep_to_REG_os_replace": true, "on_mismatch_final_REG_absent": true},
+    "reconciler_output_exact_relative_path": "transparent_static_audit.json",
+    "authorization_exact": {"readonly_static_reconciliation_authorized": true, "attempts_authorized": 1, "attempts_consumed": 0, "retry_authorized": false, "phase_a_cache_qualification_authorized": false, "cache_reuse_authorized": false, "training_authorized": false, "folds_authorized": 0, "policy_updates": 0, "s1_authorized": false, "zero_update_authorized": false, "rl_authorized": false, "submission_authorized": false, "reward_read_authorized": false, "dev_hidden_final_outcome_read_authorized": false},
+    "runtime_observation_at_registration": {"reconciliation_executed": false, "phase_a_executed": false, "v169_imported_or_run": false, "training_launched": false, "folds": 0, "policy_updates": 0}
+  },
+  "transparent_static_receipt_contract": {
+    "format": "strict-track2-v485-v169-cache-qualification-static-audit-v1",
+    "status": "passed_no_execution_authority",
+    "passed": true,
+    "reconciliation_format": "strict-track2-v486-v485-phase-a-transparent-static-reconciliation-v1",
+    "reconciliation_status": "passed_readonly_reconciliation_no_phase_a_execution_authority",
+    "compatibility_boundary": "the top-level format/status/checks/source map remain consumable by frozen launcher f596; no future authority may accept them without also requiring the exact reconciliation_format/status, reconciliation preregistration, design contract, writer, old failure ancestry and three transparent proof objects",
+    "must_bind": ["reconciliation_preregistration_path_sha", "reconciliation_design_contract_path_sha", "reconciler_self_path_sha_bytes", "persistent_old_log_copy_path_sha_bytes", "volatile_log_source_path_sha_bytes_at_registration", "old_parent_formal_and_contract", "old_static_source_failed_receipt_and_REG_tree", "exact7_records_and_digest", "old_44_true_check_names_and_checks_sha", "three_false_positive_AST_recomputations_and_fixtures", "all_input_prepost_hashes", "all_forbidden_output_absences"],
+    "checks": "same 47 names; the old 44 remain true without reinterpretation and only the exact three false-positive names are independently recomputed true",
+    "synthetic_recomputation_evidence_exact": {"passed": true, "check_count": 4, "checks": {"false_call_detected": true, "false_provenance_names_allowed": true, "literal_not_call": true, "two_argument_driver_accepted": true}, "fixture_sources_sha256": "77bc6af02c136be5b9b8c6bb653847de62311d5cd06b3547a06a60b2eee762fa", "evidence_sha256": "46a5fa5cfc6808b7fe52695248465cd694311b027b84f320e88a9ad7990d03a4"},
+    "input_snapshot_contract": {"pre_and_post_objects_must_be_byte_equal": true, "snapshot_sha256_must_equal": true, "files_must_cover": ["all reconciler CLI file inputs", "all exact7 source records", "both reconciliation execution sources"], "trees_exact": ["old_b73_registration", "new_v486_initial_registration"], "absences_exact": ["phase_a_qualification_root", "old_phase_a_launcher_attempts", "old_phase_a_authority_receipt", "transparent_static_receipt", "transparent_static_receipt_tmp"], "receipt_fields": ["input_pre_snapshot", "input_post_snapshot", "input_snapshots_exactly_equal"]},
+    "runtime_observation_exact_for_frozen_launcher_compatibility": {"phase_a_executed": false, "training_launched": false, "folds": 0, "policy_updates": 0, "rl_authorized": false},
+    "parent_runtime_observation_exact": {"phase_a_executed": false, "training_launched": false, "folds": 0, "policy_updates": 0, "rl_authorized": false},
+    "reconciliation_runtime_observation_exact": {"reconciliation_executed": true, "phase_a_executed": false, "v169_imported_or_run": false, "qualification_root_created": false, "training_launched": false, "folds": 0, "policy_updates": 0, "reward_read_or_loaded": false, "dev_hidden_final_outcome_read": false},
+    "authorization_after_pass": {"separate_phase_a_poststatic_authority_design_may_be_prepared": true, "phase_a_cache_qualification_authorized": false, "retry_old_static_authorized": false, "cache_reuse_authorized": false, "training_authorized": false, "folds_authorized": 0, "policy_updates": 0, "s1_authorized": false, "zero_update_authorized": false, "rl_authorized": false, "submission_authorized": false}
+  },
+  "current_design_authorization": {"readonly_static_reconciliation_authorized": false, "attempts_authorized": 0, "phase_a_cache_qualification_authorized": false, "cache_reuse_authorized": false, "training_authorized": false, "folds_authorized": 0, "policy_updates": 0, "s1_authorized": false, "zero_update_authorized": false, "rl_authorized": false, "submission_authorized": false}
+}

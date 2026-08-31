@@ -1,0 +1,66 @@
+{
+  "format": "strict-track2-v166-singlepass-student-pilot-preregistration-v1",
+  "created_at": "2026-08-11T08:30:00+08:00",
+  "classification": "world-model-only pilot; cannot replace V15.7 or support a Track2 success claim",
+  "hypothesis": "A 13.14M-parameter one-pass multi-source flow U-Net initialized from V15.7 can absorb exact policy-state behavior from the frozen teacher while ground-truth motion/texture/structure losses prevent teacher-error amplification, providing a much faster parent candidate for later full training.",
+  "temporal_structure_corrections": {
+    "first_transition_supervised": "temporal delta includes context frame 5 to predicted frame 1, not only future-to-future transitions",
+    "acceleration_weight": 0.15,
+    "static_identity_scope": "only pixels static throughout all eight ground-truth frames; excludes any pixel occupied by a moved gripper or bottle",
+    "per_pixel_source_entropy_weight": 0.02,
+    "source_entropy_purpose": "avoid soft averaging of slightly misaligned source glyphs and preserve arm lettering"
+  },
+  "data": {
+    "teacher_manifest": "artifacts/strict_track2_joint_augmentation_20260810/v166_teacher_cache_actor_offload13_taskarms/manifest.json",
+    "teacher_manifest_sha256": "386c9cb00d0b4d3edcf1902bd250e1c033f0a3407b7dddcffbcfb0a0d5a9d6c9",
+    "teacher_samples": 416,
+    "teacher_left": 195,
+    "teacher_right": 221,
+    "teacher_arm_protocol": "one task-level arm label per environment across all 13 cached chunks; 16 explicit-prompt labels plus 16 aggregate-motion labels, zero prompt conflicts",
+    "ground_truth_windows": "artifacts/strict_track2_joint_augmentation_20260810/formal_joint_parent_windows_full128",
+    "ground_truth_split": "artifacts/strict_track2_joint_augmentation_20260810/formal_joint_parent_windows_full128/split_manifest.json",
+    "ground_truth_split_sha256": "d7e559d98851ad1e0f4eb349b559a8f1c72f54e25e765682269cd704759c4845",
+    "ground_truth_window_sources": "artifacts/strict_track2_joint_augmentation_20260810/formal_joint_parent_windows_full128/window_sources.json",
+    "ground_truth_window_sources_sha256": "3de2bd7abc97a9d8f3d0fb754088a151bcee0ff97e8b6f51e5ac5a0e3fde92e1",
+    "ground_truth_train_windows": 13715,
+    "ground_truth_validation_windows": 931,
+    "development22_or_final128_used": false
+  },
+  "initialization": {
+    "directory": "artifacts/strict_track2_joint_augmentation_20260810/v157_hybrid_gate_blend12_formal_release/v10/flow_base",
+    "model_sha256": "cc4ef504e17135271f93ab3c20a559e0b9baeeade7ace75f10d98fcef1acfd35",
+    "action_normalization_sha256": "69d530a9275b73e79ee92104d5bfb738d0927f9751a857949499b882f937815b",
+    "config_sha256": "b4b4487a2ac0395d48a58894f101363662d61f915705f6209222f546d503babd",
+    "parameters": 13144786,
+    "weights_frozen": false
+  },
+  "training": {
+    "script": "pipeline/scripts/train_strict_track2_singlepass_visual_student.py",
+    "script_sha256": "343eb50d1a62971ed1aa07b23a3560a37596597fa3f6b934bea7cdd75d4ce835",
+    "steps": 200,
+    "gradient_accumulation": 4,
+    "effective_samples": 800,
+    "teacher_probability": 0.5,
+    "teacher_loss_scale": 0.35,
+    "learning_rate": 0.00002,
+    "validation_interval": 50,
+    "validation_samples": 32,
+    "validation_protocol": "16 left-arm and 16 right-arm windows selected by deterministic linspace over the complete episode-disjoint validation path order, covering early through late horizons",
+    "seed": 166,
+    "device": "cuda"
+  },
+  "pilot_gates": {
+    "ground_truth_validation_mae_improvement_over_initial_percent_min": 3.0,
+    "left_and_right_samples_exactly_balanced_per_accumulation_schedule": true,
+    "finite_loss_all_steps": true,
+    "single_sample_steady_latency_seconds_max": 1.0,
+    "peak_cuda_mib_max": 12000,
+    "full_v157_visual_and_reward_nonregression_required_for_promotion": true
+  },
+  "track2_guards": {
+    "policy_training_or_behavior_cloning": false,
+    "participant_action_selection_or_mpc": false,
+    "official_pi05_or_reward_changed": false,
+    "student_may_be_promoted_without_all_full_gates": false
+  }
+}

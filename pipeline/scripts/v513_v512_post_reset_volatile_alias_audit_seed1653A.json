@@ -1,0 +1,81 @@
+{
+  "format": "strict-track2-v513-v512-post-reset-volatile-alias-audit-v1",
+  "status": "frozen_read_only_post_reset_audit_no_execution",
+  "seed": "1653A",
+  "timestamp_ns": 1787683860771838067,
+  "hostname": "autodl-container-074042af4d-d3994172",
+  "boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+  "boot_id_unchanged_from_pre_reset_audits": true,
+  "container_volatile_state_reset_observed": true,
+  "reset_inference": "Persistent v504 restoration evidence remains exact6 while /dev/shm is empty and its previously restored alias is absent; the kernel boot_id is unchanged.",
+  "dev_shm_top_inventory": [],
+  "dev_shm_top_count": 0,
+  "target": {
+    "path": "/dev/shm/v485_static_b73.log",
+    "lexists": false
+  },
+  "owned_temp": {
+    "path": "/dev/shm/.v485_static_b73.log.v513-restore-7a3e5aa7.tmp",
+    "lexists": false
+  },
+  "immutable_source": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/immutable_evidence/v485_static_b73.log",
+    "sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b",
+    "logical_bytes": 6475,
+    "regular": true,
+    "symlink": false
+  },
+  "v509_authority_receipt": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_wam_pipeline_import_repair_execution_authority_seed1650_20260825/authority_receipt.json",
+    "sha256": "c53aa1ad33f5e434517d64b700faf1a14ceb48d04eeda4df699113ea6785ab0d",
+    "logical_bytes": 314015
+  },
+  "v511_failure_evidence_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v511_v510_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1652_20260826",
+    "file_count": 6,
+    "logical_file_bytes": 302751,
+    "sha256sum_lines_digest_sha256": "2b7bb2e6b2ed813c18dffdcb0b70b0f99d6d4fd619188af824de040c5a879c4f",
+    "canonical_json_triples_digest_sha256": "77e62f07aa66a765aff32acd78e53457902f9fe01e3931313becd890408562b2"
+  },
+  "prior_v504_restore_evidence_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v504_v503_v502_v485_volatile_static_log_alias_restore_evidence_seed1646_20260825",
+    "file_count": 6,
+    "logical_file_bytes": 76219,
+    "sha256sum_lines_digest_sha256": "ae6e4ce22be7a7557699a019475005a07427bcc80d1135df4ef638e3b4a68642",
+    "canonical_json_triples_digest_sha256": "e23cbed8eacb50da40f843147b5aa9896e4b6b75a8d58d2b3b9fca34cf43e909",
+    "process_receipt": {
+      "sha256": "aaf5b944b93d94ca818712737b20289445d9ba6e9712bd0d42f9c38ab305b6d2",
+      "logical_bytes": 22747
+    },
+    "restore_invocations": 1,
+    "consumed": true,
+    "retry_authorized": false
+  },
+  "f813_registration_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824",
+    "file_count": 3,
+    "logical_file_bytes": 89691,
+    "sha256sum_lines_digest_sha256": "8628f5659dacbe3ede05699866ace077c4158e71b4c1020dcfadaf84d9d038b6",
+    "canonical_json_triples_digest_sha256": "2c307584b6d902252365dd39b26dc6f59f38ac3b143034dc2d63529c83e9edaf"
+  },
+  "services": {
+    "port_8005": {
+      "http_code": 200,
+      "status": "ready",
+      "model_version": "track2-v218-public-knn-blend-alpha070-route-aware"
+    },
+    "port_18084": {
+      "http_code": 200,
+      "status": "ready"
+    }
+  },
+  "matching_processes_empty": true,
+  "gpu_compute_processes_empty": true,
+  "authorization": {
+    "volatile_alias_restore_authorized_by_audit": false,
+    "restore_invocations": 0,
+    "phase_a_authorized": false,
+    "training_authorized": false,
+    "retry_authorized": false
+  }
+}

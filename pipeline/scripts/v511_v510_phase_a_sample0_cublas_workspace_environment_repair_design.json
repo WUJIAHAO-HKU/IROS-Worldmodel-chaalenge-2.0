@@ -1,0 +1,236 @@
+{
+  "format": "strict-track2-v511-v510-phase-a-sample0-cublas-workspace-environment-repair-transport-successor-design-v1",
+  "status": "design_only_frozen_sources_pending_independent_review_no_execution",
+  "seed": 1652,
+  "lineage": "v511_v510_phase_a_sample0_cublas_workspace_environment_repair_transport_successor",
+  "authorization": {
+    "sample0_fixture_authorized_once": true,
+    "sample0_fixture_invocations_authorized": 1,
+    "sample0_fixture_invocations_consumed": 0,
+    "sample0_child_invocations_authorized": 1,
+    "phase_a_launcher_authorized": false,
+    "phase_a_driver_authorized": false,
+    "training_authorized": false,
+    "cache_reuse_authorized": false,
+    "reward_read_authorized": false,
+    "dev_hidden_final_outcome_read_authorized": false,
+    "folds_authorized": 0,
+    "policy_updates": 0,
+    "retry_authorized": false
+  },
+  "runtime": {
+    "sample0_fixture_executed": false,
+    "sample0_child_executed": false,
+    "sample0_calls": 0,
+    "phase_a_launcher_executed": false,
+    "phase_a_driver_executed": false,
+    "training_launched": false,
+    "cache_reused": false,
+    "reward_read": false,
+    "dev_hidden_final_outcome_read": false,
+    "folds": 0,
+    "policy_updates": 0
+  },
+  "environment_contract": {
+    "spawn_mode": "replace_not_inherit",
+    "spawn_environment_exact": {
+      "PYTHONPATH": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+    },
+    "spawn_environment_exact_key_count": 2,
+    "child_observed_environment_exact": {
+      "PYTHONPATH": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "LC_CTYPE": "C.UTF-8"
+    },
+    "child_observed_environment_exact_key_count": 3,
+    "interpreter_added_environment_exact": {"LC_CTYPE": "C.UTF-8"},
+    "interpreter_added_environment_exact_key_count": 1,
+    "environment_checked_in_child_before_torch_or_numpy_import": true,
+    "child_environment_pop_or_filter_authorized": false,
+    "inherited_environment_authorized": false,
+    "appended_pythonpath_authorized": false,
+    "extra_environment_keys_authorized": false,
+    "service_control_environment_overrides_authorized": false,
+    "service_control_invocations_authorized": 0
+  },
+  "warning_contract": {
+    "capture": "warnings.catch_warnings(record=True) with simplefilter(always)",
+    "raw_warnings_ordered": [
+      {
+        "category": "UserWarning",
+        "message": "median CUDA with indices output does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:93.)"
+      }
+    ],
+    "raw_warning_count": 1,
+    "canonical_warning_count": 1,
+    "filtered_warning_count": 0,
+    "deduplicated_warning_count": 0,
+    "other_warning_count": 0,
+    "raw_ordered_exact_equality_required": true,
+    "normalization_authorized": false,
+    "filtering_authorized": false,
+    "deduplication_authorized": false
+  },
+  "fixture_contract": {
+    "sample_id": 0,
+    "branch": "factual",
+    "calls": 1,
+    "fresh_process": true,
+    "output_schema_only": true,
+    "cache_artifact_authorized": false,
+    "package_tree_file_count": 465,
+    "package_tree_prepost_bitexact": true,
+    "sample0_dataset_prepost_bitexact": true,
+    "rng_prepost_bitexact": true,
+    "process_reaped": true,
+    "process_group_empty": true,
+    "lineage_pids_empty": true,
+    "gpu_compute_pids_empty": true,
+    "v218_health_unchanged": true,
+    "no_unsafe_actions": true
+  },
+  "fresh_paths": {
+    "evidence_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v511_v510_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1652_20260826",
+    "evidence_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v511_v510_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1652_20260826.execution-prep",
+    "process_receipt": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v511_v510_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1652_20260826/process_receipt.json"
+  },
+  "preentry_selftest_failure_ancestry": {
+    "failure_fact": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v510_sample0_fixture_transport_selftest_missing_forensic_failure_fact.json",
+      "sha256": "2ee3306b00fce92503fa6c9bc72ec6ae84145e5ef572e0bb1d194e1611e7eb8d",
+      "logical_bytes": 2852
+    },
+    "old_design": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v510_v509_phase_a_sample0_cublas_workspace_environment_repair_design.json",
+      "sha256": "c0fef2adf3194939f4c095cd419375cf680f8bf253af9ad21c2ef554a82a94d6",
+      "logical_bytes": 8285
+    },
+    "old_transport_helper": {
+      "path": "/root/v510_v509_phase_a_sample0_cublas_workspace_environment_repair_once.py",
+      "sha256": "922f2fff99ace66c57d80ec5e887bfe4fe64d1af1b5f705f3254c8df7688b96e",
+      "logical_bytes": 26459
+    },
+    "old_transport_script": {
+      "path": "/root/v510_phase_a_sample0_cublas_workspace_environment_repair_once.sh",
+      "sha256": "a65dc756e8238b95ffbbfa7a04729b54779779d9718bcc8d699d3b5fb39817a5",
+      "logical_bytes": 3499
+    },
+    "old_selftest_invocations": 1,
+    "old_selftest_returncode": 1,
+    "old_normal_transport_invocations": 0,
+    "old_transport_helper_invocations": 0,
+    "old_child_popen_invocations": 0,
+    "old_sample0_calls": 0,
+    "old_phase_a_invocations": 0,
+    "old_evidence_root_lexists": false,
+    "old_evidence_prep_lexists": false,
+    "canonical_v509_failure_forensic_was_absent": true,
+    "staged_v509_failure_forensic_was_exact": true,
+    "retry_authorized": false
+  },
+  "source_closure": {
+    "fixture_child_source": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/verify_v510_v509_phase_a_sample0_cublas_workspace_environment_repair.py",
+      "sha256": "c391a6b76412535e8c7344c720ab8b8ea5fcd97d58b085741b215ad3bb0428f3",
+      "logical_bytes": 13375
+    },
+    "preentry_selftest_failure_fact": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v510_sample0_fixture_transport_selftest_missing_forensic_failure_fact.json",
+      "sha256": "2ee3306b00fce92503fa6c9bc72ec6ae84145e5ef572e0bb1d194e1611e7eb8d",
+      "logical_bytes": 2852
+    },
+    "old_design": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v510_v509_phase_a_sample0_cublas_workspace_environment_repair_design.json",
+      "sha256": "c0fef2adf3194939f4c095cd419375cf680f8bf253af9ad21c2ef554a82a94d6",
+      "logical_bytes": 8285
+    },
+    "old_transport_helper": {
+      "path": "/root/v510_v509_phase_a_sample0_cublas_workspace_environment_repair_once.py",
+      "sha256": "922f2fff99ace66c57d80ec5e887bfe4fe64d1af1b5f705f3254c8df7688b96e",
+      "logical_bytes": 26459
+    },
+    "old_transport_script": {
+      "path": "/root/v510_phase_a_sample0_cublas_workspace_environment_repair_once.sh",
+      "sha256": "a65dc756e8238b95ffbbfa7a04729b54779779d9718bcc8d699d3b5fb39817a5",
+      "logical_bytes": 3499
+    },
+    "v509_failure_forensic": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v509_phase_a_deterministic_warning_mismatch_failure_forensic.json",
+      "sha256": "d6c5d5c8e9ef327d2f893ff1513cbb3d80edd226c033fa8e95b5adf3ba7744f8",
+      "logical_bytes": 14527
+    },
+    "v509_preregistration": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_cache_qualification_prereg_seed1650_20260825/preregistration.json",
+      "sha256": "8200ba523295a607bbab47c897e83e0b8736ab6000dc26a37fe73c6363cd7cc4",
+      "logical_bytes": 56800
+    },
+    "v509_authority_receipt": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_wam_pipeline_import_repair_execution_authority_seed1650_20260825/authority_receipt.json",
+      "sha256": "c53aa1ad33f5e434517d64b700faf1a14ceb48d04eeda4df699113ea6785ab0d",
+      "logical_bytes": 314015
+    },
+    "scope_source": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+      "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5",
+      "logical_bytes": 4519
+    },
+    "worker_source": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v485_v169_cache_qualification_worker.py",
+      "sha256": "f3c440c09e4cede17b5825c2117da7b39ee62c353c3538dd6e5c518f4da74cba",
+      "logical_bytes": 31353
+    },
+    "wam_pipeline_package_tree_manifest": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v509_v508_wam_pipeline_package_tree_manifest.json",
+      "sha256": "05c9da342cc6ee32d855e07f08a64c31f7c24ec9da8982fe8f3880e70027f623",
+      "logical_bytes": 72190
+    },
+    "parent_preregistration": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/preregistration.json",
+      "sha256": "426d4f7a774520458f6af41d20660cf31202791f99603dacec114f771da6a881"
+    },
+    "parent_failure": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/launcher_failure_receipt.json",
+      "sha256": "dbe3e10d5e7d47d9690c42ebf7f8658fcb10b5aafcd9f6bd19cbf4accb381106"
+    }
+  },
+  "evidence_terminal_contract": {
+    "evidence_file_count_before_terminal": 5,
+    "evidence_file_count_after_terminal": 6,
+    "required_files": [
+      "design.json",
+      "intent.json",
+      "child_stdout.log",
+      "child_stderr.log",
+      "transport_helper.py",
+      "process_receipt.json"
+    ],
+    "child_receipt_transport": "canonical single JSON line in child_stdout.log",
+    "process_receipt_records_final_evidence_paths": true,
+    "process_receipt_all_records_current": true,
+    "authorization_consumed": {
+      "sample0_fixture_authorized_once": true,
+      "sample0_fixture_invocations_authorized": 1,
+      "sample0_fixture_invocations_consumed": 1,
+      "sample0_fixture_authorized_current": false
+    },
+    "invocation_partition": {
+      "helper": 1,
+      "child": 1,
+      "sample0_calls": 1,
+      "service_control": 0,
+      "phase_a_launcher": 0,
+      "phase_a_driver": 0,
+      "training": 0,
+      "cache_reuse": 0,
+      "reward_read": 0,
+      "dev_hidden_final_outcome_read": 0
+    }
+  },
+  "execution_boundary": {
+    "design_review_required_before_execution": true,
+    "execution_authorized_by_this_source_alone": false,
+    "phase_a_execution_authorized": false,
+    "retry_authorized": false
+  }
+}

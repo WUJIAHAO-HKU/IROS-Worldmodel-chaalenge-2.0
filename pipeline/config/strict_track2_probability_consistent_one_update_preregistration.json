@@ -1,0 +1,40 @@
+{
+  "format": "strict-track2-probability-consistent-one-update-preregistration-v1",
+  "created_at": "2026-08-11T13:55:00+08:00",
+  "classification": "nonformal one-update policy-signal screen; cannot establish Track 2 completion",
+  "parent": "track2-v15.7-hybrid-action-gated-reward-safe-blend12",
+  "pi05_weights_changed": false,
+  "reward_changed": false,
+  "official_rl_budget_shape_changed": false,
+  "compatibility_patch": "pipeline/patches/rlinf_openpi_frozen_vlm_mode_consistency.patch",
+  "compatibility_semantics": "After RLinf recursively calls model.train(), restore only the officially frozen VLM to eval via the existing OpenPi freeze_vlm method. The trainable action expert remains in train mode and gradients remain enabled.",
+  "causal_evidence": {
+    "unfixed_preupdate_clip_fraction": 0.901785731,
+    "unfixed_preupdate_delta_abs_mean": 12.1803389,
+    "full_eval_exact_equal_fraction": 1.0,
+    "frozen_vlm_only_exact_equal_fraction": 1.0,
+    "frozen_vlm_only_delta_abs_mean": 0.0
+  },
+  "run": {
+    "runner.max_steps": 1,
+    "runner.max_epochs": 1,
+    "algorithm.rollout_epoch": 8,
+    "env.train.total_num_envs": 32,
+    "env.train.group_size": 4,
+    "env.train.max_episode_steps": 200,
+    "env.train.max_steps_per_rollout_epoch": 200,
+    "actor.global_batch_size": 6400,
+    "actor.micro_batch_size": 8,
+    "actor.seed": 1243,
+    "actor.enable_offload": true,
+    "rollout.enable_offload": true
+  },
+  "acceptance": {
+    "no_http_errors_or_oom": true,
+    "nonzero_reward_variance_and_grad_norm": true,
+    "approx_kl_below_unfixed_3_3434": true,
+    "clip_fraction_below_unfixed_0_725859": true,
+    "checkpoint_then_historical_dev22_only": true,
+    "development32_and_acceptance128_sealed": true
+  }
+}

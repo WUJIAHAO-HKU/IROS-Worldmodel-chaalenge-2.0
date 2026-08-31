@@ -1,0 +1,42 @@
+{
+  "format": "strict-track2-post-v15-spatial-gate-preregistration-v1",
+  "created_at": "2026-08-11T00:08:00+08:00",
+  "frozen_checkpoint": "post_v15_residual_bounded8_reward_pilot200/checkpoint_step_000200",
+  "observed_parent_development_result": {
+    "uint8_overall_rgb_improvement_percent": -0.00417,
+    "uint8_official_rgb_improvement_percent": -0.07698,
+    "reward_mae_improvement_percent": 5.0545,
+    "left_reward_mae_improvement_percent": 6.6384,
+    "right_reward_mae_improvement_percent": 3.1374,
+    "finding": "The learned correction passes reward gates but changes a small number of visually accurate pixels outside the task interaction region."
+  },
+  "candidate_family": [
+    {
+      "name": "contact_feather16",
+      "definition": "Multiply the frozen correction by a target-free 16-pixel feather inside the fixed adjust_bottle contact region y=72:232,x=30:210."
+    },
+    {
+      "name": "contact_motion_dilate9",
+      "definition": "Additionally intersect the contact feather with a target-free 9x9-dilated mask where frozen V15 differs from the last real context frame by more than 2/255."
+    }
+  ],
+  "maximum_candidates": 2,
+  "selection": "First candidate in listed order satisfying every promotion gate; do not tune thresholds after evaluation.",
+  "promotion_gates": {
+    "uint8_official_overall_rgb_non_regression_percent": 0.0,
+    "uint8_official_left_and_right_rgb_non_regression": true,
+    "uint8_synthetic_rgb_non_regression_percent": 0.0,
+    "official_reward_mae_improvement_percent_min": 3.0,
+    "synthetic_reward_mae_non_regression": true,
+    "left_and_right_reward_mae_non_regression": true,
+    "maximum_absolute_residual_255": 8.0
+  },
+  "track2_constraints": {
+    "official_pi05_reward_grpo_and_global_steps_unchanged": true,
+    "uses_only_request_images_and_actions": true,
+    "uses_target_or_reward_at_inference": false,
+    "participant_mpc": false,
+    "new_policy_development32_consumed": false,
+    "new_policy_acceptance128_consumed": false
+  }
+}

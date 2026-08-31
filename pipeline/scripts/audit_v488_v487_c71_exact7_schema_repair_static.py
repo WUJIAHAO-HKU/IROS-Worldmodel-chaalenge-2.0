@@ -1,0 +1,360 @@
+#!/usr/bin/env python3
+"""Read-only postregistration audit for the v488 c71 exact7-schema repair."""
+from __future__ import annotations
+
+import argparse
+import ast
+import hashlib
+import json
+import os
+import sys
+import tempfile
+from pathlib import Path
+
+ROOT = Path("/root/autodl-tmp/IROS_WAM_2.0 challenge")
+J = ROOT / "artifacts/strict_track2_joint_augmentation_20260810"
+FORMAL_PATH = J / "v488_v487_c71_exact7_schema_repair_prereg_seed1630_20260825/preregistration.json"
+FORMAL_SHA = "b3598de9a3d44f6d58a0a6a75c956174a68bc7dd610c6a8eb56124690709371b"
+FORMAL_BYTES = 36181
+CONTRACT_PATH = ROOT / "pipeline/scripts/v488_v487_c71_exact7_schema_repair_contract.json"
+CONTRACT_SHA = "197e90ea10bd87d65a32314dc97a06559dd3f994c25cde95fd3622c852f03dfa"
+CONTRACT_BYTES = 10874
+MATERIALIZER_PATH = ROOT / "pipeline/scripts/materialize_v488_v487_c71_exact7_schema_repair_preregistration.py"
+MATERIALIZER_SHA = "9181bfac0d66541ab9d2083617cde84e87bf7369a2630a5e29bf88c918934710"
+MATERIALIZER_BYTES = 13802
+R2_PATH = ROOT / "pipeline/scripts/reconcile_v488_v487_c71_exact7_schema_repair.py"
+R2_SHA = "9efc41eb2574b065ab4e83920f524ae47902079f9b40b9bcc6d31e6739bc1377"
+R2_BYTES = 51845
+STATIC_PATH = ROOT / "pipeline/scripts/audit_v488_v487_c71_exact7_schema_repair_static.py"
+STATIC_ROOT = J / "v488_v487_c71_exact7_schema_repair_static_audit_seed1630_20260825"
+STATIC_PREP = STATIC_ROOT.with_name(STATIC_ROOT.name + ".registration-prep")
+OUTPUT_PATH = STATIC_ROOT / "static_audit.json"
+EVIDENCE_ROOT = J / "v488_v487_c71_exact7_schema_repair_materialization_evidence_seed1630_20260825"
+AUTHORITY_ROOT = J / "v488_v487_c71_exact7_schema_repair_authority_seed1630_20260825"
+ATTEMPT_ROOT = J / "v488_v487_c71_exact7_schema_repair_attempt_seed1630_20260825"
+TRANSPARENT_PATH = J / "v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json"
+QUALIFICATION_ROOT = Path("/root/v485_v169_cache_qualification_seed1627_20260824")
+OLD_C71_PATH = ROOT / "pipeline/scripts/reconcile_v486_v485_static_false_positive.py"
+OLD_C71_SHA = "c71ba00b0c92efda03f9df149263d0c476de86ea7338ba3719a72f3305959984"
+OLD_C71_BYTES = 36229
+
+FORMAT = "strict-track2-v488-v487-c71-exact7-schema-repair-static-audit-v1"
+STATUS = "passed_no_execution_authority"
+FORMAL_FORMAT = "strict-track2-v488-v487-c71-exact7-schema-repair-preregistration-v1"
+FORMAL_STATUS = "preregistered_readonly_source_repair_pending_postregistration_authority"
+CHECK_KEYS = sorted({
+    "contract_current", "f813_tree_exact2", "failed_attempt_tree_exact4_no_retry",
+    "formal_authority_all_false", "formal_record_exact", "formal_runtime_no_execution",
+    "formal_schema_exact21", "materializer_current", "no_live_process",
+    "no_training_reward_outcome", "observed_exact7_current", "r2_current",
+    "r2_exact4_strict_no_fallback", "r2_forbidden_imports_calls_absent",
+    "r2_old_c71_dual_binding", "r2_snapshot_dual_ancestry",
+    "source_closure_digest_exact", "source_closure_exact8_current",
+    "synthetic_tamper_suite_passed", "transparent_and_fresh_outputs_absent",
+    "v487_authority_tree_exact1", "v487_helper_tree_exact5",
+})
+CHECK_KEYSET_SHA = "a873c12aac5b12a4af356dbdedb7fd8b51f42cfc775821e4310da0c3972d1249"
+CHECKS_SHA = "466f63173e7e58124c2598fa0ee6fad0118848ce92cadd5a0b5cc4f57037c2b8"
+TOP_KEYS = {"format","status","passed","checks","check_keys","check_key_set_sha256","checks_sha256","repair_preregistration","design_contract","materializer_source","reconciler_r2_source","static_auditor_source","source_closure","source_closure_sha256","f813_registration_tree","v487_authority_tree","v487_helper_evidence_tree","failed_reconciliation_attempt_tree","ast_diff_proof","synthetic_evidence","required_absences","runtime_observation","readonly_reconciliation_authorized","training_authorized","submission_authorized"}
+FORMAL_TOP_KEYS = {"format","status","seed","design_contract","materializer_source","source_closure","source_closure_sha256","f813_registration_tree","v487_authority_tree","v487_helper_evidence_tree","failed_reconciliation_attempt_tree","failed_attempt_no_retry","transparent_static_receipt_path","exact7_schema_repair_proof","future_reconciler_r2_source","required_postregistration_authority","authorization","runtime_observation","input_pre_snapshot","input_post_snapshot","input_snapshots_exactly_equal"}
+SOURCE_ROLES = {"parent_v485_preregistration","f813_reconciliation_preregistration","v487_authority_receipt","v487_authority_helper","v487_helper_process_receipt","old_reconciler_c71","old_v487_wrapper","future_reconciler_r2"}
+FORMAL_AUTH = {"readonly_source_repair_authorized":False,"postregistration_authority_required":True,"attempts_authorized":0,"retry_old_v487_authorized":False,"phase_a_cache_qualification_authorized":False,"cache_reuse_authorized":False,"training_authorized":False,"folds_authorized":0,"policy_updates":0,"s1_authorized":False,"zero_update_authorized":False,"rl_authorized":False,"submission_authorized":False,"reward_read_authorized":False,"dev_hidden_final_outcome_read_authorized":False}
+FORMAL_RUNTIME = {"repair_formal_registered":True,"reconciler_r2_executed":False,"transparent_receipt_created":False,"phase_a_executed":False,"training_launched":False,"folds":0,"policy_updates":0}
+STATIC_RUNTIME = {"static_audit_executed":True,"reconciler_r2_executed":False,"transparent_receipt_created":False,"phase_a_executed":False,"training_launched":False,"folds":0,"policy_updates":0}
+EVIDENCE_TREE = {"inventory":[["argv.json","7f2eed5ca469b82af447ecf90f9cca3546a8d7f8171ff2f4a2ece0805052643e",4920],["intent.json","cee2151eb334fd9bcfefaaedfa45d9cb49f8c18f191442b63d5121c2faecea34",488],["materializer_stderr.log","e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",0],["materializer_stdout.log","f856ab2c375b7be36c728ba4543d6dd54ca0ca0695f30ad337201051b81fca08",810],["process_receipt.json","0d44c2d77bafb75c2ad48aad8a655beda738c2872deb3911ef2c43def3ee9810",4678],["transport_helper.py","f99a4eacee73ad6d0a7637a850fb1414a4a7dc05aa0f2ce17ab72b3fff5df406",12663]],"file_count":6,"logical_file_bytes":23559,"sha256sum_lines_digest_sha256":"6a48564898da15021985dc82b201f3f10139de83f7dacafd306c86345d52e234","canonical_json_triples_digest_sha256":"fb0319b132d97da2744bc34d69db894f8f7d6def6d9e7ab5a88b4d609a876f68"}
+
+
+class ControlledSignal(BaseException):pass
+
+
+def sha(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(8 << 20), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def csha(value) -> str:
+    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+
+
+def regular(path: Path | str, want_sha: str, want_bytes: int) -> dict:
+    path = Path(path)
+    if path != path.resolve() or not path.is_file() or path.is_symlink() or sha(path) != want_sha or path.stat().st_size != want_bytes:
+        raise RuntimeError(f"regular closure: {path}")
+    return {"path":str(path),"sha256":want_sha,"logical_bytes":want_bytes}
+
+
+def exact_tree(root: Path | str) -> dict:
+    root = Path(root)
+    if root != root.resolve() or not root.is_dir() or root.is_symlink():
+        raise RuntimeError(f"tree root: {root}")
+    rows=[]
+    for path in sorted(root.rglob("*")):
+        if path.is_symlink(): raise RuntimeError(f"tree symlink: {path}")
+        if path.is_file(): rows.append([path.relative_to(root).as_posix(),sha(path),path.stat().st_size])
+        elif not path.is_dir(): raise RuntimeError(f"tree nonregular: {path}")
+    lines="".join(f"{digest}  {rel}\n" for rel,digest,_ in rows).encode()
+    triples=json.dumps(rows,separators=(",",":")).encode()
+    return {"inventory":rows,"file_count":len(rows),"logical_file_bytes":sum(row[2] for row in rows),"sha256sum_lines_digest_sha256":hashlib.sha256(lines).hexdigest(),"canonical_json_triples_digest_sha256":hashlib.sha256(triples).hexdigest()}
+
+
+def fsync_dir(path: Path) -> None:
+    fd=os.open(str(path),os.O_RDONLY)
+    try: os.fsync(fd)
+    finally: os.close(fd)
+
+
+def atomic_json(path: Path,value) -> None:
+    tmp=path.with_name(path.name+".tmp")
+    if os.path.lexists(path) or os.path.lexists(tmp): raise FileExistsError(path)
+    with tmp.open("x",encoding="utf-8") as stream:
+        json.dump(value,stream,sort_keys=True,indent=2);stream.write("\n");stream.flush();os.fsync(stream.fileno())
+    os.replace(tmp,path);fsync_dir(path.parent)
+
+
+def directory_identity(path: Path) -> tuple[int,int]:
+    stat=path.stat(follow_symlinks=False)
+    if path.is_symlink() or not path.is_dir():raise RuntimeError("directory ownership")
+    return stat.st_dev,stat.st_ino
+
+
+def cleanup_owned_prep(path: Path,identity: tuple[int,int]) -> None:
+    if not path.exists() or path.is_symlink() or directory_identity(path)!=identity:return
+    allowed={"static_audit.json","static_audit.json.tmp"}
+    entries=list(path.iterdir())
+    if any(entry.name not in allowed or entry.is_symlink() or not entry.is_file() for entry in entries):return
+    for entry in entries:entry.unlink()
+    path.rmdir();fsync_dir(path.parent)
+
+
+def literal_assignment(tree: ast.Module,name: str):
+    for node in tree.body:
+        if isinstance(node,ast.Assign) and len(node.targets)==1 and isinstance(node.targets[0],ast.Name) and node.targets[0].id==name:
+            return ast.literal_eval(node.value)
+    raise RuntimeError(f"missing assignment: {name}")
+
+
+def main_function(tree: ast.Module) -> ast.FunctionDef:
+    return next(node for node in tree.body if isinstance(node,ast.FunctionDef) and node.name=="main")
+
+
+def ast_call_name(node: ast.AST) -> str:
+    if isinstance(node,ast.Name): return node.id
+    if isinstance(node,ast.Attribute):
+        prefix=ast_call_name(node.value)
+        return f"{prefix}.{node.attr}" if prefix else node.attr
+    return ""
+
+
+def formal_boundary(value: dict) -> bool:
+    if not isinstance(value,dict) or set(value)!=FORMAL_TOP_KEYS:raise RuntimeError("formal exact21")
+    if value.get("format")!=FORMAL_FORMAT or value.get("status")!=FORMAL_STATUS or value.get("seed")!=1630:raise RuntimeError("formal identity")
+    if value.get("authorization")!=FORMAL_AUTH or value.get("runtime_observation")!=FORMAL_RUNTIME:raise RuntimeError("formal state")
+    if value.get("required_postregistration_authority") is not True or value.get("failed_attempt_no_retry") is not True:raise RuntimeError("formal authority boundary")
+    return True
+
+
+def exact4_boundary(value: dict,source_records: list[dict],source_map: dict) -> bool:
+    keys={"all_records_must_equal_parent_formal_and_old_receipt_and_current_files","canonical_records_digest_sha256","records","roles_in_order"}
+    if not isinstance(value,dict) or set(value)!=keys:raise RuntimeError("exact4 keyset")
+    if value["all_records_must_equal_parent_formal_and_old_receipt_and_current_files"] is not True:raise RuntimeError("exact4 guard")
+    if value["records"]!=source_records or value["roles_in_order"]!=[row["role"] for row in source_records]:raise RuntimeError("exact4 records/order")
+    if value["canonical_records_digest_sha256"]!=csha(source_records):raise RuntimeError("exact4 digest")
+    if {row["role"]:{key:row[key] for key in ("path","sha256","logical_bytes")} for row in value["records"]}!=source_map:raise RuntimeError("exact4 map")
+    return True
+
+
+def synthetic_suite(source_records: list[dict],source_map: dict,self_record: dict) -> dict:
+    actual={"all_records_must_equal_parent_formal_and_old_receipt_and_current_files":True,"canonical_records_digest_sha256":csha(source_records),"records":source_records,"roles_in_order":[row["role"] for row in source_records]}
+    old3={"execution_sources":source_map,"execution_source_records":source_records,"execution_sources_digest_sha256":csha(source_records)}
+    checks={"actual4_pass":exact4_boundary(actual,source_records,source_map) is True}
+    for name,mutated in {"old3_rejected":old3,"guard_false_rejected":{**actual,"all_records_must_equal_parent_formal_and_old_receipt_and_current_files":False},"role_reorder_rejected":{**actual,"roles_in_order":list(reversed(actual["roles_in_order"]))},"record_tamper_rejected":{**actual,"records":[*source_records[:-1],{**source_records[-1],"sha256":"0"*64}]},"digest_tamper_rejected":{**actual,"canonical_records_digest_sha256":"0"*64},"extra_key_rejected":{**actual,"fallback":False}}.items():
+        try:exact4_boundary(mutated,source_records,source_map);checks[name]=False
+        except RuntimeError:checks[name]=True
+    old={"path":str(OLD_C71_PATH),"sha256":OLD_C71_SHA,"logical_bytes":OLD_C71_BYTES}
+    formal={key:None for key in FORMAL_TOP_KEYS};formal.update({"format":FORMAL_FORMAT,"status":FORMAL_STATUS,"seed":1630,"authorization":FORMAL_AUTH,"runtime_observation":FORMAL_RUNTIME,"required_postregistration_authority":True,"failed_attempt_no_retry":True})
+    checks.update({"f813_old_identity":old!=self_record,"repair_self_identity":self_record!=old,"formal_actual_pass":formal_boundary(formal) is True})
+    for name,mutated in {"formal_missing_key_rejected":{key:value for key,value in formal.items() if key!="source_closure_sha256"},"formal_extra_key_rejected":{**formal,"unexpected":False},"formal_auth_tamper_rejected":{**formal,"authorization":{**FORMAL_AUTH,"attempts_authorized":1}}}.items():
+        try:formal_boundary(mutated);checks[name]=False
+        except RuntimeError:checks[name]=True
+    return {"passed":all(checks.values()),"check_count":len(checks),"checks":checks,"evidence_sha256":csha(checks)}
+
+
+def synthetic_self_test() -> int:
+    records=[{"role":f"role{i}","path":f"/frozen/source{i}","sha256":f"{i+1:064x}","logical_bytes":100+i} for i in range(7)]
+    source_map={row["role"]:{key:row[key] for key in ("path","sha256","logical_bytes")} for row in records}
+    self_record={"path":str(R2_PATH),"sha256":R2_SHA,"logical_bytes":R2_BYTES}
+    tamper=synthetic_suite(records,source_map,self_record)
+    def fixture_write(path,value):
+        if os.name!="nt":atomic_json(path,value);return
+        tmp=path.with_name(path.name+".tmp")
+        with tmp.open("x",encoding="utf-8") as stream:json.dump(value,stream,sort_keys=True);stream.flush();os.fsync(stream.fileno())
+        os.replace(tmp,path)
+    with tempfile.TemporaryDirectory(prefix="v488-static-atomic-") as directory:
+        base=Path(directory);repair=base/"repair";repair.mkdir();fixture_write(repair/"preregistration.json",{"frozen":True});repair_before=exact_tree(repair)
+        owned=base/"owned.registration-prep";owned.mkdir();owned_identity=directory_identity(owned);fixture_write(owned/"static_audit.json",{"passed":False})
+        if os.name=="nt":(owned/"static_audit.json").unlink();owned.rmdir()
+        else:cleanup_owned_prep(owned,owned_identity)
+        signal_cleanup_passed=not os.path.lexists(owned)
+        root=base/"static";prep=base/"static.registration-prep";prep.mkdir();fixture_write(prep/"static_audit.json",{"passed":True});
+        if os.name!="nt":fsync_dir(prep)
+        os.replace(prep,root)
+        if os.name!="nt":fsync_dir(base)
+        static_tree=exact_tree(root);repair_after=exact_tree(repair)
+        with (repair/"preregistration.json").open("ab") as stream:stream.write(b"drift");stream.flush();os.fsync(stream.fileno())
+        postpromote_drift_detected=exact_tree(repair)!=repair_before
+        source_text=Path(__file__).read_text();block_index=source_text.index('signal.pthread_sigmask(signal.SIG_BLOCK,{signal.SIGINT,signal.SIGTERM})',source_text.index('previous_handlers='));mkdir_index=source_text.index('STATIC_PREP.mkdir()',block_index);identity_index=source_text.index('prep_identity=directory_identity(STATIC_PREP)',mkdir_index);flag_index=source_text.index('prep_created=True',mkdir_index);unblock_index=source_text.index('signal.pthread_sigmask(signal.SIG_SETMASK,baseline_mask)',identity_index)
+        mkdir_identity_signal_window_closed=block_index<mkdir_index<flag_index<identity_index<unblock_index
+        atomic_fixture={"passed":repair_before==repair_after and static_tree["file_count"]==1 and [row[0] for row in static_tree["inventory"]]==["static_audit.json"] and not os.path.lexists(prep) and signal_cleanup_passed and postpromote_drift_detected and mkdir_identity_signal_window_closed,"repair_before":repair_before,"repair_after":repair_after,"static_tree":static_tree,"prepromote_signal_owned_cleanup_passed":signal_cleanup_passed,"postpromote_input_drift_detected":postpromote_drift_detected,"mkdir_identity_signal_window_closed":mkdir_identity_signal_window_closed}
+    result={"passed":tamper["passed"] and atomic_fixture["passed"],"tamper":tamper,"whole_directory_atomic_fixture":atomic_fixture};result["evidence_sha256"]=csha(result)
+    print(json.dumps(result,sort_keys=True))
+    return 0 if result["passed"] and result["tamper"]["check_count"]==13 else 3
+
+
+def main() -> int:
+    if sys.argv[1:]==["--synthetic-self-test"]:return synthetic_self_test()
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--repair-preregistration",type=Path,required=True);parser.add_argument("--repair-preregistration-sha",required=True)
+    parser.add_argument("--design-contract",type=Path,required=True);parser.add_argument("--design-contract-sha",required=True)
+    parser.add_argument("--materializer-source",type=Path,required=True);parser.add_argument("--materializer-sha",required=True)
+    parser.add_argument("--reconciler-r2-source",type=Path,required=True);parser.add_argument("--reconciler-r2-sha",required=True)
+    parser.add_argument("--static-auditor-source",type=Path,required=True);parser.add_argument("--static-auditor-sha",required=True)
+    parser.add_argument("--output",type=Path,required=True)
+    args=parser.parse_args()
+    if (args.repair_preregistration.resolve(),args.repair_preregistration_sha)!=(FORMAL_PATH,FORMAL_SHA):raise RuntimeError("formal arguments")
+    if (args.design_contract.resolve(),args.design_contract_sha)!=(CONTRACT_PATH,CONTRACT_SHA):raise RuntimeError("contract arguments")
+    if (args.materializer_source.resolve(),args.materializer_sha)!=(MATERIALIZER_PATH,MATERIALIZER_SHA):raise RuntimeError("materializer arguments")
+    if (args.reconciler_r2_source.resolve(),args.reconciler_r2_sha)!=(R2_PATH,R2_SHA):raise RuntimeError("r2 arguments")
+    if args.static_auditor_source.resolve()!=STATIC_PATH or args.static_auditor_source.resolve()!=Path(__file__).resolve() or args.static_auditor_sha!=sha(Path(__file__).resolve()):raise RuntimeError("static self")
+    if args.output.resolve()!=OUTPUT_PATH or args.output.parent!=STATIC_ROOT:raise RuntimeError("output boundary")
+    if os.path.lexists(STATIC_ROOT) or os.path.lexists(STATIC_PREP):raise RuntimeError("static registration prestate")
+
+    formal_record=regular(args.repair_preregistration,FORMAL_SHA,FORMAL_BYTES)
+    contract_record=regular(args.design_contract,CONTRACT_SHA,CONTRACT_BYTES)
+    materializer_record=regular(args.materializer_source,MATERIALIZER_SHA,MATERIALIZER_BYTES)
+    r2_record=regular(args.reconciler_r2_source,R2_SHA,R2_BYTES)
+    static_record=regular(args.static_auditor_source,args.static_auditor_sha,args.static_auditor_source.stat().st_size)
+    formal=json.loads(FORMAL_PATH.read_text());contract=json.loads(CONTRACT_PATH.read_text());r2_text=R2_PATH.read_text();r2_tree=ast.parse(r2_text)
+    checks={key:False for key in CHECK_KEYS}
+    formal_reg_before=exact_tree(FORMAL_PATH.parent)
+    checks["formal_record_exact"]=formal_record=={"path":str(FORMAL_PATH),"sha256":FORMAL_SHA,"logical_bytes":FORMAL_BYTES} and formal_reg_before["inventory"]==[["preregistration.json",FORMAL_SHA,FORMAL_BYTES]] and formal_reg_before["file_count"]==1 and formal_reg_before["logical_file_bytes"]==FORMAL_BYTES
+    checks["formal_schema_exact21"]=formal_boundary(formal) is True
+    checks["formal_authority_all_false"]=formal["authorization"]==FORMAL_AUTH and formal["required_postregistration_authority"] is True and formal["failed_attempt_no_retry"] is True
+    checks["formal_runtime_no_execution"]=formal["runtime_observation"]==FORMAL_RUNTIME
+    checks["contract_current"]=formal["design_contract"]==contract_record and contract.get("materializer_source")==materializer_record
+    checks["materializer_current"]=formal["materializer_source"]==materializer_record
+    checks["r2_current"]=formal["future_reconciler_r2_source"]==r2_record
+
+    source_closure=formal["source_closure"]
+    observed_sources={}
+    if isinstance(source_closure,dict) and set(source_closure)==SOURCE_ROLES:
+        for role,row in source_closure.items():
+            if isinstance(row,dict) and set(row)=={"path","sha256","logical_bytes"}:
+                observed_sources[role]=regular(row["path"],row["sha256"],row["logical_bytes"])
+    checks["source_closure_exact8_current"]=observed_sources==source_closure and contract.get("source_closure")==source_closure
+    checks["source_closure_digest_exact"]=formal["source_closure_sha256"]==csha(source_closure)
+
+    f813_tree=exact_tree(Path(source_closure["f813_reconciliation_preregistration"]["path"]).parent)
+    authority_tree=exact_tree(Path(source_closure["v487_authority_receipt"]["path"]).parent)
+    helper_tree=exact_tree(Path(source_closure["v487_helper_process_receipt"]["path"]).parent)
+    failed_tree=exact_tree(Path(contract["failed_reconciliation_attempt_tree"]["root"]))
+    checks["f813_tree_exact2"]=f813_tree==formal["f813_registration_tree"] and f813_tree["file_count"]==2
+    checks["v487_authority_tree_exact1"]=authority_tree==formal["v487_authority_tree"] and authority_tree["file_count"]==1
+    checks["v487_helper_tree_exact5"]=helper_tree==formal["v487_helper_evidence_tree"] and helper_tree["file_count"]==5
+    terminal=json.loads(Path(contract["failed_reconciliation_attempt_tree"]["root"],"terminal_receipt.json").read_text())
+    checks["failed_attempt_tree_exact4_no_retry"]=failed_tree==formal["failed_reconciliation_attempt_tree"] and failed_tree["file_count"]==4 and terminal.get("status")=="failed_no_retry" and terminal.get("passed") is False and terminal.get("retry_authorized") is False
+    evidence_tree=exact_tree(EVIDENCE_ROOT)
+    if evidence_tree!=EVIDENCE_TREE:raise RuntimeError("materialization evidence exact6")
+    evidence_receipt=json.loads((EVIDENCE_ROOT/"process_receipt.json").read_text())
+    if evidence_receipt.get("status")!="passed_exact_once_no_reconciler_execution" or evidence_receipt.get("passed") is not True or evidence_receipt.get("returncode")!=0 or evidence_receipt.get("materializer_invocations")!=1 or evidence_receipt.get("reconciler_r2_invocations")!=0 or evidence_receipt.get("formal")!=formal_record:raise RuntimeError("materialization evidence semantics")
+
+    parent=json.loads(Path(source_closure["parent_v485_preregistration"]["path"]).read_text());f813=json.loads(Path(source_closure["f813_reconciliation_preregistration"]["path"]).read_text())
+    role_order=parent["execution_source_records"]
+    observed_exact7=[]
+    for row in role_order:
+        observed=regular(row["path"],row["sha256"],row["logical_bytes"]);observed_exact7.append({"role":row["role"],**observed})
+    proof=formal["exact7_schema_repair_proof"]
+    checks["observed_exact7_current"]=observed_exact7==role_order==proof["observed_current_records"] and csha(observed_exact7)==proof["observed_current_records_digest_sha256"]=="9adc5bdbfaa0022b745c44abac2ac2bd02f801f751ebce35d0116c0a8e8e53e0"
+
+    exact4=f813["exact7_source_closure"]
+    derived_map={row["role"]:{key:row[key] for key in ("path","sha256","logical_bytes")} for row in observed_exact7}
+    strict_exact4=exact4_boundary(exact4,observed_exact7,derived_map) is True and derived_map==parent["execution_sources"]
+    main_tree=main_function(r2_tree);main_source=ast.get_source_segment(r2_text,main_tree) or ""
+    required_fragments=["set(exact7)!={\"all_records_must_equal_parent_formal_and_old_receipt_and_current_files\",\"canonical_records_digest_sha256\",\"records\",\"roles_in_order\"}","exact7[\"all_records_must_equal_parent_formal_and_old_receipt_and_current_files\"] is not True","derived_sources!=formal[\"execution_sources\"]"]
+    checks["r2_exact4_strict_no_fallback"]=strict_exact4 and all(fragment in main_source for fragment in required_fragments) and "compatibility" not in main_source.lower() and "fallback" not in main_source.lower()
+    checks["r2_old_c71_dual_binding"]=literal_assignment(r2_tree,"OLD_C71_SHA")==OLD_C71_SHA and Path(literal_assignment(r2_tree,"OLD_C71_PATH"))==OLD_C71_PATH and observed_sources["old_reconciler_c71"]=={"path":str(OLD_C71_PATH),"sha256":OLD_C71_SHA,"logical_bytes":OLD_C71_BYTES} and observed_sources["future_reconciler_r2"]==r2_record and "f813 old reconciler identity" in r2_text and "repair r2 identity" in r2_text
+    expanded_keys={"repair_format","repair_preregistration","repair_design_contract","repair_materializer_source","old_reconciler_c71_source","reconciler_r2_source","repair_source_closure","repair_registration_tree","f813_registration_tree","repair_formal_ancestry"}
+    receipt_nodes=[node for node in ast.walk(main_tree) if isinstance(node,ast.Assign) and any(isinstance(target,ast.Name) and target.id=="receipt" for target in node.targets) and isinstance(node.value,ast.Dict)]
+    receipt_keys={ast.literal_eval(key) for key in receipt_nodes[-1].value.keys}
+    snapshot_names={"f813_reconciliation_preregistration","repair_preregistration","repair_design_contract","repair_materializer_source","reconciler_r2_cli_source","old_reconciler_c71"}
+    checks["r2_snapshot_dual_ancestry"]=expanded_keys.issubset(receipt_keys) and all(name in r2_text for name in snapshot_names) and "v488_repair_registration" in r2_text and "failed_v487_attempt" in r2_text
+    forbidden_imports={"torch","rlinf","wandb","transformers","requests"};imports={alias.name.split(".")[0] for node in ast.walk(r2_tree) if isinstance(node,(ast.Import,ast.ImportFrom)) for alias in (node.names if isinstance(node,ast.Import) else [ast.alias(name=node.module or "")])}
+    forbidden_calls={"train","fit","backward","step","load_reward","evaluate_reward","predict_one_with_baseline"};calls={ast_call_name(node.func).split(".")[-1] for node in ast.walk(r2_tree) if isinstance(node,ast.Call)}
+    checks["r2_forbidden_imports_calls_absent"]=not(imports&forbidden_imports) and not(calls&forbidden_calls)
+    checks["no_training_reward_outcome"]=all(value is False for value in (formal["authorization"]["training_authorized"],formal["authorization"]["reward_read_authorized"],formal["authorization"]["dev_hidden_final_outcome_read_authorized"])) and formal["authorization"]["folds_authorized"]==0 and formal["authorization"]["policy_updates"]==0 and checks["r2_forbidden_imports_calls_absent"]
+
+    tamper_synthetic=synthetic_suite(observed_exact7,derived_map,r2_record)
+    synthetic={"passed":tamper_synthetic["passed"],"tamper":tamper_synthetic,"whole_directory_atomic_fixture":{"covered_by_self_test":True,"repair_REG_exact1_preserved":True,"static_REG_exact1_promoted":True}};synthetic["evidence_sha256"]=csha(synthetic)
+    checks["synthetic_tamper_suite_passed"]=tamper_synthetic["passed"] is True and tamper_synthetic["check_count"]==13
+    absences={"static_prep":{"path":str(STATIC_PREP),"absent":not os.path.lexists(STATIC_PREP)},"authority_root":{"path":str(AUTHORITY_ROOT),"absent":not os.path.lexists(AUTHORITY_ROOT)},"authority_prep":{"path":str(AUTHORITY_ROOT.with_name(AUTHORITY_ROOT.name+".registration-prep")),"absent":not os.path.lexists(AUTHORITY_ROOT.with_name(AUTHORITY_ROOT.name+".registration-prep"))},"attempt_root":{"path":str(ATTEMPT_ROOT),"absent":not os.path.lexists(ATTEMPT_ROOT)},"attempt_prep":{"path":str(ATTEMPT_ROOT.with_name(ATTEMPT_ROOT.name+".attempt-prep")),"absent":not os.path.lexists(ATTEMPT_ROOT.with_name(ATTEMPT_ROOT.name+".attempt-prep"))},"transparent_output":{"path":str(TRANSPARENT_PATH),"absent":not os.path.lexists(TRANSPARENT_PATH)},"transparent_tmp":{"path":str(TRANSPARENT_PATH.with_name(TRANSPARENT_PATH.name+".tmp")),"absent":not os.path.lexists(TRANSPARENT_PATH.with_name(TRANSPARENT_PATH.name+".tmp"))},"qualification_root":{"path":str(QUALIFICATION_ROOT),"absent":not os.path.lexists(QUALIFICATION_ROOT)}}
+    checks["transparent_and_fresh_outputs_absent"]=all(row["absent"] is True for row in absences.values())
+    live=[]
+    for proc in Path("/proc").iterdir():
+        if not proc.name.isdigit():continue
+        try: cmd=(proc/"cmdline").read_bytes().replace(b"\0",b" ").decode(errors="replace")
+        except (FileNotFoundError,PermissionError,ProcessLookupError):continue
+        if str(R2_PATH) in cmd or str(MATERIALIZER_PATH) in cmd or "launch_v488_v487_c71_exact7_schema_repair.py" in cmd:live.append({"pid":int(proc.name),"cmdline":cmd})
+    checks["no_live_process"]=live==[]
+    if set(checks)!=set(CHECK_KEYS) or not all(checks.values()) or csha(CHECK_KEYS)!=CHECK_KEYSET_SHA or csha(checks)!=CHECKS_SHA:raise RuntimeError("static checks")
+    repair_registration_tree_before=formal_reg_before
+    ast_proof={"materialization_evidence_tree":evidence_tree,"repair_registration_tree_before":repair_registration_tree_before,"repair_registration_tree_after":repair_registration_tree_before,"repair_registration_tree_equal":True,"actual_exact4_keyset":sorted(exact4),"old_c71_exact3_keyset":["execution_source_records","execution_sources","execution_sources_digest_sha256"],"exact4_strict":strict_exact4,"observed_exact7_current_records":observed_exact7,"observed_exact7_digest_sha256":csha(observed_exact7),"dual_formal":{"f813_old_reconciler":observed_sources["old_reconciler_c71"],"repair_r2_self":r2_record},"expanded_output_keys":sorted(expanded_keys),"forbidden_imports_observed":sorted(imports&forbidden_imports),"forbidden_calls_observed":sorted(calls&forbidden_calls),"live_processes":live}
+    receipt={"format":FORMAT,"status":STATUS,"passed":True,"checks":checks,"check_keys":CHECK_KEYS,"check_key_set_sha256":CHECK_KEYSET_SHA,"checks_sha256":CHECKS_SHA,"repair_preregistration":formal_record,"design_contract":contract_record,"materializer_source":materializer_record,"reconciler_r2_source":r2_record,"static_auditor_source":static_record,"source_closure":observed_sources,"source_closure_sha256":csha(observed_sources),"f813_registration_tree":f813_tree,"v487_authority_tree":authority_tree,"v487_helper_evidence_tree":helper_tree,"failed_reconciliation_attempt_tree":failed_tree,"ast_diff_proof":ast_proof,"synthetic_evidence":synthetic,"required_absences":absences,"runtime_observation":STATIC_RUNTIME,"readonly_reconciliation_authorized":False,"training_authorized":False,"submission_authorized":False}
+    if set(receipt)!=TOP_KEYS:raise RuntimeError("receipt schema")
+    stable_absence_paths={name:Path(row["path"]) for name,row in absences.items() if name!="static_prep"}
+    def immutable_input_snapshot():
+        files={"formal":regular(FORMAL_PATH,FORMAL_SHA,FORMAL_BYTES),"contract":regular(CONTRACT_PATH,CONTRACT_SHA,CONTRACT_BYTES),"materializer":regular(MATERIALIZER_PATH,MATERIALIZER_SHA,MATERIALIZER_BYTES),"r2":regular(R2_PATH,R2_SHA,R2_BYTES),"static":regular(STATIC_PATH,args.static_auditor_sha,args.static_auditor_source.stat().st_size)}
+        sources_now={role:regular(row["path"],row["sha256"],row["logical_bytes"]) for role,row in source_closure.items()}
+        trees={"repair":exact_tree(FORMAL_PATH.parent),"evidence":exact_tree(EVIDENCE_ROOT),"f813":exact_tree(Path(source_closure["f813_reconciliation_preregistration"]["path"]).parent),"v487_authority":exact_tree(Path(source_closure["v487_authority_receipt"]["path"]).parent),"v487_helper":exact_tree(Path(source_closure["v487_helper_process_receipt"]["path"]).parent),"failed_attempt":exact_tree(Path(contract["failed_reconciliation_attempt_tree"]["root"]))}
+        absence_state={name:{"path":str(path),"absent":not os.path.lexists(path)} for name,path in stable_absence_paths.items()}
+        if not all(row["absent"] for row in absence_state.values()):raise RuntimeError("stable absence drift")
+        return {"files":files,"sources":sources_now,"trees":trees,"absences":absence_state}
+    immutable_pre=immutable_input_snapshot()
+    prep_created=False;prep_identity=None
+    postcommit_verified=False;received_signal=None
+    def on_signal(signum,_frame):
+        nonlocal received_signal
+        received_signal=signum
+        if not postcommit_verified:raise ControlledSignal(signum)
+    previous_handlers={sig:signal.getsignal(sig) for sig in (signal.SIGINT,signal.SIGTERM)}
+    for sig in previous_handlers:signal.signal(sig,on_signal)
+    baseline_mask=None;signals_blocked=False
+    if hasattr(signal,"pthread_sigmask"):
+        baseline_mask=signal.pthread_sigmask(signal.SIG_BLOCK,{signal.SIGINT,signal.SIGTERM});signals_blocked=True
+    try:
+        STATIC_PREP.mkdir();prep_created=True;prep_identity=directory_identity(STATIC_PREP);fsync_dir(STATIC_PREP.parent)
+        if baseline_mask is not None:
+            signal.pthread_sigmask(signal.SIG_SETMASK,baseline_mask);signals_blocked=False
+        atomic_json(STATIC_PREP/"static_audit.json",receipt);fsync_dir(STATIC_PREP)
+        immutable_after_write=immutable_input_snapshot()
+        if immutable_after_write!=immutable_pre or immutable_after_write["trees"]["repair"]!=repair_registration_tree_before:raise RuntimeError("post-write input drift")
+        if directory_identity(STATIC_PREP)!=prep_identity or os.path.lexists(STATIC_ROOT):raise RuntimeError("static prep ownership drift")
+        if baseline_mask is not None:signal.pthread_sigmask(signal.SIG_BLOCK,{signal.SIGINT,signal.SIGTERM});signals_blocked=True
+        os.replace(STATIC_PREP,STATIC_ROOT);fsync_dir(STATIC_ROOT.parent);prep_created=False
+        immutable_after_promote=immutable_input_snapshot()
+        repair_registration_tree_after=exact_tree(FORMAL_PATH.parent)
+        static_tree=exact_tree(STATIC_ROOT)
+        if immutable_after_promote!=immutable_pre or repair_registration_tree_after!=repair_registration_tree_before or static_tree["inventory"]!=[["static_audit.json",sha(OUTPUT_PATH),OUTPUT_PATH.stat().st_size]] or static_tree["file_count"]!=1 or any(os.path.lexists(row["path"]) for row in absences.values()):raise RuntimeError("post-promote registration trees/inputs/absences")
+        postcommit_verified=True
+    except BaseException:
+        if prep_created and prep_identity is not None and not os.path.lexists(STATIC_ROOT):cleanup_owned_prep(STATIC_PREP,prep_identity)
+        raise
+    finally:
+        if signals_blocked and baseline_mask is not None:signal.pthread_sigmask(signal.SIG_SETMASK,baseline_mask)
+        for sig,handler in previous_handlers.items():signal.signal(sig,handler)
+    print(json.dumps({"committed_success":True,"deferred_signal":received_signal},sort_keys=True),flush=True)
+    return 0
+
+
+if __name__=="__main__":raise SystemExit(main())

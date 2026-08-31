@@ -1,0 +1,125 @@
+{
+  "authorization": {
+    "cache_authorized": false,
+    "dev_hidden_final_outcome_read_authorized": false,
+    "direct_reconciler_wrapper_authorized": false,
+    "phase_a_authorized": false,
+    "reconciler_r2_authorized": false,
+    "restore_attempts_authorized": 1,
+    "restore_attempts_consumed": 0,
+    "retry_authorized": false,
+    "reward_read_authorized": false,
+    "training_authorized": false,
+    "volatile_alias_restore_authorized_once": true
+  },
+  "evidence_lineage": {
+    "evidence_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v504_v503_v502_v485_volatile_static_log_alias_restore_evidence_seed1646_20260825.execution-prep",
+    "evidence_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v504_v503_v502_v485_volatile_static_log_alias_restore_evidence_seed1646_20260825",
+    "target_temporary": "/dev/shm/.v485_static_b73.log.v504-restore-7a3e5aa7.tmp"
+  },
+  "execution_boundary": {
+    "direct_reconciler_wrapper_invocations": 0,
+    "phase_a_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "restore_invocations_authorized": 1,
+    "restore_invocations_consumed": 0,
+    "training_invocations": 0
+  },
+  "f813_registration_tree": {
+    "canonical_json_triples_digest_sha256": "a0602666a7e59d60e464b3bc76b31b2fbf501e3d37bbd0b18b2db8c1233971ec",
+    "file_count": 2,
+    "inventory": [
+      [
+        "immutable_evidence/v485_static_b73.log",
+        "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b",
+        6475
+      ],
+      [
+        "preregistration.json",
+        "f8137d02a692a9c6243f13ce8a7674e4ac90fbd31c85b3e8c32af82f8afa42a8",
+        21296
+      ]
+    ],
+    "logical_file_bytes": 27771,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824",
+    "sha256sum_lines_digest_sha256": "717d6ae12fbacbaafa147d03503140e5f807c028acc97a7294c84da2d79fe3fe"
+  },
+  "failed_v503_restore_ancestry": {
+    "alias_restore_helper_invocations": 1,
+    "alias_restore_invocations": 0,
+    "evidence_prep_absent": true,
+    "evidence_root_absent": true,
+    "failure_forensic": {
+      "logical_bytes": 4772,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v504_v503_v502_v485_alias_restore_pre_evidence_failure_forensic_reconstructed.json",
+      "sha256": "f04127d6e9b78860ddb873e3cb660e56c8f27141e0383bcfbf9aa6c7ee7709d8"
+    },
+    "failed_design": {
+      "logical_bytes": 3524,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v503_v502_v485_volatile_static_log_alias_restore_design.json",
+      "sha256": "f81d11e37f307ff13ca5029142e1a4e3835fd276956cad4aefda191cfd5a03d6"
+    },
+    "failed_helper": {
+      "logical_bytes": 32646,
+      "path": "/root/restore_v503_v485_volatile_static_log_alias_once.py",
+      "sha256": "ac2a3a71d476681eadf8459b2ad0f07266f08c5f2d2091b8fbe3f6fde24dc94e"
+    },
+    "failed_script": {
+      "logical_bytes": 3626,
+      "path": "/root/v503_restore_v485_volatile_static_log_alias_once.sh",
+      "sha256": "b26e81b6f4823379348f590a9362fc78d4f2fa1b92e5f105eae75829391af07c"
+    },
+    "reconciler_r2_invocations": 0,
+    "retry_authorized": false,
+    "target_absent": true,
+    "target_temporary_absent": true,
+    "wrapper_invocations": 0
+  },
+  "format": "strict-track2-v504-v503-v502-v485-volatile-static-log-alias-restore-design-v1",
+  "passed": true,
+  "restore_contract": {
+    "corrected_rule": "copy the persistent immutable F813 log into a same-filesystem O_EXCL temporary, fsync and read back, hardlink the absent target with NOREPLACE, verify inode and record, unlink the temporary, fsync /dev/shm, and read back the final target",
+    "overwrite_authorized": false,
+    "source": {
+      "logical_bytes": 6475,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/immutable_evidence/v485_static_b73.log",
+      "sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b"
+    },
+    "target": {
+      "absent_before": true,
+      "logical_bytes": 6475,
+      "path": "/dev/shm/v485_static_b73.log",
+      "sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b"
+    }
+  },
+  "root_cause": "the authoritative R2 command requires the registration-time volatile log path; v503 consumed its authorized helper invocation before restoration because its recursive F813 tree validator incorrectly rejected the legitimate immutable_evidence directory it enumerated",
+  "runtime_observation": {
+    "direct_reconciler_wrapper_executed": false,
+    "phase_a_executed": false,
+    "reconciler_r2_executed": false,
+    "restore_executed": false,
+    "training_launched": false
+  },
+  "seed": 1646,
+  "status": "authorized_exact_one_volatile_static_log_alias_restore_pending_execution",
+  "tree_validation_contract": {
+    "directory_rule": "ordinary nonsymlink directories are traversal-only containers",
+    "file_rule": "inventory every ordinary nonsymlink file by root-relative POSIX path, sha256, and logical bytes",
+    "rejected_types": [
+      "symlink",
+      "special_file"
+    ],
+    "required_inventory": [
+      [
+        "immutable_evidence/v485_static_b73.log",
+        "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b",
+        6475
+      ],
+      [
+        "preregistration.json",
+        "f8137d02a692a9c6243f13ce8a7674e4ac90fbd31c85b3e8c32af82f8afa42a8",
+        21296
+      ]
+    ]
+  }
+}

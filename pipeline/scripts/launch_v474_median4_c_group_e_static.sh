@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# CPU-only v474 immutable package/static audit; no dev/reward/GPU/service/policy/RL.
+set -euo pipefail
+ROOT='/root/autodl-tmp/IROS_WAM_2.0 challenge';J="$ROOT/artifacts/strict_track2_joint_augmentation_20260810";S="$ROOT/pipeline/scripts";W="$ROOT/pipeline/wam_pipeline";REG="$J/v474_v473_median4_parent_static_seed1618_20260824";RELEASE="$J/v474_v473_median4_parent_release_seed1618_20260824";RLPY='/root/autodl-tmp/conda_envs/rlinf_track2/bin/python';PREP="$S/prepare_v474_median4_c_group_e_release.py";RUNTIME="$W/v474_v473_median4_parent_runtime.py";PACKAGE="$S/package_v474_median4_c_group_e_release.py";AUDIT="$S/audit_v474_median4_c_group_e_release.py";WRAPPER="$S/v474_s1_generator_wrapper.py"
+exec 9>/var/lock/v474_median4_c_group_e_static.lock;flock -n 9||exit 73;test ! -e "$REG";test ! -e "$RELEASE";mkdir -p "$REG"
+test "$(sha256sum "$PREP"|awk '{print $1}')" = 'b306a58ad694a5333529ffddb869f718f3a10ce023f6b9b9abc55e817235a7c6';test "$(sha256sum "$RUNTIME"|awk '{print $1}')" = '139a178a91be1b8d987f7c708e82c33922afb920f8eace98df89636b1d0142d4';test "$(sha256sum "$PACKAGE"|awk '{print $1}')" = 'd7457507131331fd42e4eaa282cb490c9ba1e74514b6b8603f0fc318f9e363ac';test "$(sha256sum "$AUDIT"|awk '{print $1}')" = '7354b677ccae53183ce1d3ea3567d254172660867866e9a0e88b1ee925b5ada0';test "$(sha256sum "$WRAPPER"|awk '{print $1}')" = 'f668c6c2cd4e05aa2800521afb3ca72f9d4bcabcb1e40afe0c7b179744c79c1b';"$RLPY" -m py_compile "$PREP" "$RUNTIME" "$PACKAGE" "$AUDIT" "$WRAPPER"
+export PYTHONPATH="$ROOT/pipeline:$ROOT/pipeline/scripts" OMP_NUM_THREADS=6 MKL_NUM_THREADS=6 OPENBLAS_NUM_THREADS=6 PYTHONHASHSEED=0
+taskset -c 0-11 timeout 60s "$RLPY" "$PREP" --runtime "$RUNTIME" --packager "$PACKAGE" --auditor "$AUDIT" --s1-wrapper "$WRAPPER" --launcher "$0" --output "$REG/preregistration.json" >"$REG/prepare.log" 2>&1
+taskset -c 0-11 timeout 300s "$RLPY" "$PACKAGE" --preregistration "$REG/preregistration.json" --runtime "$RUNTIME" --output "$RELEASE" >"$REG/package.log" 2>&1
+taskset -c 0-11 timeout 300s "$RLPY" "$AUDIT" --preregistration "$REG/preregistration.json" --release "$RELEASE" --runtime "$RUNTIME" --packager "$PACKAGE" --s1-wrapper "$WRAPPER" --output "$REG/static_audit_receipt.json" >"$REG/audit.log" 2>&1
+echo V474_MEDIAN4_C_GROUP_E_STATIC_PASS

@@ -1,0 +1,33 @@
+{
+  "format": "strict-track2-v160-instruction-arm-temporal-preregistration-v1",
+  "registered_at": "2026-08-11T05:40:00+08:00",
+  "diagnosis": [
+    "The V15.8 raw-action arm router selected right expert for only 15/64 windows while the episode-disjoint labels contain 30/64 right-arm windows.",
+    "Official Track2 requests already carry task_descriptions with explicit left/right arm wording, so the active arm can be routed from an existing world-model conditioning input without changing policy actions.",
+    "The left expert improves terminal reward correlation, whereas the right expert improves middle-frame visual/contact prediction but corrupts endpoint reward dynamics."
+  ],
+  "fixed_candidate": {
+    "arm_router": "explicit left/right token in request instruction; raw-action fallback only when instruction is absent or ambiguous",
+    "left_output_blend": [0.12, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.12],
+    "right_output_blend": [0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0],
+    "reason": "Preserve conservative left endpoints and bit-exact baseline right endpoints while retaining strong expert motion/contact corrections in six middle frames."
+  },
+  "promotion_checks": {
+    "instruction_arm_route_accuracy_on_episode_disjoint_64": 1.0,
+    "official_demo_baseline_route_and_bit_exact": true,
+    "overall_rgb_improvement_percent_min": 18.0,
+    "right_contact_rgb_improvement_percent_min": 22.0,
+    "left_rgb_improvement_percent_min": 15.0,
+    "capture_success_rgb_improvement_percent_min": 15.0,
+    "texture_and_temporal_nonregression": true,
+    "overall_right_left_capture_success_reward_terminal_nonregression": true,
+    "overall_and_right_terminal_pearson_nonregression": true
+  },
+  "track2_guards": {
+    "official_pi05_reward_rl_unchanged": true,
+    "request_actions_modified": false,
+    "participant_action_selection": false,
+    "mpc": false,
+    "real_development_or_acceptance_episodes_used": false
+  }
+}

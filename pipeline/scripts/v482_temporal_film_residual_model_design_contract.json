@@ -1,0 +1,419 @@
+{
+  "format": "strict-track2-v482-public-train-temporal-film-residual-model-design-contract-v5",
+  "status": "frozen_design_pending_temporal200_final_pass_and_separate_execution_preregistration",
+  "seed": 1624,
+  "classification": "public-train-only temporal parent-model design and future validation preregistration; this file does not authorize data collection, training, S1, zero-update, policy updates, formal RL, hidden/final data access, or submission",
+  "objective": "learn an explicit-right postclose, action-causal eight-frame residual correction on top of the immutable same-request v169 parent using real same-context simulator prefix targets, while keeping left and gate0 requests bitexact to v169",
+  "frozen_ancestry": {
+    "superseded_design_contract_r4": {
+      "path": "C:/Users/吴家豪/codex_stage_v396/v482_temporal_film_residual_model_design_contract.json",
+      "sha256": "88ad7b5da33bc03cdc43616d6c78f02ef7f8c8710892770544c7ca1e6143f925",
+      "status": "SUPERSEDED_IN_PLACE_BY_THIS_R5_SCHEMA_CORRECTION",
+      "reason": "r4 incorrectly described pre_future_context_rgb as one HWC array rather than the authoritative redundant uint8[6,8,256,256,3] temporal-row array; no r4 execution was authorized"
+    },
+    "selection": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v478_temporal200_seed1622_20260824/selection.json",
+      "sha256": "f9d62a9b6a8db9d90225e1821dc5016bd56874b47baa48b5486ca5501d850398"
+    },
+    "v477_temporal_semantics_contract": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v477_public_train_paired_temporal8_pilot_contract.json",
+      "sha256": "9fbb494f55115786b2b22e77d91c172ec1a52df77cec224083ff6e82391e53a1"
+    },
+    "v478_phase_b_contract_r4": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v478_temporal200_phase_b_frozen_contract_r4.json",
+      "sha256": "a478b6f8e24d4a2312fcd4f62d294ad681b35ea4c19c1162f7dae7f9748047d1"
+    },
+    "latest_resume_preregistration": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v481_v480_phase_b_resume_r2_seed1622_20260824/phase_b_resume_preregistration.json",
+      "sha256": "31f5e15a62b3103e23513bd0f1499773ea21717e1a4e8896c5c0dee08708c959",
+      "note": "collection is still incomplete when this design contract is frozen"
+    },
+    "v169": {
+      "required_closure_digest": "5fc181bf1049b0e763ef47716f5e3356445de8eb6b2eb3de07dd2d70cd4346f3",
+      "closure_semantics": "reuse the passed v463 symlink-aware logical inventory with lexical link path, readlink text, resolved target constrained to the joint artifact root, target SHA256, no cycles, and no duplicate resolved targets",
+      "exact_release_manifest_runtime_package_paths_and_sha256": "REQUIRED_IN_SEPARATE_EXECUTION_PREREGISTRATION"
+    },
+    "superseded_staging_s0_contract": {
+      "path": "C:/Users/吴家豪/codex_stage_v396/v482_temporal8_residual_s0_contract.json",
+      "sha256": "023917dd13e54af43819aec7f37fcc4dbb8d327c7d2299f122542a73f5730d72",
+      "status": "SUPERSEDED_AND_DELETED_DO_NOT_COPY_DEPLOY_PARSE_OR_EXECUTE",
+      "reason": "its seed, feature, loss, context-construction, and authorization semantics conflict with this v4 design; it is not ancestry or an execution preregistration",
+      "required_execution_preflight": "the obsolete path and SHA must be absent from the remote pipeline, registry, execution closure, release, and launcher; any reference is a hard NO-GO"
+    }
+  },
+  "blocking_data_requirements": {
+    "required_before_execution_preregistration": [
+      "the final v478/v481 temporal200 generation report and independent final audit both pass",
+      "exactly 200 selected contexts, ten batches of twenty, five unique training branches and eight real prefix frames per branch are immutable",
+      "all 200 row NPZ and receipts, ten batch reports/audits, final report/audit, selection, and source closure files have path and SHA256 bound",
+      "collection_integrity_passed=true and technical_effect_diagnostic_qualification_passed=true",
+      "no target row, branch, prefix, or episode was filtered or selected by reward, success, done, outcome, policy behavior, or model performance"
+    ],
+    "placeholders_must_be_filled_before_training": {
+      "temporal200_final_report_sha256": "REQUIRED",
+      "temporal200_final_audit_sha256": "REQUIRED",
+      "temporal200_dataset_tree_sha256": "REQUIRED",
+      "temporal200_exact_file_count_and_bytes": "REQUIRED",
+      "v169_release_and_runtime_closure": "REQUIRED",
+      "per_row_full_pre_future_context_rgb_array_P_and_constructed_v169_context_sha256": "REQUIRED",
+      "prepare_trainer_auditor_runtime_packager_launcher_sha256": "REQUIRED"
+    },
+    "current_authorization": {
+      "training_authorized": false,
+      "s1_authorized": false,
+      "zero_update_authorized": false,
+      "policy_updates": 0,
+      "rl_authorized": false
+    }
+  },
+  "data_contract": {
+    "contexts": 200,
+    "episodes": 15,
+    "unique_training_branches": [
+      "factual",
+      "no_transport",
+      "scale_0p4",
+      "scale_1p25",
+      "reverse_direction_0p4"
+    ],
+    "factual_duplicate": "audit-only identity branch; require bitexact equality to factual in every stored temporal RGB/state/pose/bottle array, but assign zero training and validation weight and never count it as a sixth target",
+    "prefix_frames_per_branch": 8,
+    "training_sequences": 1000,
+    "training_frames": 8000,
+    "target": "temporal_rgb for the endpoint after executing future_actions[0:k] as one simulator chunk from the exactly replayed same pre-future context, k=1..8",
+    "inputs": "same immutable context RGB, canonical float32 history[4,14], canonical float32 future[8,14], instruction, arm, frame prefix k, and the same-request frozen-v169 eight-frame baseline",
+    "forbidden_inputs": [
+      "task reward or official reward embeddings",
+      "success, done, outcome, failure labels, or policy return",
+      "development, final, hidden, or submission data",
+      "episode identity, selection order, fold id, branch name, batch id, or target-derived nearest-neighbor identity as a model feature"
+    ],
+    "no_rgb_or_target_based_sample_selection": true
+  },
+  "episode_grouped_outer5": {
+    "source": "the immutable selection.fold field, selected using public actions only before temporal RGB existed",
+    "folds": {
+      "0": [28, 37, 49],
+      "1": [15, 20, 42],
+      "2": [25, 40, 46],
+      "3": [12, 33, 47],
+      "4": [30, 32, 44]
+    },
+    "contexts_per_fold": 40,
+    "fit_contexts_per_fold": 160,
+    "validation_contexts_per_fold": 40,
+    "fit_sequences_per_head": 800,
+    "validation_sequences_per_head": 200,
+    "episode_overlap_between_fit_and_validation": 0,
+    "fit_only": [
+      "optimizer updates",
+      "normalization checks",
+      "shuffle donor construction",
+      "checkpoint state"
+    ],
+    "validation_use": "compute immutable accept/reject metrics only; no checkpoint selection, threshold tuning, architecture choice, learning-rate choice, retry, or sample weighting"
+  },
+  "architecture_candidates_considered_before_temporal_training": {
+    "full256_recurrent_unet": "rejected without temporal-result inspection because recurrent self-conditioning and full-resolution activations increase memory, training time, and episode-level overfit risk on only 200 contexts",
+    "fit_only_pca_or_knn_residual": "rejected without temporal-result inspection because prior public-train endpoint evidence showed branch-scale discontinuity and the method cannot represent smooth prefix-dependent spatial transport reliably",
+    "chosen": "frozen-v169 same-request baseline plus one compact shared 128px prefix-causal FiLM residual U-Net; chosen for explicit action causality, bounded capacity, deterministic nonrecurrent execution, and feasible 5090 cost",
+    "single_candidate_rule": "do not train or compare another architecture, channel count, loss weight, step count, residual scale, or input variant under this lineage"
+  },
+  "v169_cache_contract": {
+    "exact_scalar_calls": 1000,
+    "order": "selection_order 0..199, then branches [factual,no_transport,scale_0p4,scale_1p25,reverse_direction_0p4]",
+    "same_context_seed": "int.from_bytes(sha256('v482-v169-cache/seed1624/episode{episode}/start{start}').digest()[:8], 'little') modulo 2**31; identical for all five branches of one context",
+    "context_construction": {
+      "authoritative_source": "for each immutable temporal200 row, read that row's stored pre_future_context_rgb only under the authoritative temporal NPZ schema: exact dtype uint8, exact shape[6,8,256,256,3], C-contiguous canonical bytes, with branch axis in frozen order factual,no_transport,scale_0p4,scale_1p25,reverse_direction_0p4,factual_duplicate and prefix axis k1..k8; verify row NPZ/receipt and the full array SHA256 before use",
+      "redundancy_identity_gate": "before extracting P, require np.array_equal(pre_future_context_rgb[b,k],pre_future_context_rgb[0,0]) for every b=0..5 and k=0..7; all 48 HWC arrays must be bitexact, not merely numerically close; any mismatch hard-stops before v169/cache/model use and is never filtered or repaired",
+      "construction": "let P=pre_future_context_rgb[0,0], preserving exact uint8 HWC[256,256,3] bytes; construct the v169 request context only as np.repeat(P[None,:,:,:],5,axis=0), yielding C-contiguous uint8[5,256,256,3]; every one of the five frames must be byte-identical to P",
+      "same_for_branches": "the one constructed five-frame context is reused byte-identically for factual,no_transport,scale_0p4,scale_1p25,reverse_direction_0p4 of that row; branch RGB targets, source-window RGB, endpoint RGB, recursive predictions, or factual_duplicate must never be used to construct v169 context",
+      "execution_preregistration_closure": "before cache generation, bind for all 200 rows in selection order: row identity, source NPZ path/SHA256, full pre_future_context_rgb uint8[6,8,256,256,3] array SHA256, redundancy_identity_gate result and 48/48 equality count, extracted P uint8[256,256,3] SHA256, constructed repeat-five uint8[5,256,256,3] context SHA256, plus a canonical ordered-manifest SHA256 over these fields; independently reload, check 48/48, reconstruct, and rehash all 200 rows in execution preflight",
+      "runtime_equivalence": "runtime accepts the official uint8[5,256,256,3] request context unchanged; the repeat-five rule is specifically the public temporal-row training/cache construction needed to match that interface and does not authorize altering live request context",
+      "failure": "any missing key, full-array shape/dtype/order/contiguity mismatch, any of 48 arrays not bitexact to [0,0], unequal repeat-five frame, row/full-array/P/context SHA mismatch, or use of another RGB source hard-stops before the first v169 call"
+    },
+    "request": "the exact repeat-five context defined above, canonical history, branch future, canonical instruction, explicit-right arm, and frozen seed; scalar predict only",
+    "output": "uint8 RGB [200,5,8,256,256,3] in the exact request order, plus per-request SHA256 and a canonical ordered manifest digest",
+    "head_sharing": "for a query context/branch/frame, the identical branch-specific v169 B_b is supplied to action, context-only, and phase-shuffle heads; a control never substitutes donor v169 pixels or calls v169 with donor actions",
+    "storage": "volatile /dev/shm cache is allowed and expected; bind its manifest and array SHA256 in receipts, unload v169 and empty CUDA cache before residual training, and do not require the large cache in the final release",
+    "determinism": "same release, scalar interface, seed, order, dtype, context/action bytes, and instruction must reproduce the cache bitexact; otherwise fail before training",
+    "cache_failure": "hard stop; no partial-cache training, microbatch substitution, batch-interface retry, or seed change"
+  },
+  "chosen_model": {
+    "name": "v482_prefix_causal_film_residual_unet128",
+    "runtime_gate": "active only for explicit-right requests whose history[-1,13]<0.5 and whose full requested future[:,13] is finite and entirely <0.5; all other left or gate0 requests return same-request v169 full8 uint8 RGB bitexact",
+    "runtime_request_and_order_contract": {
+      "instruction_canonicalization": "canonical_instruction=str(instruction) exactly once; forward this identical canonical_instruction to v169 and set parser_value=canonical_instruction.lower(); no separate `or ''` conversion is permitted",
+      "explicit_right_parser": "explicit_right=(literal substring 'right arm' is present in parser_value and literal substring 'left arm' is absent); do not strip, tokenize, regex-match, translate, infer arm from actions, or use episode/fold/selection metadata",
+      "scalar_shapes": "context exactly uint8[5,256,256,3], history finite numeric[4,14], future finite numeric[8,14], seed losslessly convertible to scalar int, instruction converted exactly with str(instruction)",
+      "scalar_order": "validate request, compute canonical_instruction once, call frozen v169.predict exactly once with the unchanged context/history/future/int(seed)/canonical_instruction, validate uint8[8,256,256,3] baseline, evaluate parser_value and the strict postclose gate on the original unnormalized actions, and invoke the residual model only if both are true",
+      "batch_shapes": "N>=1; context[N,5,256,256,3], history[N,4,14], future[N,8,14], seeds[N], and exactly N instructions",
+      "batch_execution": "strict serial loop for index=0..N-1 calling the exact scalar predict_one_with_baseline path; never call a batched v169 interface and never reorder, bucket, deduplicate, parallelize, or share RNG/state across rows",
+      "batch_return": "np.stack scalar baselines and scalar outputs in original index order; decision list remains in original index order",
+      "required_exactness_smokes": "for a frozen mixed left/right/g0 request set, scalar outputs equal serial batch outputs bit-for-bit; any preregistered batch permutation followed by its exact inverse equals the unpermuted output/decisions bit-for-bit; repeated scalar and batch calls with identical request+seed are bitexact",
+      "fail_closed": "any shape, dtype, finite, scalar/batch, permutation, parser, seed-forwarding, or v169-output mismatch aborts release validation; no fallback parser or alternate batch path"
+    },
+    "visual_preprocess": {
+      "context": "the immutable single pre-future context RGB, float32 /255, fixed 2x2 area average to 128x128",
+      "baseline": "same-request v169 B_k uint8, float32 /255, fixed 2x2 area average to 128x128",
+      "channels": "concatenate [context128, B_k128, B_k128-context128] for exact 9 channels",
+      "augmentation": "none"
+    },
+    "prefix_causal_conditioner": {
+      "dimension": 178,
+      "action_values": "history[4,14] plus future[8,14] =168 values, normalized by the exact action_normalization_contract below; no unbound or recomputed-at-runtime statistics are permitted",
+      "action_normalization_contract": {
+        "authoritative_source": {
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v478_temporal200_seed1622_20260824/selection.json",
+          "sha256": "f9d62a9b6a8db9d90225e1821dc5016bd56874b47baa48b5486ca5501d850398",
+          "scope": "the 200 frozen selected public-train contexts only; concatenate each context's authoritative history[4,14] and the five unique branch futures[8,14] in selection order and fixed branch order factual,no_transport,scale_0p4,scale_1p25,reverse_direction_0p4; factual_duplicate is excluded",
+          "allowed_information": "public action arrays and their immutable identities only; no RGB, target, reward, success, outcome, dev, final, or hidden data"
+        },
+        "canonical_source_array": "float32 C-contiguous array with shape[200,44,14], preserving IEEE bytes after the selection's already-frozen canonical action conversion; future execution preregistration must materialize and bind this full array SHA256 plus the ordered row manifest SHA256 before any target/cache/model load",
+        "bounds_arrays": "lower[14]=columnwise minimum and upper[14]=columnwise maximum over the canonical source array, accumulated by exact NumPy float32 min/max in dimension order0..13; write little-endian float32 lower then upper bytes and bind their SHA256 and each 14-value decimal/hex representation in the execution preregistration",
+        "bound_before_execution": "this design contract fixes the source SHA and derivation, but does not authorize execution; absence or mismatch of the materialized canonical source array SHA, ordered manifest SHA, lower/upper values, or lower||upper SHA in the later execution preregistration is a hard NO-GO",
+        "nonzero_span_formula": "for dimension j with upper[j]>lower[j], normalized=float32(2*((clip(float32(x),lower[j],upper[j])-lower[j])/(upper[j]-lower[j]))-1); clip is applied independently to every history/future value for training, controls, validation, and runtime, and per-dimension below/above clip counts are reported",
+        "zero_span_fit_source_guard": "when materializing normalization evidence, every value in the canonical 200x44x14 public-train source for any dimension j with upper[j]==lower[j] must equal that bound bitexact; mismatch fails before any RGB/cache/model load and no epsilon or widened bound is allowed",
+        "zero_span_training_and_oof": "training and OOF requests are the frozen selected source/branches and must independently satisfy the same exact-bound guard; emit exact float32 +0.0 for their zero-span normalized feature",
+        "zero_span_runtime_formula": "after the scalar request finite check and without changing the runtime gate, for a runtime/S1 request value x in a zero-span dimension, record whether float32(x) is below/equal/above the frozen bound, deterministically clip it to lower[j]==upper[j], and emit exact float32 +0.0; do not divide, add epsilon, widen/recompute the bound, or reject an otherwise legal finite request solely because x differs from the fit-source constant",
+        "right_gripper_guard": "dimension13 must materialize from the frozen 200 postclose training source with lower==upper==0.0 or the lineage stops; deployment still evaluates postclose on the original unnormalized finite gripper values using history[-1,13]<0.5 and all requested future[:,13]<0.5, so a legal value such as 0.2 remains gate-active, then dimension13 is normalized by zero_span_runtime_formula to exact +0.0",
+        "forbidden": "no standard-deviation scaling, epsilon span, learned normalization, per-fold bounds, per-branch bounds, target-informed bounds, extrapolation, or runtime bound update"
+      },
+      "future_masking": "for target frame k, set every normalized future row with one-based index >k to exact float32 zero before the MLP",
+      "prefix_mask": "eight float32 bits, one for rows <=k and zero after k",
+      "scalars": "k/8 and postclose-prefix bool(history[-1,13]<0.5 and all future[:k,13]<0.5)",
+      "prohibitions": "no future action after k, branch id, fold, episode, selection order, RGB-derived gate, reward, or target statistic",
+      "mlp": "Linear(178,256), SiLU, Linear(256,192), split into gamma[96] and beta[96] at the U-Net bottleneck; initialize the last layer to exact zero",
+      "film_formula": "after the first 96-channel bottleneck residual block, apply exactly x_film = x * (1 + gamma[:,:,None,None]) + beta[:,:,None,None], with gamma/beta cast to x dtype; zero-initialized final MLP layer therefore makes FiLM the identity, never x*gamma+beta"
+    },
+    "unet": {
+      "operations": "3x3 convolutions, GroupNorm with min(8,channels) groups, SiLU, residual blocks, stride-2 convolution downsampling, nearest-neighbor 2x upsampling followed by 3x3 convolution; no bilinear backward, dropout, BatchNorm, attention, recurrence, or stochastic layer",
+      "encoder": "stem 9->16; residual16; down16->32; residual32; down32->64; residual64; down64->96; two residual96 bottleneck blocks; after the first bottleneck block apply the prefix_causal_conditioner.film_formula exactly once",
+      "decoder": "nearest2+conv96->64, concatenate encoder64 and residual64; nearest2+conv64->32, concatenate encoder32 and residual32; nearest2+conv32->16, concatenate encoder16 and residual16; final 3x3 conv16->3",
+      "output": "float32 low-resolution residual tanh(z) in normalized RGB units, expressible range [-1,1] with no target clipping"
+    },
+    "reconstruction": {
+      "training_continuous128": "clip(B_k128 + tanh(z_k),0,1)",
+      "runtime_continuous256": "B_k_uint8.float32 + 255*repeat_interleave(tanh(z_k),2,height and width)",
+      "runtime_uint8": "numpy clip(numpy rint(runtime_continuous256),0,255).astype(uint8); rint is round-to-nearest-even",
+      "active_frames": "all eight frames may change only when runtime_gate is true",
+      "inactive_exactness": "left and gate0 return the original v169 uint8 array without conversion, copy, resize, or model invocation"
+    },
+    "parameter_and_interface_guards": {
+      "maximum_trainable_parameters": 1200000,
+      "input_output_shapes_fixed": true,
+      "scalar_batch_bitexact": true,
+      "batch_permutation_bitexact": true,
+      "same_request_seed_forwarded_to_v169_unchanged": true,
+      "runtime_reward_imports_or_calls": false,
+      "policy_action_generation_or_modification": false
+    }
+  },
+  "three_head_training_and_controls": {
+    "heads": [
+      "action",
+      "context_only",
+      "phase_shuffle"
+    ],
+    "same_capacity": "three independent copies of the exact chosen model, initialized from one common state_dict SHA256 for each fold",
+    "shared": "same branch-specific B_b, target, context, prefix k, gate scalars, batch sequence, optimizer hyperparameters, step count, precision, and loss",
+    "action": "use the true query history and prefix-masked true query future",
+    "context_only": "set exactly the 168 normalized history/future action values to float32 zero while retaining the query prefix mask, k/8, postclose-prefix scalar, visual input, and B_b",
+    "phase_shuffle": "within the fit portion of each outer fold and the query phase bin, sort contexts by (episode,start,selection_order); for each query choose the first cyclic donor from a different episode, retain the same branch and k, replace only the donor's 168 normalized history/future values, apply the query prefix mask, and retain query context/B_b/target/mask/k/postclose/gate",
+    "shuffle_freeze": "write every query->donor identity, source action SHA256, and the canonical donor-index array SHA256 before loading target RGB",
+    "duplicate_weight": 0,
+    "branch_weights": "five unique branches equal",
+    "prefix_weights": "eight prefix frames equal"
+  },
+  "loss": {
+    "domain": "continuous normalized 128x128 RGB reconstructed prediction versus fixed 2x2-area-downsampled simulator target",
+    "charbonnier": "mean sqrt((prediction-target)^2 + (1/255)^2), weight 1.0",
+    "multiscale": "mean of L1 after fixed 2x2 and 4x4 area pooling, weight 0.10",
+    "temporal_delta": "Charbonnier on (prediction[k]-prediction[k-1])-(target[k]-target[k-1]) for k=2..8, weight 0.05",
+    "total": "charbonnier + 0.10*multiscale + 0.05*temporal_delta",
+    "forbidden": "perceptual/reward loss, adversarial loss, target clipping, branch-specific weights, validation-driven weighting, or loss-weight sweep"
+  },
+  "optimizer_and_schedule": {
+    "precision": "fp32 master weights and optimizer; bf16 autocast forward/backward; loss accumulation fp32",
+    "optimizer": "AdamW lr=0.0003, betas=(0.9,0.95), eps=1e-8, weight_decay=0.0001",
+    "gradient_clip_global_norm": 1.0,
+    "learning_rate_schedule": "constant; no warmup",
+    "batch": "two complete context-branch sequences, sixteen prefix frames",
+    "fold_steps_per_head": 400,
+    "fold_schedule": "one exact epoch over 160 fit contexts x five unique branches; stable seed1624 SHA permutation; every sequence appears exactly once; action/context/shuffle use identical order",
+    "all200_candidate_steps": 500,
+    "all200_schedule": "only after complete S0 PASS, one exact epoch over 200x5 sequences using the same seed/order formula and action head only",
+    "checkpoint_selection": "none; fold metrics use exact final step400, release uses exact final all200 step500",
+    "determinism": "PYTHONHASHSEED=0, CUBLAS_WORKSPACE_CONFIG=:4096:8, torch.use_deterministic_algorithms(True), fixed seeds, no bilinear backward; any nondeterministic operation error is a hard failure"
+  },
+  "s0_metrics": {
+    "prediction_names": {
+      "baseline": "branch-specific same-request frozen v169 B_b",
+      "candidate": "B_b plus action-head residual",
+      "context_control": "the identical B_b plus context-only-head residual",
+      "shuffle_control": "the identical B_b plus phase-shuffle-head residual"
+    },
+    "continuous_mae": "sum absolute full256 continuous RGB error divided by element count, accumulated float64; use repeat2 residual reconstruction without uint8 rounding",
+    "uint8_mae": "sum absolute runtime uint8 RGB error divided by element count, accumulated float64",
+    "ratio": "ratio of aggregate error sums, never mean of per-sample ratios; a zero baseline denominator passes only if candidate numerator is also exact zero",
+    "causal_cosine": "for factual-anchored pairs to each of four nonfactual branches, compare flattened target correction difference ((Y_b-B_b)-(Y_f-B_f)) to predicted action-residual difference; among pairs with target norm>1e-8, report fraction with strictly positive cosine",
+    "distinct_action_nonzero": "fraction of the same 200x4 OOF pairs whose predicted action-residual difference L2 is >1e-8",
+    "episode_improved": "an episode improves only when its aggregate OOF candidate continuous error is strictly below its aggregate branch-v169 error"
+  },
+  "unchanged_v458_ten_gates_generalized_to_all8": {
+    "continuous_over_frozen_branch_v169_max": 0.95,
+    "uint8_over_frozen_branch_v169_max": 1.0,
+    "factual_branch_max": 1.0,
+    "each_counterfactual_branch_max": 0.98,
+    "action_over_context_only_max": 0.95,
+    "action_over_phase_shuffle_max": 0.97,
+    "positive_target_delta_cosine_fraction_min": 0.6,
+    "distinct_action_prediction_nonzero_fraction_min": 0.95,
+    "passing_folds_min": 4,
+    "improved_episodes_min": 12,
+    "all_required": true
+  },
+  "additional_temporal_and_no_catastrophe_gates": {
+    "every_prefix_k_continuous_over_v169_max": 1.0,
+    "mean_prefix_k1_through_k7_continuous_over_v169_max": 0.98,
+    "every_episode_uint8_over_v169_max": 1.05,
+    "all_predictions_losses_ratios_and_gradients_finite": true,
+    "prefix_causality_counterfactual": "for every runtime smoke request and k, changing only future action rows after k must leave the action-residual lowres frame k bitexact",
+    "left_full8_bitexact_to_same_request_v169": true,
+    "right_gate0_full8_bitexact_to_same_request_v169": true,
+    "factual_duplicate_full8_bitexact_to_factual": true,
+    "justification": "the public-train aggregate candidate must improve materially while no prefix regresses against v169; the 1.05 episode ceiling prevents aggregate gains from hiding a catastrophic episode and remains a diagnostic S0 cap, while the later frozen S1 first8/recursive gates stay stricter",
+    "all_required": true
+  },
+  "fold_pass_and_early_stop": {
+    "fold_level_gates_exact": {
+      "01_continuous_over_frozen_branch_v169": "within the fold's 40 held-out contexts, sum candidate continuous absolute error over all five weighted branches, all8 prefixes, pixels and channels divided by the identically aggregated branch-specific v169 error; require ratio<=0.95",
+      "02_uint8_over_frozen_branch_v169": "same held-out rows and aggregation after the frozen runtime rint/clip/uint8 assembly; require ratio<=1.0",
+      "03_factual_branch": "continuous candidate/v169 aggregate ratio restricted to factual branch across all8 prefixes; require<=1.0",
+      "04_each_counterfactual_branch": "compute four separate all8 continuous candidate/v169 aggregate ratios for no_transport,scale_0p4,scale_1p25,reverse_direction_0p4; require every one<=0.98, with no averaging across branches",
+      "05_action_over_context_only": "all-five-branch/all8 continuous action-head aggregate absolute error divided by the identically aggregated context-only-head error using the exact same branch-specific B_b; require<=0.95",
+      "06_action_over_phase_shuffle": "all-five-branch/all8 continuous action-head aggregate absolute error divided by the identically aggregated phase-shuffle-head error using the exact same branch-specific B_b; require<=0.97",
+      "07_positive_target_delta_cosine": "use the metric_definition.causal_cosine factual-anchored 40x4 held-out pairs with target norm>1e-8; require strictly-positive-cosine fraction>=0.60",
+      "08_distinct_action_prediction_nonzero": "use the metric_definition.distinct_action_nonzero over the same held-out 40x4 pairs; require fraction>=0.95",
+      "ratio_common_rule": "all ratios are ratios of float64 aggregate sums under metric_definition.ratio; zero denominator passes only with exact-zero numerator",
+      "all_eight_required_for_a_passing_fold": true
+    },
+    "fold_pass": "all eight explicitly named fold_level_gates_exact, every-prefix and no-catastrophe gates, finite checks, and exact control construction pass",
+    "global_pass": "at least 4/5 folds pass, all aggregate ten gates pass, at least 12/15 episodes improve, and every exactness/runtime smoke passes",
+    "second_failed_fold": "hard stop immediately because 4/5 is unreachable; do not train remaining folds, all200, runtime, or package",
+    "nonfinite_prediction_loss_gradient_metric_or_closure_or_determinism_failure": "hard stop immediately before classifying the current fold as PASS or FAIL; atomically write a nonfinite/closure failure receipt and do not count it as a failed fold, do not continue another fold, do not retry under this lineage, and never allow NaN/Inf comparison semantics to enter any gate",
+    "no_threshold_or_hyperparameter_adjustment_after_any_fold_metric": true,
+    "all200_authorized_only_by_complete_s0_pass": true
+  },
+  "resources": {
+    "gpu": "one RTX 5090 32GB",
+    "cpu": "taskset CPUs 0-11, six total data/BLAS threads, never unbounded CPU workers",
+    "v169_cache_expected_bytes": 1572864000,
+    "v169_cache_location": "/dev/shm/v482_v169_temporal_cache_seed1624",
+    "minimum_shm_free_preflight_bytes": 6442450944,
+    "gpu_peak_mib_expected": "10000-18000",
+    "gpu_peak_mib_hard_max": 28672,
+    "persistent_release_bytes_hard_max": 536870912,
+    "v169_cache_wall_seconds_max": 1800,
+    "per_fold_three_head_wall_seconds_max": 1200,
+    "s0_whole_wall_seconds_max": 7200,
+    "all200_wall_seconds_max": 1200,
+    "full_chain_wall_seconds_max": 8400,
+    "process_cleanup": "on timeout, error, OOM, or failed gate, terminate process group, bounded join, KILL and join, atomically write failure receipt, verify no child/GPU process remains, then restore v218 and verify both health endpoints",
+    "no_oom_retry_or_batch_size_change": true
+  },
+  "release_boundary_after_s0_pass": {
+    "package": "exact all200 step500 candidate checkpoint, action normalization bounds, architecture config, v169 closure, runtime, contract, execution preregistration, cache manifest digest, S0 report/audit, trainer/prepare/auditor/packager sources, and a canonical release manifest/tree digest",
+    "runtime": "one same-request v169 call returns B[8], then the deterministic action residual model modifies all8 only under the strict explicit-right/postclose gate",
+    "s0_pass_authorizes": "package and statically audit one immutable public-train parent release, then prepare a separate one-shot public S1 preregistration",
+    "s0_pass_does_not_authorize": [
+      "S1 execution",
+      "official reward loading",
+      "raw-Pi0.5 zero-update trace",
+      "policy training or policy update",
+      "formal RL",
+      "hidden/final evaluation",
+      "submission"
+    ]
+  },
+  "future_s1_contract_frozen_now": {
+    "execution_boundary": "only a separate immutable S1 preregistration written after release freeze may authorize one public episode-disjoint S1; no post-S1 tuning or retry",
+    "right": "32 action-only selected right samples x four recursive eight-frame chunks; same-request v169 and v482 receive identical action chunks, seeds, instructions, and each parent's own recursive context",
+    "left": "12 action-only selected left first8 samples for exactness only, excluded from right quality and reward ratios",
+    "action_shuffle": "retain true query context, same-request true-action v169 B, target, gate, seed, instruction, prefix masks, and assembly; replace only the residual head's 168 normalized action values with preregistered same-phase donors",
+    "freeze_before_rgb": "identities, source hashes, action hashes, phase labels, seeds, actual postclose 32x4 mask, and shuffle donor/features SHA256",
+    "reward": "load the official reward exactly once only after target/v169/true/shuffle RGB arrays and decisions are immutable and hashed",
+    "thresholds": {
+      "first8_rgb_mae_ratio_to_v169_max": 0.998,
+      "recursive32_rgb_mae_ratio_to_v169_max": 1.002,
+      "reward_prediction_mae_ratio_to_v169_max": 1.0,
+      "endpoint_reward_prediction_mae_ratio_to_v169_max": 1.0,
+      "final_reward_mean_ratio_to_v169_min": 0.95,
+      "true_over_action_shuffle_target_mae_max": 0.998,
+      "postclose_structure_fraction_min": 0.2,
+      "postclose_structure_fraction_max": 0.8,
+      "all_required": true
+    },
+    "exactness": {
+      "left12_full8_bitexact_to_same_request_v169": true,
+      "right_gate0_full8_bitexact_to_same_request_v169": true,
+      "runtime_decision_mask_equals_preregistered_postclose_mask": true,
+      "prefix_causality_after_k_action_mutation_bitexact": true,
+      "scalar_batch_bitexact": true,
+      "batch_permutation_bitexact": true,
+      "same_request_seed_forwarded_unchanged": true,
+      "runtime_reward_imports_or_calls": false,
+      "policy_updates": 0
+    },
+    "on_fail": "freeze immutable candidate-fail receipt; no retry, zero-update, training, or RL",
+    "on_pass": "authorize only the materialization of a separate raw-Pi0.5 zero-update preregistration; it does not directly launch the trace or authorize RL"
+  },
+  "future_raw_pi05_zero_update_contract_frozen_now": {
+    "blocked_until": "the separate immutable S1 receipt passes every gate",
+    "policy": "fresh raw official Pi0.5, frozen, zero policy updates",
+    "exact_requests": 200,
+    "exact_trajectories": 8,
+    "requests_per_trajectory": 25,
+    "group_size": 4,
+    "trajectory_discount": 0.99,
+    "reward_coefficient": 5.0,
+    "same_request_pair": "record policy requests once; save same-request v169 and v482 final RGB; parent choice never generates, changes, filters, or selects policy actions",
+    "reward": "freeze all paired RGB first, then load official reward exactly once",
+    "thresholds": {
+      "learned_requests_min": 40,
+      "learned_request_mean_delta_min_exclusive": 0.0,
+      "learned_request_positive_fraction_min": 0.55,
+      "trajectory_delta_positive_fraction_min": 0.5,
+      "groups_with_candidate_absolute_spread_ge_0p02_min": 1,
+      "candidate_final_reward_mean_minus_v169_min": 0.0,
+      "all_request_rewards_and_returns_finite": true,
+      "all_required": true
+    },
+    "zero_update_pass_authorizes": "evidence review only",
+    "zero_update_pass_does_not_authorize": [
+      "policy update",
+      "continuation from v169 policy",
+      "formal RL",
+      "official fixed-budget training",
+      "hidden/final evaluation",
+      "submission"
+    ],
+    "formal_rule": "any later formal RL must use a separate fresh raw-Pi0.5 official fixed-budget preregistration and explicit authorization; diagnostic v169 policy lineage is never formal"
+  },
+  "permissions_and_prohibitions": {
+    "dev_reward_success_outcome_final_hidden_reads_allowed_during_design_or_s0": false,
+    "factual_duplicate_training_weight_allowed": false,
+    "validation_checkpoint_or_hyperparameter_selection_allowed": false,
+    "threshold_change_after_any_metric_allowed": false,
+    "multiple_architecture_candidates_training_allowed": false,
+    "effect_conditioned_row_branch_prefix_filter_allowed": false,
+    "runtime_reward_or_policy_dependency_allowed": false,
+    "normalization_statistics_from_rgb_target_reward_outcome_or_validation_allowed": false,
+    "alternate_arm_parser_or_batched_v169_fast_path_allowed": false,
+    "training_authorized_by_this_contract": false,
+    "s1_authorized_by_this_contract": false,
+    "zero_update_authorized_by_this_contract": false,
+    "policy_updates": 0,
+    "rl_authorized": false
+  }
+}

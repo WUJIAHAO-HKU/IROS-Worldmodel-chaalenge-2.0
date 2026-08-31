@@ -1,0 +1,54 @@
+{
+  "format": "strict-track2-runtime-source-compliance-audit-v1",
+  "audited_at": "2026-08-11T14:38:00+08:00",
+  "official_repository": "https://github.com/WorldArena2/WorldArena-2.0",
+  "official_commit": "6f5a981b34232fe77812b818a6ad7a4e6b8728ac",
+  "base_runtime": "artifacts/strict_track2_official_20260810/full_budget_gpu_cache_release_runtime",
+  "diagnostic_runtime": "artifacts/strict_track2_official_20260810/probability_consistent_one_update_runtime",
+  "exact_official_files": {
+    "examples/embodiment/config/wan_robotwin_adjust_bottle_grpo_openpi_pi05.yaml": "97c4a6944e55ffb0f263e02d8ef8eb9cd176b821aee6d5776fd59b3df19136fb",
+    "examples/embodiment/config/model/pi0_5.yaml": "2151df8492e58f023cbe969024ab0d7d0e2aad79eae976d79d2aaef6b4c75a45",
+    "rlinf/models/embodiment/openpi/openpi_action_model.py": "12e071480e24d03ca1ded1258c28e9fd2435c75a77fef236fbbf646e900662de",
+    "rlinf/algorithms/utils.py": "f56a5335fb4dc332a371f5f4e35be552907ed4aea761a68b2a056ca2c3ff11f1",
+    "rlinf/hybrid_engines/fsdp/fsdp_model_manager.py": "3fb759832882f7ec61d73d55449925944b813342ff4bd4b817373d216267e5c1",
+    "rlinf/data/embodied_io_struct.py": "b98f79c430d57d280ea10cfa3944e5d40d5c1b3d409adc2f73eb63ebd794dc46",
+    "rlinf/envs/__init__.py": "8d5e63bbea9ab7df521bcaef76721a2dd5ec6285ba9e00632c92a74a7058beb4",
+    "rlinf/envs/action_utils.py": "59d45b23cf91a773ecc6252d789fd080def008ad46715bb0a68db87c7e03c980"
+  },
+  "declared_resource_only_files": {
+    "rlinf/workers/actor/fsdp_actor_worker.py": {
+      "official_sha256": "6ab21707195a314f46a1985391c8457406f6a8fdcfdf8e884bd484d914cb4235",
+      "base_sha256": "24347c8d08e99fc273630f874ee5435e934a8fdfb028f0fb1c937c258edaeefb",
+      "difference": "clear unreferenced CUDA allocator cache after rollout weight synchronization"
+    },
+    "rlinf/workers/rollout/hf/huggingface_worker.py": {
+      "official_sha256": "e9fbc3da94dd2f6f5d281c9c8f4f8f92eef1bd62ea57c8ca027bb49b3ff2cad2",
+      "base_sha256": "0b6948272e53cda6ae18d90946073c417d1f844d7a1a0de4902747d990dbe37d",
+      "difference": "clear unreferenced CUDA allocator cache before world-model inference"
+    }
+  },
+  "track2_interface_adapter": {
+    "path": "rlinf/envs/world_model/world_model_wan_http_env.py",
+    "official_sha256": "a7d1dafcb640e0888fb71735f0f3d2fe0f3db4796f14aa30aa87de01fc62b860",
+    "base_sha256": "40ef65a82c39eaa0c6c28b1669d3185706c630dc4c1fd30b5e9f09f79e5557ca",
+    "scope": "HTTP delegation, exact a0..a3 history alignment, absolute current-state exposure, and value-preserving CPU transport",
+    "participant_action_selection": false
+  },
+  "diagnostic_only_difference": {
+    "path": "rlinf/workers/actor/fsdp_actor_worker.py",
+    "diagnostic_sha256": "3fc3b6b79b18341864de35e5512dedf6486df9d2a0fe37dbe26733e7a2d77c15",
+    "change": "restore the configured frozen VLM to eval mode after recursive model.train()",
+    "formal_eligibility": false,
+    "reason": "Although it repairs a measured pre-update probability mismatch, it changes RL worker execution relative to the official source and therefore cannot prove the user-requested unmodified-RL-flow result."
+  },
+  "weights": {
+    "pi05_model_sha256": "e8930fd26001d284d22045ed8aeeae95290d278da3f35b42ba398e15e8d74fd6",
+    "reward_model_sha256": "5a2066eec31e991a2c006870f73cfc5c3e0afe5b76e9bd91119c467cb9f8de47"
+  },
+  "conclusion": {
+    "current_probability_consistent_run": "nonformal diagnostic",
+    "formal_run_must_use": "base runtime without the diagnostic-only actor mode patch, unchanged official Pi0.5/reward/GRPO configuration and the public full-reference 1000-epoch budget",
+    "budget_disclosure_boundary": "The public source verifies the 1000-epoch reference YAML, but the benchmark explicitly does not publish the organizer's held-out sample counts or aggregation parameters; a local run is not organizer-certified.",
+    "goal_complete": false
+  }
+}

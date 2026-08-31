@@ -1,0 +1,98 @@
+{
+  "format": "strict-track2-v480-v478-phase-b-batch0-immutable-reconciliation-contract-v1",
+  "status": "frozen_reconciliation_semantics_execution_preregistration_pending",
+  "lineage": {
+    "parent": "v478 Phase-B temporal200 seed1622",
+    "reconciliation": "v480",
+    "reason": "batch0 simulator collection and integrity audit completed, but atomic JSON serialization failed on numpy.bool_ after the in-memory audit result had passed",
+    "old_attempt_must_not_be_retried": true,
+    "batch0_simulator_or_generator_rerun_authorized": false
+  },
+  "immutable_parent": {
+    "preregistration_sha256": "5d6db6e5aca4502b79347620a7732e4471f63b77780ad7228bcd53c6cb753ad9",
+    "phase_b_contract_sha256": "a478b6f8e24d4a2312fcd4f62d294ad681b35ea4c19c1162f7dae7f9748047d1",
+    "selection_sha256": "f9d62a9b6a8db9d90225e1821dc5016bd56874b47baa48b5486ca5501d850398",
+    "endpoint_oracle_union_sha256": "0d3b1328709ba1b09bb29b1423596e5671fdc37c49215ea4b4f168b9b5fd53cc",
+    "generator_sha256": "a20f5e9d702fa6febe946d9f713f4713ef035705b35119c00ca328046da70a58",
+    "auditor_sha256": "2e1adbe72e2d77d19a2bf6f4a3d0822940ca458055851c36e06b28fe62c6c748",
+    "collector_sha256": "be90f3dd1272706af6d9bc1f461543c9b399071139a4ea243bd962b4b01f187a",
+    "launcher_sha256": "7a757d002d3ee4eaaff6eba339134f7e551260c805e258aa345f5c527e651997"
+  },
+  "immutable_attempt_evidence": {
+    "attempt_intent_sha256": "dfd2fc285ba00df97950ae362a3754eabcf3816e8151cc75a23bd65609d97dd5",
+    "failure_receipt_sha256": "48c95faeda8992ebf041d677a1b3e231b4619269f5e86574c3f8a73473ac5452",
+    "collect_log_sha256": "8deb88b051d19ab1070e1078f3e3dccff6ad45dce4d150827bf1b35a71c4f13d",
+    "audit_log_sha256": "2e6177519ab32b6c0a898129239d8859ca555c04364591a4eb17ca99edbf1c01",
+    "restore_v218_log_sha256": "bf36c8bfe0d2f0af1690b20840a80e622e67e3029daab4b4985a88fc2989acb1",
+    "truncated_atomic_audit_tmp_sha256": "d85fcec41d978d991a86ea74b22d47b649fc02b012bad3c104ffde0301d47359",
+    "batch_report_sha256": "59f77e4f059732ea49bd922bf74551cd93d05248ebd121fc6741e645eb02f7dc",
+    "batch_tree": {
+      "root": "/root/v478_temporal8_dataset_seed1622_20260824/batch_000",
+      "file_count": 41,
+      "logical_regular_file_bytes": 201004510,
+      "sorted_sha256_double_space_relative_posix_lines_sha256": "b9a44ba8b63c2cc721e6bd94d03d38efff61f18fa32fe437904faf88e3e2d031",
+      "canonical_compact_json_relative_sha256_pairs_sha256": "0ff88bdbd6196d33d94796d7733fdc81bd2102a55a8c53d611c1a9454414d1b5"
+    }
+  },
+  "required_parent_absence": {
+    "batch_000_audit_json": true,
+    "generation_report_json": true,
+    "phase_b_final_audit_json": true,
+    "successful_launcher_receipt": true,
+    "batch_001_directory": true,
+    "batch_001_partial_directory": true
+  },
+  "reconciliation_algorithm": {
+    "read_only_parent_dataset_and_attempt": true,
+    "import_frozen_parent_auditor_and_call_audit_batch": true,
+    "numpy_canonicalization": {
+      "numpy_scalar": "item() recursively",
+      "numpy_array": "tolist() recursively",
+      "unknown_non_json_type": "fail_closed TypeError"
+    },
+    "recomputed_result_must_pass": true,
+    "recomputed_checks_must_equal": {
+      "input_closure": true,
+      "exact20_selection_order": true,
+      "batch_exact_tree": true,
+      "all_rows_independently_valid": true,
+      "batch_report_integrity": true,
+      "storage_formula_and_historic_gates": true,
+      "diagnostic_recomputed_but_not_gate": true
+    },
+    "recomputed_authorization_must_equal": {
+      "next_batch_resume_authorized": true,
+      "technical_effect_used_for_authorization": false,
+      "training_authorized": false,
+      "s1_authorized": false,
+      "zero_update_authorized": false,
+      "policy_updates": 0,
+      "rl_authorized": false
+    },
+    "task_reward_success_done_outcome_consumed": false,
+    "simulator_or_collector_invocations": 0,
+    "parent_evidence_hashes_must_match_before_and_after": true,
+    "outputs_only_in_new_registry": true
+  },
+  "pass_authorization": {
+    "phase_b_resume_authorized": true,
+    "next_batch_id": 1,
+    "batch0_reuse_required": true,
+    "batch0_rerun_authorized": false,
+    "effect_or_outcome_conditioned_retry": false,
+    "training_authorized": false,
+    "s1_authorized": false,
+    "zero_update_authorized": false,
+    "policy_updates": 0,
+    "rl_authorized": false
+  },
+  "failure_authorization": {
+    "phase_b_resume_authorized": false,
+    "batch0_rerun_authorized": false,
+    "training_authorized": false,
+    "s1_authorized": false,
+    "zero_update_authorized": false,
+    "policy_updates": 0,
+    "rl_authorized": false
+  }
+}

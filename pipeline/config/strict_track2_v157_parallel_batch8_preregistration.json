@@ -1,0 +1,24 @@
+{
+  "format": "strict-track2-v157-parallel-batch-preregistration-v1",
+  "registered_at": "2026-08-11T07:18:00+08:00",
+  "parent_model_version": "track2-v15.7-hybrid-action-gated-reward-safe-blend12",
+  "golden_npz": "artifacts/strict_track2_joint_augmentation_20260810/v157_full_budget_service/bridge_audit/rollout_000002.npz",
+  "golden_npz_sha256": "ec18efab4d4978a28494810e9d609287fd2863af4ae32c3975e7ef4134c82ba8",
+  "rl_environment_batch_size": 32,
+  "official_service_max_batch_size": 8,
+  "sequential_official_requests_per_environment_step": 4,
+  "batch_workers": 8,
+  "cpu_cgroup_quota_cores": 25,
+  "torch_intraop_threads": 16,
+  "benchmark_protocol": "Run one exact sample outside the timer to load the immutable runtime, then time the full 32-environment batch as four sequential official batch-8 requests.",
+  "serial_observed_latency_lower_bound_seconds": 480.0,
+  "acceptance": {
+    "exact_equal_all_50331648_rgb_bytes": true,
+    "maximum_parallel_latency_seconds": 180.0,
+    "minimum_speedup_over_observed_serial_lower_bound": 2.6666666667,
+    "sample_order_preserved": true,
+    "model_weights_unchanged": true
+  },
+  "scope": "Inference scheduling only. Official Pi0.5, reward, RL algorithm and budget are unchanged.",
+  "formal_result": false
+}

@@ -1,0 +1,51 @@
+{
+  "format": "strict-track2-absolute-action-contract-preregistration-v1",
+  "registered_at": "2026-08-11T03:27:31+08:00",
+  "scope": "Track 2 HTTP world-environment adapter only",
+  "official_components_unchanged": {
+    "pi05_model_and_output_transform": true,
+    "reward_model": true,
+    "grpo_algorithm_and_budget": true,
+    "action_sampling": true,
+    "mpc": false
+  },
+  "diagnosis": {
+    "invalid_run_label": "official_replica_v156_reward_safe_seed1240",
+    "observed_bridge_future_action_range": [-0.024497617, 0.017557902],
+    "observed_candidate_routes": "0/2",
+    "observed_onpolicy_probabilities": [0.009778173, 0.001931593],
+    "cause": "WanEnv supplied a zero placeholder as Pi0.5 observation state. The frozen RoboTwin Pi0.5 output transform therefore added predicted joint deltas to zero instead of to the current absolute 14-D joint state.",
+    "contract_mismatch": "Track 2 reset files, world-model requests, and world-model training trajectories all use abs_action."
+  },
+  "implementation": {
+    "proxy_source": "pipeline/official_patches/world_model_wan_http_env.py",
+    "source_before_sha256": "a7d1dafcb640e0888fb71735f0f3d2fe0f3db4796f14aa30aa87de01fc62b860",
+    "source_after_sha256": "d477e345fb6d325f8e5586df914673edc6860cc3afedcb3eb968121b8c095aef",
+    "policy_observation_state": "condition_action[:, -1]",
+    "temporal_update": "condition_action[:, 1:] = absolute_actions[:, -4:]",
+    "actions_forwarded_to_world_model": "bit-identical official Pi0.5 outputs",
+    "participant_action_selection": false
+  },
+  "rerun": {
+    "parent_model_version": "track2-v15.6-action-gated-reward-safe-blend12",
+    "actor_seed": 1240,
+    "run_label": "official_replica_v156_absstate_seed1240",
+    "global_steps": 1,
+    "group_size": 2,
+    "world_model_chunks": 1,
+    "future_action_contract": "absolute 14-D joint positions",
+    "required_bridge_checks": {
+      "replay_bit_exact": true,
+      "candidate_routes": "2/2",
+      "future_gripper_dimensions_consistent_with_absolute_state": true,
+      "mpc": false
+    }
+  },
+  "selection": {
+    "prescreen": "already-consumed historical dev22 only",
+    "development32_untouched_until_prescreen_passes": true,
+    "development32_success_threshold": "at least 10/32 versus frozen baseline 9/32",
+    "arm_and_grasp_non_regression": true,
+    "acceptance128_untouched_until_development_passes": true
+  }
+}

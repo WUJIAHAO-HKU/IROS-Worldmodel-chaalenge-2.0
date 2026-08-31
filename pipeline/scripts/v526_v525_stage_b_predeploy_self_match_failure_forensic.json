@@ -1,0 +1,98 @@
+{
+  "format": "strict-track2-v526-v525-stage-b-predeploy-self-match-failure-forensic-v1",
+  "status": "failed_no_retry_predeploy_audit_self_matched_no_deployment_started",
+  "date": "2026-08-27",
+  "failure": {
+    "native_returncode": 1,
+    "predicate_full_path": ["checks", "pid_gpu"],
+    "expected": true,
+    "observed": false,
+    "sole_false_predicate": true,
+    "root_cause": "substring PID classifier matched the outer bash -c process because its argv embedded the audit source and marker literals",
+    "classifier_used": "any(marker in cmdline for marker in markers)",
+    "classifier_markers": [
+      "reconcile_v525_v524",
+      "invoke_v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_once",
+      "launch_",
+      "generate_v524"
+    ],
+    "captured_pid_row": {
+      "pid": 70936,
+      "cmdline_prefix": "bash -c /root/autodl-tmp/conda_envs/rlinf_track2/bin/python - <<'PY'\nimport hashlib,json,os,subprocess,urllib.request\nfrom pathlib import Path",
+      "cmdline_suffix": "print(json.dumps({'passed':all(checks.values()),'checks':checks,'roots':[str(p) for p in roots],'services':services,'pids':pids,'gpu':g.stdout.splitlines()},sort_keys=True))\nraise SystemExit(0 if all(checks.values()) else 1)\nPY ",
+      "full_cmdline_available_in_original_tool_capture": true,
+      "ppid": "unavailable_not_captured",
+      "pgid": "unavailable_not_captured",
+      "parent_row": "unavailable_not_captured",
+      "ancestry": "unavailable_not_captured_no_inference"
+    },
+    "outer_command_literal_template": "ssh 5090-autodl-new \"/root/autodl-tmp/conda_envs/rlinf_track2/bin/python - <<'PY'\\n<prestate audit source>\\nPY\"",
+    "full_outer_command_literal_reproduced_in_this_fact": false,
+    "original_tool_capture_is_authoritative_for_full_heredoc": true
+  },
+  "captured_checks": {
+    "pid_gpu": false,
+    "roots_absent": true,
+    "services": true,
+    "staging_0": true,
+    "staging_1": true,
+    "target_absent_0": true,
+    "target_absent_1": true
+  },
+  "captured_gpu_compute_pids": [],
+  "captured_services": {
+    "18084": {
+      "bytes": 18,
+      "code": 200,
+      "json": {"status": "ready"},
+      "sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd"
+    },
+    "8005": {
+      "bytes": 106,
+      "code": 200,
+      "json": {
+        "api_version": "1.0",
+        "model_version": "track2-v218-public-knn-blend-alpha070-route-aware",
+        "status": "ready"
+      },
+      "sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0"
+    }
+  },
+  "pair": {
+    "helper": {
+      "canonical_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_once.py",
+      "volatile_path": "/dev/shm/invoke_v525_v524_phase_a_worker_receipt_format_readonly_reconciliation_once.py",
+      "sha256": "ed6e30d8c155dbd9deccf8715773d3c42ae66770996e1912364c14fd3d779574",
+      "logical_bytes": 63291,
+      "canonical_absent": true,
+      "volatile_exact": true
+    },
+    "script": {
+      "canonical_path": "/root/v525_phase_a_worker_receipt_format_readonly_reconciliation_once.sh",
+      "volatile_path": "/dev/shm/v525_phase_a_worker_receipt_format_readonly_reconciliation_once.sh",
+      "sha256": "748142b0ab07ea526ee33544ce390a65cd5da18090924a41a66e938245cb88e9",
+      "logical_bytes": 2567,
+      "canonical_absent": true,
+      "volatile_exact": true
+    }
+  },
+  "runtime_partition": {
+    "deploy_invocations": 0,
+    "transport_selftest_invocations": 0,
+    "transport_helper_invocations": 0,
+    "readonly_reconciler_invocations": 0,
+    "phase_a_invocations": 0,
+    "oof_invocations": 0,
+    "training_invocations": 0
+  },
+  "current_readonly_state": {
+    "canonical_pair_absent": true,
+    "volatile_pair_exact": true,
+    "candidate_and_external_roots_and_preps_absent": true,
+    "services_healthy": true,
+    "pid_gpu_empty": true
+  },
+  "retry_authorized": false,
+  "old_predeploy_sequence_consumed": true,
+  "fresh_deployer_required": true
+}

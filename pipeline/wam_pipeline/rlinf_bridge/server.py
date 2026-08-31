@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import json
 import os
 import pickle
 import threading
@@ -43,10 +44,22 @@ class BridgeState:
 class Track2RLinfBridge:
     """State adapter with the exact temporal update used by the RLinf Wan env."""
 
-    def __init__(self, client: Track2ServiceClient) -> None:
+    def __init__(
+        self,
+        client: Track2ServiceClient,
+        audit_dir: str | os.PathLike[str] | None = None,
+        audit_max_items: int | None = None,
+    ) -> None:
+        if audit_max_items is not None and audit_max_items < 0:
+            raise ValueError("audit_max_items must be non-negative")
         self.client = client
         self.state = BridgeState()
         self.lock = threading.Lock()
+        self.audit_dir = None if audit_dir is None else os.fspath(audit_dir)
+        self.audit_max_items = audit_max_items
+        self.audit_index = 0
+        if self.audit_dir is not None:
+            os.makedirs(self.audit_dir, exist_ok=True)
 
     @staticmethod
     def _to_uint8_frames(current_obs: torch.Tensor) -> np.ndarray:
@@ -64,8 +77,8 @@ class Track2RLinfBridge:
             raise ValueError("RLinf reset payload does not match the Track 2 5-frame/14D profile")
         with self.lock:
             self.state = BridgeState(
-                current_obs=current_obs.detach().cpu().float().contiguous(),
-                condition_action=condition_action.detach().cpu().float().contiguous(),
+                current_obs=current_obs.detach().cpu().float().contiguous().clone(),
+                condition_action=condition_action.detach().cpu().float().contiguous().clone(),
                 task_descriptions=[str(value) for value in payload.get("task_descriptions", [])],
                 elapsed_steps=int(payload.get("elapsed_steps", 0)),
             )
@@ -82,12 +95,38 @@ class Track2RLinfBridge:
             if actions.shape != (batch, 8, 14):
                 raise ValueError("RLinf action chunk must be [B,8,14]")
             context = self._to_uint8_frames(self.state.current_obs)
-            history = self.state.condition_action[:, -4:].numpy()
+            # On reset the five aligned slots are a0..a4 for context o0..o4,
+            # so the four transitions that produced the context are a0..a3.
+            # After one generated chunk, slots 1..4 hold u4..u7 and are the
+            # correct history for the next five-frame rolling context.
+            history_slice = slice(0, 4) if self.state.chunk_index == 0 else slice(1, 5)
+            history = self.state.condition_action[:, history_slice].numpy()
             instructions = self.state.task_descriptions or [None] * batch
             if len(instructions) != batch:
                 instructions = [None] * batch
             seeds = np.arange(batch, dtype=np.int64) + self.state.chunk_index * batch
             prediction = self.client.predict_batch(context, history, actions.numpy(), seeds, instructions)
+            if self.audit_dir is not None and (
+                self.audit_max_items is None or self.audit_index < self.audit_max_items
+            ):
+                audit_path = os.path.join(
+                    self.audit_dir, f"rollout_{self.audit_index:06d}.npz"
+                )
+                if os.path.exists(audit_path):
+                    raise RuntimeError(f"refusing to overwrite bridge audit {audit_path}")
+                temporary = audit_path + ".tmp"
+                with open(temporary, "wb") as handle:
+                    np.savez_compressed(
+                        handle,
+                        context_frames=context,
+                        history_actions=history,
+                        future_actions=actions.numpy(),
+                        predicted_frames=prediction,
+                        seeds=seeds,
+                        instructions_json=np.asarray(json.dumps(instructions)),
+                    )
+                os.replace(temporary, audit_path)
+                self.audit_index += 1
             generated = torch.from_numpy(prediction).permute(0, 4, 1, 2, 3).float().div(127.5).sub(1.0).unsqueeze(2)
             current = torch.cat([self.state.current_obs, generated], dim=3)
             current = current[:, :, :, -13:].contiguous()
@@ -136,12 +175,32 @@ def main() -> None:
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=18080)
     parser.add_argument("--timeout", type=float, default=600.0)
+    parser.add_argument("--audit-dir", default=os.environ.get("TRACK2_BRIDGE_AUDIT_DIR"))
+    parser.add_argument(
+        "--audit-max-items",
+        type=int,
+        default=(
+            int(os.environ["TRACK2_BRIDGE_AUDIT_MAX_ITEMS"])
+            if "TRACK2_BRIDGE_AUDIT_MAX_ITEMS" in os.environ
+            else None
+        ),
+    )
     args = parser.parse_args()
     if not args.model_version:
         raise SystemExit("--model-version or WAM_MODEL_VERSION is required")
     client = Track2ServiceClient(args.world_model_url, args.token, args.model_version, args.timeout)
     client.assert_ready()
-    uvicorn.run(create_app(Track2RLinfBridge(client)), host=args.host, port=args.port)
+    uvicorn.run(
+        create_app(
+            Track2RLinfBridge(
+                client,
+                audit_dir=args.audit_dir,
+                audit_max_items=args.audit_max_items,
+            )
+        ),
+        host=args.host,
+        port=args.port,
+    )
 
 
 if __name__ == "__main__":

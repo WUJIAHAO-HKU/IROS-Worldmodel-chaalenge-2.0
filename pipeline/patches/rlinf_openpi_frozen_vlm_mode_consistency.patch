@@ -1,0 +1,14 @@
+diff --git a/rlinf/workers/actor/fsdp_actor_worker.py b/rlinf/workers/actor/fsdp_actor_worker.py
+--- a/rlinf/workers/actor/fsdp_actor_worker.py
++++ b/rlinf/workers/actor/fsdp_actor_worker.py
+@@ -1304,6 +1304,10 @@ class EmbodiedFSDPActor(FSDPModelManager, Worker):
+             self.load_optimizer(self.device)
+ 
+         self.model.train()
++        # train() recursively toggles the frozen VLM back to train mode, which
++        # changes behavior log-probabilities before PPO's first optimizer step.
++        if SupportedModel(self.cfg.actor.model.model_type) == SupportedModel.OPENPI:
++            self.model.freeze_vlm()
+         rollout_size = (
+             self.rollout_batch["prev_logprobs"].shape[0]
+             * self.rollout_batch["prev_logprobs"].shape[1]

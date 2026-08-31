@@ -1,0 +1,230 @@
+{
+  "format": "strict-track2-v456-endpoint-residual-parent-frozen-contract-v1",
+  "selection_revision": "v461; supersedes v456-r5/v460 rows after action-difference eligibility mismatch; no prior simulator row may be reused",
+  "classification": "public-train simulator endpoint world-model staging; no policy, RL, formal-evaluation, hidden/final, or submission authority",
+  "seed": 1609,
+  "status": "READY_STAGING_V457_BOUND_NOT_DEPLOYED",
+  "prerequisites": {
+    "pilot": "v455 endpoint-only transport pilot seed1608",
+    "reconciliation": "v457 reconciliation receipt correcting only the v455 audit guard-key mismatch",
+    "required_v457_passed": true,
+    "required_v455_generation_passed": true,
+    "required_v457_receipt_sha256": "790b8954c659c8038e778eecfba6cebdb84f8e5a477c2956d2755e58c7cf24d4",
+    "required_v457_preregistration_sha256": "a272626c5e9022a9808088ce5458e249e429802f9b3189ddb24f2e93283562eb",
+    "required_v455_generation_report_sha256": "2f1d466aec6a0ac54f6cace9c95edf3d51cef37adeadeea63a20aaef84ee6f5e",
+    "required_v455_endpoint_npz_sha256": {
+      "episode12_start00100.npz": "7b5532b684d552be287e6d7b1abda3421ff70f4ea8ccdf57acb78a8f4a55dabd",
+      "episode32_start00095.npz": "cfbb400d8e9c85be5ef5ef850f3e5b883f552cedde75f94eb0e2961e8428613f",
+      "episode42_start00105.npz": "ed735a5fb56864c3fff059a69ca613b4127c3853da5afcb0a07f24b62b1c357e",
+      "episode44_start00103.npz": "77cb93da9e0571db1ec4895d2b7ee1984a577ce4dc9b16ca678087c9f69c7ee7"
+    },
+    "required_exact_contexts": 4,
+    "required_branches": [
+      "factual",
+      "no_transport",
+      "scale_0p4",
+      "scale_1p25",
+      "reverse_direction_0p4",
+      "factual_duplicate"
+    ],
+    "required_endpoint_domain": "RGB uint8 256x256 produced by authoritative wam_pipeline.data.resize_rgb",
+    "required_schema": "same reset/context snapshot for every branch; one endpoint after exactly eight actions; no fabricated intermediate frames",
+    "receipt_binding": "Before selection, require the exact v457 receipt and preregistration SHA256 values above, receipt endpoint_parent_data_authorized=true, every receipt check/hash_check true, and exact equality of every v455 immutable_files/immutable_npz SHA256 value. Any mismatch is a hard stop before opening split, seed or HDF5 action data."
+  },
+  "source_boundary": {
+    "split": "public train40 only",
+    "required_public_split_sha256": "8c1ecfb7127b2d30862420d311d9b3e0f7d1337bec6b4c214cb9db372fc78a87",
+    "required_public_seed_file_sha256": "2a9302903b92b6828ad6cb99c0b04af50fcbbf176cdd827ad34abeced04ea419",
+    "right_episodes": [12, 15, 20, 25, 28, 30, 32, 33, 37, 40, 42, 44, 46, 47, 49],
+    "selection_inputs_allowed": [
+      "public split episode identifiers and arm labels",
+      "dataset seed.txt",
+      "joint_action/vector float actions"
+    ],
+    "authoritative_selection_source": "public train40 HDF5 joint_action/vector plus seed.txt; prepare and every generator start/resume must re-hash the frozen split/seed evidence, independently rederive train40/right15 and every context arm/instruction/seed mapping, and require source_hdf5 to equal dataset/data/episode{episode}.hdf5; simulator replay creates fresh contexts/endpoints and no derived window cache is required or consulted",
+    "selection_inputs_forbidden": [
+      "RGB or depth",
+      "reward or reward-model values",
+      "success, outcome, done, termination or truncation",
+      "development, final, hidden or official submission payloads",
+      "policy rollouts"
+    ],
+    "all_selected_rows_retained": true,
+    "post_collection_effect_or_fidelity_must_not_filter_rows": true
+  },
+  "action_only_selection": {
+    "contexts": 200,
+    "history_actions": 4,
+    "future_actions": 8,
+    "action_dim": 14,
+    "right_qpos_columns": [7, 8, 9, 10, 11, 12],
+    "right_gripper_column": 13,
+    "eligible_window": "history=A[s:s+4], future=A[s+4:s+12], history[-1,13]<0.5 and every future[:,13]<0.5, all values finite",
+    "motion": "sum_t L2(q[t]-q[t-1]) over q[-1]=history[-1,7:13] and q[0:8]=future[:,7:13]",
+    "phase": "(future_start-first_right_close)/(episode_length-1-first_right_close)",
+    "strata": {
+      "phase_bins": 5,
+      "phase_assignment": "inside each fold, sort every finite post-close eligible window by phase then full SHA256/episode/start and assign rank quintiles",
+      "motion_bins": 4,
+      "motion_assignment": "inside each fold and phase bin, sort every eligible window by motion then full SHA256/episode/start and assign conditional rank quartiles",
+      "selection_margins": "after applying the v461 action-difference filter before recomputing fold-local rank bins, the real action-only feasibility probe proves exact phase8/motion10 remains feasible; each fold selects exactly40 with every phase bin exactly8 and every conditional-motion bin exactly10; no relaxed selection margins are authorized",
+      "batch_margins": "a second exact MILP assigns 10 batches; every batch has 20 contexts and exactly4 from every fold, with every phase bin in [3,5] and every motion bin in [4,6]"
+    },
+    "folds": [
+      {"fold": 0, "episodes": [28, 37, 49]},
+      {"fold": 1, "episodes": [15, 20, 42]},
+      {"fold": 2, "episodes": [25, 40, 46]},
+      {"fold": 3, "episodes": [12, 33, 47]},
+      {"fold": 4, "episodes": [30, 32, 44]}
+    ],
+    "episode_bounds": "after the v461 action-difference filter and fold-local rebinning, action-only MILP searches the greatest feasible uniform episode lower bound and then the smallest feasible uniform upper bound under exact fold40/phase8/motion10/nonadjacent constraints; the proven interval is [6,17], after which it finds the minimum feasible actual max-minus-min range 11 and freezes the full-SHA rank optimum",
+    "assignment": "selection records successful exact phase8/motion10 feasibility after eligibility-before-binning, then satisfies fold40, fold-phase8, fold-motion10, episode[6,17] and no adjacent starts, minimizing actual episode-count range 11 then full-SHA rank sum; batch exact MILP satisfies batch20, batch-fold4, batch-phase[3,5] and batch-motion[4,6]; both sort variables by complete SHA256 uint256 then episode/start (and batch for batch stage), under scipy 1.15.3 / HiGHS 1.8.0 with threads=1, parallel=false, random_seed=1609, presolve=true and mip_rel_gap=0; solver warnings entering receipts are canonical codes with sorted option names and any unknown warning fails closed",
+    "same_episode_future_start_separation_min": 2,
+    "tie_break": "complete uint256 SHA256 first, then episode, then start when assigning the unique preregistered rank objective",
+    "infeasible_action_only_assignment": "hard stop; do not inspect RGB, reward or outcomes to relax quotas",
+    "counterfactuals": {
+      "anchor": "history[-1,7:13]",
+      "delta": "future[:,7:13]-anchor",
+      "factual": "unchanged future",
+      "no_transport": "anchor+0.0*delta",
+      "scale_0p4": "anchor+0.4*delta",
+      "scale_1p25": "anchor+1.25*delta",
+      "reverse_direction_0p4": "anchor-0.4*delta",
+      "factual_duplicate": "independent reset/replay of unchanged future",
+      "unchanged_columns": "0:7 and 13 retain factual values in every counterfactual"
+    },
+    "pre_simulator_hard_gates": [
+      "all six branch action tensors are finite and inside per-dimension public-train40 action bounds",
+      "before eligible statistics, rank bins or either MILP, each of the four counterfactuals must have right6 endpoint L2 >=0.01 and right6 full-path tensor L2 >=0.01 versus factual; both values are retained in the selection receipt",
+      "factual_duplicate is exactly equal to factual",
+      "exactly 200 unique episode/start rows; each fold40 with phase8x5 and motion10x4; every episode count is inside proven interval [6,17] at minimum feasible global count range11; same-episode starts are non-adjacent; every batch has fold4x5, phase counts [3,5] and motion counts [4,6]",
+      "no episode crosses folds"
+    ]
+  },
+  "paired_endpoint_collection": {
+    "branches_per_context": 6,
+    "total_simulator_replays": 1200,
+    "training_endpoints_per_context": 5,
+    "training_endpoint_samples": 1000,
+    "duplicate_use": "determinism/noise audit only; never a second training target",
+    "same_dataset_seed_reset_each_branch": true,
+    "same_prefix_and_history_replay": true,
+    "branches_serial_within_context": true,
+    "context_workers_max": 2,
+    "saved_payload": "one shared context snapshot plus each branch action tensor and RGB256/state/bottle endpoint after exactly eight actions",
+    "forbidden_payload": ["reward", "success", "outcome", "policy action", "fabricated intermediate target frames"],
+    "collection_gate": {
+      "exact_contexts": 200,
+      "exact_branches": 1200,
+      "context_determinism_all": true,
+      "factual_duplicate_determinism_all": true,
+      "contexts_with_at_least_three_of_four_causal_effects_min_fraction": 0.8,
+      "each_transport_effect_min_fraction": 0.7,
+      "failure_behavior": "write a failed receipt and stop before v169 baseline generation or training; retain every selected row"
+    },
+    "recovery": "uncommitted worker directories are never deleted or reused; before resume they are atomically moved under REG/_forensic_uncommitted/batch_XXX/<timestamp-hash>, each with a quarantine receipt; on any exception all workers undergo terminate, bounded join, kill-if-alive, final join and an atomic root-level batch failure receipt records exception/resource/PIDs/cleanup; committed batch trees contain exactly rows/ plus batch_report.json"
+  },
+  "appearance_baseline": {
+    "model": "frozen v169 RGB world model",
+    "release_and_runtime_sha256_required": true,
+    "per_sample_input": "the identical context/history and that branch's exact eight-action tensor",
+    "used_output": "frame index 7 endpoint only",
+    "intermediate_frames": "v169 frames 0:7 are appearance outputs but never endpoint-residual training targets",
+    "weights_modified": false,
+    "reward_or_policy_loaded": false
+  },
+  "endpoint_residual_head": {
+    "architecture": "single-endpoint ResidualUNet128FiLM derived from the frozen v446 topology, not its weights",
+    "visual_input": "v169 endpoint RGB plus last context RGB, six channels, downsampled to 128",
+    "action_condition": "four history plus eight future 14D actions, normalized from fit-fold public-train actions only; explicit anchor-relative right6 endpoint/path features and post-close phase",
+    "base_channels": 16,
+    "output": "one 3-channel 128x128 float residual, bilinear upsampled to 256x256",
+    "residual_parameterization": "255*tanh(raw); train and audit on float clip(v169_endpoint+residual,0,255) without rounding",
+    "target": "simulator RGB256 endpoint; no target rounding, STE, reward, mask, handcrafted RGB cap or deployment gate during fitting",
+    "loss": {
+      "endpoint_rgb_l1": 1.0,
+      "endpoint_rgb_gradient_l1": 0.25,
+      "same_context_pair_delta_l1": 0.5
+    },
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "epochs": 50,
+    "batch_size": 8,
+    "precision": "bf16",
+    "gradient_clip": 1.0,
+    "dataloader_workers": 2,
+    "cpu_affinity": "0-11",
+    "early_stopping_or_post_audit_retuning": false,
+    "fixed_models_trained_before_audit": "five episode-OOF action-conditioned heads, five same-capacity context-only controls, five fixed within-episode phase-shuffle controls, and one all-200 final head"
+  },
+  "freeze_boundary": {
+    "before_any_promotion_audit": [
+      "hash all model weights, training code, normalized action statistics, folds, row receipt and v169 dependency",
+      "write immutable candidate manifest",
+      "prohibit optimizer restart, hyperparameter change, row filtering or alternate checkpoint selection"
+    ],
+    "audit_order": [
+      "five-fold OOF endpoint reconstruction",
+      "same-context action-causal counterfactual audit",
+      "OOF factual recursive endpoint audit",
+      "one official reward audit last"
+    ]
+  },
+  "post_freeze_gates": {
+    "oof_endpoint": {
+      "candidate_over_frozen_v169_mae_max": 0.95,
+      "factual_branch_ratio_max": 1.0,
+      "each_counterfactual_branch_ratio_max": 0.98,
+      "passing_folds_min": 4,
+      "passing_episodes_min": 12
+    },
+    "action_causal": {
+      "candidate_over_same_capacity_context_only_mae_max": 0.95,
+      "candidate_over_within_episode_phase_shuffle_mae_max": 0.97,
+      "passing_folds_min": 4,
+      "paired_target_delta_direction_cosine_positive_fraction_min": 0.6,
+      "same_context_distinct_action_prediction_nonzero_fraction_min": 0.95
+    },
+    "recursive_factual": {
+      "selection": "action-only preregistered public-train OOF post-close 32-action chains; no counterfactual or reward selection",
+      "frame8_mae_over_v169_max": 0.98,
+      "frame32_mae_over_v169_max": 1.002,
+      "finite_all": true,
+      "left_or_gate0_used": false
+    },
+    "official_reward_last": {
+      "reward_checkpoint_sha256_required": true,
+      "candidate_frozen_before_reward_load": true,
+      "paired_mean_over_v169_min": 0.98,
+      "paired_positive_fraction_min": 0.55,
+      "single_preregistered_audit_only": true,
+      "result_may_only_promote_or_reject_the_unique_frozen_candidate": true,
+      "result_must_not_select_a_checkpoint_or_trigger_retuning": true
+    }
+  },
+  "runtime_contract": {
+    "first_call": "compute the complete frozen-v169 eight-frame prediction",
+    "left_instruction": "return v169 output bit-exact for all eight frames",
+    "right_gate0": "return v169 output bit-exact for all eight frames",
+    "right_postclose_gate1": "frames 0:7 remain v169 bit-exact; apply the unique frozen residual head only to frame index 7; clip and round once to uint8",
+    "action_generation_or_selection": false,
+    "policy_or_reward_modification": false,
+    "participant_component": "world-model endpoint image prediction only"
+  },
+  "promotion": {
+    "on_all_pass": "authorize packaging and a separate short raw-Pi0.5 zero-update parent diagnostic only; formal RL remains raw Pi0.5 fresh official fixed-budget and requires a separate preregistration",
+    "on_any_fail": "stop the lineage; do not inspect development/final/hidden, tune on reward, change policy actions or launch RL"
+  },
+  "guards": {
+    "development_or_final_used": false,
+    "hidden_or_submission_used": false,
+    "reward_loaded_before_unique_freeze": false,
+    "task_outcome_selection": false,
+    "policy_loaded_or_modified": false,
+    "policy_updates": 0,
+    "real_submission": false,
+    "formal_rl_authorized": false,
+    "remote_deployed_or_started": false
+  }
+}

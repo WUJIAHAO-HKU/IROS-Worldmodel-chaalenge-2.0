@@ -1,0 +1,144 @@
+{
+  "format": "strict-track2-v525-v524-phase-a-worker-receipt-format-mismatch-failure-forensic-v1",
+  "status": "failed_no_retry_computation_complete_readonly_reconciliation_required",
+  "passed": false,
+  "seed": 1661,
+  "name": "v525_v524_phase_a_worker_receipt_format_readonly_reconciliation",
+  "v524_authority": {
+    "registration_tree": {
+      "file_count": 1,
+      "logical_file_bytes": 64970,
+      "sha256sum_lines_digest_sha256": "93f58f95c489f79f4d58cb36cd3d16815444b69674e6bd6270dbe09f1d956e7f",
+      "canonical_json_triples_digest_sha256": "8253ef78bf8eadcd7e47e3825cb94c109c2030f66103c4513c5829006136dd72"
+    },
+    "authority_receipt": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_exact_source_roles_repair_execution_authority_seed1660_20260826/authority_receipt.json",
+      "sha256": "15aa29b6d83a807bfeed2298c75ddbe158d5bffdd508a2145a3164aecf6bcedf",
+      "logical_bytes": 64970
+    },
+    "schema": {"top_keys": 71, "checks": 33, "source_closure": 27, "passed": true},
+    "current": true,
+    "consumed_by_v524_attempt": true
+  },
+  "v524_attempt": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v524_v523_phase_a_cache_qualification_attempt_seed1660_20260826",
+    "tree": {
+      "file_count": 4,
+      "logical_file_bytes": 44268,
+      "sha256sum_lines_digest_sha256": "83b63f8a8174ea8d3e1077c263ff3d0dd43403d37992b45c99c811d365eb2c7a",
+      "canonical_json_triples_digest_sha256": "14c23172981c21dd6ec783fa187b6ee51aaa1fe9b01b8ca5620cc418ffe4ff91"
+    },
+    "records": {
+      "intent": {"sha256": "225d3ea73d3d4f834dbfe6d591b457b5c9e8a17cc58c5bd48ea11344c59e58b6", "logical_bytes": 5588},
+      "stdout": {"sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "logical_bytes": 0},
+      "stderr": {"sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "logical_bytes": 0},
+      "terminal": {"sha256": "07c00c0a3f8bc52b2f0a642276be46f34d131473a876aecf9f354eca2e16498a", "logical_bytes": 38680}
+    },
+    "terminal_status": "failed_no_retry",
+    "terminal_error_type": "RuntimeError",
+    "terminal_error": "qualification A RNG receipt",
+    "retry_authorized": false
+  },
+  "v524_qualification": {
+    "root": "/root/v524_v523_phase_a_cache_qualification_seed1660_20260826",
+    "tree": {
+      "file_count": 20,
+      "logical_file_bytes": 950124602,
+      "sha256sum_lines_digest_sha256": "6cdde75692d37b7eead3333d867b22dc6404f545bb5861b2f30b425fb4270dac",
+      "canonical_json_triples_digest_sha256": "223308d02ed5a4a082b4de639292030444a627bbbac7f361fac1f9c6a7fcbd1f"
+    },
+    "terminal": {"sha256": "93d38e010b37275a740bf3ccae2b935b08e40b6953657c12838780e5e2b542a1", "logical_bytes": 83762, "passed": true},
+    "report": {"sha256": "6514b497f994bc502fc46dc6c5a90865dbb126402935cfa359a1af2fe0fbc173", "logical_bytes": 87681, "passed": true},
+    "independent_final_audit": {"sha256": "3d702b36a3589d737c9f21e0a1182c59f636753faa1143a2adc85d90d3a674bc", "logical_bytes": 9935, "passed": true},
+    "independent_precleanup_audit": {"sha256": "9ceeaf9d47e901b88628a095d18b8bdc785105ebfc2b6bd0f434ca573418ef32", "logical_bytes": 9629, "passed": true},
+    "cleanup_receipt": {"sha256": "9786761a7f8159d3115fe5ab45f604eba20927feb0be2b26ce75931e73a0fe44", "logical_bytes": 3470, "passed": true}
+  },
+  "worker_receipts": {
+    "process_a": {
+      "receipt": {"sha256": "89b7ce9e0ee6263fba2cb5b7e393664330776cfa7914ad9715e6ff2ed7346414", "logical_bytes": 8871},
+      "call_events": {"sha256": "9b83ed569d597e887cba4d483f4fae145cdaf9330a0866f51f49eea6799bed89", "logical_bytes": 5431045, "count": 1000},
+      "process_log": {"sha256": "ed26dc2ab5f02459e12accd420889cb4e7ae89c06eee6d80573c18b341781f56", "logical_bytes": 467837, "line_count": 2001},
+      "completion_receipt": {"sha256": "87dc0cffd166298a9d5d260463ed5bf43cf5d9f58a7aa724c08386336944c201", "logical_bytes": 1615, "passed": true}
+    },
+    "process_b": {
+      "receipt": {"sha256": "90ac9ff4eab3a06c02a2937ebe0f35a20e68145862e418ef50048c07c2d15214", "logical_bytes": 8912},
+      "call_events": {"sha256": "66ac9f81e846768ea95629050a544804ea4e1cb245f7b41f388b208fcc82cd24", "logical_bytes": 5431045, "count": 1000},
+      "process_log": {"sha256": "a78896e81c0e9a9679b3efb3263872220cd6f1bef6285add3120fcce1bfc8136", "logical_bytes": 467837, "line_count": 2001},
+      "completion_receipt": {"sha256": "aca15ae882dfda926e108bd6243f90ddce3dfec9458ee17e88a8351e3d6e6d33", "logical_bytes": 1615, "passed": true}
+    }
+  },
+  "completed_computation": {
+    "branches": ["A", "B"],
+    "calls_per_branch": 1000,
+    "total_runtime_delegate_calls": 2000,
+    "started_markers_per_branch": 1000,
+    "completed_markers_per_branch": 1000,
+    "total_durable_markers": 4000,
+    "marker_order_per_call": ["rng_proxy_call_started", "rng_proxy_call_completed"],
+    "ordinal_range_per_branch": [0, 999],
+    "python_all_four_stages_equal_per_branch": 1000,
+    "numpy_all_four_stages_equal_per_branch": 1000,
+    "torch_cpu_exit_restored_per_branch": 1000,
+    "torch_cuda_exit_restored_per_branch": 1000,
+    "rng_unchanged_per_branch": 1000,
+    "raw_warning_count_per_branch": 1000,
+    "other_warning_count_per_branch": 0
+  },
+  "sole_mismatch": {
+    "all_other_launcher_worker_receipt_predicates": true,
+    "actual_format": "strict-track2-v523-v522-rng-isolated-cache-worker-receipt-v1",
+    "launcher_expected_format": "strict-track2-v524-v523-rng-isolated-cache-worker-receipt-v1",
+    "false_predicate_count": 2,
+    "false_predicates": [
+      {"path": ["process_a", "format"], "actual": "strict-track2-v523-v522-rng-isolated-cache-worker-receipt-v1", "expected": "strict-track2-v524-v523-rng-isolated-cache-worker-receipt-v1"},
+      {"path": ["process_b", "format"], "actual": "strict-track2-v523-v522-rng-isolated-cache-worker-receipt-v1", "expected": "strict-track2-v524-v523-rng-isolated-cache-worker-receipt-v1"}
+    ],
+    "process_a_failed_first": true,
+    "process_b_would_fail_same_predicate": true,
+    "computation_replay_required": false,
+    "readonly_normalization_required": true
+  },
+  "readonly_normalization_contract": {
+    "original_worker_receipts_canonical_sha256": "d00018deb7ea3ae660061e8879dc4a4f6d56bc65bd089c28c4a0580239c08101",
+    "normalized_worker_receipts_canonical_sha256": "c409c2b8f85641c23bc68fb06512cd664c84108d4b8b629480906193737f4b32",
+    "recursive_diff_count": 2,
+    "recursive_diff_canonical_sha256": "fdc7999068d0e630272e6cb226b6b342692b5f8324cd506d593b5993b5f52779",
+    "recursive_diff_full_paths": [["process_a", "format"], ["process_b", "format"]],
+    "normalized_status": "computation_verified_readonly_launcher_consumer_schema_mismatch",
+    "standalone_phase_a_success_claimed": false,
+    "new_computation_claimed": false
+  },
+  "execution_partition": {
+    "launcher_invocations": 1,
+    "nested_phase_a_driver_invocations": 1,
+    "phase_a_worker_invocations": 2,
+    "rng_proxy_delegate_invocations": 2000,
+    "phase_a_retry_invocations": 0,
+    "training_invocations": 0,
+    "oof_invocations": 0
+  },
+  "safety_and_cleanup": {
+    "services_restored": true,
+    "service_health": {
+      "18084_health": {"http_code": 200, "body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd", "body_bytes": 18},
+      "8005_v1_health": {"http_code": 200, "body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0", "body_bytes": 106}
+    },
+    "phase_a_pids": [],
+    "gpu_compute_pids": [],
+    "training_launched": false,
+    "cache_reused": false,
+    "reward_read": false,
+    "dev_hidden_final_outcome_read": false,
+    "oof_executed": false
+  },
+  "authorization_boundary": {
+    "readonly_reconciler_invocations_authorized": 1,
+    "all_launcher_driver_worker_proxy_delegate_phase_a_replay_authorized": false,
+    "training_authorized": false,
+    "cache_reuse_authorized": false,
+    "reward_read_authorized": false,
+    "dev_hidden_final_outcome_read_authorized": false,
+    "oof_authorized": false,
+    "retry_authorized": false
+  }
+}

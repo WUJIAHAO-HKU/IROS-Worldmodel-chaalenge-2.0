@@ -1,0 +1,19 @@
+{
+  "format": "strict-track2-post-v15-spatial-gate-v2-preregistration-v1",
+  "created_at": "2026-08-11T00:12:00+08:00",
+  "frozen_checkpoint": "post_v15_residual_bounded8_reward_pilot200/checkpoint_step_000200",
+  "single_candidate": {
+    "name": "contact_hard_motion_dilate9",
+    "definition": "Keep the frozen correction only inside y=72:232,x=30:210 and where a target-free 9x9-dilated mask detects frozen-V15 motion over 2/255 relative to the last real context frame; no feather or target/reward is used at inference."
+  },
+  "reason": "The preregistered feathered mask passed RGB source gates but quantized all official corrections away. Removing only the feather tests whether task-region motion corrections retain reward while protecting static pixels.",
+  "promotion_gates": {
+    "uint8_official_overall_rgb_non_regression_percent": 0.0,
+    "uint8_synthetic_rgb_non_regression_percent": 0.0,
+    "official_reward_mae_improvement_percent_min": 3.0,
+    "synthetic_reward_mae_non_regression": true,
+    "left_and_right_reward_mae_non_regression": true,
+    "maximum_absolute_residual_255": 8.0
+  },
+  "policy_development_or_acceptance_consumed": false
+}

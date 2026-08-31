@@ -1,0 +1,178 @@
+{
+  "format": "strict-track2-v475-serial-interface-s1-migration-contract-v1",
+  "status": "frozen_design_contract_unexecuted",
+  "seed": 1617,
+  "classification": "mechanical interface repair lineage only; no world-model parameter, library, selection, threshold, policy, reward, or evaluation-result adaptation",
+  "ancestry": {
+    "parent_model_lineage": "v474/v473 median4-C group-E endpoint-only parent",
+    "v474_formal_preregistration": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v474_v473_parent_s1_seed1617_r6_20260824/preregistration.json",
+      "sha256": "c2a904a6ef36b5466a97fccdbe2e04185cb74356377630a4649bace00a02eee3"
+    },
+    "v474_interface_failure_log": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v474_v473_parent_s1_seed1617_r6_20260824/s1_generator.log",
+      "sha256": "156c1558a2b494d9aefb9c0b28662bec682f12ab4c39d6944ee119c87244ffcb",
+      "failure": {
+        "scalar_batch_bitexact": false,
+        "batch_permutation_bitexact": false,
+        "mixed_left_bitexact": true
+      },
+      "performance_outputs_created": false,
+      "generation_report_created": false
+    },
+    "v474_retry_authorized": false,
+    "v474_old_formal_and_launcher_must_not_be_reused": true
+  },
+  "frozen_parent_semantics": {
+    "candidate_formula": "Bb + frozen offline C + frozen offline E",
+    "runtime_new_bnt_calls": 0,
+    "bnt_statement": "C/E targets absorbed Bnt offline in v473; v475 calls only the true-request v169 baseline Bb and never calls v169 with donor actions",
+    "library_and_parameters_bitexact_to_v474": true,
+    "context_neighbor_rule_bitexact_to_v474": true,
+    "action_prototype_rule_bitexact_to_v474": true,
+    "gate_rule_bitexact_to_v474": true,
+    "endpoint_only": true,
+    "left_and_gate0_full8_bitexact": true,
+    "enabled_frames0_to6_bitexact": true,
+    "enabled_frame7_only_may_change": true,
+    "reward_imports_or_calls_in_runtime": false,
+    "policy_updates": 0
+  },
+  "serial_interface_contract": {
+    "authoritative_unit": "one request at a time",
+    "authoritative_order": "selection order, then chunk index 0,1,2,3; no cross-request batching or reordering is permitted",
+    "v169_call_batch_size_exact": 1,
+    "public_batch_semantics": "ordered serial map of the authoritative scalar operation; stack outputs without changing call order",
+    "forbidden_backend_call": "no v169.predict_batch call with N greater than 1 anywhere in v475 runtime or S1 generator",
+    "scalar_shapes": {
+      "context": [5, 256, 256, 3],
+      "history": [4, 14],
+      "future": [8, 14],
+      "seed": "scalar int64-compatible",
+      "instruction": "scalar string",
+      "baseline_and_output": [8, 256, 256, 3],
+      "override_action_feature": [54]
+    },
+    "required_scalar_apis": {
+      "predict_one_with_baseline": "(context, history, future, seed, instruction) -> (same_request_v169, candidate, decision)",
+      "predict_one_s1_pair": "(context, history, true_future, seed, instruction, override_action_feature) -> (same_request_v169, candidate_true, candidate_override, true_decision, override_decision)"
+    },
+    "shared_baseline_rule": "predict_one_s1_pair invokes true-request v169 exactly once with singleton N=1 and constructs true and override candidates from that identical in-memory Bb; it must not obtain two independently generated baselines",
+    "override_rule": "override changes only the 54D E query; context, history, true future for gate/no-transport, Bb, C, output assembly, and recursive true context are shared with the true candidate",
+    "public_batch_wrapper_rule": "if retained, predict_batch*, including mixed-arm input, must be a literal ordered loop over scalar APIs; no vectorized v169 call, hidden regrouping, or microbatching",
+    "prohibitions": [
+      "no performance metric, RGB error, reward, outcome, dev, hidden, or final result may influence this interface repair",
+      "no retry or continuation under v474 names, paths, receipts, or authorization",
+      "no request-order or batch-size-dependent candidate definition"
+    ]
+  },
+  "left_comparator_contract": {
+    "definition": "for each selected left request, the comparator is the same-request scalar v169 Bb returned by that request's single predict_one_with_baseline call",
+    "separate_independent_or_batched_left_v169_call": false,
+    "candidate_required_bitexact_to_comparator": true,
+    "comparison_scope": "all 8 frames, all 256x256x3 uint8 elements, per request before concatenation",
+    "stored_arrays": {
+      "left_same_request_scalar_v169_frames": [12, 8, 256, 256, 3],
+      "left_v475_frames": [12, 8, 256, 256, 3]
+    }
+  },
+  "interface_preflight": {
+    "must_precede_any_full_s1_or_reward_load": true,
+    "fixed_probe_order": [
+      "right selection row 0 chunk 0",
+      "left selection row 0 chunk 0",
+      "right selection row 1 chunk 0",
+      "left selection row 1 chunk 0"
+    ],
+    "required_checks": {
+      "all_backend_v169_batches_are_singleton": true,
+      "scalar_api_output_shape_dtype": true,
+      "serial_batch_wrapper_equals_direct_scalar_stack_bitexact": true,
+      "fixed_permutation_after_inverse_restore_bitexact": true,
+      "pair_shared_baseline_object_values_bitexact": true,
+      "override_does_not_change_gate_context_or_baseline": true,
+      "mixed_left_equals_same_request_scalar_v169_bitexact": true
+    },
+    "on_fail": "write immutable v475 interface-fail receipt and hard-stop before full RGB generation or official reward load; no retry under v475",
+    "on_pass": "authorizes only the already-preregistered one-shot v475 S1 generation, not zero-update or RL"
+  },
+  "selection_reuse": {
+    "source_lineage": "v474 r6 action-only selection, copied byte-for-byte into a new v475 REG or referenced immutably by exact hash",
+    "materializer_sha256": "f2b531a0609a0b2fe5451334b07154ba8b8479be6866d5e2ca712601f4e6e158",
+    "selection_sha256": "b8e8002897b9ec0e1b386eda6d72a6bc2a09c8e322764a1c6c27b96cf902bd19",
+    "selection_receipt_sha256": "31a54148eace7adc31fbb5ea21efb2629600d02d1c4bf4c78f69ada8ed69fcad",
+    "right_samples": 32,
+    "right_chunks": 4,
+    "right_requests": 128,
+    "phase_counts": {"early": 8, "grasp": 8, "postgrasp": 8, "endpoint": 8},
+    "left_samples": 12,
+    "mask_sha256": "977e3b256e92508084aba3a18619918ef232126198e8c6e2bc13eb838df3ed34",
+    "active": 88,
+    "gate0": 40,
+    "fraction": 0.6875,
+    "shuffle_donor_index_sha256": "afb8dcb77d2f6a07cbdbe72550aa8cae36bfa65d906046a16319c5ad614710c3",
+    "override_action_features_sha256": "f5b89ba67f344c3f603941a4dc1fa96df199c01c245998a3f3033db57d2e5a5a",
+    "identity_reselection_or_rematerialization": false,
+    "selection_used_rgb_reward_outcome_or_model": false
+  },
+  "s1_migration": {
+    "new_lineage_required": "v475",
+    "new_REG_required": true,
+    "new_runtime_manifest_release_static_audit_required": true,
+    "new_formal_preregistration_required": true,
+    "new_generator_auditor_launcher_hashes_required": true,
+    "run_count_exact": 1,
+    "right_protocol": "32 samples x four recursive 8-frame chunks; each v475 true endpoint updates only that sample's next true context",
+    "left_protocol": "12 scalar requests using the same-request scalar v169 comparator",
+    "freeze_all_RGB_before_official_reward_load": true,
+    "official_reward_load_count_exact": 1,
+    "thresholds": {
+      "first8_rgb_mae_ratio_to_v169_max": 0.998,
+      "recursive32_rgb_mae_ratio_to_v169_max": 1.002,
+      "reward_prediction_mae_ratio_to_v169_max": 1.0,
+      "endpoint_reward_prediction_mae_ratio_to_v169_max": 1.0,
+      "final_reward_mean_ratio_to_v169_min": 0.95,
+      "true_over_action_shuffle_target_mae_max": 0.998,
+      "postclose_structure_fraction_min": 0.2,
+      "postclose_structure_fraction_max": 0.8,
+      "left12_full8_bitexact": true,
+      "right_gate0_full8_bitexact": true,
+      "right_enabled_frames0_to6_bitexact": true,
+      "no_transport_E_exact_zero": true,
+      "serial_scalar_wrapper_bitexact": true,
+      "serial_fixed_permutation_bitexact": true,
+      "all_required": true
+    },
+    "on_s1_fail": "immutable candidate-fail receipt; no retry, zero-update, endpoint-parent data, or RL",
+    "on_s1_pass": "authorize only one separately preregistered fresh raw-Pi0.5 zero-update trace; do not directly authorize endpoint-parent data, policy update, or formal RL"
+  },
+  "formal_preregistration_requirements": {
+    "status": "preregistered_public_s1_one_shot_authorized",
+    "execution_closure_must_bind": [
+      "v475 runtime",
+      "v475 package",
+      "v475 release manifest and tree",
+      "v475 static interface/release audit",
+      "v475 generator",
+      "v475 auditor",
+      "scalar wrapper if separate",
+      "selection and receipt",
+      "official reward checkpoint",
+      "official T5 tree"
+    ],
+    "launcher_is_postregistration_orchestrator": true,
+    "launcher_must_bind_formal_preregistration_sha256": true,
+    "launcher_must_not_be_in_formal_execution_closure": true
+  },
+  "authorization": {
+    "contract_implementation_authorized": true,
+    "interface_preflight_authorized_after_full_static_closure": true,
+    "s1_run_authorized_now": false,
+    "zero_update_authorized": false,
+    "endpoint_parent_data_authorized": false,
+    "policy_update_authorized": false,
+    "formal_rl_authorized": false,
+    "hidden_or_final_data": false,
+    "real_submission": false
+  }
+}

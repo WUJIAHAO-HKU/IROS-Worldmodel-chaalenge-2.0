@@ -1,0 +1,46 @@
+{
+  "format": "strict-track2-preupdate-logprob-consistency-preregistration-v5",
+  "created_at": "2026-08-11T13:49:00+08:00",
+  "registered_before_diagnostic": true,
+  "purpose": "Determine whether rollout and actor-recomputed Pi0.5 action log probabilities already disagree before any optimizer step, after the V15.7 one-update checkpoint produced zero paired real-RoboTwin success gain and showed high aggregate KL/clipping.",
+  "base_runtime": "artifacts/strict_track2_official_20260810/full_budget_gpu_cache_release_runtime",
+  "base_actor_worker_sha256": "24347c8d08e99fc273630f874ee5435e934a8fdfb028f0fb1c937c258edaeefb",
+  "instrumentation_patch": "pipeline/patches/rlinf_preupdate_logprob_observation.patch",
+  "instrumentation_scope": "In the actual EmbodiedFSDPActor used by Pi0.5, compare full train mode, train mode with the officially frozen VLM restored to eval, and full eval mode against rollout behavior probabilities; restore mode and abort before policy loss, backward, or optimizer step.",
+  "diagnostic_overrides": {
+    "runner.max_steps": 1,
+    "runner.max_epochs": 1,
+    "algorithm.rollout_epoch": 1,
+    "env.train.total_num_envs": 4,
+    "env.train.group_size": 4,
+    "env.train.max_episode_steps": 8,
+    "env.train.max_steps_per_rollout_epoch": 8,
+    "actor.global_batch_size": 4,
+    "actor.micro_batch_size": 4,
+    "actor.enable_offload": true,
+    "rollout.enable_offload": true,
+    "actor.seed": 1242
+  },
+  "metrics": [
+    "delta mean, absolute mean and maximum",
+    "importance ratio mean and absolute error from one",
+    "official clip-bound violation fraction",
+    "exact equality fraction",
+    "element count and exact equality fraction",
+    "eval-versus-rollout and train-versus-eval absolute log-ratio means",
+    "frozen-VLM-restored versus rollout absolute log-ratio mean and equality fraction"
+  ],
+  "decision": {
+    "consistent": "If the first train-mode forward ratio is approximately one and clipping approximately zero, attribute one-update KL primarily to optimizer movement and diagnose update magnitude versus reward signal next.",
+    "inconsistent": "If the first train-mode forward ratio materially differs from one, diagnose rollout-versus-training probability compatibility before any formal 1000-step run.",
+    "no_checkpoint_or_policy_quality_claim": true
+  },
+  "track2_guards": {
+    "official_source_runtime_modified": false,
+    "pi05_weights_modified": false,
+    "reward_modified": false,
+    "actions_modified": false,
+    "optimizer_step_allowed": false,
+    "development32_or_acceptance128_used": false
+  }
+}

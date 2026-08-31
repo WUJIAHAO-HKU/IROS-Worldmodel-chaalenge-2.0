@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BASE='/root/autodl-tmp/IROS_WAM_2.0 challenge'
+JOINT="$BASE/artifacts/strict_track2_joint_augmentation_20260810"
+RUN="$JOINT/v208_v205_mixed_right_gripper_contrast_long32_seed1407"
+P="$BASE/pipeline/scripts"
+RLINF="$BASE/third_party/WorldArena-2.0/WorldArena-2.0-main/RL_env_benchmark"
+PY='/root/miniconda3/envs/go1/bin/python'
+LEFT="$JOINT/v202_v201_public_terminal_reward_calibration_seed1402/selected_model"
+RIGHT="$JOINT/v205_v202_public_right_terminal_multichunk_seed1405/selected_right_expert"
+PUBLIC="$BASE/artifacts/adjust_bottle_windows_full"
+PUBLIC_SPLIT="$JOINT/v205_v202_public_right_terminal_multichunk_seed1405/public_demo_split.json"
+MIXED="$JOINT/v163_mixed_reward_windows"
+ONPOLICY="$JOINT/onpolicy_windows_full128_stride4"
+FAILURE_SPLIT="$RUN/audit/failure_holdout_split.json"
+INSTRUCTIONS="$JOINT/reward_alignment/exact_instruction_map128.json"
+REWARD="$BASE/artifacts/official_resources/reward_model/adjust_bottle/full_weights.pt"
+T5="$BASE/artifacts/official_resources/reward_model/t5-base"
+RESET="$BASE/artifacts/rlinf_public_reset_adjust_bottle_train40/manifest.json"
+export PYTHONPATH="$BASE/pipeline:$BASE/pipeline/scripts:$RLINF"
+
+test ! -e "$RUN/audit/baseline/public_success_holdout.npz"
+"$PY" "$P/export_strict_track2_p2_reward_cache.py" \
+  --windows "$PUBLIC" --split-manifest "$PUBLIC_SPLIT" \
+  --baseline-left "$LEFT" --baseline-right "$RIGHT" \
+  --candidate-left "$LEFT" --candidate-right "$RIGHT" \
+  --output "$RUN/audit/baseline/public_success_holdout.npz" \
+  --chunks 4 --max-sequences 40 --device cuda \
+  >"$RUN/audit/baseline/public_success_export.log" 2>&1
+"$PY" "$P/evaluate_strict_track2_p2_reward_alignment.py" \
+  --cache "$RUN/audit/baseline/public_success_holdout.npz" \
+  --reward-checkpoint "$REWARD" --t5-model "$T5" --reset-manifest "$RESET" \
+  --output "$RUN/audit/baseline/public_success_reward.json" --batch-size 32 --device cuda \
+  >"$RUN/audit/baseline/public_success_reward.log" 2>&1
+
+test ! -e "$RUN/audit/baseline/public_failure_holdout.npz"
+"$PY" "$P/export_strict_track2_p2_reward_cache.py" \
+  --windows "$ONPOLICY" --split-manifest "$FAILURE_SPLIT" \
+  --instruction-map "$INSTRUCTIONS" \
+  --baseline-left "$LEFT" --baseline-right "$RIGHT" \
+  --candidate-left "$LEFT" --candidate-right "$RIGHT" \
+  --output "$RUN/audit/baseline/public_failure_holdout.npz" \
+  --chunks 4 --max-sequences 64 --device cuda \
+  >"$RUN/audit/baseline/public_failure_export.log" 2>&1
+"$PY" "$P/evaluate_strict_track2_p2_reward_alignment.py" \
+  --cache "$RUN/audit/baseline/public_failure_holdout.npz" \
+  --reward-checkpoint "$REWARD" --t5-model "$T5" --reset-manifest "$RESET" \
+  --output "$RUN/audit/baseline/public_failure_reward.json" --batch-size 32 --device cuda \
+  >"$RUN/audit/baseline/public_failure_reward.log" 2>&1
+
+touch "$RUN/audit/baseline/COMPLETE"
+echo V208_BASELINE_AUDIT_COMPLETE

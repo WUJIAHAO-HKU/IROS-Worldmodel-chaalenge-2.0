@@ -1,0 +1,43 @@
+{
+  "format": "strict-track2-joint-action-gated-reward-selection-preregistration-v1",
+  "registered_before_reward_evaluation": true,
+  "objective": "Select a mixed official-success/on-policy-failure autoregressive expert behind the already frozen action-domain gate, with emphasis on the terminal official reward actually optimized by one-chunk GRPO.",
+  "fixed_components": {
+    "base_release": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/releases/track2_v15_best",
+    "action_gate": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/action_source_gate_v1",
+    "joint_training_run": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v155_joint_domain_parent_3000",
+    "joint_training_preregistration_sha256": "aed634e93d6cdb16a300c694bf851d6a98b1793b0832ee5806e8fdb1ade2a7a4",
+    "official_reward_checkpoint_sha256": "5a2066eec31e991a2c006870f73cfc5c3e0afe5b76e9bd91119c467cb9f8de47"
+  },
+  "candidate_steps": [1000, 1500, 3000],
+  "selection_data": {
+    "world_model_validation": "episode-disjoint 64-window on-policy validation split",
+    "official_demo_nonregression": "16 official windows routed to frozen V15 and required bit-exact",
+    "real_robotwin_policy_development_or_acceptance_used": false
+  },
+  "required_gates": {
+    "official_demo_bit_exact_count": 16,
+    "onpolicy_overall_rgb_improvement_percent_min": 15.0,
+    "onpolicy_right_contact_rgb_improvement_percent_min": 15.0,
+    "onpolicy_left_rgb_improvement_percent_min": 10.0,
+    "official_reward_overall_mae_improvement_percent_min": 0.0,
+    "official_reward_right_mae_improvement_percent_min": 0.0,
+    "official_reward_terminal_mae_improvement_percent_min": 0.0,
+    "official_reward_right_terminal_mae_improvement_percent_min": 0.0,
+    "official_reward_terminal_pearson_nonregression": true
+  },
+  "ranking": [
+    "maximize right terminal official-reward MAE improvement",
+    "maximize overall terminal official-reward MAE improvement",
+    "maximize right contact RGB improvement"
+  ],
+  "track2_guards": {
+    "pi05_modified": false,
+    "reward_model_modified": false,
+    "official_rl_config_or_budget_modified": false,
+    "participant_action_selection": false,
+    "mpc": false,
+    "development32_used": false,
+    "acceptance128_used": false
+  }
+}

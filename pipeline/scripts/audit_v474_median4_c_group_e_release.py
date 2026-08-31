@@ -1,0 +1,47 @@
+"""Static/package and deterministic-interface audit for v474; no dev/reward/model inference."""
+from __future__ import annotations
+import argparse,ast,hashlib,importlib,json,os
+from datetime import datetime,timezone
+from pathlib import Path
+import numpy as np
+def sha(p):
+ h=hashlib.sha256()
+ with Path(p).open("rb") as f:
+  for b in iter(lambda:f.read(8<<20),b""):h.update(b)
+ return h.hexdigest()
+def atomic(p,v):
+ p=Path(p);tmp=p.with_name(p.name+".tmp")
+ with tmp.open("w") as f:json.dump(v,f,indent=2,sort_keys=True);f.flush();os.fsync(f.fileno())
+ os.replace(tmp,p)
+class FakeV169:
+ def __init__(self,*args,**kwargs):self.calls=0
+ def predict_batch(self,context,history,future,seeds,instructions):
+  self.calls+=1;out=np.empty((len(context),8,256,256,3),np.uint8)
+  for i,(seed,text) in enumerate(zip(seeds,instructions)):out[i]=np.uint8((int(seed)+len(str(text)))%193)
+  return out
+def main():
+ p=argparse.ArgumentParser()
+ for n in ("preregistration","release","runtime","packager","s1-wrapper","output"):p.add_argument(f"--{n}",type=Path,required=True)
+ a=p.parse_args();pre=json.loads(a.preregistration.read_text());root=a.release.resolve();mp=root/"v474_median4_c_group_e_manifest.json";man=json.loads(mp.read_text());checks={};runtime=(root/man["runtime"]).resolve();library=(root/man["library"]).resolve();vc=(root/man["v169_closure"]).resolve()
+ checks["source"]=sha(a.runtime)==pre["source"]["runtime_sha256"]==man["runtime_source_sha256"] and sha(a.packager)==pre["source"]["packager_sha256"]==man["package_source_sha256"] and sha(a.s1_wrapper)==pre["source"]["s1_wrapper_sha256"] and sha(Path(__file__))==pre["source"]["auditor_sha256"] and sha(runtime)==man["sha256"]["runtime_source"] and sha(library)==man["all200_library_sha256"]==man["sha256"]["library"] and sha(vc)==man["sha256"]["v169_closure"]
+ required={"format":"track2-v474-median4-c-group-e-parent-release-v1","median_definition":"sort-float32-middle-two-times-0.5","endpoint_only":True,"official_reward_runtime_used":False,"policy_modified":False,"formal":False,"endpoint_parent_data_authorized":False,"s1_authorized":False,"rl_authorized":False};checks["manifest"]=all(man.get(k)==v for k,v in required.items()) and man["v169_closure_digest"]==pre["v169_closure_digest"] and man["v169_release_manifest_sha256"]==pre["v169"]["release_manifest_sha256"] and man["v169_library_manifest_sha256"]==pre["v169"]["library_manifest_sha256"]
+ vroot=Path(pre["v473"]["root"]);vpre=json.loads((vroot/"preregistration.json").read_text());checks["ancestry"]=all((vroot/r).is_file() and sha(vroot/r)==d for r,d in pre["v473"]["immutable_sha256"].items()) and man["v473_contract_sha256"]==man["sha256"]["v473_contract"]==vpre["contract"]["sha256"]==sha(vpre["contract"]["path"])==sha(root/"v473_contract.json") and man["v473_preregistration_sha256"]==man["sha256"]["v473_preregistration"]==pre["v473"]["immutable_sha256"]["preregistration.json"]==sha(root/"v473_preregistration.json") and man["v473_s0_report_sha256"]==man["sha256"]["v473_s0_report"]==pre["v473"]["immutable_sha256"]["result/s0_report.json"]==sha(root/"v473_s0_report.json") and man["v473_audit_receipt_sha256"]==man["sha256"]["v473_audit_receipt"]==pre["v473"]["immutable_sha256"]["audit_receipt.json"]==sha(root/"v473_audit_receipt.json")
+ expected_tree={"all200_median4_library.npz","preregistration.json","v169_closure.json","v473_audit_receipt.json","v473_contract.json","v473_preregistration.json","v473_s0_report.json","v474_median4_c_group_e_manifest.json","v474_v473_median4_parent_runtime.py"};checks["release_tree"]={x.name for x in root.iterdir()}==expected_tree and all(x.is_file() for x in root.iterdir())
+ source=runtime.read_text();tree=ast.parse(source);imports=[x for n in ast.walk(tree) if isinstance(n,(ast.Import,ast.ImportFrom)) for x in ([a.name for a in n.names] if isinstance(n,ast.Import) else [n.module or ""])]
+ checks["ast_guards"]=not any("reward" in x.lower() or "policy" in x.lower() for x in imports) and all(x not in source.lower() for x in ("episode","request_id","outcome","success")) and "def predict_batch_s1_action_override" in source and "def gate_decision" in source and "np.sort(self.C[chosen].astype(np.float32),axis=0)" in source
+ with np.load(library,allow_pickle=False) as z:
+  ash=z["action_sha"].astype(str);csh=z["context_sha"].astype(str);checks["library"]=sorted(z.files)==["action","action_sha","appearance","context","context_sha","transport"] and z["context"].shape==(200,192) and z["context"].dtype==np.float32 and z["action"].shape==(200,5,54) and z["action"].dtype==np.float32 and z["appearance"].shape==(200,256,256,3) and z["appearance"].dtype==np.int16 and z["transport"].shape==(200,5,256,256,3) and z["transport"].dtype==np.int16 and np.array_equal(z["transport"][:,1],np.zeros_like(z["transport"][:,1])) and ash.shape==(200,5) and csh.shape==(200,) and all(len(x)==64 and x==x.lower() and set(x)<=set("0123456789abcdef") for x in np.concatenate((ash.reshape(-1),csh)))
+ mod=importlib.import_module("wam_pipeline.v474_v473_median4_parent_runtime");wspec=importlib.util.spec_from_file_location("v474_s1_wrapper_audit",a.s1_wrapper);wrapper=importlib.util.module_from_spec(wspec);wspec.loader.exec_module(wrapper);checks["module"]=Path(mod.__file__).resolve()==a.runtime.resolve() and hasattr(mod,"Track2V474V473Median4Parent") and wrapper.LINEAGE=="v474" and wrapper.RUNTIME_CLASS is mod.Track2V474V473Median4Parent and callable(wrapper.predict_true_and_action_override) and callable(wrapper.action_only_postclose_mask)
+ original_ctor=mod.Track2V169ArmRoutedRuntime;mod.Track2V169ArmRoutedRuntime=FakeV169
+ try:obj=mod.Track2V474V473Median4Parent(root,"cpu")
+ finally:mod.Track2V169ArmRoutedRuntime=original_ctor
+ n=9;context=np.stack([np.full((5,256,256,3),i*17,np.uint8) for i in range(n)]);history=np.zeros((n,4,14),np.float32);future=np.zeros((n,8,14),np.float32);future[2:8,:,7]=np.linspace(0,.2,8);history[1,-1,13]=1.;future[1,:,13]=1.;seeds=np.arange(11,20);instructions=["use left arm","use right arm"]+["use right arm"]*7
+ b,o,d=obj.predict_batch_with_baseline(context,history,future,seeds,instructions);checks["exactness"]=b.shape==o.shape==(n,8,256,256,3) and b.dtype==o.dtype==np.uint8 and np.array_equal(b[:2],o[:2]) and np.array_equal(b[2:,0:7],o[2:,0:7]) and [x["gate"] for x in d]==[False,False]+[True]*7 and d[2]["postclose"] is True and d[8]["no_transport"] is True and len(d[2]["context_neighbor_sha256"])==4 and len(d[2]["action_prototype_sha256"])==4 and d[8]["action_prototype_sha256"]==[]
+ q=mod.context_feature(context[2,-1]);dc=np.square((obj.context-q)/obj.cs).mean(1);chosen=np.lexsort((obj.context_sha,obj.action_sha[:,1],dc.astype(np.float64)))[:4];cs=np.sort(obj.C[chosen].astype(np.float32),axis=0);manual_c=np.float32(.5)*(cs[1]+cs[2]);aq=mod.action_feature(history[2],future[2]);maps=[]
+ for i in chosen:
+  da=np.square((obj.action[i]-aq)/obj.asd).mean(1);k=int(np.lexsort((np.repeat(obj.context_sha[i],5),obj.action_sha[i],da.astype(np.float64)))[0]);maps.append(obj.E[i,k])
+ r_non,_,_=obj._residual(context[2,-1],history[2],future[2]);r_nt,_,a_nt=obj._residual(context[8,-1],history[8],future[8]);expected_output=np.clip(np.rint(b[2,7].astype(np.float32)+manual_c+np.mean(np.asarray(maps,np.float32),axis=0)),0,255).astype(np.uint8);checks["independent_formula"]=np.array_equal(r_non,manual_c+np.mean(np.asarray(maps,np.float32),axis=0)) and np.array_equal(o[2,7],expected_output) and np.array_equal(r_nt,np.float32(.5)*(np.sort(obj.C[np.lexsort((obj.context_sha,obj.action_sha[:,1],np.square((obj.context-mod.context_feature(context[8,-1]))/obj.cs).mean(1).astype(np.float64)))[:4]].astype(np.float32),axis=0)[1:3].sum(0))) and a_nt==[]
+ scalar=[obj.predict_with_baseline(context[i],history[i],future[i],seeds[i],instructions[i]) for i in range(n)];checks["scalar_batch"]=all(np.array_equal(scalar[i][0],b[i]) and np.array_equal(scalar[i][1],o[i]) and scalar[i][2]==d[i] for i in range(n));perm=np.asarray([8,2,0,7,3,6,1,5,4]);bp,op,dp=obj.predict_batch_with_baseline(context[perm],history[perm],future[perm],seeds[perm],[instructions[i] for i in perm]);checks["permutation"]=np.array_equal(bp,b[perm]) and np.array_equal(op,o[perm]) and dp==[d[i] for i in perm]
+ override=np.stack([mod.action_feature(history[i],future[8]) for i in range(n)]);calls=obj.v169.calls;bo,oo,do=obj.predict_batch_s1_action_override(context,history,future,seeds,instructions,override);override_changes=any(do[i]["action_prototype_sha256"]!=d[i]["action_prototype_sha256"] for i in range(2,8));checks["s1_override"]=obj.v169.calls==calls+(n+3)//4 and np.array_equal(bo,b) and np.array_equal(oo[:2],b[:2]) and np.array_equal(oo[2:,0:7],b[2:,0:7]) and [x["gate"] for x in do]==[x["gate"] for x in d] and [x["no_transport"] for x in do]==[x["no_transport"] for x in d] and [x["context_neighbor_sha256"] for x in do]==[x["context_neighbor_sha256"] for x in d] and override_changes
+ valid=all(checks.values());receipt={"format":"strict-track2-v474-median4-c-group-e-static-audit-v1","created_at":datetime.now(timezone.utc).isoformat(),"execution_valid":valid,"checks":checks,"release_manifest_sha256":sha(mp),"release_tree_files":sorted(x.name for x in root.iterdir()),"dev_or_reward_loaded":False,"endpoint_parent_data_authorized":False,"s1_authorized":False,"rl_authorized":False};atomic(a.output,receipt);print(json.dumps(receipt,sort_keys=True));return 0 if valid else 3
+if __name__=="__main__":raise SystemExit(main())

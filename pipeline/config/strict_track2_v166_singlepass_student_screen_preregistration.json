@@ -1,0 +1,51 @@
+{
+  "format": "strict-track2-v166-singlepass-student-screen-preregistration-v1",
+  "created_at": "2026-08-11T08:36:43+08:00",
+  "candidate_rule": "Use only the best checkpoint selected by the preregistered episode-disjoint ground-truth validation MAE; do not inspect reward or policy-development data to choose a checkpoint.",
+  "pilot_preregistration": {
+    "path": "pipeline/config/strict_track2_v166_singlepass_student_pilot_preregistration.json",
+    "sha256": "ca149e2c2c6750442ededa8c94cc2a56bd08000e078ac2b79f0a5ca59a6b7d08"
+  },
+  "visual_screen": {
+    "script": "pipeline/scripts/evaluate_strict_track2_singlepass_student_against_v157_cache.py",
+    "script_sha256": "859ba6cd2a0f757e0f28e3e25cc7581e8eff4cd57db3a0bd62bd96599799509f",
+    "windows": "artifacts/strict_track2_joint_augmentation_20260810/formal_joint_parent_windows_full128",
+    "v157_cache": "artifacts/strict_track2_joint_augmentation_20260810/v157_exact_reward_cache64.npz",
+    "v157_cache_sha256": "6313ab2358714631ff610d04cc19ffa891b324fea4ada5a92732815270f90346",
+    "samples": 64,
+    "benchmark_total": 32,
+    "benchmark_micro_batch": 8
+  },
+  "reward_screen": {
+    "script": "pipeline/scripts/evaluate_strict_track2_reward_alignment.py",
+    "script_sha256": "804100cf09606b8d0cde0e4f8525af4165557a15e1d056185346d5bd9df8e6b7",
+    "reward_checkpoint": "artifacts/official_resources/reward_model/adjust_bottle/full_weights.pt",
+    "reward_checkpoint_sha256": "5a2066eec31e991a2c006870f73cfc5c3e0afe5b76e9bd91119c467cb9f8de47",
+    "reset_manifest": "artifacts/rlinf_public_reset_adjust_bottle_train40/manifest.json",
+    "reset_manifest_sha256": "57223224fbc72b024de85001314b338451fa7060da52d1ea98cdecda82c48182",
+    "instruction_map": "artifacts/strict_track2_joint_augmentation_20260810/reward_alignment/exact_instruction_map128.json",
+    "instruction_map_sha256": "1e426d9de9023039cbc9702fdccce1b642b2813fa20305f3749af2938b380cd2",
+    "batch_size": 32,
+    "precision": "FP32 exactly matching Track2HttpEnv"
+  },
+  "required_gates": {
+    "pilot_validation_mae_improvement_percent_min": 3.0,
+    "visual_overall_rgb_improvement_percent_min": -1.0,
+    "visual_left_rgb_improvement_percent_min": 0.0,
+    "visual_right_contact_improvement_percent_min": 0.0,
+    "visual_overall_texture_improvement_percent_min": 0.0,
+    "visual_overall_temporal_improvement_percent_min": 0.0,
+    "reward_overall_mae_improvement_percent_min": 0.0,
+    "reward_right_mae_improvement_percent_min": 0.0,
+    "reward_overall_terminal_gain_mae_improvement_percent_min": 0.0,
+    "reward_right_terminal_gain_mae_improvement_percent_min": 0.0,
+    "reward_overall_terminal_pearson_nonregression": true,
+    "reward_right_terminal_pearson_nonregression": true,
+    "single_sample_steady_latency_seconds_max": 1.0,
+    "batch32_sharded_max8_latency_seconds_max": 8.0,
+    "peak_cuda_reserved_mib_max": 12000.0,
+    "native_batch_uint8_mae_max": 0.05,
+    "native_batch_uint8_max_absolute_error_max": 2
+  },
+  "promotion_guard": "Passing this offline screen permits only a one-update strict official pipeline diagnostic. It does not establish Track 2 success and does not permit use of development22 or final128 for world-model training."
+}

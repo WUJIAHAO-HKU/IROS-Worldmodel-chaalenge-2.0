@@ -1,0 +1,32 @@
+{
+  "format": "strict-track2-residual-advantage-mask-preregistration-v1",
+  "created_at": "2026-08-11T00:21:00+08:00",
+  "frozen_residual_checkpoint": "post_v15_residual_bounded8_reward_pilot200/checkpoint_step_000200",
+  "training_data": "post_v15_residual_cache_train_start0 only",
+  "method": {
+    "strata": ["source domain", "active arm", "horizon 1..8", "pixel coordinate"],
+    "visual_advantage": "mean over training sequences and RGB channels of abs(V15-target)-abs(corrected-target)",
+    "beneficial_fraction": "fraction of training sequences whose quantized correction reduces per-pixel RGB error",
+    "mask_rule": "visual_advantage > 0 and beneficial_fraction >= threshold",
+    "inference_source_router": "frozen formal_visual_source_gate_full128 using only last request context frame",
+    "inference_target_or_reward_used": false
+  },
+  "candidate_thresholds_in_order": [0.55, 0.6],
+  "maximum_candidates": 2,
+  "selection": "First threshold in listed order satisfying every promotion gate.",
+  "promotion_gates": {
+    "uint8_official_overall_rgb_non_regression_percent": 0.0,
+    "uint8_official_left_and_right_rgb_non_regression": true,
+    "uint8_synthetic_rgb_non_regression_percent": 0.0,
+    "official_reward_mae_improvement_percent_min": 3.0,
+    "synthetic_reward_mae_non_regression": true,
+    "left_and_right_reward_mae_non_regression": true,
+    "maximum_absolute_residual_255": 8.0
+  },
+  "track2_constraints": {
+    "official_pi05_reward_grpo_and_budget_unchanged": true,
+    "participant_mpc": false,
+    "policy_development32_consumed": false,
+    "policy_acceptance128_consumed": false
+  }
+}

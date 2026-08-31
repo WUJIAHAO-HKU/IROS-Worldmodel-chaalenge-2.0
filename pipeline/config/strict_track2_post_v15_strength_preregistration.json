@@ -1,0 +1,31 @@
+{
+  "format": "strict-track2-post-v15-strength-preregistration-v1",
+  "created_at": "2026-08-11T00:27:00+08:00",
+  "frozen_checkpoint": "post_v15_residual_protect50_continuation800/checkpoint_step_000400",
+  "observed_parent_development_result_at_strength_1": {
+    "official_uint8_rgb_improvement_percent": -0.01055,
+    "mixed_reward_mae_improvement_percent": 8.9682,
+    "official_reward_mae_improvement_percent": 11.3365,
+    "official_left_reward_mae_improvement_percent": 7.6931,
+    "official_right_reward_mae_improvement_percent": 16.4133
+  },
+  "candidate_strengths_in_order": [0.75, 0.5, 0.25],
+  "maximum_candidates": 3,
+  "definition": "Multiply the frozen post-V15 correction by the fixed scalar before round-clamp uint8; no spatial mask, target, reward, or label is used at inference.",
+  "selection": "First strength in listed order satisfying every promotion gate.",
+  "promotion_gates": {
+    "uint8_official_overall_rgb_non_regression_percent": 0.0,
+    "uint8_official_left_and_right_rgb_non_regression": true,
+    "uint8_synthetic_rgb_non_regression_percent": 0.0,
+    "official_reward_mae_improvement_percent_min": 3.0,
+    "synthetic_reward_mae_non_regression": true,
+    "left_and_right_reward_mae_non_regression": true,
+    "maximum_absolute_residual_255": 8.0
+  },
+  "track2_constraints": {
+    "official_pi05_reward_grpo_and_budget_unchanged": true,
+    "participant_mpc": false,
+    "policy_development32_consumed": false,
+    "policy_acceptance128_consumed": false
+  }
+}

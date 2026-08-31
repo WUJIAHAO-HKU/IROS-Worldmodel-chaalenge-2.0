@@ -1,0 +1,105 @@
+{
+  "format": "strict-track2-initial-window-joint-preregistration-v1",
+  "created_at": "2026-08-10T23:31:00+08:00",
+  "reason_for_new_experiment": {
+    "verified_official_world_model_calls_per_episode": 1,
+    "official_max_episode_steps": 8,
+    "world_model_frames_per_call": 8,
+    "finding": "The frozen v15.2 source gate routes all 16 official validation windows to the original V15 branch, so its synthetic-domain experts do not influence the official GRPO reset distribution.",
+    "hypothesis": "A start-zero expert rehearsed jointly on official demonstrations and counterfactual Pi0.5 trajectories can improve the exact distribution used by official GRPO without changing Pi0.5, reward, GRPO, or the action budget."
+  },
+  "evaluation_state_at_creation": {
+    "seed1240_final128_partial_results_already_observed": true,
+    "observed_final128_data_allowed_for_training_or_selection": false,
+    "dev22_already_consumed_for_prior_policy_selection": true,
+    "consequence": "All later policy candidates use the newly fixed development and acceptance seeds below. The consumed final128 and dev22 may be reported historically but cannot rank or accept a new candidate."
+  },
+  "immutable_track2_constraints": {
+    "policy_base": "official unmodified Pi0.5 adjust_bottle",
+    "reward": "official frozen adjust_bottle reward model",
+    "rl_algorithm": "official RLinf GRPO",
+    "global_steps": 1,
+    "participant_mpc_or_candidate_action_selection": false,
+    "real_robotwin_is_final_policy_environment": true
+  },
+  "parent_data": {
+    "root": "artifacts/strict_track2_joint_augmentation_20260810/formal_joint_parent_windows_full128",
+    "training_split": "split_manifest.json:train_episodes",
+    "validation_split": "split_manifest.json:validation_episodes",
+    "allowed_start_min": 0,
+    "allowed_start_max": 0,
+    "training_counts_at_preregistration": {
+      "total": 211,
+      "official": 52,
+      "synthetic_pi05": 159,
+      "left": 89,
+      "right": 122,
+      "success": 99,
+      "failure": 112
+    },
+    "additional_synthetic_data_allowed": "Only separately seeded Pi0.5 trajectories in RoboTwin or V15 rollouts whose seed and outcome are recorded; no development or acceptance seed may be used.",
+    "forbidden": [
+      "consumed dev22 seeds",
+      "consumed final128 seeds",
+      "new development32 seeds",
+      "new acceptance128 seeds",
+      "hidden evaluator payloads"
+    ]
+  },
+  "candidate_family": {
+    "first_screen": "Evaluate raw left-step300/right-step400 experts without the inactive source gate on official validation_episodes.",
+    "if_first_screen_fails": "Fine-tune one start-zero mixed-domain expert from the formal parent with official rehearsal weight chosen to produce approximately 50 percent official sampling mass.",
+    "pilot_steps": [25, 50, 100, 200],
+    "learning_rates": [3e-7, 5e-7],
+    "reward_loss_weight": 0.02,
+    "reward_objective": "probability",
+    "reward_probability_scale_floor": 1e-5,
+    "selection_order": [
+      "official validation RGB non-regression",
+      "official validation reward-progress MAE",
+      "synthetic validation reward-progress MAE",
+      "left/right non-regression"
+    ]
+  },
+  "parent_promotion_gates": {
+    "official_validation_rgb_non_regression_percent": 0.0,
+    "official_validation_reward_mae_improvement_percent_min": 3.0,
+    "synthetic_validation_reward_mae_non_regression_percent": 0.0,
+    "each_arm_rgb_and_reward_non_regression": true
+  },
+  "new_policy_development32": {
+    "seeds": [
+      200200001, 200200002, 200200003, 200200004, 200200005, 200200006, 200200007, 200200008,
+      200200009, 200200010, 200200011, 200200012, 200200013, 200200014, 200200015, 200200016,
+      200200017, 200200018, 200200019, 200200020, 200200021, 200200022, 200200023, 200200024,
+      200200025, 200200026, 200200027, 200200028, 200200029, 200200030, 200200031, 200200032
+    ],
+    "maximum_policy_candidates": 3,
+    "ranking": "paired success first, paired grasp second; both arms must be represented and neither arm may regress"
+  },
+  "new_final_acceptance128": {
+    "seeds": [
+      200300001, 200300002, 200300003, 200300004, 200300005, 200300006, 200300007, 200300008,
+      200300009, 200300010, 200300011, 200300012, 200300013, 200300014, 200300015, 200300016,
+      200300017, 200300018, 200300019, 200300020, 200300021, 200300022, 200300023, 200300024,
+      200300025, 200300026, 200300027, 200300028, 200300029, 200300030, 200300031, 200300032,
+      200300033, 200300034, 200300035, 200300036, 200300037, 200300038, 200300039, 200300040,
+      200300041, 200300042, 200300043, 200300044, 200300045, 200300046, 200300047, 200300048,
+      200300049, 200300050, 200300051, 200300052, 200300053, 200300054, 200300055, 200300056,
+      200300057, 200300058, 200300059, 200300060, 200300061, 200300062, 200300063, 200300064,
+      200300065, 200300066, 200300067, 200300068, 200300069, 200300070, 200300071, 200300072,
+      200300073, 200300074, 200300075, 200300076, 200300077, 200300078, 200300079, 200300080,
+      200300081, 200300082, 200300083, 200300084, 200300085, 200300086, 200300087, 200300088,
+      200300089, 200300090, 200300091, 200300092, 200300093, 200300094, 200300095, 200300096,
+      200300097, 200300098, 200300099, 200300100, 200300101, 200300102, 200300103, 200300104,
+      200300105, 200300106, 200300107, 200300108, 200300109, 200300110, 200300111, 200300112,
+      200300113, 200300114, 200300115, 200300116, 200300117, 200300118, 200300119, 200300120,
+      200300121, 200300122, 200300123, 200300124, 200300125, 200300126, 200300127, 200300128
+    ],
+    "single_use": true,
+    "minimum_absolute_success_gain_percentage_points": 3.0,
+    "minimum_relative_success_gain_percent": 3.0,
+    "grasp_rate_non_regression": true,
+    "left_and_right_success_non_regression": true
+  }
+}

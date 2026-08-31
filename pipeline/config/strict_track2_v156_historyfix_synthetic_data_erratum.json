@@ -1,0 +1,25 @@
+{
+  "format": "strict-track2-preregistration-metadata-erratum-v1",
+  "recorded_at": "2026-08-11T04:23:00+08:00",
+  "recorded_before_seed1237_official_rollout": true,
+  "affected_preregistrations": {
+    "seed1235_sha256": "3f2fa17fa0c9cf28d84281494108b495b71536313943be7f82ff2fc19c2c433a",
+    "seed1237_sha256": "d54b28e7cd54a929941bd2d61ee3eb4b71c970fe2c5f39b83fc8992a94ca5d13"
+  },
+  "incorrect_metadata": {
+    "field": "parent.synthetic_data_used_for_this_parent",
+    "registered_value": false,
+    "correct_value": true
+  },
+  "correction": "The frozen V15.6 parent includes a V15.5 joint-domain autoregressive adaptation trained from the supplied 50 demonstrations plus declared, episode-disjoint offline trajectories generated in public RoboTwin by the official unmodified Pi0.5 baseline. No synthetic data is introduced into official Pi0.5/reward/RL policy training itself.",
+  "preexisting_evidence": {
+    "v156_policy_prescreen_preregistration_sha256": "2b7058a623d2fc9f8cafbac032b30197f362ccd9094e68206629a1a782db7ab6",
+    "joint_domain_parent_preregistration_sha256": "aed634e93d6cdb16a300c694bf851d6a98b1793b0832ee5806e8fdb1ade2a7a4",
+    "adapted_parent_training_manifest_sha256": "22089255c7de198e9ddc9e32cf68cef883c42d1e622551b6e2223e9a544ff116",
+    "source_gate_training_manifest_sha256": "e34c7796c54fe12e20ee663d5bc8e844a171b96154511602ec3ae724ab921107"
+  },
+  "selection_rules_changed": false,
+  "official_training_changed": false,
+  "interface_contract_changed": false,
+  "reason_for_erratum_instead_of_edit": "Keep the pre-rollout preregistration files immutable and correct the factual provenance typo transparently."
+}

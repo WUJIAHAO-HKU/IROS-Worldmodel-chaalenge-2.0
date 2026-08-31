@@ -1,0 +1,134 @@
+{
+  "candidate_current": {
+    "candidate_verified": true,
+    "commit_semantics": "current_exact1_visibility_after_noreplace_directory_rename",
+    "crash_durability_claimed": false,
+    "external_terminal_required": true,
+    "input_snapshots_exactly_equal": true,
+    "input_validation_passed": true,
+    "oof_gate_passed": null,
+    "passed": null,
+    "prep_absent": true,
+    "publication_success_claimed": false,
+    "qualification_mutated": false,
+    "receipt": {
+      "logical_bytes": 152048,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827/oof_readonly_gate_validation_receipt.json",
+      "sha256": "5b443f2275c9caced1974a0fa0f10e8da414faa15f672eae83fd4a8630861439"
+    },
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827",
+    "standalone_consumable": false,
+    "standalone_oof_execution_authority": false,
+    "status": "readonly_oof_gate_inputs_verified_candidate_pending_external_terminal",
+    "top_key_count": 29,
+    "tree": {
+      "canonical_json_triples_digest_sha256": "044c7542ae00fb51f06d3a1d1fbb3454c7559ac1aadf531cc24802384ae79703",
+      "file_count": 1,
+      "logical_file_bytes": 152048,
+      "sha256sum_lines_digest_sha256": "f24ddda2f9f6ec36377d23ea358e950aad1428c008893c89f12cdf3db1eb4e8c"
+    }
+  },
+  "classification": "immutable_mapped_fixture_default_argument_binding_canonical_candidate_publication_forensic",
+  "current_closure": {
+    "authority": {
+      "check_count": 33,
+      "checks_all_strict_true": true,
+      "receipt": {
+        "logical_bytes": 181901,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_execution_authority_seed1662_20260827/authority_receipt.json",
+        "sha256": "e658fc7e8ac7ae0afc431bdc0a1b756fd202d933cfae0bec61e693e3d3e71b4a"
+      },
+      "source_count": 27,
+      "top_key_count": 70,
+      "tree": {
+        "canonical_json_triples_digest_sha256": "1c412acd847ea10f26092fe985de4ee7c3cc8089cc09da039ef277a6b69e3996",
+        "file_count": 1,
+        "logical_file_bytes": 181901,
+        "sha256sum_lines_digest_sha256": "5981090a1c10fad6dd891bd876b40d25607a6e14482acac85f583f2eb837dae2"
+      },
+      "validator_invocations_authorized": 1,
+      "validator_invocations_consumed_by_candidate": 1
+    },
+    "normalized_qualification_view": {
+      "normalized_worker_receipts_canonical_sha256": "c409c2b8f85641c23bc68fb06512cd664c84108d4b8b629480906193737f4b32",
+      "original_worker_receipts_canonical_sha256": "d00018deb7ea3ae660061e8879dc4a4f6d56bc65bd089c28c4a0580239c08101",
+      "recursive_diff_canonical_sha256": "fdc7999068d0e630272e6cb226b6b342692b5f8324cd506d593b5993b5f52779",
+      "recursive_diff_count": 2,
+      "recursive_diff_full_paths": [["process_a", "format"], ["process_b", "format"]]
+    },
+    "preregistration": {
+      "logical_bytes": 101898,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v527_v526_v525_oof_readonly_gate_preregistration.json",
+      "sha256": "9fc4e53117309a77aac773a8eccc8550ad82446b8224872ca47afb8d763167ac"
+    },
+    "qualification_tree": {
+      "canonical_json_triples_digest_sha256": "223308d02ed5a4a082b4de639292030444a627bbbac7f361fac1f9c6a7fcbd1f",
+      "file_count": 20,
+      "logical_file_bytes": 950124602,
+      "sha256sum_lines_digest_sha256": "6cdde75692d37b7eead3333d867b22dc6404f545bb5861b2f30b425fb4270dac"
+    },
+    "services": [
+      {"body_bytes": 106, "body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0", "http_code": 200, "url": "http://127.0.0.1:8005/v1/health"},
+      {"body_bytes": 18, "body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd", "http_code": 200, "url": "http://127.0.0.1:18084/health"}
+    ],
+    "v528_deployment_evidence": {
+      "canonical_json_triples_digest_sha256": "d22a5c337b1f9422f576d3c24710dc8753e4eeed2c5d9d530fcec433000dad84",
+      "file_count": 1,
+      "receipt_sha256": "681b30606e5029049e6dd7ecadcde6ed1da82b799fa6c77ba7bd0c8d4917ea22",
+      "sha256sum_lines_digest_sha256": "3cafca4e7e1a56917efa95784c72544d83ed4a88b4045001ee705d7366a47d15"
+    }
+  },
+  "external_evidence_current": {
+    "prep_absent": true,
+    "prep_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_external_evidence_seed1662_20260827.evidence-prep",
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_external_evidence_seed1662_20260827",
+    "root_absent": true
+  },
+  "failure": {
+    "cause": "validator_publish_default_arguments_bound_canonical_output_root_and_prep_at_module_import_before_wrapper_global_reassignment",
+    "canonical_publish_definition": "def publish(receipt: dict, root: Path = OUTPUT_ROOT, prep: Path = OUTPUT_PREP, ...)",
+    "canonical_publish_definition_line": 653,
+    "mapped_outer_error": "candidate absent/prep; child rc 0",
+    "mapped_temporary_external_failed_no_retry_exact6_created_then_removed": true,
+    "mapped_temporary_root": "/dev/shm/v527-stage-b-mapped-aucl40fz",
+    "mapped_temporary_root_current_absent": true,
+    "no_cleanup_or_retry_of_canonical_candidate": true
+  },
+  "fixture": {
+    "command_literal_exact": "scp -q 'C:\\Users\\吴家豪\\codex_stage_v396\\run_v527_oof_readonly_gate_validation_stage_b_mapped_fixture.py' 5090-autodl-new:/dev/shm/run_v527_oof_readonly_gate_validation_stage_b_mapped_fixture.py; ssh 5090-autodl-new \"/root/autodl-tmp/conda_envs/rlinf_track2/bin/python /dev/shm/run_v527_oof_readonly_gate_validation_stage_b_mapped_fixture.py\"",
+    "combined_output_stream": "available_in_original_tool_record_not_embedded",
+    "logical_bytes": 5017,
+    "native_exit_code": 1,
+    "path": "/dev/shm/run_v527_oof_readonly_gate_validation_stage_b_mapped_fixture.py",
+    "separate_stdout_stderr": "unavailable_tool_merged_streams",
+    "sha256": "5b97390deebdc5c29d8ade1cdef4a7b391349eba1a294539c03777b6b6797e67",
+    "tool_wall_time_seconds_approximate": 8.0
+  },
+  "format": "strict-track2-v529-v527-stage-b-mapped-fixture-default-argument-canonical-publication-forensic-v1",
+  "partition": {
+    "cache_reuse_invocations": 0,
+    "canonical_stage_b_transport_helper_invocations": 0,
+    "dev_hidden_final_outcome_read_invocations": 0,
+    "mapped_fixture_invocations": 1,
+    "mapped_outer_helper_invocations": 1,
+    "oof_model_execution_invocations": 0,
+    "oof_readonly_gate_validator_invocations": 1,
+    "phase_a_driver_invocations": 0,
+    "phase_a_launcher_invocations": 0,
+    "phase_a_replay_invocations": 0,
+    "phase_a_worker_invocations": 0,
+    "reward_read_invocations": 0,
+    "rng_proxy_delegate_invocations": 0,
+    "submission_invocations": 0,
+    "training_invocations": 0
+  },
+  "process_observation": {
+    "gpu_compute_pids": [],
+    "relevant_current_pids": [],
+    "validator_native_returncode": 0,
+    "validator_native_stderr": {"logical_bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "validator_native_stdout": {"logical_bytes": 864, "sha256": "bcf0d1f52b1d5fe1dc433ffcc9e2221254edb3d600a054435a5cbafb230b2fa4"}
+  },
+  "retry_authorized": false,
+  "status": "canonical_nonterminal_candidate_published_once_by_failed_mapped_fixture_no_retry"
+}

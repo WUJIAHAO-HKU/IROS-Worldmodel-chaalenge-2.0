@@ -1,0 +1,88 @@
+{
+  "evidence_class": "reconstructed_from_codex_exec_tool_capture_not_native_persistent_process_log",
+  "format": "strict-track2-v495-v494-authority-materializer-failure-forensic-reconstructed-v1",
+  "invocation": {
+    "argv": [
+      "/root/autodl-tmp/conda_envs/rlinf_track2/bin/python",
+      "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v494_v493_v490_interpreter_symlink_repair_execution_authority.py",
+      "--contract",
+      "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v494_v493_v490_interpreter_symlink_repair_execution_authority_contract.json",
+      "--contract-sha",
+      "2f4cef2671dfd5c443d5a7f53dc0ea7b770b520da84cba3512a363884d56bd4a",
+      "--materializer-source",
+      "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v494_v493_v490_interpreter_symlink_repair_execution_authority.py",
+      "--materializer-sha",
+      "5b9396fd74e1d161fa41610108d823f356313992364cba708ed869519fa0a421",
+      "--authority-root",
+      "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repair_execution_authority_seed1636_20260825"
+    ],
+    "materializer_invocations": 1,
+    "outer_wrapper_invocations": 0,
+    "corrected_inner_wrapper_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "transport_command": "/bin/bash /dev/shm/v494_authority_materialize.sh",
+    "transport_script": {
+      "logical_bytes": 942,
+      "path": "/dev/shm/v494_authority_materialize.sh",
+      "sha256": "0d4669e9a1fa52ee98fe2c459e9e42d880116e4428270edcefb0f50e5b95d49c"
+    }
+  },
+  "native_exit_code": 1,
+  "native_persistent_capture_available": false,
+  "occurred": true,
+  "passed": false,
+  "source_records": {
+    "authority_contract": {
+      "logical_bytes": 29803,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v494_v493_v490_interpreter_symlink_repair_execution_authority_contract.json",
+      "sha256": "2f4cef2671dfd5c443d5a7f53dc0ea7b770b520da84cba3512a363884d56bd4a"
+    },
+    "authority_materializer": {
+      "logical_bytes": 39236,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v494_v493_v490_interpreter_symlink_repair_execution_authority.py",
+      "sha256": "5b9396fd74e1d161fa41610108d823f356313992364cba708ed869519fa0a421"
+    },
+    "corrected_inner_wrapper": {
+      "logical_bytes": 79760,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v494_v493_v490_interpreter_symlink_repaired_reconciliation_inner.py",
+      "sha256": "1f2c9de60703f12c22966b7aeb3526a6c32e0d5a0e0258094c9d208b9a56f4bf"
+    },
+    "outer_execution_wrapper": {
+      "logical_bytes": 43024,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v494_v493_v490_interpreter_symlink_repaired_reconciliation_outer.py",
+      "sha256": "bea4b6df050afb22c833908725a6af7417b292984d8ddb4fbb972b99128d3df5"
+    }
+  },
+  "state_after_failure": {
+    "all_absent": true,
+    "gpu_compute_apps_empty": true,
+    "live_reconciliation_processes_empty": true,
+    "paths": {
+      "authority_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repair_execution_authority_seed1636_20260825.registration-prep",
+      "authority_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repair_execution_authority_seed1636_20260825",
+      "inner_attempt_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_inner_attempt_seed1636_20260825.attempt-prep",
+      "inner_attempt_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_inner_attempt_seed1636_20260825",
+      "outer_evidence_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_outer_execution_evidence_seed1636_20260825.outer-prep",
+      "outer_evidence_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v494_v493_v490_interpreter_symlink_repaired_reconciliation_outer_execution_evidence_seed1636_20260825",
+      "qualification_root": "/root/v485_v169_cache_qualification_seed1627_20260824",
+      "transparent_output": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json",
+      "transparent_tmp": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json.tmp"
+    }
+  },
+  "status": "frozen_reconstructed_v494_materializer_prestate_failure_no_retry",
+  "tool_capture": {
+    "combined_output_logical_bytes": 787,
+    "combined_output_sha256": "4a65e33de2de1da29e8a36d39e5374e43b66435aa5e6bc3722ccfca574fb4a4c",
+    "combined_output_text": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v494_v493_v490_interpreter_symlink_repair_execution_authority.py\", line 750, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v494_v493_v490_interpreter_symlink_repair_execution_authority.py\", line 471, in main\n    validate_corrected_inner(Path(sources[\"corrected_inner_wrapper\"][\"path\"]))\n  File \"/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v494_v493_v490_interpreter_symlink_repair_execution_authority.py\", line 400, in validate_corrected_inner\n    raise RuntimeError(\"corrected inner forbidden import\")\nRuntimeError: corrected inner forbidden import\n",
+    "native_stderr_stream_separately_available": false,
+    "native_stdout_stream_separately_available": false,
+    "stdout_empty_inferred_from_traceback_only_capture": true
+  },
+  "unsafe_authorization": {
+    "cache_authorized": false,
+    "phase_a_authorized": false,
+    "reconciler_r2_authorized": false,
+    "retry_authorized": false,
+    "training_authorized": false
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "active_current_audit": {
+    "boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+    "canonical_targets": [
+      {"absent": true, "logical_bytes": 198005, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v527_v526_v525_oof_readonly_validation_execution_authority_contract.json", "role": "authority_design_contract", "sha256": "575cead683e9dcb188107feac389b1836d21199ab99be87148029286d7a6c03e"},
+      {"absent": true, "logical_bytes": 30234, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v527_v526_v525_oof_readonly_validation_execution_authority.py", "role": "authority_materializer", "sha256": "8519c2c589e894c40d74bc730d8569069c8b994d9d9477e4899422633514167c"},
+      {"absent": true, "logical_bytes": 52025, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v527_v526_v525_oof_readonly_validation.py", "role": "oof_readonly_validator", "sha256": "3289297e8ca6ff026f3f5fed64860ac00742374bb10ee5c6012cde82ba2f4756"},
+      {"absent": true, "logical_bytes": 101898, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v527_v526_v525_oof_readonly_gate_preregistration.json", "role": "oof_gate_preregistration", "sha256": "9fc4e53117309a77aac773a8eccc8550ad82446b8224872ca47afb8d763167ac"},
+      {"absent": true, "logical_bytes": 64373, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v527_v526_v525_oof_readonly_validation_execution_authority_materializer_once.py", "role": "transport_helper", "sha256": "ff8665376ef4666f3db2e5a42f2cdc84239cb6cb40071d495d4c1b293fbd1ab5"},
+      {"absent": true, "logical_bytes": 4149, "path": "/root/v527_v526_v525_oof_readonly_validation_authority_materialize_once.sh", "role": "transport_script", "sha256": "d6dd91a90b2c431d3a996f732c3ff66bf26cefd7c9b606d19fd227979c3f78f0"},
+      {"absent": true, "logical_bytes": 926, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v527_v526_v525_oof_readonly_validation_authority_materialization_transport_deployment_record.json", "role": "transport_deployment_record", "sha256": "2601fe1095b7a7d18bb559ce798b64c42daa1d1f18a0cd31f01fd4f497cecf2b"}
+    ],
+    "fresh_paths": [
+      {"absent": true, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_execution_authority_seed1662_20260827", "role": "authority_root"},
+      {"absent": true, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_execution_authority_seed1662_20260827.authority-prep", "role": "authority_prep"},
+      {"absent": true, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_execution_authority_materialization_evidence_seed1662_20260827", "role": "materialization_evidence_root"},
+      {"absent": true, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_execution_authority_materialization_evidence_seed1662_20260827.execution-prep", "role": "materialization_evidence_prep"},
+      {"absent": true, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827", "role": "validation_attempt_root"},
+      {"absent": true, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_attempt_seed1662_20260827.attempt-prep", "role": "validation_attempt_prep"},
+      {"absent": true, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_external_evidence_seed1662_20260827", "role": "external_evidence_root"},
+      {"absent": true, "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v527_v526_v525_oof_readonly_validation_external_evidence_seed1662_20260827.evidence-prep", "role": "external_evidence_prep"}
+    ],
+    "gpu_compute_processes": [],
+    "relevant_exact_argv_processes": [],
+    "services": [
+      {"body_logical_bytes": 106, "body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0", "http_status": 200, "url": "http://127.0.0.1:8005/v1/health"},
+      {"body_logical_bytes": 18, "body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd", "http_status": 200, "url": "http://127.0.0.1:18084/health"}
+    ],
+    "timestamp_ns": 1787780729757314035,
+    "volatile_staging": [
+      {"logical_bytes": 198005, "path": "/dev/shm/v527_v526_v525_oof_readonly_validation_execution_authority_contract_candidate.json", "regular_nonsymlink": true, "role": "authority_design_contract", "sha256": "575cead683e9dcb188107feac389b1836d21199ab99be87148029286d7a6c03e"},
+      {"logical_bytes": 30234, "path": "/dev/shm/materialize_v527_v526_v525_oof_readonly_validation_execution_authority.py", "regular_nonsymlink": true, "role": "authority_materializer", "sha256": "8519c2c589e894c40d74bc730d8569069c8b994d9d9477e4899422633514167c"},
+      {"logical_bytes": 52025, "path": "/dev/shm/audit_v527_v526_v525_oof_readonly_validation.py", "regular_nonsymlink": true, "role": "oof_readonly_validator", "sha256": "3289297e8ca6ff026f3f5fed64860ac00742374bb10ee5c6012cde82ba2f4756"},
+      {"logical_bytes": 101898, "path": "/dev/shm/v527_v526_v525_oof_readonly_gate_preregistration.json", "regular_nonsymlink": true, "role": "oof_gate_preregistration", "sha256": "9fc4e53117309a77aac773a8eccc8550ad82446b8224872ca47afb8d763167ac"},
+      {"logical_bytes": 64373, "path": "/dev/shm/invoke_v527_v526_v525_oof_readonly_validation_execution_authority_materializer_once.py", "regular_nonsymlink": true, "role": "transport_helper", "sha256": "ff8665376ef4666f3db2e5a42f2cdc84239cb6cb40071d495d4c1b293fbd1ab5"},
+      {"logical_bytes": 4149, "path": "/dev/shm/v527_v526_v525_oof_readonly_validation_authority_materialize_once.sh", "regular_nonsymlink": true, "role": "transport_script", "sha256": "d6dd91a90b2c431d3a996f732c3ff66bf26cefd7c9b606d19fd227979c3f78f0"},
+      {"logical_bytes": 926, "path": "/dev/shm/v527_v526_v525_oof_readonly_validation_authority_materialization_transport_deployment_record.json", "regular_nonsymlink": true, "role": "transport_deployment_record", "sha256": "2601fe1095b7a7d18bb559ce798b64c42daa1d1f18a0cd31f01fd4f497cecf2b"}
+    ]
+  },
+  "classification": "immutable_predeploy_transport_audit_failure_forensic_no_stage_a_entry",
+  "failure": {
+    "combined_output_first_line_exact": "bash: -c: line 1: syntax error near unexpected token `||'",
+    "combined_output_second_line_embedded": false,
+    "combined_output_second_line_exact_available_in_original_tool_record": true,
+    "command_literal_embedded": false,
+    "command_literal_exact_available_in_original_tool_record": true,
+    "numeric_exit_code": "unavailable_not_captured",
+    "remote_failure_class": "bash_parse_error_before_first_remote_command",
+    "remote_state_mutation_possible_before_failure": false,
+    "separate_stdout_stderr": "unavailable_tool_merged_streams",
+    "tool_wall_time_seconds": 3.6
+  },
+  "format": "strict-track2-v528-v527-stage-a-predeploy-outer-ssh-quoting-failure-forensic-v1",
+  "old_command_current_audit_corrections": {
+    "active_service_urls": ["http://127.0.0.1:8005/v1/health", "http://127.0.0.1:18084/health"],
+    "active_validation_attempt_prep_suffix": ".attempt-prep",
+    "active_validation_external_evidence_prep_suffix": ".evidence-prep",
+    "active_validation_external_evidence_root_stem": "v527_v526_v525_oof_readonly_validation_external_evidence_seed1662_20260827",
+    "corrections_are_current_audit_only_and_do_not_rewrite_old_command": true,
+    "old_command_service_urls": ["http://127.0.0.1:30000/health", "http://127.0.0.1:30001/health"],
+    "old_command_validation_attempt_prep_suffix": ".execution-prep",
+    "old_command_validation_external_evidence_prep_suffix": ".execution-prep",
+    "old_command_validation_external_evidence_root_stem": "v527_v526_v525_oof_readonly_validation_external_terminal_evidence_seed1662_20260827"
+  },
+  "partition": {
+    "authority_materializer_invocations": 0,
+    "deploy_invocations": 0,
+    "oof_readonly_validator_invocations": 0,
+    "stage_a_transport_helper_invocations": 0,
+    "stage_a_transport_normal_invocations": 0,
+    "stage_a_transport_selftest_invocations": 0
+  },
+  "retry_authorized": false,
+  "status": "predeploy_outer_ssh_quoting_failure_verified_no_remote_mutation",
+  "tool_scope": {
+    "global_exact_invocation_count_claimed": false,
+    "original_outer_tool_command_issued_invocations": 1,
+    "scope": "recorded_authorized_predeploy_sequence_only"
+  }
+}

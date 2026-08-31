@@ -1,0 +1,98 @@
+{
+  "format": "strict-track2-v491-v490-prehelper-rc2-transport-forensic-reconstructed-v1",
+  "status": "frozen_reconstructed_prehelper_rc2_zero_state_no_attempt_consumed",
+  "occurred": true,
+  "passed": false,
+  "native_persistent_capture_available": false,
+  "evidence_class": "reconstructed_from_codex_tool_capture_not_native_persistent_process_evidence",
+  "failure_stage": "read_only_remote_preflight_shell_tokenization_before_fresh_helper_deploy_or_entry",
+  "native_exit_code": 2,
+  "transport": {
+    "local_shell": "Windows PowerShell",
+    "client": "OpenSSH ssh.exe",
+    "remote_shell": "bash",
+    "intended_quoting": "single quoted remote path tokens containing spaces",
+    "observed_failure": "remote command received split path tokens",
+    "mutation_authorized": false,
+    "mutation_observed": false
+  },
+  "tool_capture_disclosure": {
+    "native_argv_bytes": null,
+    "native_stdout_bytes": null,
+    "native_stderr_bytes": null,
+    "native_stream_partition_available": false,
+    "native_wall_seconds": null,
+    "tool_output_was_merged": true,
+    "wrong_split_target": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0",
+      "sha256": "46f4088cdf49cc144ec0897620c1e9639bd320e113a81b1e25919ef4e9e607aa",
+      "logical_bytes": 144
+    },
+    "observed_lines": [
+      "sha256sum: challenge/pipeline/scripts/invoke_v490_authority_materializer_once.py: No such file or directory",
+      "46f4088cdf49cc144ec0897620c1e9639bd320e113a81b1e25919ef4e9e607aa  /root/autodl-tmp/IROS_WAM_2.0",
+      "wc: challenge/pipeline/scripts/invoke_v490_authority_materializer_once.py: No such file or directory",
+      "  144 /root/autodl-tmp/IROS_WAM_2.0",
+      "bash: line 1: test: /root/autodl-tmp/IROS_WAM_2.0: binary operator expected"
+    ],
+    "binary_operator_expected_observation_count": 4,
+    "four_test_exit_codes": [2, 2, 2, 2],
+    "tool_command_exit_code": 0,
+    "tool_command_exit_code_explanation": "PowerShell Write-Output followed each failed ssh test, so the combined diagnostic cell ended zero while every recorded remote test ended two",
+    "reconstruction_provenance": "verbatim facts retained from the Codex exec tool output; no native persistent log existed and none is claimed"
+  },
+  "reconstructed_observations": {
+    "read_only_commands": ["sha256sum", "wc -c", "test ! -e"],
+    "write_command_count": 0,
+    "fresh_helper_entry_count": 0,
+    "authority_materializer_invocation_count": 0,
+    "v490_wrapper_invocation_count": 0,
+    "r2_invocation_count": 0,
+    "attempt_consumed": false,
+    "retry_consumed": false
+  },
+  "state_at_event": {
+    "evidence_basis": "tool-captured read-only failure followed by the corrected atomic deployer's fail-closed preconditions before any helper entry",
+    "fresh_helper_target_absent": true,
+    "authority_root_absent": true,
+    "authority_prep_absent": true,
+    "authority_materialization_evidence_root_absent": true,
+    "inner_attempt_root_absent": true,
+    "inner_attempt_prep_absent": true,
+    "transparent_output_absent": true,
+    "qualification_root_absent": true,
+    "live_relevant_processes": [],
+    "gpu_compute_processes": []
+  },
+  "source_records": {
+    "old_helper": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v490_authority_materializer_once.py", "sha256": "57feff80ffd9036cd2ac118d151eeed7f43bcf8fb693d304bd243a1b7bad4d5e", "logical_bytes": 17137},
+    "fresh_helper": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v490_authority_materializer_once_r2.py", "sha256": "f89e74e053812fc2cc9bbf59349def49ad9cfb4804b5ad09e449cd460fa76535", "logical_bytes": 22170},
+    "corrected_script": {"path": "/dev/shm/v490_authority_materialize_corrected.sh", "sha256": "cfde20b975d5f3ffdb253819d4040e15137d561fae20e0d36d9104d8ac850c34", "logical_bytes": 1354},
+    "v490_authority_contract": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v490_v489_v488_v487_c71_exact7_schema_repair_postregistration_authority_contract.json", "sha256": "f37dc074bff5cffa25c13d0b4c16530f1f02e82362187fb7bb116ad4250e8058", "logical_bytes": 28754},
+    "v490_authority_materializer": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v490_v489_v488_v487_c71_exact7_schema_repair_postregistration_authority.py", "sha256": "6618ec3266c46a3320f93caa447234109ab301082352b7da9e2e1aaf2af67218", "logical_bytes": 36797},
+    "v490_wrapper": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v490_v489_v488_v487_c71_exact7_schema_repair.py", "sha256": "733931fa162c7e2559fcbf45b7ce8b98960db61df958143c7df3f4c15f3bc877", "logical_bytes": 67698},
+    "r2": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/reconcile_v488_v487_c71_exact7_schema_repair.py", "sha256": "9efc41eb2574b065ab4e83920f524ae47902079f9b40b9bcc6d31e6739bc1377", "logical_bytes": 51845}
+  },
+  "current_crosscheck": {
+    "v490_authority_receipt": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_authority_seed1632_20260825/authority_receipt.json", "sha256": "66874ce32b9cf8a01d5e720cf3814267c2cb0f9a0e68147241c0269bc7f93190", "logical_bytes": 51803},
+    "v490_authority_tree": {"root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_authority_seed1632_20260825", "inventory": [["authority_receipt.json", "66874ce32b9cf8a01d5e720cf3814267c2cb0f9a0e68147241c0269bc7f93190", 51803]], "file_count": 1, "logical_file_bytes": 51803, "sha256sum_lines_digest_sha256": "c6d277290b3f3998b41ed7295f903a1430a7151f01f3a225a0bfc99729c86f56", "canonical_json_triples_digest_sha256": "ba3322ea222f63c82fa4525744f8bd4e7cbee3029d6ceb484aae0d69a23b8017"},
+    "authority_helper_process_receipt": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_authority_materialization_evidence_seed1632_20260825/process_receipt.json", "sha256": "e0c065998df547d1f51cf24cb16fb3f89b58551970cb6abf6512673e7a8b6889", "logical_bytes": 35422},
+    "authority_helper_evidence_tree": {"root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_authority_materialization_evidence_seed1632_20260825", "inventory": [["argv.json", "8aea24710cf2e1cd4657d394569e352a41bb14c54563c557158ce9a3b86da4ca", 23819], ["intent.json", "3781961a6ad865ee06b0c4455bbef2ffda1cc9e8deaf9fff0ed78ebea57df94a", 618], ["materializer_stderr.log", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 0], ["materializer_stdout.log", "c338f24a4804fe81a285e1c8b122007c28bf93c8abebf57f5f4a9282cda92aa2", 793], ["process_receipt.json", "e0c065998df547d1f51cf24cb16fb3f89b58551970cb6abf6512673e7a8b6889", 35422], ["transport_helper.py", "f89e74e053812fc2cc9bbf59349def49ad9cfb4804b5ad09e449cd460fa76535", 22170]], "file_count": 6, "logical_file_bytes": 82822, "sha256sum_lines_digest_sha256": "a5f0f6d915777b91a9911e80597ce130bd9623e2cf48190b26b01325349ae5d6", "canonical_json_triples_digest_sha256": "667a4fa9966d7fc91336fd72411d4cbb442bbb2d93d00fe7e1c92ac0e8306826"},
+    "inner_attempt_root_absent": true,
+    "inner_attempt_prep_absent": true,
+    "transparent_output_absent": true,
+    "relevant_processes": [],
+    "gpu_compute_processes": []
+  },
+  "unsafe_authorization": {
+    "direct_v490_wrapper_authorized": false,
+    "direct_r2_authorized": false,
+    "outer_wrapper_authorized": false,
+    "phase_a_authorized": false,
+    "cache_authorized": false,
+    "training_authorized": false,
+    "reward_read_authorized": false,
+    "dev_hidden_final_outcome_read_authorized": false,
+    "retry_authorized": false
+  }
+}

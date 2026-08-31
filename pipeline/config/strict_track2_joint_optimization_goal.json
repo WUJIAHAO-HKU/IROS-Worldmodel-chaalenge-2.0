@@ -1,0 +1,75 @@
+{
+  "format": "strict-track2-joint-optimization-goal-v2",
+  "updated_at": "2026-08-11T10:20:00+08:00",
+  "objective": "Strictly satisfy WorldArena 2.0 Track 2 and obtain at least +3 percentage points and +3 percent relative Adjust Bottle success over the original Pi0.5 baseline by jointly optimizing the submitted world model and diagnosing the policy-learning signal, while preserving the unmodified official Pi0.5 start, reward, RL algorithm and fixed budget and evaluating the resulting policy only in an independent real RoboTwin environment without a world model or MPC action selection.",
+  "submission_boundary": {
+    "participant_submission": "immutable world-model inference service only",
+    "local_policy_checkpoints": "diagnostic and acceptance artifacts only; never participant-side action selection",
+    "world_model_may_be_retrained": true,
+    "official_pi05_may_be_modified": false,
+    "official_reward_may_be_modified": false,
+    "official_rl_algorithm_or_budget_may_be_modified": false,
+    "participant_mpc_or_candidate_action_selection": false
+  },
+  "declared_data_policy": {
+    "user_authorization_update_2026_08_11": "The earlier self-imposed prohibition on newly synthesized data is removed. Traceable synthetic data may be used when useful, subject to the isolation and submission-boundary rules below.",
+    "official_public_50_episodes": "allowed",
+    "offline_synthetic_data_from_public_RoboTwin_code_and_assets": "allowed when generated before model freeze, legally authorized, declared, provenance-hashed, episode-disjoint from all policy-development and acceptance seeds, and used only to train or validate the world model",
+    "successful_oracle_demonstrations": "allowed as offline world-model supervision only; forbidden for Pi0.5 behavior cloning, participant-side action injection, MPC, policy selection, or real-environment acceptance",
+    "public_external_data": "allowed when licensed, declared, provenance-hashed, and kept out of evaluation splits",
+    "official_request_payloads_or_non_public_evaluation_data": "forbidden for training",
+    "final128_real_evaluation_seeds": "evaluation only; forbidden for training or model selection",
+    "development22_real_evaluation_seeds": "policy candidate selection only; forbidden for world-model training",
+    "human_or_online_selection_during_official_evaluation": "forbidden"
+  },
+  "current_joint_priority": [
+    "first make the exact official full-budget Pi0.5/reward/RL pipeline execute end-to-end with transport-only compatibility patches",
+    "measure policy optimization signal and real RoboTwin success before attributing failure to the parent world model",
+    "use the local official-policy rollouts as a traceable V15.7 teacher cache and combine them with arm-balanced, contact-heavy, occlusion-heavy RoboTwin ground-truth synthetic trajectories to train a single-pass student parent",
+    "admit a student only if it preserves or improves V15.7 reward ranking, dual-arm structure/texture metrics and real-policy utility while materially reducing peak memory and chunk latency",
+    "freeze each parent before policy training and keep all development and final real-evaluation seeds out of parent training"
+  ],
+  "causal_ablation_matrix": [
+    "original Pi0.5 in real RoboTwin: establish paired-seed baseline",
+    "official RL with frozen V15.7: measure the current parent-to-policy gain",
+    "official RL with a preregistered frozen parent candidate: isolate parent-model contribution",
+    "unchanged policy evaluated both in the frozen world model and real RoboTwin: quantify world-to-real reward and transition bias",
+    "left-arm and right-arm paired success, grasp, contact, action-validity and reward-ranking strata: prevent an aggregate gain from hiding arm regression"
+  ],
+  "promotion_rule": "A parent candidate may replace V15.7 only after preregistered visual, temporal, reward-ranking, latency and resource gates pass. A policy checkpoint may be called Track-2-improved only after paired real-RoboTwin development evaluation improves by at least 3 percentage points without arm regression; the untouched final split is evaluated once for confirmation.",
+  "joint_diagnosis": [
+    "strict interface causality: initial o0..o4 must use a0..a3 history while Pi0.5 absolute state is a4",
+    "world-model RGB, structure, texture, temporal and action-conditioning error by horizon and arm",
+    "official reward ranking fidelity on real versus world-model futures",
+    "policy update signal, KL, clipping, action validity and paired seed transitions",
+    "real RoboTwin task success and grasp completion by left and right arm",
+    "service validity, determinism, idempotency and latency"
+  ],
+  "experiment_order": [
+    "invalidate any policy run with delta-action or history-window contract errors before consuming real-development evaluations",
+    "finish frozen-V15.6 preregistered policy reference experiments under the corrected absolute-state and transition-alignment contract",
+    "collect same-domain successful offline RoboTwin expert trajectories on new training-only seeds with immutable provenance and arm-balanced quotas",
+    "train a parent world-model candidate with balanced left/right motion, contact, visibility and long-horizon supervision while keeping official Pi0.5 policy weights untouched",
+    "distill V15.7 action-conditioned outputs into the parent candidate on policy-state coverage while anchoring real/synthetic ground-truth RGB, temporal, texture, structure and reward-progress losses",
+    "screen on episode-disjoint world-model validation and reward-ranking validation without final128",
+    "freeze one candidate and rerun the unmodified official fixed-budget Pi0.5/reward/RL pipeline",
+    "promote at most one selected candidate to final128 real RoboTwin acceptance"
+  ],
+  "acceptance_gates": {
+    "overall_task_success_absolute_improvement_pp_min": 3.0,
+    "overall_task_success_relative_improvement_percent_min": 3.0,
+    "left_success_non_regression": true,
+    "right_success_non_regression": true,
+    "overall_left_right_grasp_non_regression": true,
+    "real_environment": "RoboTwin adjust_bottle, 200 steps, 14-D actions, no world model and no MPC at acceptance time",
+    "service": [
+      "HTTPS",
+      "authentication",
+      "maximum batch",
+      "bounded concurrency",
+      "idempotency",
+      "restart reproducibility",
+      "latency"
+    ]
+  }
+}

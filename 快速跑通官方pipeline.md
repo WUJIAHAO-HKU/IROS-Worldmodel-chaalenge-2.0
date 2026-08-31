@@ -22,7 +22,8 @@ o0 o1 o2 o3 o4 + a0 a1 a2 a3 + u0 ... u7  ->  p0 ... p7
 | 动作字段 | `joint_action/vector` | 对齐的 `[T,14]` 浮点动作 |
 | 起点权重 | `artifacts/upstream/ivideogpt-bair-64-act-cond/` | MIT 的 BAIR 64x64 action-conditioned iVideoGPT |
 | iVideoGPT 基线 | `iVideoGPT-64 + 14D action adapter/LoRA` | 已完成真实数据适配；作为 token 世界模型对照 |
-| 当前候选 | `native-256px autoregressive U-Net` | 每次以 5 帧和 4 个历史动作加当前动作预测 1 帧，连续生成 8 帧 |
+| 旧基线 | `native-256px autoregressive U-Net` | 已完成接口/闭环验证，但未通过当前严格预测门槛 |
+| 正式候选 | `multi-source flow U-Net` | 5 路 RAFT warp 融合；训练集标签和正式训练已排队 |
 
 公开 BAIR 权重原始配置是 `1` 帧上下文、`4D` 动作，不能直接提交。本实现把条件长度扩至 `5`，并重新训练其 `14 -> 768` 动作投影层；图像输入严格使用上游约定的 `[0,1]` RGB。iVideoGPT 仍是对照基线：即使 LoRA 训练 `5000` step，公开验证上的 256px MAE 仍为 `22.00`，差于复制最后帧的 `15.02`，不得提交。
 
@@ -35,6 +36,26 @@ o0 o1 o2 o3 o4 + a0 a1 a2 a3 + u0 ... u7  ->  p0 ... p7
 ```bash
 export PYTHONPATH="$PWD/pipeline"
 ```
+
+### 当前有效候选（不再训练退化分支）
+
+`Wan trajectory v2` 的画面结构较稳，`Direct Flow U-Net` 的短期运动跟随较好。
+固定采用 `Wan 25% + Direct Flow 75%` RGB 融合：同一 64 个留出窗口上，平均 MAE
+`9.428 -> 7.910 / 255`，高运动 MAE `16.834 -> 14.045 / 255`。权重已经固定，禁止在全量
+验证集继续调参。`v3/v4 latent-action residual` 已经退化，停止训练和评估。
+
+全量验证使用可恢复缓存；每完成一个窗口立即落盘，因此空闲 GPU 被其他任务占用后可以安全让出：
+
+```bash
+conda run -n go1 bash pipeline/scripts/run_track2_wan_flow_ensemble_full.sh
+
+# 不加载模型、不占 GPU，读取断点进度。
+conda run -n go1 python pipeline/scripts/track2_wan_flow_ensemble_status.py
+```
+
+它评估全部 `682` 个隔离验证窗口，并导出 3 个最差 GIF。评估完成后会自动复核窗口覆盖、权重/
+Wan 基座身份及逐帧 MAE，只有每个窗口、每一张未来帧均低于 `1.0 / 255` 才写出有效验收记录并进入
+RLinf；当前候选尚未通过该硬门槛，不能提前声称通过。
 
 ### 2.1 验证官方数据
 
@@ -109,7 +130,7 @@ conda run -n go1 python pipeline/scripts/train_ivideogpt64.py \
 
 每次验证均从 `5` 个验证 episode 均匀抽样，保存 `checkpoints/checkpoint_step_*`；`best/` 和输出目录根部始终是最低 validation token loss 的可运行权重。token loss 只用于选择开发权重，不是视频质量或官方得分。完成 200 step 后，用 `best/` 导出验证 GIF；确认趋势后再增加步数或进入微调阶段。
 
-### 2.5 冻结当前 256px 世界模型
+### 2.5 历史 256px 基线
 
 ```bash
 conda run -n go1 python pipeline/scripts/train_autoregressive_unet.py \
@@ -135,6 +156,95 @@ conda run -n go1 python pipeline/scripts/train_autoregressive_unet.py \
 本地测试 episode 2: artifacts/visualizations/autoregressive_unet_rollout8_track2_native256_localtest_episode2_00025.gif
 ```
 
+### 2.5a 正式世界模型训练门槛（当前阶段）
+
+在进入任何 RLinf 任务前，最终世界模型必须在隔离验证集 `682` 个窗口中，**每个窗口的
+每一张未来帧**都满足 RGB MAE `< 2.5 / 255`。均值达标、少量样本达标或训练集效果均不算通过。
+
+当前选择是多源光流融合模型：每个未来帧对 `5` 个上下文帧分别预测反向 RAFT 光流，重采样后
+由可学习权重融合，并用 RGB 残差修正新显露区域。融合权重由训练集 RAFT 重建误差监督，能在遮挡
+处选择实际可见的历史来源。它保持官方固定输入输出契约，不使用验证或本地测试 episode 的教师标签。
+此前单源光流 v2 的验证平均 MAE 为 `8.03 / 255`，未通过，不能提交。
+
+先仅用训练 episode 生成标签（约 `13GB`）：
+
+```bash
+conda run -n go1 python pipeline/scripts/precompute_raft_flow_targets.py \
+  --windows artifacts/adjust_bottle_windows_full \
+  --split-manifest artifacts/splits/adjust_bottle_50episodes_full.json \
+  --output artifacts/flow_targets/raft_small_train_multisource_v1_128 \
+  --source-mode all-context --flow-resolution 128 --batch-size 1 --pair-batch-size 8
+```
+
+再开始正式训练。默认每 `1000` step 全量评估 `682` 个验证窗口；候选按“最差未来帧
+MAE，再平均 MAE”保存，不能以平均值掩盖任一失败帧（默认只保留该最佳 checkpoint）：
+
+```bash
+conda run -n go1 python pipeline/scripts/train_multisource_flow_unet.py \
+  --windows artifacts/adjust_bottle_windows_full \
+  --split-manifest artifacts/splits/adjust_bottle_50episodes_full.json \
+  --flow-targets artifacts/flow_targets/raft_small_train_multisource_v1_128 \
+  --flow-resolution 128 --output artifacts/checkpoints/multisource-flow-unet-track2-formal-v1 \
+  --steps 60000 --batch-size 1 --base-channels 64
+```
+
+若 GPU 同时被其他任务使用，标签工作器完成后可自动等待空档启动同一训练命令：
+
+```bash
+nohup pipeline/scripts/wait_for_multisource_training.sh \
+  --flow-targets artifacts/flow_targets/raft_small_train_multisource_v1_128 \
+  --log artifacts/logs/multisource_train_opportunistic.log -- \
+  /root/miniconda3/envs/go1/bin/python pipeline/scripts/train_multisource_flow_unet.py \
+  --windows artifacts/adjust_bottle_windows_full \
+  --split-manifest artifacts/splits/adjust_bottle_50episodes_full.json \
+  --flow-targets artifacts/flow_targets/raft_small_train_multisource_v1_128 \
+  --flow-resolution 128 --output artifacts/checkpoints/multisource-flow-unet-track2-formal-v1 \
+  --steps 60000 --batch-size 1 --base-channels 64 --resume \
+  > artifacts/logs/multisource_train_opportunistic.watchdog.log 2>&1 &
+```
+
+训练结束后必须全量验收，失败则只记录结果并继续模型迭代，不导出为候选或启动 RL：
+
+```bash
+conda run -n go1 python pipeline/scripts/evaluate_ivideogpt64.py \
+  --backend multisource-flow-unet --windows artifacts/adjust_bottle_windows_full \
+  --split-manifest artifacts/splits/adjust_bottle_50episodes_full.json \
+  --checkpoint-dir artifacts/checkpoints/multisource-flow-unet-track2-formal-v1/best \
+  --split validation --samples 682 --accept-mae 2.5 --require-pass \
+  --output artifacts/evaluations/multisource_flow_unet_formal_v1_validation_all.json
+```
+
+若未通过，JSON 同时记录最差窗口/预测帧，并自动导出前三个失败窗口的对比 GIF；未通过不得进入 RL。
+
+也可让验收只在完整训练结束并且 GPU 空闲时自动运行：
+
+```bash
+nohup pipeline/scripts/wait_for_training_completion.sh \
+  --completion artifacts/checkpoints/multisource-flow-unet-track2-formal-v1/training_complete.json \
+  --expected-steps 60000 --log artifacts/logs/multisource_eval_opportunistic.log -- \
+  /root/miniconda3/envs/go1/bin/python pipeline/scripts/evaluate_ivideogpt64.py \
+  --backend multisource-flow-unet --windows artifacts/adjust_bottle_windows_full \
+  --split-manifest artifacts/splits/adjust_bottle_50episodes_full.json \
+  --checkpoint-dir artifacts/checkpoints/multisource-flow-unet-track2-formal-v1/best \
+  --split validation --samples 682 --accept-mae 2.5 --require-pass \
+  --output artifacts/evaluations/multisource_flow_unet_formal_v1_validation_all.json \
+  > artifacts/logs/multisource_eval_opportunistic.watchdog.log 2>&1 &
+```
+
+GPU 被其他任务使用时，可用机会式工作器在其持续空闲时生成标签，并在检测到其他 GPU 计算恢复后
+暂停自身；它不会用无效张量占用显存：
+
+```bash
+nohup pipeline/scripts/opportunistic_gpu_worker.sh \
+  --log artifacts/logs/multisource_raft_opportunistic.log --idle-seconds 30 --busy-sm 10 -- \
+  /root/miniconda3/envs/go1/bin/python pipeline/scripts/precompute_raft_flow_targets.py \
+  --windows artifacts/adjust_bottle_windows_full \
+  --split-manifest artifacts/splits/adjust_bottle_50episodes_full.json \
+  --output artifacts/flow_targets/raft_small_train_multisource_v1_128 \
+  --source-mode all-context --flow-resolution 128 --batch-size 1 --pair-batch-size 8 \
+  > artifacts/logs/multisource_raft_opportunistic.watchdog.log 2>&1 &
+```
+
 ### 2.6 模型与多轮 rollout 自测
 
 ```bash
@@ -142,24 +252,18 @@ conda run -n go1 python pipeline/scripts/rollout_smoke.py \
   --window artifacts/adjust_bottle_windows_full/episode5_00000.npz \
   --backend autoregressive-unet \
   --checkpoint-dir artifacts/checkpoints/autoregressive-unet-track2-rollout8-v1/best
-
-conda run -n go1 python pipeline/scripts/run_mbrl_smoke.py \
-  --window artifacts/adjust_bottle_windows_full/episode5_00000.npz \
-  --backend autoregressive-unet \
-  --checkpoint-dir artifacts/checkpoints/autoregressive-unet-track2-rollout8-v1/best \
-  --rounds 2
 ```
 
-成功条件：两轮都返回 `8` 帧，下一轮上下文为 `[5,256,256,3]`、历史动作为 `[4,14]`，本地代理奖励有限。代理奖励不是官方 reward checkpoint。
+此处只保留 rollout 契约检查。非 synthetic 的 MBRL/RLinf 均由严格验收门禁拦截，必须在 2.5a 通过后执行。
 
 ### 2.7 官方 HTTP API 自测
 
 终端 A：
 
 ```bash
-WAM_BACKEND=autoregressive-unet \
-WAM_CHECKPOINT_DIR=artifacts/checkpoints/autoregressive-unet-track2-rollout8-v1/best \
-WAM_MODEL_VERSION=autoregressive-unet-track2-native256-rollout8 \
+WAM_BACKEND=multisource-flow-unet \
+WAM_CHECKPOINT_DIR=artifacts/checkpoints/multisource-flow-unet-track2-formal-v1/best \
+WAM_MODEL_VERSION=multisource-flow-unet-track2-formal-v1 \
 WAM_BEARER_TOKEN=local-dev-token \
 WAM_PORT=8001 \
 conda run -n go1 python pipeline/scripts/serve.py
@@ -170,14 +274,14 @@ conda run -n go1 python pipeline/scripts/serve.py
 ```bash
 conda run -n go1 python pipeline/scripts/contract_test.py \
   --base-url http://127.0.0.1:8001 --token local-dev-token \
-  --model-version autoregressive-unet-track2-native256-rollout8
+  --model-version multisource-flow-unet-track2-formal-v1
 ```
 
 通过标准：`health`、`capabilities`、单条/8 条 batch、同请求确定性重试、request ID 冲突、错误尺寸、错误 profile、鉴权全部通过。完整副本上的 smoke 权重已经通过该测试；提交前固定 `model_version`，再以最终权重完整重跑。
 
-### 2.8 官方 policy / reward / RLinf 闭环
+### 2.8 官方 policy / reward / RLinf 闭环（严格验收通过后）
 
-本地正式闭环使用 `track2_http`：它不导入 Wan/DiffSynth，也不需要 RoboTwin
+在 2.5a 的 `682 x 8` 严格验证通过前，禁止对任何候选启动 RLinf。本地正式闭环使用 `track2_http`：它不导入 Wan/DiffSynth，也不需要 RoboTwin
 模拟器。`track2_http` 读取公开 reset，调用本地 bridge；bridge 将每组 `8x14`
 动作转换为一次严格的 `/v1/predict`；环境用官方 T5 reward 计算每帧差分奖励。
 
@@ -196,7 +300,10 @@ conda run -n go1 python pipeline/scripts/make_public_rlinf_reset_dataset.py \
 export RLINF_RESET_DATASET=$PWD/artifacts/rlinf_public_reset_adjust_bottle
 export WAM_API_URL=http://127.0.0.1:8001
 export WAM_BEARER_TOKEN=local-dev-token
-export WAM_MODEL_VERSION=autoregressive-unet-track2-native256-rollout8
+export WAM_MODEL_VERSION=multisource-flow-unet-track2-formal-v1
+export WAM_BACKEND=multisource-flow-unet
+export WAM_CHECKPOINT_DIR=$PWD/artifacts/checkpoints/multisource-flow-unet-track2-formal-v1/best
+export WAM_STRICT_EVALUATION=$PWD/artifacts/evaluations/multisource_flow_unet_formal_v1_validation_all.json
 export ROBOTWIN_REWARD_MODEL_PATH=$PWD/artifacts/official_resources/reward_model/adjust_bottle/full_weights.pt
 export T5_MODEL_PATH=$PWD/artifacts/official_resources/reward_model/t5-base
 ```
@@ -204,8 +311,8 @@ export T5_MODEL_PATH=$PWD/artifacts/official_resources/reward_model/t5-base
 先启动 API 与 bridge（已启动可跳过）：
 
 ```bash
-WAM_BACKEND=autoregressive-unet \
-WAM_CHECKPOINT_DIR=artifacts/checkpoints/autoregressive-unet-track2-rollout8-v1/best \
+WAM_BACKEND=$WAM_BACKEND \
+WAM_CHECKPOINT_DIR=$WAM_CHECKPOINT_DIR \
 WAM_MODEL_VERSION=$WAM_MODEL_VERSION WAM_BEARER_TOKEN=$WAM_BEARER_TOKEN WAM_PORT=8001 \
 conda run -n go1 python pipeline/scripts/serve.py
 
@@ -220,7 +327,9 @@ PYTHONPATH="$PWD/pipeline" conda run -n go1 python -m wam_pipeline.rlinf_bridge.
 PYTHONPATH="$PWD/pipeline:$PWD/third_party/WorldArena-2.0/RL_env_benchmark:$PWD/third_party/openpi-rlinf-full/src" \
 conda run -n go1 python pipeline/scripts/run_real_track2_closed_loop.py \
   --reset artifacts/rlinf_public_reset_adjust_bottle/episode0.npy \
-  --bridge-url http://127.0.0.1:18080 --rounds 2
+  --bridge-url http://127.0.0.1:18080 --rounds 2 \
+  --strict-evaluation $WAM_STRICT_EVALUATION \
+  --world-model-checkpoint $WAM_CHECKPOINT_DIR --world-model-backend $WAM_BACKEND
 
 conda run -n go1 bash pipeline/scripts/run_public_rlinf_track2.sh runner.max_steps=1
 ```
@@ -241,4 +350,4 @@ GRPO 更新；产物在
 1. 最终模型输出严格为 PNG Base64 的 `8 x 256 x 256 x 3 uint8`，动作严格为 `float32[14]`。
 2. 同一输入、模型、profile、seed 的解码 RGB 必须逐像素一致。
 3. 先以最终真实模型后端通过 API 自测；`synthetic` 仅验证服务协议，不能提交。
-4. 冻结 `autoregressive-unet-track2-native256-rollout8` 的权重和 model version；提交前以官方 policy、reward、RLinf 的公开本地闭环 return 验收。
+4. 仅在 `682 x 8` 严格验证通过后冻结最终多源权重和 model version；之后才以官方 policy、reward、RLinf 的公开本地闭环 return 验收。

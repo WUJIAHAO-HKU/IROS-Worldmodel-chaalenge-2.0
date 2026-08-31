@@ -1,0 +1,192 @@
+#!/usr/bin/env python3
+"""Numeric, phase, causality, and left-nonregression contract for v324."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import time
+from pathlib import Path
+
+import numpy as np
+
+from audit_v310_full_mirror_causal_gate import make_counterfactual
+from wam_pipeline.v271_endpoint_calibrated_terminal_runtime import Track2V271EndpointCalibratedTerminal
+from wam_pipeline.v312_causal_terminal_mirror_runtime import action_features
+from wam_pipeline.v317_batched_sparse_failure_terminal_runtime import Track2V317BatchedSparseFailureTerminal
+from wam_pipeline.v324_phase_guarded_terminal_runtime import Track2V324PhaseGuardedTerminal
+from train_v311_public_action_causal_gate import features as training_features
+
+
+def load(path: Path):
+    with np.load(path, allow_pickle=False) as data:
+        return tuple(
+            np.asarray(data[name], dtype=dtype)
+            for name, dtype in (
+                ("context_frames", np.uint8),
+                ("history_actions", np.float32),
+                ("future_actions", np.float32),
+            )
+        )
+
+
+def seed(path: Path) -> int:
+    return int.from_bytes(hashlib.sha256(path.name.encode()).digest()[:8], "little") % (2**31)
+
+
+def synchronize(device: str) -> None:
+    if device.startswith("cuda"):
+        import torch
+        torch.cuda.synchronize()
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--checkpoint-dir", required=True, type=Path)
+    parser.add_argument("--library-index", required=True, type=Path)
+    parser.add_argument("--action-gate", required=True, type=Path)
+    parser.add_argument("--phase-gate", required=True, type=Path)
+    parser.add_argument("--windows", required=True, type=Path)
+    parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--device", default="cuda")
+    args = parser.parse_args()
+    if args.output.exists():
+        raise FileExistsError(args.output)
+
+    paths = []
+    for episode in (5, 7, 16, 18):
+        episode_paths = sorted(args.windows.glob(f"episode{episode}_*.npz"))
+        paths.extend(episode_paths[index] for index in (20, 60))
+    samples = [load(path) for path in paths]
+    contexts = np.stack([sample[0] for sample in samples])
+    histories = np.stack([sample[1] for sample in samples])
+    futures = np.stack([sample[2] for sample in samples])
+    seeds = np.asarray([seed(path) for path in paths], dtype=np.int64)
+    prompts = ["adjust bottle"] * len(samples)
+    serial_runtime = Track2V324PhaseGuardedTerminal(
+        args.checkpoint_dir, args.library_index, args.device, args.action_gate, args.phase_gate
+    )
+    batch_runtime = Track2V324PhaseGuardedTerminal(
+        args.checkpoint_dir, args.library_index, args.device, args.action_gate, args.phase_gate
+    )
+    baseline = Track2V271EndpointCalibratedTerminal(
+        args.checkpoint_dir, args.library_index, args.device
+    )
+    v317 = Track2V317BatchedSparseFailureTerminal(
+        args.checkpoint_dir, args.library_index, args.device, args.action_gate
+    )
+
+    serial = np.stack([
+        serial_runtime.predict(context, history, future, int(value), prompt)
+        for (context, history, future), value, prompt in zip(samples, seeds, prompts, strict=True)
+    ])
+    batch = batch_runtime.predict_batch(contexts, histories, futures, seeds, prompts)
+    difference = np.abs(serial.astype(np.int16) - batch.astype(np.int16))
+
+    # Warm both paths before timing and use medians to avoid one-time compilation noise.
+    batch_runtime.predict_batch(contexts, histories, futures, seeds, prompts)
+    serial_times = []
+    batch_times = []
+    for _ in range(3):
+        synchronize(args.device)
+        begin = time.perf_counter()
+        np.stack([
+            serial_runtime.predict(context, history, future, int(value), prompt)
+            for (context, history, future), value, prompt in zip(samples, seeds, prompts, strict=True)
+        ])
+        synchronize(args.device)
+        serial_times.append(time.perf_counter() - begin)
+        begin = time.perf_counter()
+        batch_runtime.predict_batch(contexts, histories, futures, seeds, prompts)
+        synchronize(args.device)
+        batch_times.append(time.perf_counter() - begin)
+
+    left_single_differences = []
+    for index in (0, 1, 4, 5):
+        context, history, future = samples[index]
+        expected = baseline.predict(context, history, future, int(seeds[index]), prompts[index])
+        actual = batch_runtime.predict(context, history, future, int(seeds[index]), prompts[index])
+        left_single_differences.append(int(np.abs(expected.astype(np.int16) - actual.astype(np.int16)).max()))
+
+    # Use the preregistered episode22 blind-spot family.  The previous episode7
+    # sample is already saturated under v317, so pixel change is not a valid
+    # implementation-path assertion there.
+    transition_path = args.windows / "episode22_00100.npz"
+    context, history, future = load(transition_path)
+    variants = [future] + [
+        make_counterfactual(future, history, name)
+        for name in ("open_gripper", "static_transport", "reverse_transport")
+    ]
+    branch = batch_runtime.predict_batch(
+        np.repeat(context[None], 4, axis=0),
+        np.repeat(history[None], 4, axis=0),
+        np.stack(variants),
+        np.repeat(seed(transition_path), 4),
+        ["adjust bottle"] * 4,
+    )
+    parent = v317.predict(context, history, future, seed(transition_path), "adjust bottle")
+    probability = batch_runtime._probability(history, future)
+    base, _ = batch_runtime._nearest_clean(context, history, future)
+    phase_ready, phase_episode, phase_start, phase_onset = batch_runtime._phase(base)
+    feature_difference = max(
+        float(np.max(np.abs(training_features(history, future) - action_features(history, future))))
+        for _, history, future in samples
+    )
+    serial_median = float(np.median(serial_times))
+    batch_median = float(np.median(batch_times))
+    checks = {
+        "training_runtime_features_bit_exact": feature_difference == 0.0,
+        "batch_max_absolute_pixel_change_le_2": int(difference.max()) <= 2,
+        "batch_mean_absolute_pixel_change_le_0p05": float(difference.mean()) <= 0.05,
+        "native_batch_speedup_ge_1p4": serial_median / batch_median >= 1.4,
+        "left_single_parent_bit_exact": max(left_single_differences) == 0,
+        "valid_transition_probability_ge_0p90": probability >= 0.90,
+        "valid_transition_phase_ready": phase_ready,
+        "valid_transition_terminal_changes_v317": bool(
+            np.any(branch[0, -1] != parent[-1])
+        ),
+        "all_counterfactual_terminals_context_exact": all(
+            np.array_equal(branch[index, -1], context[-1]) for index in (1, 2, 3)
+        ),
+        "shape_and_dtype": batch.shape == (8, 8, 256, 256, 3) and batch.dtype == np.uint8,
+    }
+    report = {
+        "format": "strict-track2-v324-phase-guarded-terminal-contract-v1",
+        "candidate": "track2-v324-phase-guarded-terminal-v317",
+        "feature_max_absolute_difference": feature_difference,
+        "serial_batch": {
+            "max_absolute_pixel_change": int(difference.max()),
+            "mean_absolute_pixel_change": float(difference.mean()),
+            "serial_seconds_median": serial_median,
+            "batch_seconds_median": batch_median,
+            "speedup": serial_median / batch_median,
+        },
+        "left_single_max_absolute_pixel_differences": left_single_differences,
+        "transition": {
+            "gate_probability": probability,
+            "phase_episode": phase_episode,
+            "phase_start": phase_start,
+            "phase_onset": phase_onset,
+            "terminal_max_change_vs_v317": int(
+                np.abs(branch[0, -1].astype(np.int16) - parent[-1].astype(np.int16)).max()
+            ),
+        },
+        "checks": checks,
+        "passed": all(checks.values()),
+        "guards": {
+            "public_windows_only": True,
+            "runtime_reads_reward_or_outcome": False,
+            "policy_modified": False,
+            "hidden_or_final_data": False,
+            "real_submission": False,
+        },
+    }
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(report, indent=2) + "\n")
+    print(json.dumps(report, indent=2))
+    return 0 if report["passed"] else 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,28 @@
+{
+  "format": "strict-track2-terminal-reward-blend-preregistration-v1",
+  "registered_before_evaluation": true,
+  "objective": "Find the largest safe contribution from the visually strong joint-domain expert without degrading the terminal official reward optimized by one-chunk GRPO.",
+  "base_cache": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v155_action_gated_onpolicy_reward_cache64.npz",
+  "candidate_cache": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/joint_action_gated_reward_sweep/checkpoints_checkpoint_step_001500.npz",
+  "candidate_checkpoint": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v155_joint_domain_parent_3000/checkpoints/checkpoint_step_001500",
+  "screen_strengths": [0.1, 0.2, 0.35, 0.5],
+  "screen_protocol": "Pixel-space full-composite interpolation is a cheap diagnostic only. The selected strength must be reimplemented at the autoregressive expert level and revalidated end to end before deployment.",
+  "required_gates": {
+    "overall_rgb_improvement_percent_min": 3.0,
+    "right_contact_rgb_improvement_percent_min": 3.0,
+    "left_rgb_improvement_percent_min": 0.0,
+    "overall_terminal_reward_mae_improvement_percent_min": 0.0,
+    "right_terminal_reward_mae_improvement_percent_min": 0.0,
+    "overall_terminal_reward_pearson_nonregression": true,
+    "right_terminal_reward_pearson_nonregression": true
+  },
+  "ranking": "largest strength among candidates passing every gate",
+  "track2_guards": {
+    "real_policy_development_used": false,
+    "real_policy_acceptance_used": false,
+    "pi05_modified": false,
+    "reward_model_modified": false,
+    "participant_action_selection": false,
+    "mpc": false
+  }
+}

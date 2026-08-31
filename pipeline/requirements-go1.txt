@@ -2,3 +2,8 @@
 h5py>=3.10
 imageio>=2.34
 pytest>=8.0
+# Pinned DiffSynth Wan runtime imports these at startup. The checkpoint itself
+# is intentionally not listed here because its organizer source is unconfirmed.
+modelscope>=1.20,<2
+seaborn>=0.13,<0.14
+ftfy>=6.1,<7

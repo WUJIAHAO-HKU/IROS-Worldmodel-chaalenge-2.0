@@ -1,0 +1,258 @@
+{
+  "format": "strict-track2-v509-phase-a-deterministic-warning-mismatch-failure-forensic-v1",
+  "status": "immutable_failed_no_retry_read_only_forensic",
+  "passed": false,
+  "retry_authorized": false,
+  "execution": {
+    "transport_script": {
+      "path": "/root/v509_phase_a_cache_qualification_once.sh",
+      "sha256": "78ff4adc459728d930f6477db53f07c55932fe05c2eb965f66d4de5ed556ee3b",
+      "logical_bytes": 4104
+    },
+    "returncode": 1,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_logical_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_logical_bytes": 0,
+    "invocations": {
+      "transport_normal": 1,
+      "phase_a_launcher": 1,
+      "phase_a_driver": 1,
+      "process_a_worker": 1,
+      "process_b_worker": 0,
+      "training": 0,
+      "cache_reuse": 0,
+      "reward_read": 0,
+      "dev_hidden_final_outcome_read": 0
+    }
+  },
+  "bound_sources": {
+    "authority_contract": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v509_v508_phase_a_wam_pipeline_import_repair_execution_authority_contract.json",
+      "sha256": "acee1f332e66fa403a34e7bf3a62955136b92e19364e84a14db3308d2d339697",
+      "logical_bytes": 114187
+    },
+    "authority_receipt": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_wam_pipeline_import_repair_execution_authority_seed1650_20260825/authority_receipt.json",
+      "sha256": "c53aa1ad33f5e434517d64b700faf1a14ceb48d04eeda4df699113ea6785ab0d",
+      "logical_bytes": 314015
+    },
+    "launcher": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v509_v508_phase_a_cache_qualification.py",
+      "sha256": "3427f8972bfe929042ed600d7742070bb873f5dc99c6e3eaae4543600457f33e",
+      "logical_bytes": 58848
+    },
+    "driver": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v509_v508_phase_a_cache_qualification.py",
+      "sha256": "e481a4be0a2cdbccdfd9a3a26cfe0eb0b539460dcd18fb7e014d5291c71f5428",
+      "logical_bytes": 37884
+    },
+    "worker": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v485_v169_cache_qualification_worker.py",
+      "sha256": "f3c440c09e4cede17b5825c2117da7b39ee62c353c3538dd6e5c518f4da74cba",
+      "logical_bytes": 31353
+    },
+    "warning_scope": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+      "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5",
+      "logical_bytes": 4519
+    },
+    "fresh_preregistration": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_cache_qualification_prereg_seed1650_20260825/preregistration.json",
+      "sha256": "8200ba523295a607bbab47c897e83e0b8736ab6000dc26a37fe73c6363cd7cc4",
+      "logical_bytes": 56800
+    },
+    "parent_runtime": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/v482_temporal8_residual_runtime.py",
+      "sha256": "6939e3f6f52c1eb83bfd4324372d7e75ed4ee6d493777a39f38c26e5f4db7471"
+    }
+  },
+  "roots": {
+    "launcher_attempt_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_cache_qualification_attempt_seed1650_20260825",
+    "launcher_attempt_root_absent": true,
+    "launcher_attempt_prep_absent": true,
+    "qualification_root": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825",
+    "qualification_root_present": true,
+    "qualification_prep_absent": true,
+    "process_b_absent": true
+  },
+  "qualification_failure": {
+    "failure_receipt": {
+      "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/failure_receipt.json",
+      "sha256": "3ff7aa53fefd4307e739c5dced935d18425b0924bd3f2514b8cd461cc4aa2b8e",
+      "logical_bytes": 4011,
+      "format": "strict-track2-v485-v169-cache-qualification-failure-receipt-v1",
+      "status": "failed_no_retry",
+      "stage": "process_a",
+      "error_type": "RuntimeError"
+    },
+    "process_a_completion_receipt": {
+      "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/completion_receipt.json",
+      "sha256": "7b76710025309c347af6f1145376a5237de1bfede0de2aaa536cd5e728577fc0",
+      "logical_bytes": 1472,
+      "status": "failed",
+      "exit_type": "nonzero_exit",
+      "exit_code": 1,
+      "signal": null,
+      "child_completed": true,
+      "worker_passed": false,
+      "worker_receipt_present": false,
+      "wait_seconds": 49.582383948
+    },
+    "process_a_log": {
+      "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/process.log",
+      "sha256": "1910ea1d56fb506e1cc58fdf14a4f7eecee72b2906781742fd5712063ae55b7f",
+      "logical_bytes": 3414
+    },
+    "process_a_identity": {
+      "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/identity.json",
+      "sha256": "8892662079656cb9ac038d1d76d524d237dd777cc29692de00f7e3058c3ebb36",
+      "logical_bytes": 851,
+      "pid_at_execution": 37867,
+      "role": "process_a"
+    },
+    "progress": {
+      "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/progress.ndjson",
+      "sha256": "288b3545e7ef661a9bd85dd5568d21c6f7bfcb064ac928036dde12c4d24cdee3",
+      "logical_bytes": 842,
+      "current_execution_order": 0,
+      "current_sample_id": 0,
+      "completed_calls": 0,
+      "last_warning": null,
+      "last_rng": null
+    },
+    "call_events": {
+      "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/call_events.ndjson",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logical_bytes": 0,
+      "committed_calls": 0
+    },
+    "baseline_staging": {
+      "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/cache/baseline_A_staging.raw",
+      "sha256": "3e6b92b9764b3786091e5bb67e8ffb8c3271be4c977101da9fa14afa12fea171",
+      "logical_bytes": 1572864000,
+      "qualified_cache": false
+    },
+    "authorization_outcomes": {
+      "folds": 0,
+      "policy_updates": 0,
+      "cache_reuse": false,
+      "training": false,
+      "reward_read": false,
+      "dev_hidden_final_outcome_read": false
+    }
+  },
+  "qualification_tree": {
+    "failure_receipt_embedded_pre_receipt_tree": {
+      "file_count": 7,
+      "logical_file_bytes": 1572953511,
+      "sha256sum_lines_digest_sha256": "f9d11a6ae62d794c8ac56f800f043c936aadaf53a5be0fdfa03d68b5d392f899",
+      "canonical_json_digest_sha256": "0c4e56cb43a8c960949ec9eed90b78713d5efe8569589f5667467ba018805088"
+    },
+    "current_exact_tree": {
+      "file_count": 8,
+      "logical_file_bytes": 1572957522,
+      "sha256sum_lines_digest_sha256": "4c2eb7e8cc59dd2e95e1eb6f0ab90c25fc4cd730d1cc2da5d2bbd8cd5213d7c7",
+      "canonical_json_digest_sha256": "584b873935583b7cd8e574ef77c5cc80735780a2844524566c0721c8f1337c30",
+      "inventory": [
+        ["attempt_intent.json", "02e01e0e9f7fe2a96bda71cf9ae78166131157145f8d5e68bda17c246284cb77", 82932],
+        ["failure_receipt.json", "3ff7aa53fefd4307e739c5dced935d18425b0924bd3f2514b8cd461cc4aa2b8e", 4011],
+        ["process_a/cache/baseline_A_staging.raw", "3e6b92b9764b3786091e5bb67e8ffb8c3271be4c977101da9fa14afa12fea171", 1572864000],
+        ["process_a/call_events.ndjson", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 0],
+        ["process_a/completion_receipt.json", "7b76710025309c347af6f1145376a5237de1bfede0de2aaa536cd5e728577fc0", 1472],
+        ["process_a/identity.json", "8892662079656cb9ac038d1d76d524d237dd777cc29692de00f7e3058c3ebb36", 851],
+        ["process_a/process.log", "1910ea1d56fb506e1cc58fdf14a4f7eecee72b2906781742fd5712063ae55b7f", 3414],
+        ["process_a/progress.ndjson", "288b3545e7ef661a9bd85dd5568d21c6f7bfcb064ac928036dde12c4d24cdee3", 842]
+      ]
+    }
+  },
+  "warning_comparison": {
+    "collector": {
+      "source": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+      "capture": "warnings.catch_warnings(record=True) with simplefilter(always)",
+      "captured_fields": ["category.__name__", "str(message)"],
+      "discarded_fields": ["filename", "lineno", "source"],
+      "comparison": "ordered raw list exact equality",
+      "expected_definition_lines": [14, 20],
+      "collector_lines": [53, 64],
+      "comparison_lines": [65, 66]
+    },
+    "message_definitions": {
+      "median_cuda_indices": {
+        "category": "UserWarning",
+        "message": "median CUDA with indices output does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:93.)",
+        "internal_source": "/pytorch/aten/src/ATen/Context.cpp:93"
+      },
+      "cublas_workspace_config": {
+        "category": "UserWarning",
+        "message": "Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:233.)",
+        "internal_source": "/pytorch/aten/src/ATen/Context.cpp:233"
+      }
+    },
+    "expected_order": ["median_cuda_indices"],
+    "expected_multiset": {"median_cuda_indices": 1, "cublas_workspace_config": 0},
+    "observed_order": ["cublas_workspace_config", "cublas_workspace_config", "median_cuda_indices", "cublas_workspace_config"],
+    "observed_multiset": {"median_cuda_indices": 1, "cublas_workspace_config": 3},
+    "all_observed_categories": ["UserWarning"],
+    "ordered_equal": false,
+    "multiset_equal": false,
+    "category_set_equal": true,
+    "message_source_metadata_captured_by_collector": false
+  },
+  "preregistration_warning_contract": {
+    "field": "only_permitted_code_change.allowed_warning",
+    "category": "UserWarning",
+    "count_per_predict": 1,
+    "count_per_process": 1000,
+    "different_category_or_message": "terminal qualification failure",
+    "forbidden": "any warning other than the exact single median CUDA indices warning inside one predict scope",
+    "evidence_basis": "reviewed r2 two-fresh-process 24-call evidence",
+    "evidence_worker_sha256": "b7db9eba1b7b8a0492691886013a8f5f01426c7162767da571cc955b597999e7",
+    "current_worker_sha256": "f3c440c09e4cede17b5825c2117da7b39ee62c353c3538dd6e5c518f4da74cba",
+    "current_scope_helper_uses_prereg_expected_warning_at_runtime": false,
+    "current_scope_helper_hardcodes_the_same_single_raw_warning": true
+  },
+  "runtime_environment": {
+    "worker_environment_mode": "replace_not_inherit",
+    "worker_environment": {"PYTHONPATH": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline"},
+    "CUBLAS_WORKSPACE_CONFIG_present": false,
+    "python": "3.11.15",
+    "torch": "2.7.0+cu128",
+    "numpy": "1.26.4",
+    "interpreter_resolved_path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+    "interpreter_resolved_sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788",
+    "wam_pipeline_module_file": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/__init__.py",
+    "wam_pipeline_package_file_count": 465,
+    "wam_pipeline_package_canonical_json_triples_digest_sha256": "e6b0ecc96bc6be6d4d37469673cbca46549a68abaf06dfbb1aac8f67482d515f",
+    "wam_pipeline_package_snapshot_sha256": "5a58e766c0d2e580dbc4a2d04050580d4fe65f87a7b636940289a07d9862524e",
+    "exact_env_import_passed": true,
+    "package_tree_before_after_exactly_equal": true
+  },
+  "service_restore": {
+    "health": {
+      "8005_v1_health": {
+        "url": "http://127.0.0.1:8005/v1/health",
+        "http_code": 200,
+        "status": "ready",
+        "model_version": "track2-v218-public-knn-blend-alpha070-route-aware"
+      },
+      "18084_health": {
+        "url": "http://127.0.0.1:18084/health",
+        "http_code": 200,
+        "status": "ready"
+      }
+    },
+    "listener_pids_at_audit": {"8005": 38113, "18084": 38189},
+    "v509_lineage_processes_empty": true,
+    "gpu_compute_processes_empty": true
+  },
+  "read_only_root_cause_analysis": {
+    "collector_behavior": "The collector correctly retained four warnings in emission order; it did not normalize, deduplicate, or suppress them.",
+    "failure_cause": "The frozen preregistration and scope helper authorize exactly one median CUDA UserWarning per call, while the actual sample-0 runtime emitted three additional CuBLAS deterministic warnings because the exact replacement worker environment did not contain CUBLAS_WORKSPACE_CONFIG.",
+    "normalization_only_is_not_fact_preserving": "Canonicalizing or deduplicating the three CuBLAS warnings into the authorized median warning would hide additional nondeterministic-operation evidence and contradict the frozen preregistration.",
+    "new_preregistration_only_is_insufficient": "The current scope helper ignores preregistration warning fields and hardcodes raw one-item equality, so changing JSON alone cannot change production validation.",
+    "narrowest_semantically_safe_candidate_for_future_review": "A fresh authority must explicitly bind an exact worker environment that adds CUBLAS_WORKSPACE_CONFIG=:4096:8 before torch/CUDA initialization, preserve PYTHONPATH, and use a real frozen sample-0 fixture to prove the observed list returns to the sole exact median warning. Any new warning normalization should preserve raw ordered evidence and reject unknown or extra warnings.",
+    "alternative_requiring_explicit_semantic_reauthorization": "A fresh preregistration plus fresh scope helper could authorize the exact four-item ordered warning sequence or a canonical-code sequence with exact multiplicities, but this would accept CuBLAS nondeterminism warnings and is not a mechanical repair of the old contract.",
+    "execution_performed_for_analysis": false
+  }
+}

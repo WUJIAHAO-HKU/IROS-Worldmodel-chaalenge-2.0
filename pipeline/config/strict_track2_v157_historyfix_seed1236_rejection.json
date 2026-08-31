@@ -1,0 +1,46 @@
+{
+  "format": "strict-track2-v157-policy-candidate-rejection-v1",
+  "recorded_at": "2026-08-11T05:05:00+08:00",
+  "status": "rejected_before_dev22_batch01",
+  "policy_preregistration": "pipeline/config/strict_track2_v157_historyfix_seed1236_preregistration.json",
+  "parent_model_version": "track2-v15.7-hybrid-action-gated-reward-safe-blend12",
+  "actor_seed": 1236,
+  "official_policy_checkpoint_sha256": "75fe02a9b4fc6a39dd85e30b5fb18347d272f8c3acfc513361e646434a9beabb",
+  "official_training": {
+    "global_steps": 1,
+    "group_size": 2,
+    "max_episode_steps": 8,
+    "official_pi05_modified": false,
+    "official_reward_modified": false,
+    "official_rl_algorithm_or_budget_modified": false,
+    "participant_action_selection": false,
+    "mpc": false
+  },
+  "rollout_audit": {
+    "context_and_history_bit_exact_2_of_2": true,
+    "candidate_route_2_of_2": true,
+    "same_device_replay_bit_exact_2_of_2": true,
+    "group_future_action_l2": 1.158558964729309
+  },
+  "real_robotwin_dev22_batch00": {
+    "count": 16,
+    "baseline_successes": 3,
+    "candidate_successes": 3,
+    "baseline_grasps": 12,
+    "candidate_grasps": 11,
+    "baseline_right_grasps": 9,
+    "candidate_right_grasps": 8,
+    "remaining_batch01_count": 6,
+    "remaining_batch01_arms": "left only",
+    "maximum_possible_total_grasps": 17,
+    "required_total_grasps": 18
+  },
+  "decision": {
+    "reason": "overall and right-arm grasp non-regression are mathematically impossible after batch00",
+    "run_dev22_batch01": false,
+    "development32_consumed": false,
+    "acceptance128_consumed": false,
+    "additional_actor_seed_sweep_on_v157": false,
+    "required_next_change": "meaningfully retrain the parent with provenance-hashed, training-only successful RoboTwin trajectories balanced toward right-arm contact and lift dynamics, then repeat frozen-parent reward screens before any new official policy run"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "format": "strict-track2-v157-actor-offload-preregistration-v1",
+  "created_at": "2026-08-11T08:00:00+08:00",
+  "purpose": "Test the official RLinf actor weight/optimizer offload implementation as a resource-only way to run frozen V15.7 alongside the unchanged Pi0.5 rollout, reward and GRPO computation on one RTX 5090.",
+  "classification": "resource-feasibility diagnostic; not a formal policy result",
+  "frozen_world_model": {
+    "release_directory": "artifacts/strict_track2_joint_augmentation_20260810/v157_hybrid_gate_blend12_formal_release",
+    "model_version": "track2-v15.7-hybrid-action-gated-reward-safe-blend12",
+    "weights_changed": false,
+    "device": "cuda",
+    "native_batch_enabled": false,
+    "official_max_request_batch": 8,
+    "release_cuda_cache_after_prediction": true
+  },
+  "official_rl": {
+    "base_config": "pipeline/official_patches/config/wan_robotwin_adjust_bottle_http_full_grpo_openpi_pi05.yaml",
+    "base_config_sha256": "2f0398e8e6c9be1a32cfe85e69519bb168e2b7edd09c4748eb7ebc8e87719363",
+    "diagnostic_overrides": {
+      "runner.max_steps": 1,
+      "actor.seed": 1238,
+      "actor.enable_offload": true,
+      "weight_syncer.patch.transport_device": "cpu"
+    },
+    "offload_implementation": "official RLinf FSDP actor offload_param_and_grad/offload_optimizer implementation",
+    "policy_weights_changed": false,
+    "reward_changed": false,
+    "actions_changed": false,
+    "loss_or_optimizer_changed": false,
+    "algorithm_or_formal_budget_changed": false,
+    "formal_training_claim": false
+  },
+  "causal_hypothesis": "The actor is idle during all rollout/world-model interaction. Official actor offload should remove approximately 14.3 GiB of inactive actor parameters/gradients/optimizer state from CUDA without changing any numerical input or update, leaving enough space for serial V15 inference and Pi0.5 rollout overlap.",
+  "acceptance": {
+    "must_complete_all_8_rollout_epochs_and_200_steps": true,
+    "must_complete_reward_and_one_GRPO_update": true,
+    "must_not_cuda_oom": true,
+    "must_record_first_bridge_chunk_and_checkpoint_or_training_metrics": true,
+    "failure_does_not_change_frozen_v157_status": true
+  }
+}

@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import base64
 import io
+from concurrent.futures import ThreadPoolExecutor
+from collections.abc import Iterable
 
 import numpy as np
 from PIL import Image
@@ -66,3 +68,29 @@ def decode_png_base64(payload: object) -> np.ndarray:
     if array.shape != (IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_CHANNELS) or array.dtype != np.uint8:
         raise ImageValidationError("decoded PNG does not match the official RGB dimensions")
     return array.copy()
+
+
+def encode_png_base64_batch(
+    images: Iterable[np.ndarray], workers: int = 1
+) -> list[dict]:
+    """Encode independent frames in stable input order using CPU workers."""
+    values = list(images)
+    if workers < 1:
+        raise ValueError("PNG codec workers must be at least one")
+    if workers == 1 or len(values) < 2:
+        return [encode_png_base64(value) for value in values]
+    with ThreadPoolExecutor(max_workers=min(workers, len(values))) as executor:
+        return list(executor.map(encode_png_base64, values))
+
+
+def decode_png_base64_batch(
+    payloads: Iterable[object], workers: int = 1
+) -> list[np.ndarray]:
+    """Decode independent frames in stable input order using CPU workers."""
+    values = list(payloads)
+    if workers < 1:
+        raise ValueError("PNG codec workers must be at least one")
+    if workers == 1 or len(values) < 2:
+        return [decode_png_base64(value) for value in values]
+    with ThreadPoolExecutor(max_workers=min(workers, len(values))) as executor:
+        return list(executor.map(decode_png_base64, values))

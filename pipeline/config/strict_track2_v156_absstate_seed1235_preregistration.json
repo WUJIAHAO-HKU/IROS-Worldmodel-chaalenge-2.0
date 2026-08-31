@@ -1,0 +1,65 @@
+{
+  "format": "strict-track2-v156-absstate-policy-candidate-preregistration-v1",
+  "registered_at": "2026-08-11T03:49:00+08:00",
+  "candidate_index_within_v156_prescreen": 2,
+  "prior_candidate": {
+    "actor_seed": 1240,
+    "status": "rejected on historical dev22 batch00",
+    "development32_consumed": false
+  },
+  "parent": {
+    "model_version": "track2-v15.6-action-gated-reward-safe-blend12",
+    "release": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v156_action_gated_reward_safe_blend12_formal_release",
+    "frozen": true
+  },
+  "absolute_action_contract": {
+    "proxy_sha256": "d477e345fb6d325f8e5586df914673edc6860cc3afedcb3eb968121b8c095aef",
+    "policy_observation_state": "latest absolute 14-D condition action",
+    "actions_forwarded_unchanged": true
+  },
+  "official_training": {
+    "actor_seed": 1235,
+    "run_label": "official_replica_v156_absstate_seed1235",
+    "global_steps": 1,
+    "rollout_epoch": 1,
+    "group_size": 2,
+    "max_episode_steps": 8,
+    "pi05_modified": false,
+    "reward_model_modified": false,
+    "rl_algorithm_or_budget_modified": false,
+    "participant_action_selection": false,
+    "mpc": false
+  },
+  "rollout_gate": {
+    "absolute_action_contract": true,
+    "candidate_routes_required": "2/2",
+    "replay_bit_exact": true,
+    "nonzero_group_action_difference": true
+  },
+  "historical_dev22_prescreen": {
+    "batch_order": [0, 1],
+    "batch00_count": 16,
+    "batch01_count": 6,
+    "run_batch01_only_if_mathematically_eligible_after_batch00": true,
+    "batch00_minimum_to_continue": {
+      "successes": 2,
+      "grasps": 12,
+      "right_grasps": 9,
+      "right_successes": 0
+    },
+    "final_minimum": {
+      "successes": 8,
+      "grasps": 18,
+      "left_success_nonregression": true,
+      "right_success_nonregression": true,
+      "left_grasp_nonregression": true,
+      "right_grasp_nonregression": true
+    }
+  },
+  "promotion": {
+    "development32_locked_until_full_dev22_pass": true,
+    "development32_required_successes": 10,
+    "development32_baseline_successes": 9,
+    "acceptance128_locked_until_development32_pass": true
+  }
+}

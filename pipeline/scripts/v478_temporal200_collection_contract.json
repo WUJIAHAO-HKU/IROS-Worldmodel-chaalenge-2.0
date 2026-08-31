@@ -1,0 +1,119 @@
+{
+  "authorization_after_phase_b_pass": {
+    "automatic_training": false,
+    "hidden_final_submission": false,
+    "policy_updates": 0,
+    "rl": false,
+    "s1": false,
+    "train_only_temporal_model_design": true,
+    "zero_update": false
+  },
+  "classification": "public-train technical paired collection only; no model training, policy update, RL, S1, zero-update, hidden/final or submission authority",
+  "format": "strict-track2-v478-public-train-temporal200-collection-contract-v1",
+  "guards": {
+    "hidden_final_submission_used": false,
+    "phase_b_temporal_collection_authorized": false,
+    "policy_updates": 0,
+    "rl_authorized": false,
+    "s1_authorized": false,
+    "training_authorized": false,
+    "zero_update_authorized": false
+  },
+  "phase_a_endpoint_oracle12": {
+    "all12_retained": true,
+    "authorized": true,
+    "effect_used_for_selection_retry_filter": false,
+    "endpoint_only": true,
+    "format": "strict-track2-v478-endpoint-oracle12-preregistration-v1",
+    "future_single_full8_chunk": true,
+    "pass_requirement": "exact12 immutable rows plus independent audit; no task reward/success/outcome",
+    "same_seed_reset_prefix_history_replay": true,
+    "variants": [
+      "factual",
+      "no_transport",
+      "scale_0p4",
+      "scale_1p25",
+      "reverse_direction_0p4",
+      "factual_duplicate"
+    ]
+  },
+  "phase_b_atomicity": {
+    "batch_report_fsync_then_atomic_batch_rename": true,
+    "batches": 10,
+    "committed_overwrite_forbidden": true,
+    "contexts_per_batch": 20,
+    "failure_terminate_join_kill_join_and_atomic_receipt": true,
+    "private_work_dirs": true,
+    "resume_rehashes_all_committed_rows": true,
+    "row_npz_receipt_fsync_then_atomic_dir_rename": true,
+    "stale_work_quarantine_at_dataset_root": true
+  },
+  "phase_b_audit": {
+    "all_rows_branches_frames_retained": true,
+    "context_and_branch_prefix_exact": true,
+    "k8_endpoint_matches_frozen_oracle": true,
+    "source_hdf5_window_and_action_sha_each_row": true,
+    "task_reward_success_outcome_read": false,
+    "technical_effects_reported_not_used_for_filter_retry_or_resume": true
+  },
+  "phase_b_resources": {
+    "cpu_affinity": "0-11",
+    "dataset_root": "/root/v478_temporal8_dataset_seed1622_20260824",
+    "dataset_root_free_after_each_batch_bytes_min": 4294967296,
+    "dataset_root_free_pre_bytes_min": 6442450944,
+    "gpu_peak_mib_max": 24576,
+    "history_deletion_forbidden": true,
+    "output_bytes_max": 3221225472,
+    "per_batch_wall_seconds_max": 5400,
+    "registry_free_pre_and_post_bytes_min": 3221225472,
+    "registry_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v478_temporal200_seed1622_20260824",
+    "shm_final_forbidden": true,
+    "threads_per_worker": 3,
+    "total_threads": 6,
+    "whole_wall_seconds_max": 43200,
+    "workers": 2
+  },
+  "phase_b_temporal200": {
+    "authorized": false,
+    "branches": 6,
+    "contexts": 200,
+    "prefix_endpoints_per_branch": 8,
+    "replays": 9600,
+    "semantics": "for each context/branch/k=1..8 independently reset same seed, replay prefix and history as frozen chunks, execute branch future[:k] as one chunk, capture real endpoint RGB/state/bottle",
+    "unlock_only_if": "Phase-A generation report and independent audit both pass and bind all twelve NPZ/receipt SHA",
+    "v477_audit_receipt_sha256": "552b4cabff24117a6de8f0cf212a38a31f6f5619c8b98977f7e213e6fde168d0",
+    "v477_collector_sha256": "be90f3dd1272706af6d9bc1f461543c9b399071139a4ea243bd962b4b01f187a",
+    "v477_contract_sha256": "9fbb494f55115786b2b22e77d91c172ec1a52df77cec224083ff6e82391e53a1",
+    "v477_generation_report_sha256": "c895329884d4767b8567927db2d967888a058474838e152d99120b0b7f65f639",
+    "v477_temporal_npz_sha256": [
+      "ec6952c45a7e25fd939ca2c05e3447f186db41d7b4b4e8b17503f561e92c2d27",
+      "7afa98288b890503c7cf9a10b2515b3df46ccc3059ca616ad32598303e602243",
+      "551a4c5a6c279a1b4a3dbf2d7ed496a4db3110647d23cd45658d5a95c6f36e09",
+      "de96e0dd8200c5b60ba7836558039180fc936f990808f19955040ab013f08221"
+    ]
+  },
+  "seed": 1622,
+  "selection": {
+    "batch_size": 20,
+    "batches": 10,
+    "eligible": 608,
+    "episode_bounds": [
+      6,
+      17
+    ],
+    "fold_motion_exact10": true,
+    "fold_phase_exact8": true,
+    "minimum_episode_range": 11,
+    "new_endpoint_oracles": 12,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v478_temporal200_seed1622_20260824/selection.json",
+    "per_batch_fold4_phase4_motion5": true,
+    "prepare_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/prepare_v478_temporal200_window_eligible_selection.py",
+    "prepare_sha256": "592588eaf1a1dd8bdf5d1bf081a51375c2c1fe3d9e1db24d3ce93ad4a3c7f19f",
+    "receipt_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v478_temporal200_seed1622_20260824/selection_receipt.json",
+    "receipt_sha256": "c14b604b65ffcc13cd23f66a67260f92d3f495f85d7ecf3c823586e3242926b3",
+    "reused_v461_oracles": 188,
+    "selected": 200,
+    "sha256": "f9d62a9b6a8db9d90225e1821dc5016bd56874b47baa48b5486ca5501d850398"
+  },
+  "status": "phase_a_endpoint_oracle12_authorized_phase_b_temporal_false"
+}

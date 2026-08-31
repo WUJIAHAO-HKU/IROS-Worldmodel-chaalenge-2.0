@@ -1,0 +1,143 @@
+{
+  "format": "strict-track2-v514-v513-alias-restore-readonly-remediation-adapter-design-v1",
+  "status": "design_only_frozen_sources_pending_independent_review_no_execution",
+  "seed": "1653B",
+  "lineage": "v514_v513_alias_restore_readonly_remediation_adapter",
+  "fresh_paths": {
+    "adapter_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v514_v513_alias_restore_readonly_remediation_adapter_seed1653B_20260826",
+    "adapter_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v514_v513_alias_restore_readonly_remediation_adapter_seed1653B_20260826.adapter-prep",
+    "adapter_receipt": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v514_v513_alias_restore_readonly_remediation_adapter_seed1653B_20260826/adapter_receipt.json"
+  },
+  "authorization": {
+    "alias_restore_authorized": false,
+    "alias_overwrite_authorized": false,
+    "phase_a_authorized": false,
+    "reconciler_authorized": false,
+    "training_authorized": false,
+    "cache_reuse_authorized": false,
+    "reward_read_authorized": false,
+    "dev_hidden_final_outcome_read_authorized": false,
+    "retry_authorized": false
+  },
+  "execution_boundary": {
+    "readonly_adapter_invocations_authorized": 1,
+    "readonly_adapter_invocations_consumed": 0,
+    "restore_invocations": 0,
+    "wrapper_invocations": 0,
+    "phase_a_invocations": 0,
+    "training_invocations": 0
+  },
+  "historical_gaps": [
+    {
+      "name": "missing_live_service_health_prepost",
+      "observed": true,
+      "description": "The consumed v513 helper did not capture or compare live service response code, raw body bytes, body SHA256, or model identity before and after restoration."
+    },
+    {
+      "name": "source_path_reopen_without_held_nofollow_fd",
+      "observed": true,
+      "description": "The consumed v513 helper recorded the persistent source and later reopened it by path instead of retaining an O_NOFOLLOW descriptor and proving fstat/lstat identity plus pread EOF."
+    },
+    {
+      "name": "target_temp_writeonly_path_reopen_without_held_rdwr_fd",
+      "observed": true,
+      "description": "The consumed v513 helper created its same-filesystem temporary O_WRONLY and validated through path reopen instead of retaining O_RDWR and proving byte-exact pread plus EOF."
+    }
+  ],
+  "normalization_contract": {
+    "source": "original_process_receipt.authorization",
+    "leaf_diff_count": 2,
+    "leaf_diffs": [
+      {
+        "path": "restore_attempts_consumed",
+        "expected": 0,
+        "normalized": 1
+      },
+      {
+        "path": "volatile_alias_restore_authorized_once",
+        "expected": true,
+        "normalized": false
+      }
+    ],
+    "all_other_authorization_leaves_bitexact": true,
+    "original_process_receipt_remains_immutable": true
+  },
+  "anchors": {
+    "source": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/immutable_evidence/v485_static_b73.log",
+      "sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b",
+      "logical_bytes": 6475
+    },
+    "target": {
+      "path": "/dev/shm/v485_static_b73.log",
+      "sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b",
+      "logical_bytes": 6475
+    },
+    "v513_evidence_tree": {
+      "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v513_v512_post_reset_v485_volatile_static_log_alias_restore_evidence_seed1653A_20260826",
+      "file_count": 6,
+      "logical_file_bytes": 87252,
+      "sha256sum_lines_digest_sha256": "05eaebc4d414b290764feb9d48b92e48d2e235e305ed5243147d66b1bd02b25c",
+      "canonical_json_triples_digest_sha256": "e08ff67bdb547ef62b10ba6704e2c52259257ee444cc9a4e49f06b5c13afd543"
+    },
+    "v513_process_receipt": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v513_v512_post_reset_v485_volatile_static_log_alias_restore_evidence_seed1653A_20260826/process_receipt.json",
+      "sha256": "78b61aeb8e5e0bf22ed237a8f1a1c5716b5cb27b9f6b78b8928234d2543d1fa6",
+      "logical_bytes": 26835,
+      "passed": true,
+      "status": "passed_exact_once_volatile_alias_restored_no_reconciliation_execution",
+      "restore_invocations": 1
+    },
+    "v513_transport_helper": {
+      "path": "/root/restore_v513_v512_post_reset_v485_volatile_static_log_alias_once.py",
+      "sha256": "71507966a9b7998576c3b039028caf7054b23914dd7e09c12255bf26f09c0a0a",
+      "logical_bytes": 43522
+    },
+    "f813_registration_tree": {
+      "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824",
+      "file_count": 3,
+      "logical_file_bytes": 89691,
+      "sha256sum_lines_digest_sha256": "8628f5659dacbe3ede05699866ace077c4158e71b4c1020dcfadaf84d9d038b6",
+      "canonical_json_triples_digest_sha256": "2c307584b6d902252365dd39b26dc6f59f38ac3b143034dc2d63529c83e9edaf"
+    },
+    "services": {
+      "8005": {
+        "url": "http://127.0.0.1:8005/v1/health",
+        "http_code": 200,
+        "raw_body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0",
+        "raw_body_logical_bytes": 106,
+        "status": "ready",
+        "model_version": "track2-v218-public-knn-blend-alpha070-route-aware"
+      },
+      "18084": {
+        "url": "http://127.0.0.1:18084/health",
+        "http_code": 200,
+        "raw_body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd",
+        "raw_body_logical_bytes": 18,
+        "status": "ready"
+      }
+    }
+  },
+  "snapshot_contract": {
+    "held_source_fd": "O_RDONLY|O_NOFOLLOW",
+    "held_target_fd": "O_RDONLY|O_NOFOLLOW",
+    "held_fd_proof": ["fstat_lstat_identity", "pread_exact_bytes", "pread_eof", "sha256", "logical_bytes"],
+    "double_current_snapshots_before_publish": true,
+    "third_current_snapshot_immediately_before_publish": true,
+    "snapshot_members": ["source", "target", "f813_tree", "v513_evidence_tree", "services", "matching_pids", "gpu_compute_pids"]
+  },
+  "receipt_contract": {
+    "format": "strict-track2-v514-v513-alias-restore-readonly-remediation-adapter-receipt-v1",
+    "status": "passed_readonly_remediation_adapter_exact_one_no_alias_mutation",
+    "adapter_root_file_count": 1,
+    "required_file": "adapter_receipt.json",
+    "atomic_publish": "prep O_EXCL write-all fsync pread EOF then renameat2 NOREPLACE and parent fsync",
+    "invocation_partition": {
+      "readonly_adapter": 1,
+      "restore": 0,
+      "wrapper": 0,
+      "phase_a": 0,
+      "training": 0
+    }
+  }
+}

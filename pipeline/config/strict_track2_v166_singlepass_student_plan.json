@@ -1,0 +1,67 @@
+{
+  "format": "strict-track2-v166-singlepass-student-plan-v1",
+  "created_at": "2026-08-11T08:11:00+08:00",
+  "status": "planned; training may start only after immutable cache manifests and split hashes are materialized",
+  "objective": "Replace the latency- and memory-heavy V15.7 composite inference graph with one action-conditioned eight-frame student that preserves dual-arm texture, contact structure, temporal dynamics and official reward ranking while improving downstream strict-Track2 policy utility.",
+  "teacher": {
+    "release": "artifacts/strict_track2_joint_augmentation_20260810/v157_hybrid_gate_blend12_formal_release",
+    "screen": "artifacts/strict_track2_joint_augmentation_20260810/v157_reward_safe_parent_screen.json",
+    "role": "soft RGB/dynamics/reward-ranking teacher only; V15.7 remains frozen"
+  },
+  "student": {
+    "family": "single-pass multi-source action-conditioned flow/residual U-Net",
+    "input": "five 256x256 RGB frames plus four absolute-action history steps and eight absolute future actions",
+    "output": "eight 256x256 RGB frames in one dense forward pass",
+    "initialization": "the frozen V15.7 v8 direct-flow component when shape-compatible; otherwise deterministic fresh initialization",
+    "participant_action_selection": false,
+    "reward_or_policy_head": false
+  },
+  "training_sources": {
+    "official_public_train_demonstrations": "ground-truth RGB anchor; validation episodes excluded",
+    "public_robotwin_oracle_success64": "ground-truth successful contact/grasp dynamics, balanced by arm",
+    "public_robotwin_onpolicy_training_only": "ground-truth failure and recovery dynamics from non-development/non-final seeds",
+    "local_full_budget_v157_rollout_cache": "V15.7 soft targets on exact Pi0.5 policy-state coverage; no real evaluation seed or hidden official request",
+    "final128_or_development22": "forbidden for student training"
+  },
+  "loss": {
+    "ground_truth_charbonnier_rgb": 1.0,
+    "v157_teacher_charbonnier_rgb": 0.35,
+    "motion_weighted_ground_truth_rgb": 1.5,
+    "laplacian_and_gradient_texture": 0.35,
+    "black_gripper_and_contact_structure": 1.0,
+    "temporal_delta_and_acceleration": 0.4,
+    "acceleration_additional_weight": 0.15,
+    "multi_horizon_reward_progress": 0.02,
+    "static_background_identity": 0.25,
+    "per_pixel_source_entropy": 0.02,
+    "source_entropy_purpose": "favor one sharp reprojected context source per output pixel instead of averaging several slightly misaligned text glyphs",
+    "static_background_mask": "a pixel must remain below the motion threshold across all eight target frames; never copy context into a pixel after the gripper has moved",
+    "teacher_weight_policy": "decay toward zero on samples with ground truth; retain on policy-state-only samples"
+  },
+  "sampling": {
+    "left_right_effective_ratio": "1:1",
+    "arm_label_source": "hashed task-level window_sources.json labels; never infer arm from a short possibly-static action window",
+    "minimum_contact_or_occlusion_fraction": 0.5,
+    "minimum_success_fraction": 0.35,
+    "right_arm_outcome_pairing": "official successful demonstrations provide the positive right-placement outcome; public Pi0.5 synthetic data provide 47 train and 7 validation right-arm failures, with zero synthetic right successes, so neither source may be used alone",
+    "horizon_balance": "uniform over frames 1 through 8",
+    "episode_disjoint_validation": true
+  },
+  "admission_gates_against_frozen_v157": {
+    "official_demo_rgb_mae_relative_max": 1.01,
+    "onpolicy_motion_rgb_mae_relative_max": 1.01,
+    "left_rgb_mae_relative_max": 1.0,
+    "right_contact_rgb_mae_relative_max": 1.0,
+    "texture_mae_relative_max": 1.0,
+    "temporal_delta_mae_relative_max": 1.0,
+    "reward_overall_mae_relative_max": 1.0,
+    "reward_right_terminal_mae_relative_max": 1.0,
+    "reward_terminal_pearson_nonregression": true,
+    "batch32_latency_seconds_max": 8.0,
+    "world_model_peak_cuda_mib_max": 12000,
+    "strict_one_update_pipeline_must_complete": true,
+    "dev22_policy_success_nonregression": true,
+    "left_and_right_grasp_nonregression": true
+  },
+  "promotion": "Only one preregistered checkpoint passing every visual, reward, resource and policy-development gate may replace V15.7 for a formal fixed-budget run. Final128 remains untouched until then."
+}

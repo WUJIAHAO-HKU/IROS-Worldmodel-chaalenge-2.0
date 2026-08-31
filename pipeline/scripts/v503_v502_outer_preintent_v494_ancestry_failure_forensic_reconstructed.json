@@ -1,0 +1,161 @@
+{
+  "authorization": {
+    "direct_reconciler_wrapper_authorized": false,
+    "phase_a_authorized": false,
+    "reconciler_r2_authorized": false,
+    "retry_authorized": false,
+    "training_authorized": false
+  },
+  "combined_predicate_evaluation": [
+    {
+      "name": "v494_authority_contract_equal",
+      "observed": {
+        "logical_bytes": 29803,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v494_v493_v490_interpreter_symlink_repair_execution_authority_contract.json",
+        "sha256": "2f4cef2671dfd5c443d5a7f53dc0ea7b770b520da84cba3512a363884d56bd4a"
+      },
+      "passed": true
+    },
+    {
+      "name": "v494_materializer_failure_forensic_equal",
+      "observed": {
+        "logical_bytes": 6409,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v495_v494_authority_materializer_failure_forensic_reconstructed.json",
+        "sha256": "248c4a94a24c3b793bb29b6cc07a5955a93694f7e22b1a9363ef5bb7ee0ba0dc"
+      },
+      "passed": true
+    },
+    {
+      "name": "v494_materializer_failure_transport_script_equal",
+      "observed": {
+        "logical_bytes": 942,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v495_v494_failed_authority_materialization_transport_script.sh",
+        "sha256": "0d4669e9a1fa52ee98fe2c459e9e42d880116e4428270edcefb0f50e5b95d49c"
+      },
+      "passed": true
+    },
+    {
+      "expected": {
+        "corrected_inner_wrapper_invocations": 0,
+        "corrected_rule": "allow exact one import torch and exact one load torch.__version__ only inside execution_interpreter_evidence",
+        "failed_status": "frozen_reconstructed_v494_materializer_prestate_failure_no_retry",
+        "materializer_invocations": 1,
+        "native_exit_code": 1,
+        "native_persistent_capture_available": false,
+        "outer_wrapper_invocations": 0,
+        "reconciler_r2_invocations": 0,
+        "retry_authorized": false,
+        "root_cause": "corrected inner forbidden import",
+        "tool_capture_logical_bytes": 787,
+        "tool_capture_sha256": "4a65e33de2de1da29e8a36d39e5374e43b66435aa5e6bc3722ccfca574fb4a4c"
+      },
+      "name": "v494_materializer_failure_ancestry_equal",
+      "observed": {
+        "corrected_inner_wrapper_invocations": 0,
+        "corrected_rule": "allow exactly one no-alias torch import and one Load torch.__version__ inside execution_interpreter_evidence; reject every other torch import, name, attribute, and call",
+        "failed_status": "frozen_reconstructed_v494_materializer_prestate_failure_no_retry",
+        "materializer_invocations": 1,
+        "native_exit_code": 1,
+        "native_persistent_capture_available": false,
+        "outer_wrapper_invocations": 0,
+        "reconciler_r2_invocations": 0,
+        "retry_authorized": false,
+        "root_cause": "v494 validator blanket-forbade function-local torch import required for exact runtime version evidence",
+        "tool_capture_logical_bytes": 787,
+        "tool_capture_sha256": "4a65e33de2de1da29e8a36d39e5374e43b66435aa5e6bc3722ccfca574fb4a4c"
+      },
+      "passed": false
+    }
+  ],
+  "failure_stage": "v502_outer_authority_preflight_before_intent_and_before_inner_spawn",
+  "format": "strict-track2-v503-v502-outer-preintent-v494-ancestry-failure-forensic-reconstructed-v1",
+  "invocation_partition": {
+    "corrected_inner_wrapper_invocations": 0,
+    "outer_wrapper_invocations": 1,
+    "phase_a_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "training_invocations": 0
+  },
+  "json_leaf_diff": [
+    {
+      "expected": "allow exact one import torch and exact one load torch.__version__ only inside execution_interpreter_evidence",
+      "observed": "allow exactly one no-alias torch import and one Load torch.__version__ inside execution_interpreter_evidence; reject every other torch import, name, attribute, and call",
+      "path": [
+        "corrected_rule"
+      ]
+    },
+    {
+      "expected": "corrected inner forbidden import",
+      "observed": "v494 validator blanket-forbade function-local torch import required for exact runtime version evidence",
+      "path": [
+        "root_cause"
+      ]
+    }
+  ],
+  "native_exit_code": 1,
+  "native_persistent_capture_available": false,
+  "occurred": true,
+  "passed": true,
+  "required_absences": {
+    "inner_attempt_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repaired_reconciliation_inner_attempt_seed1644_20260825.attempt-prep",
+    "inner_attempt_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repaired_reconciliation_inner_attempt_seed1644_20260825",
+    "outer_evidence_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repaired_reconciliation_outer_execution_evidence_seed1644_20260825.outer-prep",
+    "outer_evidence_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repaired_reconciliation_outer_execution_evidence_seed1644_20260825",
+    "qualification_root": "/root/v485_v169_cache_qualification_seed1627_20260824",
+    "transparent_receipt": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json",
+    "transparent_receipt_tmp": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json.tmp"
+  },
+  "root_cause": "the v502 outer embedded a stale two-leaf summary of the v494 materializer failure ancestry while the frozen v502 contract carried the later exact validator wording",
+  "runtime_observation": {
+    "gpu_compute_processes": [],
+    "live_lineage_processes": [],
+    "v502_corrected_inner_executed": false,
+    "v502_outer_executed": true
+  },
+  "source_records": {
+    "v502_authority_contract": {
+      "logical_bytes": 163229,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v502_v501_inner_binding_path_repair_execution_authority_contract.json",
+      "sha256": "f4686ddf218cf809e35d0410e8eabd7eb9400a4ed11adf48519284cf7a161d9f"
+    },
+    "v502_outer_wrapper": {
+      "logical_bytes": 112571,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v502_v501_inner_binding_path_repaired_reconciliation_outer.py",
+      "sha256": "d13655df4430a3975d56b97e80cd59c15f0f67573dc060db1ab2e189b01c1a1a"
+    },
+    "v502_prior_transport_failure_forensic": {
+      "logical_bytes": 8336,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v502_outer_preentry_transport_failure_forensic_reconstructed.json",
+      "sha256": "cd399618092399cffdd0f94e084e0a2041d202455c84062250575d075fc28c3e"
+    },
+    "v502_corrected_transport_script": {
+      "logical_bytes": 4299,
+      "path": "/root/v502_outer_reconciliation_corrected_transport_once.sh",
+      "sha256": "18d978e8f178796bbbd4dace4ca61be8fc2306c5b6102f590593d746abf62fe2"
+    }
+  },
+  "status": "frozen_reconstructed_v502_outer_preintent_v494_ancestry_failure_no_retry",
+  "tool_capture_disclosure": {
+    "stderr_available_in_codex_tool_capture": true,
+    "stderr_logical_bytes": 1809,
+    "stderr_sha256": "d0f4a3b447579c51f7f327417cc1779d04b4cb9475a1623751529713d6f23d6b",
+    "stdout_available_in_codex_tool_capture": true,
+    "stdout_logical_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "v502_authority_materialization_evidence_tree": {
+    "canonical_json_triples_digest_sha256": "f05e1f5e2490eb015926f2a2aabcc351e1102c5d46566e435658dc217e08a70f",
+    "file_count": 6,
+    "logical_file_bytes": 203571,
+    "sha256sum_lines_digest_sha256": "64045a24ece15e26976af33c79a71b6aca720bce47e3293d96fffe5b62cf9e4f"
+  },
+  "v502_authority_materializer_process_receipt": {
+    "logical_bytes": 103043,
+    "sha256": "f3c208ee3af1f09f0e34631cf56379137447b957c6077f73a7d93c0140eef54b"
+  },
+  "v502_authority_receipt": {
+    "logical_bytes": 314856,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v502_v501_inner_binding_path_repair_execution_authority_seed1644_20260825/authority_receipt.json",
+    "sha256": "83e238d5b0c579b7e95ad1cd377021ab5daeb95c2e00af8189768ef28cd4c3e7"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "format": "strict-track2-v156-aligned-policy-rejection-v1",
+  "recorded_at": "2026-08-11T04:19:00+08:00",
+  "run_label": "official_replica_v156_absstate_historyfix_seed1235",
+  "actor_seed": 1235,
+  "status": "rejected_before_real_robotwin_evaluation",
+  "track2_interface_valid": true,
+  "official_training_valid": true,
+  "checkpoint_sha256": "afbb68008eeea09aae593f20cb3cd29ac15ba410c84358319382888ec8e1f275",
+  "alignment_gate": {
+    "passed": true,
+    "context_exact_for_both_group_samples": true,
+    "history_exact_for_both_group_samples": true,
+    "context_mae": 0.0,
+    "history_mae": 0.0,
+    "report_sha256": "bbcaf1e0024ca4b8e93eae52d29c457a4b882b750ae1a87f4e1247331ba28db5"
+  },
+  "rollout_gate": {
+    "passed": false,
+    "required_candidate_routes": 2,
+    "observed_candidate_routes": 1,
+    "all_replays_bit_exact": true,
+    "routes": ["candidate_blend", "baseline"],
+    "probabilities_onpolicy": [0.9142574071884155, 0.0014658741420134902],
+    "group_future_action_l2": 0.30273953080177307,
+    "future_action_min": -0.4144337475299835,
+    "future_action_max": 1.0046576261520386,
+    "future_gripper_mean_left": 0.9991208910942078,
+    "future_gripper_mean_right": 1.0009331703186035
+  },
+  "training_telemetry": {
+    "reward": 4.7864723e-06,
+    "success_once": 0.0,
+    "advantages_min": -0.096,
+    "advantages_max": 0.096,
+    "actor_grad_norm": 0.35,
+    "actor_policy_loss": 0.018,
+    "actor_policy_loss_abs": 0.083,
+    "actor_total_loss": 0.0089
+  },
+  "evaluation_consumption": {
+    "historical_dev22": false,
+    "preregistered_dev32": false,
+    "final_acceptance128": false
+  },
+  "diagnosis": "Correcting a0..a3 history exposed unstable V15.6 branch coverage across the two sampled Pi0.5 action chunks. The second trajectory was handled entirely by the frozen baseline branch, so the run cannot establish the preregistered V15.6 parent intervention.",
+  "next_action": "Run the last preregistered actor seed 1237 under the same corrected interface. If it fails, change the parent/router meaningfully using declared offline synthetic RoboTwin data before any additional official policy candidate.",
+  "cleanup_policy": "Retain hashes, logs, preregistration, alignment audit, and bit-exact rollout report; delete only the rejected actor checkpoint payload without real evaluation."
+}

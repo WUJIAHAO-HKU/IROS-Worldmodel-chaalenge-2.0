@@ -2,14 +2,23 @@
 
 from __future__ import annotations
 
+import os
 import uuid
 from dataclasses import dataclass
 
 import numpy as np
 import requests
 
-from ..images import decode_png_base64, encode_png_base64
-from ..profile import ACTION_DIM, API_VERSION, CONTEXT_ACTIONS, CONTEXT_FRAMES, OFFICIAL_PROFILE_ID, PREDICTION_FRAMES
+from ..images import decode_png_base64_batch, encode_png_base64_batch
+from ..profile import (
+    ACTION_DIM,
+    API_VERSION,
+    CONTEXT_ACTIONS,
+    CONTEXT_FRAMES,
+    MAX_BATCH_SIZE,
+    OFFICIAL_PROFILE_ID,
+    PREDICTION_FRAMES,
+)
 
 
 @dataclass(frozen=True)
@@ -20,6 +29,7 @@ class Track2ServiceClient:
     bearer_token: str
     model_version: str
     timeout_seconds: float = 600.0
+    image_codec_workers: int | None = None
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "base_url", self.base_url.rstrip("/"))
@@ -29,6 +39,12 @@ class Track2ServiceClient:
             raise ValueError("bearer_token must be non-empty")
         if not self.model_version:
             raise ValueError("model_version must be non-empty")
+        workers = self.image_codec_workers
+        if workers is None:
+            workers = int(os.environ.get("WAM_IMAGE_CODEC_WORKERS", "1"))
+            object.__setattr__(self, "image_codec_workers", workers)
+        if workers < 1:
+            raise ValueError("image_codec_workers must be at least one")
 
     @property
     def _headers(self) -> dict[str, str]:
@@ -85,49 +101,84 @@ class Track2ServiceClient:
         if len(instructions) != batch:
             raise ValueError("instructions must have B items")
 
-        request_id = str(uuid.uuid4())
-        samples = []
-        for index in range(batch):
-            samples.append(
-                {
-                    "sample_id": f"rlinf-{index}",
-                    "seed": int(seeds[index]),
-                    "context": {
-                        "frames": [encode_png_base64(frame) for frame in context_frames[index]],
-                        "actions": history_actions[index].tolist(),
-                        "states": None,
-                        "instruction": instructions[index],
-                    },
-                    "actions": future_actions[index].tolist(),
-                }
-            )
-        payload = {
-            "api_version": API_VERSION,
-            "request_id": request_id,
-            "model_version": self.model_version,
-            "profile_id": OFFICIAL_PROFILE_ID,
-            "samples": samples,
-        }
-        response = requests.post(
-            f"{self.base_url}/v1/predict", headers=self._headers, json=payload, timeout=self.timeout_seconds
+        # Encode the full logical batch once.  Requests remain strictly
+        # sequential and capped at MAX_BATCH_SIZE; this only avoids rebuilding
+        # a codec pool for each wire batch.  executor.map keeps input order, so
+        # slicing below is byte-for-byte equivalent to per-request encoding.
+        encoded_context = encode_png_base64_batch(
+            context_frames.reshape(-1, 256, 256, 3),
+            self.image_codec_workers,
         )
-        response.raise_for_status()
-        body = response.json()
-        if (
-            body.get("api_version") != API_VERSION
-            or body.get("request_id") != request_id
-            or body.get("model_version") != self.model_version
-        ):
-            raise RuntimeError("Track 2 service response does not echo immutable identifiers")
-        predictions = body.get("predictions")
-        if not isinstance(predictions, list) or len(predictions) != batch:
-            raise RuntimeError("Track 2 service returned an invalid batch size")
         frames: list[np.ndarray] = []
-        for index, prediction in enumerate(predictions):
-            if prediction.get("sample_id") != samples[index]["sample_id"]:
-                raise RuntimeError("Track 2 service changed response sample ordering")
-            raw_frames = prediction.get("frames")
-            if not isinstance(raw_frames, list) or len(raw_frames) != PREDICTION_FRAMES:
-                raise RuntimeError("Track 2 service returned an invalid prediction horizon")
-            frames.append(np.stack([decode_png_base64(frame) for frame in raw_frames]))
+        for begin in range(0, batch, MAX_BATCH_SIZE):
+            end = min(begin + MAX_BATCH_SIZE, batch)
+            request_id = str(uuid.uuid4())
+            samples = []
+            for index in range(begin, end):
+                samples.append(
+                    {
+                        "sample_id": f"rlinf-{index}",
+                        "seed": int(seeds[index]),
+                        "context": {
+                            "frames": encoded_context[
+                                index * CONTEXT_FRAMES : (index + 1) * CONTEXT_FRAMES
+                            ],
+                            "actions": history_actions[index].tolist(),
+                            "states": None,
+                            "instruction": instructions[index],
+                        },
+                        "actions": future_actions[index].tolist(),
+                    }
+                )
+            payload = {
+                "api_version": API_VERSION,
+                "request_id": request_id,
+                "model_version": self.model_version,
+                "profile_id": OFFICIAL_PROFILE_ID,
+                "samples": samples,
+            }
+            response = requests.post(
+                f"{self.base_url}/v1/predict",
+                headers=self._headers,
+                json=payload,
+                timeout=self.timeout_seconds,
+            )
+            response.raise_for_status()
+            body = response.json()
+            if (
+                body.get("api_version") != API_VERSION
+                or body.get("request_id") != request_id
+                or body.get("model_version") != self.model_version
+            ):
+                raise RuntimeError(
+                    "Track 2 service response does not echo immutable identifiers"
+                )
+            predictions = body.get("predictions")
+            if not isinstance(predictions, list) or len(predictions) != len(samples):
+                raise RuntimeError("Track 2 service returned an invalid batch size")
+            raw_frames_by_sample = []
+            for offset, prediction in enumerate(predictions):
+                if prediction.get("sample_id") != samples[offset]["sample_id"]:
+                    raise RuntimeError("Track 2 service changed response sample ordering")
+                raw_frames = prediction.get("frames")
+                if (
+                    not isinstance(raw_frames, list)
+                    or len(raw_frames) != PREDICTION_FRAMES
+                ):
+                    raise RuntimeError(
+                        "Track 2 service returned an invalid prediction horizon"
+                    )
+                raw_frames_by_sample.append(raw_frames)
+            decoded = decode_png_base64_batch(
+                [frame for sample_frames in raw_frames_by_sample for frame in sample_frames],
+                self.image_codec_workers,
+            )
+            for offset in range(len(raw_frames_by_sample)):
+                frames.append(
+                    np.stack(
+                        decoded[
+                            offset * PREDICTION_FRAMES : (offset + 1) * PREDICTION_FRAMES
+                        ]
+                    )
+                )
         return np.stack(frames)

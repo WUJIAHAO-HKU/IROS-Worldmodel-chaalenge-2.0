@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BASE='/root/autodl-tmp/IROS_WAM_2.0 challenge'
+JOINT="$BASE/artifacts/strict_track2_joint_augmentation_20260810"
+OFF="$BASE/artifacts/strict_track2_official_20260810"
+NAME='v241b_v240_alignment_gated_transport_service_seed1441_20260819'
+RUN="$JOINT/$NAME"
+REG="$OFF/run_registry/$NAME"
+P="$BASE/pipeline/scripts"
+GO1='/root/miniconda3/envs/go1/bin/python'
+RLPY='/root/autodl-tmp/conda_envs/rlinf_track2/bin/python'
+RLINF="$BASE/third_party/WorldArena-2.0/WorldArena-2.0-main/RL_env_benchmark"
+MODEL_VERSION='track2-v241-alignment-gated-right-transport'
+
+restore_v218() {
+  bash "$P/restart_v241_services.sh" stop >/dev/null 2>&1 || true
+  bash "$P/restart_v218_services.sh" start >"$REG/restart_v218_after_v241.log" 2>&1 || true
+}
+trap restore_v218 EXIT
+
+"$GO1" "$P/prepare_v241_service_reward_audit.py"
+bash "$P/restart_v241_services.sh" start >"$RUN/v241_service_start.log" 2>&1
+PYTHONPATH="$BASE/pipeline" "$GO1" "$P/strict_service_acceptance.py" \
+  --base-url http://127.0.0.1:8005 --token-file "$RUN/local_dev_token.txt" \
+  --model-version "$MODEL_VERSION" --output "$RUN/audit/service_acceptance.json" \
+  >"$RUN/audit/service_acceptance.log" 2>&1
+
+set +e
+cd /tmp
+PYTHONPATH="$BASE/pipeline:$RLINF" TOKENIZERS_PARALLELISM=false \
+"$RLPY" "$P/replay_v241_post_grasp_reward.py" \
+  --audit-dir "$OFF/run_registry/v211_v209_train_action_capture_h200_r2_step1_seed1410_20260818/bridge_audit" \
+  --url http://127.0.0.1:8005 --token local-dev-token --model-version "$MODEL_VERSION" \
+  --reward-checkpoint "$BASE/artifacts/official_resources/reward_model/adjust_bottle/full_weights.pt" \
+  --t5-model "$BASE/artifacts/official_resources/reward_model/t5-base" \
+  --output "$RUN/audit/post_grasp_reward_report.json" \
+  >"$RUN/audit/post_grasp_reward_report.log" 2>&1
+rc=$?
+set -e
+if (( rc == 0 )); then
+  touch "$RUN/V241_CAPTURE_GATE_PASSED"
+else
+  touch "$RUN/V241_CAPTURE_GATE_REJECTED"
+fi
+touch "$RUN/AUDIT_COMPLETE"
+exit "$rc"

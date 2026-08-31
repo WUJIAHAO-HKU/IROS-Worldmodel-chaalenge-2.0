@@ -1,0 +1,66 @@
+{
+  "format": "strict-track2-policy-prescreen-rejection-v1",
+  "recorded_at": "2026-08-11T03:49:00+08:00",
+  "variant": "v156_absstate_seed1240_historical_dev22",
+  "run_label": "official_replica_v156_absstate_seed1240",
+  "checkpoint_sha256": "003fcfa5e2db674d2540140ff55562058ea40cdbfcefee625ed19791c2750dec",
+  "parent_model_version": "track2-v15.6-action-gated-reward-safe-blend12",
+  "rollout_contract": {
+    "absolute_actions": true,
+    "candidate_routes": 2,
+    "batch_size": 2,
+    "onpolicy_probabilities": [0.9794692993164062, 0.9122609496116638],
+    "all_replays_bit_exact": true,
+    "participant_action_selection": false,
+    "mpc": false
+  },
+  "official_training": {
+    "global_steps": 1,
+    "group_size": 2,
+    "env_reward_mean": 0.000004806573087989818,
+    "advantage_min": -0.04462905600667,
+    "advantage_max": 0.04463246464729309,
+    "gradient_norm": 0.19548948109149933
+  },
+  "historical_dev22_batch00": {
+    "count": 16,
+    "baseline_successes": 3,
+    "candidate_successes": 1,
+    "baseline_grasps": 12,
+    "candidate_grasps": 11,
+    "right": {
+      "count": 10,
+      "baseline_successes": 0,
+      "candidate_successes": 0,
+      "baseline_grasps": 9,
+      "candidate_grasps": 9
+    },
+    "left": {
+      "count": 6,
+      "baseline_successes": 3,
+      "candidate_successes": 1,
+      "baseline_grasps": 3,
+      "candidate_grasps": 2
+    },
+    "lost_success_seeds": [100100062, 100100056],
+    "lost_grasp_seeds": [100100056],
+    "gained_success_seeds": [],
+    "gained_grasp_seeds": []
+  },
+  "mathematical_early_stop": {
+    "remaining_dev22_count": 6,
+    "maximum_possible_candidate_successes": 7,
+    "minimum_required_successes": 8,
+    "baseline_total_successes": 7,
+    "candidate_cannot_reach_success_gate": true,
+    "candidate_already_regresses_grasp": true,
+    "development32_consumed": false,
+    "acceptance128_consumed": false
+  },
+  "diagnosis": "The corrected rollout is right-arm only. A shared Pi0.5 update selected by the single right-arm V15.6 reward comparison caused cross-arm interference: right-arm outcomes were unchanged while two left-arm successes and one left-arm grasp were lost.",
+  "status": "rejected",
+  "cleanup": {
+    "delete_formal_checkpoint_after_hash_and_evidence_are_retained": true,
+    "recoverable": false
+  }
+}

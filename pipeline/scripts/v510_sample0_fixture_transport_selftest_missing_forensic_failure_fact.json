@@ -1,0 +1,64 @@
+{
+  "format": "strict-track2-v510-sample0-fixture-transport-selftest-missing-forensic-failure-fact-v1",
+  "status": "frozen_failed_no_retry_before_helper_entry",
+  "timestamp_ns": 1787675748174670635,
+  "hostname": "autodl-container-074042af4d-d3994172",
+  "boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+  "command": [
+    "/bin/bash",
+    "/root/v510_phase_a_sample0_cublas_workspace_environment_repair_once.sh",
+    "--transport-self-test"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "nonregular source: /root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v509_phase_a_deterministic_warning_mismatch_failure_forensic.json\n",
+  "root_cause": "The canonical v509 warning-mismatch forensic source was absent before the transport self-test; the four-source deployment authorization did not include it.",
+  "retry_authorized": false,
+  "normal_transport_invocations": 0,
+  "transport_helper_invocations": 0,
+  "child_popen_invocations": 0,
+  "sample0_calls": 0,
+  "phase_a_launcher_invocations": 0,
+  "phase_a_driver_invocations": 0,
+  "training_invocations": 0,
+  "cache_reuse_invocations": 0,
+  "reward_reads": 0,
+  "dev_hidden_final_outcome_reads": 0,
+  "evidence_root_lexists": false,
+  "evidence_prep_lexists": false,
+  "canonical_forensic": {
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v509_phase_a_deterministic_warning_mismatch_failure_forensic.json",
+    "lexists": false,
+    "expected_sha256": "d6c5d5c8e9ef327d2f893ff1513cbb3d80edd226c033fa8e95b5adf3ba7744f8",
+    "expected_logical_bytes": 14527
+  },
+  "staged_forensic": {
+    "path": "/dev/shm/v509_phase_a_deterministic_warning_mismatch_failure_forensic.stage.json",
+    "regular": true,
+    "sha256": "d6c5d5c8e9ef327d2f893ff1513cbb3d80edd226c033fa8e95b5adf3ba7744f8",
+    "logical_bytes": 14527,
+    "deployed_to_canonical": false
+  },
+  "deployed_sources": [
+    {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/verify_v510_v509_phase_a_sample0_cublas_workspace_environment_repair.py",
+      "sha256": "c391a6b76412535e8c7344c720ab8b8ea5fcd97d58b085741b215ad3bb0428f3",
+      "logical_bytes": 13375
+    },
+    {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v510_v509_phase_a_sample0_cublas_workspace_environment_repair_design.json",
+      "sha256": "c0fef2adf3194939f4c095cd419375cf680f8bf253af9ad21c2ef554a82a94d6",
+      "logical_bytes": 8285
+    },
+    {
+      "path": "/root/v510_v509_phase_a_sample0_cublas_workspace_environment_repair_once.py",
+      "sha256": "922f2fff99ace66c57d80ec5e887bfe4fe64d1af1b5f705f3254c8df7688b96e",
+      "logical_bytes": 26459
+    },
+    {
+      "path": "/root/v510_phase_a_sample0_cublas_workspace_environment_repair_once.sh",
+      "sha256": "a65dc756e8238b95ffbbfa7a04729b54779779d9718bcc8d699d3b5fb39817a5",
+      "logical_bytes": 3499
+    }
+  ]
+}

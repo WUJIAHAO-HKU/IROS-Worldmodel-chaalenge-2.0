@@ -1,0 +1,81 @@
+{
+  "format": "strict-track2-v157-aligned-absolute-policy-candidate-preregistration-v1",
+  "registered_at": "2026-08-11T04:45:00+08:00",
+  "candidate_index_within_v157_parent": 1,
+  "selection_rule": "one preregistered official fixed-budget policy run; no actor-seed sweep on this parent before its rollout gate and real-development decision",
+  "parent": {
+    "model_version": "track2-v15.7-hybrid-action-gated-reward-safe-blend12",
+    "release": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v157_hybrid_gate_blend12_formal_release",
+    "parent_screen": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v157_reward_safe_parent_screen.json",
+    "parent_screen_sha256": "ba6aef0b5de698028d43a09833b7dff114ba968d33f0713d6f697e8a3325127e",
+    "frozen_before_official_rl": true,
+    "synthetic_data_used_for_parent": true,
+    "synthetic_data_role": "declared public RoboTwin offline trajectories used only for world-model training and gate supervision; never Pi0.5 behavior cloning, policy action injection, MPC, development evaluation, or acceptance evaluation"
+  },
+  "meaningful_change_from_v156": {
+    "cause": "V15.6 source gate was trained only on homogeneous demo/demo and Pi0.5/Pi0.5 windows, while the official first request is demo-history/Pi0.5-future",
+    "change": "V15.7 adds episode-disjoint hybrid demo-history/Pi0.5-future gate supervision",
+    "heldout_hybrid_accuracy": 1.0,
+    "corrected_rollout_probe_candidate_fraction": 1.0,
+    "gate_checkpoint_sha256": "2ed52378d26d6cd545dafa0ab156f7b8026578dbd3e893de639e59b740331b34"
+  },
+  "interface_contract": {
+    "initial_context": "o0..o4",
+    "initial_history_actions": "a0..a3",
+    "policy_observation_absolute_state": "a4",
+    "subsequent_history_actions": "u4..u7 from the preceding generated chunk",
+    "proxy_sha256": "e94064a79bcd14454fd5021532f8605c0dd944c440849fd5fc65967789e7a2b6",
+    "bridge_sha256": "1f6d231fe7548b99b13fee4a601ad283ca9be2fc8d841347e0a4a9083c4f1d7f",
+    "alignment_auditor_sha256": "57d2bf8466219f794b2cb83b68ad18e1d132edbdfd0d24a016e4ad83a53f45a3",
+    "reference_window": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/adjust_bottle_windows_full/episode49_00000.npz",
+    "require_bit_exact_context_and_history": true,
+    "actions_forwarded_unchanged": true
+  },
+  "official_training": {
+    "actor_seed": 1236,
+    "run_label": "official_replica_v157_historyfix_seed1236",
+    "global_steps": 1,
+    "rollout_epoch": 1,
+    "group_size": 2,
+    "max_episode_steps": 8,
+    "pi05_modified": false,
+    "reward_model_modified": false,
+    "rl_algorithm_or_budget_modified": false,
+    "participant_action_selection": false,
+    "mpc": false
+  },
+  "rollout_gate": {
+    "initial_context_and_history_bit_exact": true,
+    "absolute_action_contract": true,
+    "candidate_routes_required": "2/2",
+    "replay_bit_exact": true,
+    "nonzero_group_action_difference": true
+  },
+  "historical_dev22_prescreen": {
+    "batch_order": [0, 1],
+    "batch00_count": 16,
+    "batch01_count": 6,
+    "run_batch01_only_if_mathematically_eligible_after_batch00": true,
+    "batch00_minimum_to_continue": {
+      "successes": 2,
+      "grasps": 12,
+      "right_grasps": 9,
+      "right_successes": 0
+    },
+    "final_minimum": {
+      "successes": 8,
+      "grasps": 18,
+      "left_success_nonregression": true,
+      "right_success_nonregression": true,
+      "left_grasp_nonregression": true,
+      "right_grasp_nonregression": true
+    }
+  },
+  "promotion": {
+    "development32_locked_until_full_dev22_pass": true,
+    "development32_required_successes": 10,
+    "development32_baseline_successes": 9,
+    "acceptance128_locked_until_development32_pass": true,
+    "acceptance_requires_absolute_and_relative_improvement_percent_at_least": 3.0
+  }
+}

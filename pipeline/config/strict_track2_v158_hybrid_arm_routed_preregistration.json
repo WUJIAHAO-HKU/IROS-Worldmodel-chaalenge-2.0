@@ -1,0 +1,51 @@
+{
+  "format": "strict-track2-v158-hybrid-arm-routed-parent-preregistration-v1",
+  "registered_at": "2026-08-11T05:19:00+08:00",
+  "hypothesis": "The V15.7 hybrid source gate fixes official first-request routing, while the previously screened reward-aligned arm experts provide materially stronger right-contact and reward-progress dynamics than the 0.12-blended V15.7 candidate.",
+  "parent": {
+    "base_release": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/releases/track2_v15_best",
+    "left_expert": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/reward_aligned_exact_fp32_probability_400/checkpoint_step_000300",
+    "left_expert_model_sha256": "1db4a10706e441bcc8364cf6de4586771c7911cc847479dc1562cf48a2f9f8e6",
+    "right_expert": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/reward_aligned_exact_fp32_probability_400/checkpoint_step_000400",
+    "right_expert_model_sha256": "e6e76044f158768db0f179ce21661d4bb55a389a362724875e8e6f1a049d7041",
+    "hybrid_source_gate": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v157_hybrid_action_gate_seed20260812/action_source_gate.pt",
+    "hybrid_source_gate_sha256": "2ed52378d26d6cd545dafa0ab156f7b8026578dbd3e893de639e59b740331b34",
+    "candidate_blend": 1.0,
+    "arm_router": "raw request action-delta argmax",
+    "participant_action_selection": false,
+    "mpc": false
+  },
+  "prior_episode_disjoint_evidence": {
+    "onpolicy_windows": 64,
+    "overall_rgb_improvement_percent": 25.858376960404915,
+    "right_contact_rgb_improvement_percent": 31.79535219801037,
+    "capture_success_rgb_improvement_percent": 23.49388529135716,
+    "overall_reward_mae_improvement_percent": 6.501577782186188,
+    "right_terminal_gain_mae_improvement_percent": 13.829583837654814
+  },
+  "promotion_screens": {
+    "new_release_onpolicy_candidate_routes_required": "64/64",
+    "new_release_official_demo_baseline_routes_required": "16/16",
+    "new_release_official_demo_bit_exact_required": "16/16",
+    "overall_rgb_improvement_percent_min": 20.0,
+    "right_contact_rgb_improvement_percent_min": 25.0,
+    "capture_success_rgb_improvement_percent_min": 15.0,
+    "left_rgb_improvement_percent_min": 15.0,
+    "texture_and_temporal_nonregression": true,
+    "official_reward_overall_right_left_and_success_nonregression": true,
+    "same_device_rollout_replay_bit_exact": true
+  },
+  "policy_rule": {
+    "freeze_before_official_rl": true,
+    "official_pi05_reward_rl_algorithm_and_budget_unchanged": true,
+    "one_preregistered_actor_seed_before_real-development_decision": true,
+    "no_actor_seed_sweep": true,
+    "dev22_then_dev32_then_final128": true,
+    "minimum_absolute_and_relative_success_improvement_percent": 3.0
+  },
+  "data_policy": {
+    "experts_trained_only_from_declared_public_official_and public-RoboTwin-derived offline data": true,
+    "new_oracle_success_data_required_for_this_candidate": false,
+    "development_or_acceptance_data_used_for_parent_training": false
+  }
+}

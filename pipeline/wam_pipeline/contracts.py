@@ -9,7 +9,7 @@ from typing import Any
 
 import numpy as np
 
-from .images import decode_png_base64
+from .images import decode_png_base64_batch
 from .profile import (
     ACTION_DIM,
     API_VERSION,
@@ -60,7 +60,11 @@ def _finite_actions(value: Any, expected_length: int, field: str) -> np.ndarray:
     return result
 
 
-def validate_predict_payload(payload: Any, expected_model_version: str) -> PredictionRequest:
+def validate_predict_payload(
+    payload: Any,
+    expected_model_version: str,
+    image_codec_workers: int = 1,
+) -> PredictionRequest:
     """Validate everything before inference so batches never partially succeed."""
     if not isinstance(payload, dict):
         raise _error("request body must be a JSON object")
@@ -82,7 +86,7 @@ def validate_predict_payload(payload: Any, expected_model_version: str) -> Predi
         raise _error(f"samples must contain 1 through {MAX_BATCH_SIZE} items")
 
     seen_ids: set[str] = set()
-    samples: list[PredictionSample] = []
+    validated: list[tuple[str, int, list[object], np.ndarray, np.ndarray, str | None]] = []
     for index, raw_sample in enumerate(raw_samples):
         field = f"samples[{index}]"
         if not isinstance(raw_sample, dict):
@@ -102,7 +106,6 @@ def validate_predict_payload(payload: Any, expected_model_version: str) -> Predi
         frames = context.get("frames")
         if not isinstance(frames, list) or len(frames) != CONTEXT_FRAMES:
             raise _error(f"{field}.context.frames must have length {CONTEXT_FRAMES}")
-        decoded_frames = np.stack([decode_png_base64(image) for image in frames])
         history_actions = _finite_actions(
             context.get("actions"), CONTEXT_ACTIONS, f"{field}.context.actions"
         )
@@ -113,8 +116,27 @@ def validate_predict_payload(payload: Any, expected_model_version: str) -> Predi
         if instruction is not None and not isinstance(instruction, str):
             raise _error(f"{field}.context.instruction must be a string or null")
         future_actions = _finite_actions(raw_sample.get("actions"), PREDICTION_FRAMES, f"{field}.actions")
+        validated.append(
+            (sample_id, seed, frames, history_actions, future_actions, instruction)
+        )
+    decoded = decode_png_base64_batch(
+        [image for _, _, frames, _, _, _ in validated for image in frames],
+        image_codec_workers,
+    )
+    samples: list[PredictionSample] = []
+    for index, (sample_id, seed, _, history_actions, future_actions, instruction) in enumerate(validated):
+        decoded_frames = np.stack(
+            decoded[index * CONTEXT_FRAMES : (index + 1) * CONTEXT_FRAMES]
+        )
         samples.append(
-            PredictionSample(sample_id, seed, decoded_frames, history_actions, future_actions, instruction)
+            PredictionSample(
+                sample_id,
+                seed,
+                decoded_frames,
+                history_actions,
+                future_actions,
+                instruction,
+            )
         )
     return PredictionRequest(request_id, expected_model_version, tuple(samples))
 

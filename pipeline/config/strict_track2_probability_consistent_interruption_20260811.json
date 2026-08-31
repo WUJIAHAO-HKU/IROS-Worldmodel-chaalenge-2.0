@@ -1,0 +1,25 @@
+{
+  "format": "strict-track2-external-lifecycle-interruption-v1",
+  "recorded_at": "2026-08-11T17:02:00+08:00",
+  "run_id": "probability_consistent_one_update_v157_seed1243",
+  "classification": "nonformal_incomplete_external_process_lifecycle_interruption",
+  "completed_rollout_epochs": 5,
+  "required_rollout_epochs": 8,
+  "checkpoint_created": false,
+  "development22_consumed": false,
+  "acceptance_data_consumed": false,
+  "evidence": {
+    "service_log_ended_with_graceful_shutdown": true,
+    "service_log_contains_backend_exception": false,
+    "rl_failure_after_shutdown": "connection refused to 127.0.0.1:8001",
+    "cuda_oom_observed": false,
+    "exact_signal_source_proven": false
+  },
+  "remediation": {
+    "retry_run_id": "probability_consistent_one_update_v157_seed1243_retry1",
+    "launch_mode": "server-side nohup with stdin detached",
+    "same_actor_seed": 1243,
+    "reuse_partial_rollout": false,
+    "reason_no_partial_reuse": "RLinf produces no resumable checkpoint inside an unfinished GRPO update"
+  }
+}

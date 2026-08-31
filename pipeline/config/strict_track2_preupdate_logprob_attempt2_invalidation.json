@@ -1,0 +1,17 @@
+{
+  "format": "strict-track2-diagnostic-invalidation-v1",
+  "created_at": "2026-08-11T13:35:00+08:00",
+  "run": "artifacts/strict_track2_official_20260810/runs/preupdate_logprob_consistency_v157_seed1242_v2",
+  "status": "invalidated",
+  "reason": "The v2 observation was mistakenly inserted into the generic FSDPActor class, while the Pi0.5 job instantiates EmbodiedFSDPActor. The observation and abort were therefore unreachable.",
+  "containment": {
+    "training_process_interrupted": true,
+    "candidate_checkpoint_eligible": false,
+    "real_robotwin_evaluation_allowed": false,
+    "development32_or_acceptance128_used": false,
+    "weight_artifacts_to_delete": [
+      "wan_robotwin_adjust_bottle_http_full_grpo_openpi_pi05/checkpoints/global_step_1"
+    ]
+  },
+  "observation": "As in attempt 1, the four diagnostic trajectories had equal rewards and zero normalized advantages, so no useful policy update occurred. The generated checkpoint remains invalid and is not retained."
+}

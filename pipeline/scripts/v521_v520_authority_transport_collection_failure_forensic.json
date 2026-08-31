@@ -1,0 +1,102 @@
+{
+  "format": "strict-track2-v521-v520-authority-transport-collection-failure-forensic-v1",
+  "status": "immutable_prehelper_transport_collection_failure_no_retry",
+  "passed": false,
+  "captured_at_date": "2026-08-26",
+  "boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+  "root_cause": {
+    "stage": "outer_ssh_result_collection_after_inner_selftest_exit",
+    "inner_selftest_completed_successfully": true,
+    "inner_selftest_source_exit_code": 0,
+    "outer_transport_nonzero": true,
+    "outer_numeric_returncode": null,
+    "outer_numeric_returncode_availability": "unavailable_tool_wrapper_forwarded_output_only",
+    "cause": "powershell_backslash_pollution_of_remote_shell_rc_assignment_and_exit_argument",
+    "no_helper_or_materializer_entry": true
+  },
+  "outer_invocation": {
+    "executable": "ssh",
+    "argv": [
+      "ssh",
+      "5090-autodl-new",
+      "set +e; /bin/bash /root/v520_v519_phase_a_rng_isolated_qualification_authority_materialize_once.sh --transport-self-test > /dev/shm/v520_transport_selftest_stdout.log 2> /dev/shm/v520_transport_selftest_stderr.log; rc=\\$?; printf 'RC=%s\\n' \\\"\\$rc\\\"; printf 'STDOUT='; cat /dev/shm/v520_transport_selftest_stdout.log; printf 'STDERR_BYTES='; stat -c %s /dev/shm/v520_transport_selftest_stderr.log; exit \\$rc"
+    ],
+    "merged_tool_capture_exact": "RC= \\\nSTDOUT={\"helper_bytes\":65029,\"helper_path\":\"/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v520_v519_phase_a_rng_isolated_qualification_execution_authority_materializer_once.py\",\"helper_sha256\":\"67fd05c36cfdc6b394e4facc711438f1b88a8230d9075770ae760c8090ab8a36\",\"interpreter_bytes\":25555040,\"interpreter_sha256\":\"11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788\",\"passed\":true,\"script_bytes\":2575,\"script_sha256\":\"6fb71a4ee1b1cd406f009e4c6a20a6c1eab21ebb7fafc02b91fc5ea3c643fe16\"}\nSTDERR_BYTES=0\nbash: line 2: exit: \\: numeric argument required",
+    "stderr_exact": "bash: line 2: exit: \\: numeric argument required",
+    "tool_exception": "bash: line 2: exit: \\: numeric argument required"
+  },
+  "inner_selftest": {
+    "argv": [
+      "/bin/bash",
+      "/root/v520_v519_phase_a_rng_isolated_qualification_authority_materialize_once.sh",
+      "--transport-self-test"
+    ],
+    "invocation_scope": "sole_recorded_outer_tool_command",
+    "tool_recorded_outer_command_issued_invocations": 1,
+    "global_invocation_count_native_evidence_available": false,
+    "global_exact_invocation_count_claimed": false,
+    "stdout": {
+      "sha256": "3f16cba8d843647103957ca6fcf84e443763d1fe6711c99da579bb3f4f0baa5e",
+      "logical_bytes": 506,
+      "text": "{\"helper_bytes\":65029,\"helper_path\":\"/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v520_v519_phase_a_rng_isolated_qualification_execution_authority_materializer_once.py\",\"helper_sha256\":\"67fd05c36cfdc6b394e4facc711438f1b88a8230d9075770ae760c8090ab8a36\",\"interpreter_bytes\":25555040,\"interpreter_sha256\":\"11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788\",\"passed\":true,\"script_bytes\":2575,\"script_sha256\":\"6fb71a4ee1b1cd406f009e4c6a20a6c1eab21ebb7fafc02b91fc5ea3c643fe16\"}\n"
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logical_bytes": 0,
+      "text": ""
+    },
+    "source_exit_zero_proof": {
+      "script_sha256": "6fb71a4ee1b1cd406f009e4c6a20a6c1eab21ebb7fafc02b91fc5ea3c643fe16",
+      "script_logical_bytes": 2575,
+      "branch": "transport_self_test_prints_single_passed_json_then_exit_0"
+    }
+  },
+  "execution_partition": {
+    "scope": "recorded_authorized_sequence_tool_capture_only_not_global_process_accounting",
+    "atomic_deploy_count_scope": "recorded_authorized_sequence",
+    "recorded_authorized_sequence_atomic_deploy_invocations": 1,
+    "recorded_authorized_sequence_atomic_deploy_targets": 10,
+    "transport_selftest_count_scope": "sole_recorded_outer_tool_command",
+    "tool_recorded_outer_command_issued_selftest_invocations": 1,
+    "global_invocation_count_native_evidence_available": false,
+    "global_exact_invocation_count_claimed": false,
+    "normal_script_invocations": 0,
+    "transport_helper_invocations": 0,
+    "authority_materializer_invocations": 0,
+    "phase_a_launcher_invocations": 0,
+    "phase_a_driver_invocations": 0,
+    "phase_a_worker_invocations": 0,
+    "rng_proxy_delegate_invocations": 0,
+    "training_invocations": 0,
+    "retry_authorized": false
+  },
+  "deployed_exact10": {
+    "authority_contract": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_phase_a_rng_isolated_qualification_execution_authority_contract.json", "sha256": "58d1ccda8277aa58d3606eff9c21546aa6f67900a6153fe28d725e928f370d80", "logical_bytes": 88570},
+    "authority_materializer": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v520_v519_phase_a_rng_isolated_qualification_execution_authority.py", "sha256": "fcf766f26fbd2d06abd9e7c1def44570d0380e5aadd9fbbce63932b4438c823d", "logical_bytes": 33210},
+    "phase_a_launcher": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v520_v519_phase_a_cache_qualification.py", "sha256": "3ba99011c1a43e8fa38d9ebf04e011f48ebcdf0919e718413041dba4e867d36f", "logical_bytes": 64163},
+    "phase_a_driver": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v520_v519_phase_a_cache_qualification.py", "sha256": "4a6afa63b5ef8eff84dd0a197e914ac96a4d32c8f1ac543014810b7949249a05", "logical_bytes": 45542},
+    "phase_a_worker": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v520_v519_phase_a_cache_qualification_worker.py", "sha256": "deff45645f6ba4f650200d0d8d408f01ab107d1ff74eeb041eaa0a70fcf29e7b", "logical_bytes": 38774},
+    "rng_proxy": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py", "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b", "logical_bytes": 8926},
+    "independent_auditor": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v520_v519_phase_a_rng_isolated_qualification.py", "sha256": "6964cc0120489add4ba7397ea7bc1b43bb393ea75ba52e4d588031cbab460f42", "logical_bytes": 45074},
+    "preregistration": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_cache_qualification_prereg_seed1656_20260826/preregistration.json", "sha256": "c9ef2819ce12d9f7ae1717bab28e2a198d005aa9638d5cfb830f8aee84583c7a", "logical_bytes": 57451},
+    "old_transport_helper": {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v520_v519_phase_a_rng_isolated_qualification_execution_authority_materializer_once.py", "sha256": "67fd05c36cfdc6b394e4facc711438f1b88a8230d9075770ae760c8090ab8a36", "logical_bytes": 65029},
+    "old_transport_script": {"path": "/root/v520_v519_phase_a_rng_isolated_qualification_authority_materialize_once.sh", "sha256": "6fb71a4ee1b1cd406f009e4c6a20a6c1eab21ebb7fafc02b91fc5ea3c643fe16", "logical_bytes": 2575}
+  },
+  "roots_after_failure": [
+    {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826", "absent": true},
+    {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826.registration-prep", "absent": true},
+    {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1656_20260826", "absent": true},
+    {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1656_20260826.execution-prep", "absent": true},
+    {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_cache_qualification_attempt_seed1656_20260826", "absent": true},
+    {"path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_cache_qualification_attempt_seed1656_20260826.attempt-prep", "absent": true},
+    {"path": "/root/v520_v519_phase_a_cache_qualification_seed1656_20260826", "absent": true},
+    {"path": "/root/v520_v519_phase_a_cache_qualification_seed1656_20260826.attempt-prep", "absent": true}
+  ],
+  "service_health": {
+    "8005_v1_health": {"http_code": 200, "body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0", "body_bytes": 106, "json_model": {"api_version": "1.0", "model_version": "track2-v218-public-knn-blend-alpha070-route-aware", "status": "ready"}},
+    "18084_health": {"http_code": 200, "body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd", "body_bytes": 18, "json_model": {"status": "ready"}}
+  },
+  "gpu_compute_pids": [],
+  "lineage_pids": [],
+  "retry_authorized": false
+}

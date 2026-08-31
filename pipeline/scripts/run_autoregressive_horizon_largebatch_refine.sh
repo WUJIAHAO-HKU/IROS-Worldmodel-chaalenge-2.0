@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Reproduce the batch-8, low-learning-rate refinement of the horizon-aware model.
+set -euo pipefail
+
+export WAM_AUTOREG_HORIZON_PARENT="${WAM_AUTOREG_HORIZON_PARENT:-artifacts/checkpoints/autoregressive-unet-track2-rollout8-horizon-pilot-v1/best}"
+export WAM_AUTOREG_HORIZON_OUTPUT="${WAM_AUTOREG_HORIZON_OUTPUT:-artifacts/checkpoints/autoregressive-unet-track2-rollout8-horizon-largebatch-refine-v1}"
+export WAM_AUTOREG_HORIZON_BASELINE="${WAM_AUTOREG_HORIZON_BASELINE:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_pilot_preview64.json}"
+export WAM_AUTOREG_HORIZON_CANDIDATE="${WAM_AUTOREG_HORIZON_CANDIDATE:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_preview64.json}"
+export WAM_AUTOREG_HORIZON_PREDICTIONS="${WAM_AUTOREG_HORIZON_PREDICTIONS:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_preview64_predictions.npz}"
+export WAM_AUTOREG_HORIZON_COMPARISON="${WAM_AUTOREG_HORIZON_COMPARISON:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_preview64_comparison.json}"
+export WAM_AUTOREG_HORIZON_PROMOTION="${WAM_AUTOREG_HORIZON_PROMOTION:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_preview64_promotion.json}"
+export WAM_AUTOREG_HORIZON_FULL_EVALUATION="${WAM_AUTOREG_HORIZON_FULL_EVALUATION:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_validation_all.json}"
+export WAM_AUTOREG_HORIZON_FULL_BASELINE="${WAM_AUTOREG_HORIZON_FULL_BASELINE:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_validation_all.json}"
+export WAM_AUTOREG_HORIZON_FULL_COMPARISON="${WAM_AUTOREG_HORIZON_FULL_COMPARISON:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_vs_parent_full682.json}"
+export WAM_AUTOREG_HORIZON_FULL_PROMOTION="${WAM_AUTOREG_HORIZON_FULL_PROMOTION:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_full_promotion.json}"
+export WAM_AUTOREG_HORIZON_FULL_CACHE="${WAM_AUTOREG_HORIZON_FULL_CACHE:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_validation_cache}"
+export WAM_AUTOREG_HORIZON_FULL_PROGRESS="${WAM_AUTOREG_HORIZON_FULL_PROGRESS:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_validation_progress.json}"
+export WAM_AUTOREG_HORIZON_FULL_PREDICTIONS="${WAM_AUTOREG_HORIZON_FULL_PREDICTIONS:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_validation_predictions.npz}"
+export WAM_AUTOREG_HORIZON_LOCAL_EVALUATION="${WAM_AUTOREG_HORIZON_LOCAL_EVALUATION:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_local_test_all.json}"
+export WAM_AUTOREG_HORIZON_LOCAL_CACHE="${WAM_AUTOREG_HORIZON_LOCAL_CACHE:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_local_test_cache}"
+export WAM_AUTOREG_HORIZON_LOCAL_PROGRESS="${WAM_AUTOREG_HORIZON_LOCAL_PROGRESS:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_local_test_progress.json}"
+export WAM_AUTOREG_HORIZON_LOCAL_PREDICTIONS="${WAM_AUTOREG_HORIZON_LOCAL_PREDICTIONS:-artifacts/evaluations/autoregressive_unet_rollout8_horizon_largebatch_refine_local_test_predictions.npz}"
+export WAM_AUTOREG_HORIZON_STEPS="${WAM_AUTOREG_HORIZON_STEPS:-750}"
+export WAM_AUTOREG_HORIZON_BATCH_SIZE="${WAM_AUTOREG_HORIZON_BATCH_SIZE:-8}"
+export WAM_AUTOREG_HORIZON_LEARNING_RATE="${WAM_AUTOREG_HORIZON_LEARNING_RATE:-1e-6}"
+export WAM_AUTOREG_HORIZON_LOSS_POWER="${WAM_AUTOREG_HORIZON_LOSS_POWER:-1.0}"
+export WAM_AUTOREG_HORIZON_VALIDATION_INTERVAL="${WAM_AUTOREG_HORIZON_VALIDATION_INTERVAL:-250}"
+export WAM_AUTOREG_HORIZON_VALIDATION_BATCHES="${WAM_AUTOREG_HORIZON_VALIDATION_BATCHES:-16}"
+export WAM_AUTOREG_HORIZON_SEED="${WAM_AUTOREG_HORIZON_SEED:-20260810}"
+
+exec "$(dirname "${BASH_SOURCE[0]}")/run_autoregressive_horizon_pilot.sh"

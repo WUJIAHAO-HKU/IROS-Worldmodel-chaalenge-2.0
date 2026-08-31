@@ -1,0 +1,664 @@
+{
+  "authority_materializer_source": {
+    "logical_bytes": 36797,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v490_v489_v488_v487_c71_exact7_schema_repair_postregistration_authority.py",
+    "sha256": "6618ec3266c46a3320f93caa447234109ab301082352b7da9e2e1aaf2af67218"
+  },
+  "authority_receipt_contract": {
+    "authorization_exact": {
+      "attempts_authorized": 1,
+      "attempts_consumed": 0,
+      "cache_reuse_authorized": false,
+      "dev_hidden_final_outcome_read_authorized": false,
+      "folds_authorized": 0,
+      "phase_a_cache_qualification_authorized": false,
+      "policy_updates": 0,
+      "readonly_reconciliation_authorized": true,
+      "retry_authorized": false,
+      "reward_read_authorized": false,
+      "rl_authorized": false,
+      "s1_authorized": false,
+      "submission_authorized": false,
+      "training_authorized": false,
+      "zero_update_authorized": false
+    },
+    "check_key_set_sha256": "be4899694c2bf3c933c18896697a6e12b8227195b4be36185bdd94b9c10ea68f",
+    "check_keys": [
+      "authority_materializer_current",
+      "current_absences",
+      "execution_wrapper_current",
+      "f813_exact2",
+      "f88_failed_static_no_retry_partition",
+      "f88_failed_static_source_current",
+      "f88_failed_static_tree_exact6",
+      "f88_superseded_static_roots_absent",
+      "failed_attempt_exact4",
+      "formal_evidence_exact6",
+      "input_snapshots_equal",
+      "no_live_process",
+      "old_v487_no_retry",
+      "postregistration_static_reg_exact1",
+      "r2_current",
+      "repair_formal_exact",
+      "repair_formal_reg_exact1",
+      "source_closure_current",
+      "static_boundary_no_authority",
+      "static_checks33_all_true",
+      "static_execution_evidence_exact6",
+      "static_receipt_exact",
+      "transparent_absent",
+      "v489_failed_static_no_retry_partition",
+      "v489_failed_static_source_current",
+      "v489_failed_static_tree_exact6",
+      "v489_predeploy_transport_disclosed",
+      "v489_superseded_static_roots_absent"
+    ],
+    "checks_sha256": "be4d8b6f375d8c522c11439593d7f7ea31a04f582239f6b0ffbf9bcd66c1212a",
+    "format": "strict-track2-v490-v489-v488-v487-c71-exact7-schema-repair-postregistration-authority-v1",
+    "runtime_observation_exact": {
+      "authority_materialized": true,
+      "folds": 0,
+      "phase_a_executed": false,
+      "policy_updates": 0,
+      "reconciler_r2_executed": false,
+      "static_audit_executed": true,
+      "training_launched": false,
+      "transparent_receipt_created": false
+    },
+    "status": "authorized_exact_one_readonly_reconciliation_source_repair_attempt",
+    "top_keys": [
+      "attempt_root",
+      "authority_design_contract",
+      "authority_materializer_source",
+      "authorization",
+      "checks",
+      "checks_sha256",
+      "execution_wrapper_source",
+      "f813_registration_tree",
+      "failed_attempt_tree",
+      "failed_static_execution_tree",
+      "failed_static_process_receipt",
+      "formal_materialization_evidence_tree",
+      "format",
+      "historical_absences",
+      "input_post_snapshot",
+      "input_pre_snapshot",
+      "input_snapshots_exactly_equal",
+      "passed",
+      "postregistration_static_registration_tree",
+      "reconciler_r2_source",
+      "repair_design_contract",
+      "repair_formal_materializer",
+      "repair_formal_registration_tree",
+      "repair_preregistration",
+      "required_absences",
+      "runtime_observation",
+      "static_auditor_source",
+      "static_execution_evidence_tree",
+      "static_receipt",
+      "status",
+      "superseded_static_absences",
+      "superseded_static_source",
+      "transparent_static_receipt_path",
+      "v489_failed_static_execution_tree",
+      "v489_failed_static_process_receipt",
+      "v489_failed_static_source",
+      "v489_predeploy_transport_failure",
+      "v489_superseded_static_absences"
+    ]
+  },
+  "current_absences_after_authority": {
+    "attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_attempt_seed1632_20260825.attempt-prep"
+    },
+    "attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_attempt_seed1632_20260825"
+    },
+    "authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_authority_seed1632_20260825.registration-prep"
+    },
+    "fresh_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1632_20260825.registration-prep"
+    },
+    "qualification_root": {
+      "path": "/root/v485_v169_cache_qualification_seed1627_20260824"
+    },
+    "superseded_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_static_audit_seed1630_20260825.registration-prep"
+    },
+    "superseded_static_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_static_audit_seed1630_20260825"
+    },
+    "transparent_output": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json"
+    },
+    "transparent_tmp": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json.tmp"
+    },
+    "v489_superseded_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1631_20260825.registration-prep"
+    },
+    "v489_superseded_static_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1631_20260825"
+    }
+  },
+  "execution_boundary": {
+    "authority_materialization_only": true,
+    "dev_hidden_final_outcome_reads": 0,
+    "execution_wrapper_invocations": 0,
+    "phase_a_invocations": 0,
+    "reconciler_r2_invocations": 0,
+    "reward_reads": 0,
+    "training_invocations": 0
+  },
+  "f813_registration_tree": {
+    "canonical_json_triples_digest_sha256": "a0602666a7e59d60e464b3bc76b31b2fbf501e3d37bbd0b18b2db8c1233971ec",
+    "file_count": 2,
+    "inventory": [
+      [
+        "immutable_evidence/v485_static_b73.log",
+        "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b",
+        6475
+      ],
+      [
+        "preregistration.json",
+        "f8137d02a692a9c6243f13ce8a7674e4ac90fbd31c85b3e8c32af82f8afa42a8",
+        21296
+      ]
+    ],
+    "logical_file_bytes": 27771,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824",
+    "sha256sum_lines_digest_sha256": "717d6ae12fbacbaafa147d03503140e5f807c028acc97a7294c84da2d79fe3fe"
+  },
+  "failed_attempt_tree": {
+    "canonical_json_triples_digest_sha256": "f68ed16cddce7e62fde972d41562f03b9feec5b119907e67426fa829d45910f8",
+    "file_count": 4,
+    "inventory": [
+      [
+        "intent.json",
+        "f1d574c6852310d41233a01d9ec0f317a74e576e8fcfa525f0d3c0321ece4e25",
+        15360
+      ],
+      [
+        "reconciler_stderr.log",
+        "a29513ff2f4b76fc5df5cf9ff584cdce4ed5605ea46046baa662792f8b65d1e8",
+        918
+      ],
+      [
+        "reconciler_stdout.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "terminal_receipt.json",
+        "fed06b501af307c72be72c1e0586672c648423eb7681917a7e0b0a59470d7acb",
+        1951
+      ]
+    ],
+    "logical_file_bytes": 18229,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v487_v486_phase_a_static_reconciliation_attempt_seed1629_20260824",
+    "sha256sum_lines_digest_sha256": "ca710ba1a91040f33dfe045440e32543436eae45a3d579ef67038f36308f538e"
+  },
+  "formal_materialization_evidence_tree": {
+    "canonical_json_triples_digest_sha256": "fb0319b132d97da2744bc34d69db894f8f7d6def6d9e7ab5a88b4d609a876f68",
+    "file_count": 6,
+    "inventory": [
+      [
+        "argv.json",
+        "7f2eed5ca469b82af447ecf90f9cca3546a8d7f8171ff2f4a2ece0805052643e",
+        4920
+      ],
+      [
+        "intent.json",
+        "cee2151eb334fd9bcfefaaedfa45d9cb49f8c18f191442b63d5121c2faecea34",
+        488
+      ],
+      [
+        "materializer_stderr.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "materializer_stdout.log",
+        "f856ab2c375b7be36c728ba4543d6dd54ca0ca0695f30ad337201051b81fca08",
+        810
+      ],
+      [
+        "process_receipt.json",
+        "0d44c2d77bafb75c2ad48aad8a655beda738c2872deb3911ef2c43def3ee9810",
+        4678
+      ],
+      [
+        "transport_helper.py",
+        "f99a4eacee73ad6d0a7637a850fb1414a4a7dc05aa0f2ce17ab72b3fff5df406",
+        12663
+      ]
+    ],
+    "logical_file_bytes": 23559,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_materialization_evidence_seed1630_20260825",
+    "sha256sum_lines_digest_sha256": "6a48564898da15021985dc82b201f3f10139de83f7dacafd306c86345d52e234"
+  },
+  "format": "strict-track2-v490-v489-v488-v487-c71-exact7-schema-repair-postregistration-authority-design-contract-v1",
+  "historical_absences": {
+    "attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_attempt_seed1632_20260825.attempt-prep"
+    },
+    "attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_attempt_seed1632_20260825"
+    },
+    "authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_authority_seed1632_20260825.registration-prep"
+    },
+    "authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_authority_seed1632_20260825"
+    },
+    "fresh_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1632_20260825.registration-prep"
+    },
+    "qualification_root": {
+      "path": "/root/v485_v169_cache_qualification_seed1627_20260824"
+    },
+    "superseded_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_static_audit_seed1630_20260825.registration-prep"
+    },
+    "superseded_static_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_static_audit_seed1630_20260825"
+    },
+    "transparent_output": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json"
+    },
+    "transparent_tmp": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json.tmp"
+    },
+    "v489_superseded_static_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1631_20260825.registration-prep"
+    },
+    "v489_superseded_static_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1631_20260825"
+    }
+  },
+  "lineage": {
+    "attempt_prep": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_attempt_seed1632_20260825.attempt-prep",
+    "attempt_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_attempt_seed1632_20260825",
+    "authority_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_authority_seed1632_20260825",
+    "postregistration_static_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1632_20260825",
+    "qualification_root": "/root/v485_v169_cache_qualification_seed1627_20260824",
+    "transparent_static_receipt_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json"
+  },
+  "postregistration_static_registration_tree": {
+    "canonical_json_triples_digest_sha256": "f6f282111030a26b66795634f5e0763783917f3f3094ab07ff3dd6bbf822dbd2",
+    "file_count": 1,
+    "inventory": [
+      [
+        "static_audit.json",
+        "441efdf607e8fb5aa10a42a542f984304c8e27b334bfbf3f7773c71a1b5ee3bb",
+        49008
+      ]
+    ],
+    "logical_file_bytes": 49008,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1632_20260825",
+    "sha256sum_lines_digest_sha256": "7492a038c1919e80de4f639d6dfb03425a7467c61e228279fa96d7c91ca8fdc1"
+  },
+  "repair_formal_registration_tree": {
+    "canonical_json_triples_digest_sha256": "e0c93a9b3442ef0cf5c6f47079a0d7a842bae40b1b6f3956998a203abdb46a78",
+    "file_count": 1,
+    "inventory": [
+      [
+        "preregistration.json",
+        "b3598de9a3d44f6d58a0a6a75c956174a68bc7dd610c6a8eb56124690709371b",
+        36181
+      ]
+    ],
+    "logical_file_bytes": 36181,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_prereg_seed1630_20260825",
+    "sha256sum_lines_digest_sha256": "2d7f2e23f8c4e52ea18e021e84c131e6f96d656c4e4af37c44fa4298694166e3"
+  },
+  "repair_formal_schema": {
+    "authorization_exact": {
+      "attempts_authorized": 0,
+      "cache_reuse_authorized": false,
+      "dev_hidden_final_outcome_read_authorized": false,
+      "folds_authorized": 0,
+      "phase_a_cache_qualification_authorized": false,
+      "policy_updates": 0,
+      "postregistration_authority_required": true,
+      "readonly_source_repair_authorized": false,
+      "retry_old_v487_authorized": false,
+      "reward_read_authorized": false,
+      "rl_authorized": false,
+      "s1_authorized": false,
+      "submission_authorized": false,
+      "training_authorized": false,
+      "zero_update_authorized": false
+    },
+    "format": "strict-track2-v488-v487-c71-exact7-schema-repair-preregistration-v1",
+    "runtime_observation_exact": {
+      "folds": 0,
+      "phase_a_executed": false,
+      "policy_updates": 0,
+      "reconciler_r2_executed": false,
+      "repair_formal_registered": true,
+      "training_launched": false,
+      "transparent_receipt_created": false
+    },
+    "status": "preregistered_readonly_source_repair_pending_postregistration_authority",
+    "top_keys": [
+      "authorization",
+      "design_contract",
+      "exact7_schema_repair_proof",
+      "f813_registration_tree",
+      "failed_attempt_no_retry",
+      "failed_reconciliation_attempt_tree",
+      "format",
+      "future_reconciler_r2_source",
+      "input_post_snapshot",
+      "input_pre_snapshot",
+      "input_snapshots_exactly_equal",
+      "materializer_source",
+      "required_postregistration_authority",
+      "runtime_observation",
+      "seed",
+      "source_closure",
+      "source_closure_sha256",
+      "status",
+      "transparent_static_receipt_path",
+      "v487_authority_tree",
+      "v487_helper_evidence_tree"
+    ]
+  },
+  "seed": 1632,
+  "source_closure": {
+    "execution_wrapper": {
+      "logical_bytes": 67698,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v490_v489_v488_v487_c71_exact7_schema_repair.py",
+      "sha256": "733931fa162c7e2559fcbf45b7ce8b98960db61df958143c7df3f4c15f3bc877"
+    },
+    "reconciler_r2": {
+      "logical_bytes": 51845,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/reconcile_v488_v487_c71_exact7_schema_repair.py",
+      "sha256": "9efc41eb2574b065ab4e83920f524ae47902079f9b40b9bcc6d31e6739bc1377"
+    },
+    "repair_design_contract": {
+      "logical_bytes": 10874,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v488_v487_c71_exact7_schema_repair_contract.json",
+      "sha256": "197e90ea10bd87d65a32314dc97a06559dd3f994c25cde95fd3622c852f03dfa"
+    },
+    "repair_formal_materializer": {
+      "logical_bytes": 13802,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v488_v487_c71_exact7_schema_repair_preregistration.py",
+      "sha256": "9181bfac0d66541ab9d2083617cde84e87bf7369a2630a5e29bf88c918934710"
+    },
+    "repair_preregistration": {
+      "logical_bytes": 36181,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_prereg_seed1630_20260825/preregistration.json",
+      "sha256": "b3598de9a3d44f6d58a0a6a75c956174a68bc7dd610c6a8eb56124690709371b"
+    },
+    "static_auditor": {
+      "logical_bytes": 51979,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v490_v489_v488_v487_c71_exact7_schema_repair_static.py",
+      "sha256": "1030de39f14ecaffb14c9f8192c2ec3d0898a2cb8e5913e64b50cf13d8baca80"
+    }
+  },
+  "source_closure_sha256": "b74b1f3ca55a56749dd477c80760728c9261d889a95b19cd07df54d2aed395c6",
+  "static_execution_evidence_tree": {
+    "canonical_json_triples_digest_sha256": "2179c46cdd545ba55b1498bd4ac74f7556d6f8ba4150a562655b7fb99d11b776",
+    "file_count": 6,
+    "inventory": [
+      [
+        "argv.json",
+        "8795179679b7dfffd7dd046f406e902f11b89d6d2b2ac63048b3e82029620dcb",
+        11017
+      ],
+      [
+        "intent.json",
+        "692b86f97ef08ec39f017bbc17a9f4a71ca3fe20312e8758f3972166daa1de99",
+        170
+      ],
+      [
+        "process_receipt.json",
+        "b686df0afdd1b330200e99c0732a4fcf321325ca596ee0c20fb327301ca67dab",
+        17211
+      ],
+      [
+        "static_stderr.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "static_stdout.log",
+        "b1c7595ce329c13e314ee264e90f54ee787876be2e1e2458929cf68f5e629f4f",
+        95
+      ],
+      [
+        "transport_helper.py",
+        "b352813d6543d3d3e541432f2b01f48786130284728a9f31bb011b49a8b23a40",
+        13811
+      ]
+    ],
+    "logical_file_bytes": 42304,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_static_audit_execution_evidence_seed1632_20260825",
+    "sha256sum_lines_digest_sha256": "c0e8b964b64d19cbda82241f4690ca4f69697f704c9c961dda05135d5b06260f"
+  },
+  "static_failure_ancestry": {
+    "failed_static_execution_tree": {
+      "canonical_json_triples_digest_sha256": "8b2fcc83543367575a4b2aad0eea45855a9a565fd0dc02f1c497e22f8af6d8c9",
+      "file_count": 6,
+      "inventory": [
+        [
+          "argv.json",
+          "a862aa93f3c653f1c042d534c77ccb231f762e07b6a514d3b76304052cc3c3be",
+          8661
+        ],
+        [
+          "intent.json",
+          "01974de97653ff41cb8a3c24caadfcd06f154673c5e5ec2c8a0c5ed6db40ff7d",
+          161
+        ],
+        [
+          "process_receipt.json",
+          "6e4ed26d978371ee138674d2923770edb5584cefce14bc726c5221b9fbd3eb11",
+          356
+        ],
+        [
+          "static_stderr.log",
+          "0eb74d5096993d6c480460b090baee16c38de01f0e5a295014702838fec76f6b",
+          2070
+        ],
+        [
+          "static_stdout.log",
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          0
+        ],
+        [
+          "transport_helper.py",
+          "05c29a6df902baf54b41e9eebb13fd02fe0e7ec343ea0202af16c178f45bfe1c",
+          9005
+        ]
+      ],
+      "logical_file_bytes": 20253,
+      "sha256sum_lines_digest_sha256": "15e3ca66299807edef3001470d3956ea36d10da33cffe8565084fd1042ea07f1"
+    },
+    "failed_static_process_receipt": {
+      "logical_bytes": 356,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_static_audit_execution_evidence_seed1630_20260825/process_receipt.json",
+      "sha256": "6e4ed26d978371ee138674d2923770edb5584cefce14bc726c5221b9fbd3eb11"
+    },
+    "superseded_static_absences": {
+      "superseded_static_prep": {
+        "absent": true,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_static_audit_seed1630_20260825.registration-prep"
+      },
+      "superseded_static_root": {
+        "absent": true,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v488_v487_c71_exact7_schema_repair_static_audit_seed1630_20260825"
+      }
+    },
+    "superseded_static_source": {
+      "logical_bytes": 34730,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v488_v487_c71_exact7_schema_repair_static.py",
+      "sha256": "f88ea78918eef4474128740213b374c9642ed89a46c226e1f4cfbea47b0d8140"
+    },
+    "v489_failed_static_execution_tree": {
+      "canonical_json_triples_digest_sha256": "fe68fc07bf1691266166b8184c13a42a9e7bac6f43cbfe8b84eefbd1a59eb2e9",
+      "file_count": 6,
+      "inventory": [
+        [
+          "argv.json",
+          "f681ae04ce79caa6f063179f17cb4b10150c1865f436f608c9d8a202216eaf7b",
+          9601
+        ],
+        [
+          "intent.json",
+          "89969affbd9bf77106f7471248f98c6665f83f475e02e4e845234255946767b5",
+          170
+        ],
+        [
+          "process_receipt.json",
+          "65f6cb52f91d4c6e39697b70f3816e825c7836bf6fc4fa3153ed34f441796d85",
+          11911
+        ],
+        [
+          "static_stderr.log",
+          "cd509821caaeebb1732dce6966980823fbf1486ff734b89f48fb2452ca07ec54",
+          654
+        ],
+        [
+          "static_stdout.log",
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          0
+        ],
+        [
+          "transport_helper.py",
+          "2a6f51542a0e82112506b310ba6ef36f82edf5c6ce562d2ab22c88eeb3ed270e",
+          12472
+        ]
+      ],
+      "logical_file_bytes": 34808,
+      "sha256sum_lines_digest_sha256": "632abb3f7435642ee00570d76bf7575ae979fc52874e207bf4365078b86a3c28"
+    },
+    "v489_failed_static_process_receipt": {
+      "logical_bytes": 11911,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v489_v488_v487_c71_exact7_schema_repair_static_audit_execution_evidence_seed1631_20260825/process_receipt.json",
+      "sha256": "65f6cb52f91d4c6e39697b70f3816e825c7836bf6fc4fa3153ed34f441796d85"
+    },
+    "v489_failed_static_source": {
+      "logical_bytes": 41914,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v489_v488_v487_c71_exact7_schema_repair_static.py",
+      "sha256": "0e89d17d47a363a2d3a3b3891220bda28e46f311acfcb53a8eafa7cee66f9758"
+    },
+    "v489_predeploy_transport_failure": {
+      "corrected_transport_authorized": true,
+      "deploy_temp_absent_after": true,
+      "observed_error": "bash: line 1: test: too many arguments",
+      "occurred": true,
+      "persistent_target_absent_after": true,
+      "r2_invocations": 0,
+      "stage": "predeploy_remote_first_test_before_copy_or_static_invocation",
+      "state_mutations": 0,
+      "static_invocations": 0,
+      "transport": "PowerShell outer-double-quoted ssh command locally expanded remote dollar variables and command substitutions"
+    },
+    "v489_superseded_static_absences": {
+      "v489_superseded_static_prep": {
+        "absent": true,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1631_20260825.registration-prep"
+      },
+      "v489_superseded_static_root": {
+        "absent": true,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1631_20260825"
+      }
+    }
+  },
+  "static_receipt": {
+    "logical_bytes": 49008,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v490_v489_v488_v487_c71_exact7_schema_repair_static_audit_seed1632_20260825/static_audit.json",
+    "sha256": "441efdf607e8fb5aa10a42a542f984304c8e27b334bfbf3f7773c71a1b5ee3bb"
+  },
+  "static_receipt_contract": {
+    "check_key_set_sha256": "53b721e19caa9b6302986e65c78dac72e0026716d67852d1b886aba27492d7cf",
+    "check_keys": [
+      "contract_current",
+      "f813_tree_exact2",
+      "failed_attempt_tree_exact4_no_retry",
+      "failed_static_invocation_partition",
+      "failed_static_process_no_retry",
+      "failed_static_root_prep_absent",
+      "failed_static_tree_exact6",
+      "formal_authority_all_false",
+      "formal_record_exact",
+      "formal_runtime_no_execution",
+      "formal_schema_exact21",
+      "materializer_current",
+      "no_live_process",
+      "no_training_reward_outcome",
+      "observed_exact7_current",
+      "path_literal_ast_repair_exact",
+      "predeploy_transport_failure_disclosed",
+      "r2_current",
+      "r2_exact4_strict_no_fallback",
+      "r2_forbidden_imports_calls_absent",
+      "r2_old_c71_dual_binding",
+      "r2_snapshot_dual_ancestry",
+      "real_publish_callgraph_fixture_passed",
+      "second_failed_static_invocation_partition",
+      "second_failed_static_process_no_retry",
+      "second_failed_static_root_prep_absent",
+      "second_failed_static_tree_exact6",
+      "source_closure_digest_exact",
+      "source_closure_exact8_current",
+      "synthetic_tamper_suite_passed",
+      "transparent_and_fresh_outputs_absent",
+      "v487_authority_tree_exact1",
+      "v487_helper_tree_exact5"
+    ],
+    "checks_sha256": "50edf45d3a0021c3054ff80b2fcc311ebb848272def1e0732aa3aaf7c2079a58",
+    "format": "strict-track2-v490-v489-v488-v487-c71-exact7-schema-repair-static-audit-v1",
+    "runtime_observation_exact": {
+      "folds": 0,
+      "phase_a_executed": false,
+      "policy_updates": 0,
+      "reconciler_r2_executed": false,
+      "static_audit_executed": true,
+      "training_launched": false,
+      "transparent_receipt_created": false
+    },
+    "status": "passed_no_execution_authority",
+    "top_keys": [
+      "ast_diff_proof",
+      "check_key_set_sha256",
+      "check_keys",
+      "checks",
+      "checks_sha256",
+      "design_contract",
+      "f813_registration_tree",
+      "failed_reconciliation_attempt_tree",
+      "failed_static_execution_tree",
+      "failed_static_process_receipt",
+      "format",
+      "materializer_source",
+      "passed",
+      "readonly_reconciliation_authorized",
+      "reconciler_r2_source",
+      "repair_preregistration",
+      "required_absences",
+      "runtime_observation",
+      "source_closure",
+      "source_closure_sha256",
+      "static_auditor_source",
+      "status",
+      "submission_authorized",
+      "superseded_static_absences",
+      "superseded_static_source",
+      "synthetic_evidence",
+      "training_authorized",
+      "v487_authority_tree",
+      "v487_helper_evidence_tree",
+      "v489_failed_static_execution_tree",
+      "v489_failed_static_process_receipt",
+      "v489_failed_static_source",
+      "v489_predeploy_transport_failure",
+      "v489_superseded_static_absences"
+    ]
+  },
+  "status": "design_only_frozen_poststatic_sources_pending_independent_review_no_authority"
+}

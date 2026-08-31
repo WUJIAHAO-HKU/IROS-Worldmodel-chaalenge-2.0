@@ -1,0 +1,189 @@
+{
+  "format": "strict-track2-v509-v508-phase-a-wam-pipeline-import-failure-forensic-v1",
+  "status": "v508_phase_a_failed_no_retry_process_a_import_error",
+  "passed": true,
+  "date": "2026-08-25",
+  "root_cause": {
+    "stage": "process_a",
+    "error_type": "ModuleNotFoundError",
+    "error": "No module named 'wam_pipeline'",
+    "driver_returncode": 1,
+    "worker_exit_type": "nonzero_exit",
+    "worker_exit_code": 1,
+    "importing_runtime": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/v482_temporal8_residual_runtime.py",
+      "sha256": "6939e3f6f52c1eb83bfd4324372d7e75ed4ee6d493777a39f38c26e5f4db7471",
+      "logical_bytes": 21745,
+      "import_line": "from wam_pipeline.v169_arm_routed_runtime import Track2V169ArmRoutedRuntime"
+    },
+    "driver_spawn_observation": {
+      "driver_source": {
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v485_v169_cache_qualification.py",
+        "sha256": "9199d8489fe6aea732365552a2cdbe60f24408dc383bdbd31d4148f6a0931d0a",
+        "logical_bytes": 28333
+      },
+      "popen_line": 110,
+      "popen_has_env_argument": false,
+      "popen_has_cwd_argument": false,
+      "observed_pythonpath": null,
+      "observed_cwd": "/root"
+    },
+    "canonical_package_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline",
+    "canonical_package_init": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/__init__.py",
+      "sha256": "1d8c8f56ecd70fa05b21f3fe8b870a12424dbc5ea6a6ad9944d202023dc66f2a",
+      "logical_bytes": 118
+    },
+    "corrected_rule": "construct a fresh driver child environment with exact PYTHONPATH equal to the canonical repository pipeline root and pass it only to worker Popen; do not alter service stop/restart environments"
+  },
+  "v508_phase_a_attempt_tree": {
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v508_v507_phase_a_cache_qualification_attempt_seed1649_20260825",
+    "inventory": [
+      ["intent.json", "963358d83b85c55ace40a8ef54244cb9bf0e702c2ce25e80882e67fcaf5e0813", 4599],
+      ["phase_a_stderr.log", "89a23c48e2114c41365050468536401098db7b89fb640083a076e1b49c176ebb", 1164],
+      ["phase_a_stdout.log", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 0],
+      ["terminal_receipt.json", "9cbaa78f27e5e823fd7b55461f9cc1d6d3001ea6ef916f6301f4a0720eb7a220", 26068]
+    ],
+    "file_count": 4,
+    "logical_file_bytes": 31831,
+    "sha256sum_lines_digest_sha256": "968df304567819643c05bee1495f305ac3445755f7a75aa84e98de97c87ce44f",
+    "canonical_json_triples_digest_sha256": "d7476852dadf96d0cc00e1ba525d89e7a5f7de14148dd871de4dde49c77324bf"
+  },
+  "v508_phase_a_terminal": {
+    "record": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v508_v507_phase_a_cache_qualification_attempt_seed1649_20260825/terminal_receipt.json",
+      "sha256": "9cbaa78f27e5e823fd7b55461f9cc1d6d3001ea6ef916f6301f4a0720eb7a220",
+      "logical_bytes": 26068
+    },
+    "format": "strict-track2-v508-v507-phase-a-cache-qualification-attempt-terminal-v1",
+    "status": "failed_no_retry",
+    "passed": false,
+    "launcher_invocations": 1,
+    "nested_phase_a_driver_invocations": 1,
+    "direct_phase_a_driver_invocations": 0,
+    "driver_returncode": 1,
+    "error_type": "RuntimeError",
+    "error": "Phase-A driver rc=1",
+    "driver_cleanup": {
+      "started": true,
+      "returncode": 1,
+      "reaped": true,
+      "group_empty": true
+    },
+    "retry_authorized": false,
+    "cache_reuse_authorized": false,
+    "training_authorized": false,
+    "folds_authorized": 0,
+    "policy_updates": 0,
+    "reward_read_authorized": false,
+    "dev_hidden_final_outcome_read_authorized": false
+  },
+  "v508_qualification_tree": {
+    "root": "/root/v485_v169_cache_qualification_seed1627_20260824",
+    "inventory": [
+      ["attempt_intent.json", "1c853b7e40c6e7811ed85b44fa80aa4ca9cede358ccbcf365362970c50cb779a", 4834],
+      ["failure_receipt.json", "d0c1e4b4c0739c56a75d1eab066e3735f8bfeef03cf8adbab70753bc16fc90b0", 3118],
+      ["process_a/completion_receipt.json", "563d21db9ea2c859e47e8333c23fe3193853db0b60860b48551bf133c6ea847b", 1447],
+      ["process_a/identity.json", "481f711948fb89928411112df72afc8c9e3a8acd969eb2b26c219ce4ea3d5135", 843],
+      ["process_a/process.log", "7256a1cbe35ee00105695bd97bb2f50df67509a8d03570bee52bf7339bf77bae", 1075],
+      ["process_a/progress.ndjson", "438cef3436d09c22bccab5f96dfdef263b83b37c4303dc2080c9af5a36f72b75", 834]
+    ],
+    "file_count": 6,
+    "logical_file_bytes": 12151,
+    "sha256sum_lines_digest_sha256": "d3ff15b9f5e11bf963be1c15f5da5d69367ad23f42c15ff6d7e3f42cebcaad77",
+    "canonical_json_triples_digest_sha256": "070425a866ae19982415873fa3f4bd476506b5aa86f9922fa408a94baf219524"
+  },
+  "v508_qualification_failure": {
+    "record": {
+      "path": "/root/v485_v169_cache_qualification_seed1627_20260824/failure_receipt.json",
+      "sha256": "d0c1e4b4c0739c56a75d1eab066e3735f8bfeef03cf8adbab70753bc16fc90b0",
+      "logical_bytes": 3118
+    },
+    "format": "strict-track2-v485-v169-cache-qualification-failure-receipt-v1",
+    "status": "failed_no_retry",
+    "passed": false,
+    "stage": "process_a",
+    "retry_authorized": false,
+    "training_authorized": false,
+    "folds": 0,
+    "policy_updates": 0,
+    "rl_authorized": false,
+    "failure_state_tree_file_count": 5,
+    "failure_state_tree_logical_file_bytes": 9033,
+    "failure_state_tree_sha256sum_lines_digest_sha256": "fd2392e53eeb2d3513e9754913427131b70710927e62bff1a76e011692dc0fdc",
+    "failure_state_tree_canonical_json_digest_sha256": "4f7c06ee76f7e46d61883b34a31e6409e9bdd6a17a2ac047ec9682226b4cfb48"
+  },
+  "v508_process_a_completion": {
+    "record": {
+      "path": "/root/v485_v169_cache_qualification_seed1627_20260824/process_a/completion_receipt.json",
+      "sha256": "563d21db9ea2c859e47e8333c23fe3193853db0b60860b48551bf133c6ea847b",
+      "logical_bytes": 1447
+    },
+    "format": "strict-track2-v485-v482-v169-cache-phase-a-driver-completion-v1",
+    "status": "failed",
+    "exit_type": "nonzero_exit",
+    "exit_code": 1,
+    "signal": null,
+    "child_completed": true,
+    "worker_passed": false,
+    "worker_receipt_present": false
+  },
+  "logs": {
+    "phase_a_stderr": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v508_v507_phase_a_cache_qualification_attempt_seed1649_20260825/phase_a_stderr.log",
+      "sha256": "89a23c48e2114c41365050468536401098db7b89fb640083a076e1b49c176ebb",
+      "logical_bytes": 1164
+    },
+    "phase_a_stdout": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v508_v507_phase_a_cache_qualification_attempt_seed1649_20260825/phase_a_stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logical_bytes": 0
+    },
+    "process_a_log": {
+      "path": "/root/v485_v169_cache_qualification_seed1627_20260824/process_a/process.log",
+      "sha256": "7256a1cbe35ee00105695bd97bb2f50df67509a8d03570bee52bf7339bf77bae",
+      "logical_bytes": 1075
+    },
+    "process_a_progress": {
+      "path": "/root/v485_v169_cache_qualification_seed1627_20260824/process_a/progress.ndjson",
+      "sha256": "438cef3436d09c22bccab5f96dfdef263b83b37c4303dc2080c9af5a36f72b75",
+      "logical_bytes": 834
+    }
+  },
+  "services": {
+    "stopped": true,
+    "restored": true,
+    "health_before": {
+      "8005_http_code": 200,
+      "8005_body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0",
+      "18084_http_code": 200,
+      "18084_body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd"
+    },
+    "health_after": {
+      "8005_http_code": 200,
+      "8005_body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0",
+      "18084_http_code": 200,
+      "18084_body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd"
+    },
+    "before_after_exactly_equal": true
+  },
+  "post_observation": {
+    "attempt_prep_absent": true,
+    "qualification_prep_absent": true,
+    "authority_prep_absent": true,
+    "evidence_prep_absent": true,
+    "lineage_processes_empty": true,
+    "gpu_compute_processes_empty": true
+  },
+  "authorization": {
+    "retry_v508_launcher_authorized": false,
+    "retry_v508_driver_authorized": false,
+    "cache_reuse_authorized": false,
+    "training_authorized": false,
+    "folds_authorized": 0,
+    "policy_updates": 0,
+    "reward_read_authorized": false,
+    "dev_hidden_final_outcome_read_authorized": false,
+    "fresh_authority_and_fresh_qualification_root_required": true
+  }
+}

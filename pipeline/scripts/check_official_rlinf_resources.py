@@ -4,7 +4,15 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
+
+# Allow direct ``python pipeline/scripts/...`` execution as documented.
+PIPELINE_ROOT = Path(__file__).resolve().parents[1]
+if str(PIPELINE_ROOT) not in sys.path:
+    sys.path.insert(0, str(PIPELINE_ROOT))
+
+from wam_pipeline.official_rlinf_wan import validate_official_rlinf_wan_checkpoint
 
 
 def require_file(path: Path, label: str) -> None:
@@ -53,15 +61,12 @@ def main() -> None:
     if args.wan:
         require_directory(Path(args.wan) / "diffsynth", "DiffSynth Studio source")
     if args.wan_checkpoint:
-        wan_checkpoint = Path(args.wan_checkpoint)
-        require_file(wan_checkpoint / "Wan2.2_VAE.pth", "published Wan VAE")
-        require_file(wan_checkpoint / "dit_model.safetensors", "published Wan DiT")
-        require_directory(wan_checkpoint / "dataset", "published Wan initial-state dataset")
+        validate_official_rlinf_wan_checkpoint(args.wan_checkpoint)
     if args.reset_dataset:
         reset_dataset = Path(args.reset_dataset)
         require_directory(reset_dataset, "RLinf reset dataset")
-        if not any(reset_dataset.glob("episode*.npy")):
-            raise SystemExit(f"reset dataset has no episode*.npy files: {reset_dataset}")
+        if not any(reset_dataset.glob("*.npy")):
+            raise SystemExit(f"reset dataset has no .npy trajectory files: {reset_dataset}")
     print("official RLinf resource check passed")
 
 

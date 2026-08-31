@@ -1,0 +1,113 @@
+{
+  "format": "strict-track2-v471-group-context-prototype-knn-contract-v1",
+  "status": "preregistered_public_train_s0_authorized",
+  "classification": "iterative-public-train-world-model-parent-diagnostic-nonformal",
+  "seed": 1616,
+  "single_change_from_v469": "Replace pooled E KNN with four context groups followed by exactly one action-nearest prototype per group, and add the exact-zero no_transport prototype to every group. All formulas, folds, gates, C estimator, v169 outputs, and guards otherwise remain unchanged.",
+  "failure_analysis": {
+    "observed": "v469 passed fold0. Fold1 failed both no_transport=0.9820668124 and scale_0p4=1.0310244594; fold2 failed scale_0p4=1.0330986200. All overall, uint8, factual, action-control, phase-control, cosine, and nonzero gates passed in folds1 and2.",
+    "mechanism": "the pooled 640-sample transport library allowed several prototypes from one visually close context and allowed factual/scale_1p25 prototypes to occupy multiple of the four slots. It omitted the no_transport E=0 anchor. For a small 0.4x request this creates an upward residual-magnitude bias even when the action feature is informative.",
+    "intended_fix": "force four distinct visually matched contexts, select at most one prototype within each context using only request-action distance, and include E=0 as a possible prototype. This preserves visual locality while making small-motion retrieval choose a small or zero anchor instead of four pooled large-motion residuals. C and the exact-zero no_transport E path are unchanged, so this change cannot repair fold1 no_transport=0.9820668124; fold1 may remain the single allowed failed fold. The required outcome is to repair the scale_0p4 failure including fold2 and obtain at least four passing folds under the unchanged 4-of-5 gate."
+  },
+  "immutable_inputs": {
+    "paired_data": "exact immutable passed v461 endpoint200 public train40/right15 dataset, selection, generation report, final audit, and row/action hashes already bound by v469",
+    "folds": "exact immutable v461 episode-grouped outer five folds; no fold reassignment",
+    "v169_endpoint_cache": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v469_closed_form_residual_knn_seed1616_20260824/result/v169_endpoint_cache.npz",
+      "sha256": "9e98e8cba934a23bf1307df5f4d2847162ee20af59079efbf67d012cfaa001e7",
+      "requested_array_sha256": "94eec1c73a7cb0e1472d1892a9ef2f10d185d831bf28c15e6d72c25ab002c343",
+      "canonical_array_sha256": "d20e5ba2f1297cd83c0eeedd4f951eae15c52a9e5fd67e8199f978494dc1f833",
+      "seed_array_sha256": "d36a7ed5a7d5c70a1145466b19ece42f598f570e77a6cf8da5fec2dd488e3cc1",
+      "ordered_request_manifest_sha256": "ef153259f46d0ac3aac59b49c70287f95410169727e27002bd11315b17c73b92",
+      "v169_closure_digest": "5fc181bf1049b0e763ef47716f5e3356445de8eb6b2eb3de07dd2d70cd4346f3",
+      "reuse_rule": "verify every listed digest, exact shapes requested [200,5,256,256,3] and canonical [200,256,256,3], uint8 dtype, v461 ordered actions, and common seeds before use; fail closed on any mismatch; do not run v169 again"
+    },
+    "forbidden": [
+      "dev, final, or hidden data",
+      "reward, outcome, or success labels",
+      "policy loading, action generation, or modification",
+      "branch identity as query feature or tie-break",
+      "hyperparameter, scale, threshold, or gate sweep"
+    ]
+  },
+  "unchanged_targets": {
+    "appearance": "C_star = Y_no_transport - B_no_transport",
+    "transport": "E_star_b = (Y_b - Y_no_transport) - (B_b - B_no_transport)",
+    "no_transport": "E_star_no_transport and every predicted E for a no_transport query are exact zero",
+    "candidate": "candidate_b = clip_0_255(B_b + C_hat + E_hat_b)",
+    "controls": "action, context-only, and phase-shuffle share the exact same B_b, C_hat, four selected contexts, clipping, and uint8 conversion"
+  },
+  "frozen_features": {
+    "context": "branch_context_rgb[0] uint8 to float32; reshape (8,32,8,32,3), mean axes (1,3), flatten 192; fit-fold mean/std normalization with std floor 1e-4",
+    "action": "54 request-only values: future[-1,7:13]-history[-1,7:13] followed by (future[:,7:13]-history[-1,7:13]).reshape(48); fit-fold mean/std over all five prototypes of every fit context with std floor 1e-4",
+    "distance_dtype": "float64 after frozen float32 feature construction",
+    "runtime_inputs_only": "context/history/future only; no episode, start, branch label, RGB target, reward, or outcome"
+  },
+  "frozen_group_estimator": {
+    "context_stage": "compute mean squared normalized 192D context distance to every fit context; select exactly four distinct contexts by the unchanged v469 ascending tuple (distance, canonical/no_transport action_sha256, context_sha256). The canonical action hash is only a fit-library stable key, never a query feature or branch-identity feature; preserving this tuple makes C_hat and the no_transport candidate bitexact to v469.",
+    "appearance": "C_hat is the uniform arithmetic mean of the four selected contexts' C_star maps",
+    "prototype_set_per_context": "exactly five stored action/E pairs: factual, no_transport, scale_0p4, scale_1p25, and reverse_direction_0p4; names/ordinals are storage provenance only and are never an input or tie-break",
+    "action_stage": "for each of the four selected contexts independently, compute mean squared normalized 54D action distance from the query to all five stored actions; select exactly one prototype by ascending (distance, action_sha256, context_sha256)",
+    "action_prediction": "E_hat is the uniform arithmetic mean of the four selected prototype E_star maps; each selected context contributes exactly one map",
+    "no_transport_prediction": "if the request action is byte-exact canonical no_transport under the frozen action formula, bypass prototype lookup and set E_hat exact zero",
+    "context_only_control": "use the same four selected contexts; for a non-no_transport query, within each context uniformly average all five E_star prototype maps, then uniformly average the four context means; this is exactly 20 equal weights and uses no action distance",
+    "phase_shuffle_control": "use the same four contexts and action-stage algorithm, replacing only the query action with the frozen v468 within-episode half-rotation donor action of the same stored sample; retain original query context",
+    "storage": "C_star and E_star maps are exact int16; average in float32; no learned network, PCA, ridge, output scale, distance weight, or post-hoc shrinkage",
+    "all200": "build one all200 deployment prototype library only after immutable S0 PASS, using identical formulas and five prototypes per context"
+  },
+  "unchanged_s0_gates": {
+    "per_fold": {
+      "continuous_ratio_max": 0.95,
+      "uint8_ratio_max": 1.0,
+      "factual_branch_ratio_max": 1.0,
+      "no_transport_branch_ratio_max": 0.98,
+      "scale_0p4_branch_ratio_max": 0.98,
+      "scale_1p25_branch_ratio_max": 0.98,
+      "reverse_direction_0p4_branch_ratio_max": 0.98,
+      "action_over_context_only_max": 0.95,
+      "action_over_phase_shuffle_max": 0.97,
+      "positive_delta_cosine_fraction_min": 0.6,
+      "nonzero_prediction_delta_fraction_min": 0.95
+    },
+    "aggregate": {
+      "passing_folds_min": 4,
+      "continuous_ratio_max": 0.95,
+      "uint8_ratio_max": 1.0,
+      "factual_branch_ratio_max": 1.0,
+      "all_other_branch_ratios_max": 0.98,
+      "action_over_context_only_max": 0.95,
+      "action_over_phase_shuffle_max": 0.97,
+      "positive_delta_cosine_fraction_min": 0.6,
+      "nonzero_prediction_delta_fraction_min": 0.95,
+      "improved_episodes_min": 12
+    },
+    "early_stop": "hard stop immediately after a second failed fold; do not build all200 library"
+  },
+  "runtime_guards": {
+    "scope": "explicit-right strict-postclose only",
+    "left_or_gate0": "requested-action frozen-v169 output bitexact for all eight frames",
+    "frames_0_to_6": "always requested-action frozen-v169 bitexact",
+    "frame_7": "only frame that may change for enabled requests",
+    "no_transport": "E exact zero; only frozen C may alter frame7",
+    "shape_checks": "context N x 5 x H x W x 3, history N x 4 x 14, future N x 8 x 14, v169 output N x 8 x H x W x 3 uint8; fail closed",
+    "no_online_adaptation": true
+  },
+  "evidence_status": {
+    "iterative_public_train": true,
+    "not_independent_untouched_holdout": true,
+    "disclosure": "v469 outer-fold results directly motivated group-aware retrieval and inclusion of no_transport prototypes. v471 is one frozen iterative public-train probe and must not be described as independent confirmation."
+  },
+  "resource_budget": {
+    "gpu": "none; reuse and verify immutable v469 v169 cache",
+    "cpu": "taskset 0-11; BLAS/OpenMP threads 6",
+    "ram_peak_gib_max": 5,
+    "additional_disk_gib_max": 0.8,
+    "expected_wall_seconds": "60-180",
+    "hard_timeout_seconds": 300
+  },
+  "promotion": {
+    "s0_pass": "authorizes only deterministic all200 diagnostic library packaging and a separately frozen public S1; no RL",
+    "s1_pass": "may authorize only a separately preregistered raw-Pi0.5 zero-update trace",
+    "formal": "any formal RL must start fresh from raw Pi0.5 under the official fixed-budget contract; this diagnostic lineage is never formal"
+  }
+}

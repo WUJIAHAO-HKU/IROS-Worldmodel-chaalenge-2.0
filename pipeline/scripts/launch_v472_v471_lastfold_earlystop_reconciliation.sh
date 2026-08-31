@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# CPU-only immutable reconciliation; no model/reward/GPU/policy/RL.
+set -euo pipefail
+ROOT='/root/autodl-tmp/IROS_WAM_2.0 challenge';J="$ROOT/artifacts/strict_track2_joint_augmentation_20260810";V471="$J/v471_group_context_prototype_knn_seed1616_20260824";REG="$J/v472_v471_lastfold_earlystop_reconciliation_seed1617_20260824";S="$ROOT/pipeline/scripts";RLPY='/root/autodl-tmp/conda_envs/rlinf_track2/bin/python';PREP="$S/prepare_v472_v471_lastfold_earlystop_reconciliation.py";RECON="$S/audit_v472_v471_lastfold_earlystop_reconciliation.py";LEGACY_PROBE="$S/probe_v471_group_context_prototype_knn_s0.py";LEGACY_AUDIT="$S/audit_v471_group_context_prototype_knn_s0.py";SELECTION="$J/v461_endpoint200_seed1612_20260823/selection.json";DATASET="$J/v461_endpoint200_seed1612_20260823/dataset"
+exec 9>/var/lock/v472_v471_lastfold_reconciliation.lock;flock -n 9||exit 73;test ! -e "$REG";mkdir -p "$REG"
+test "$(sha256sum "$PREP"|awk '{print $1}')" = '2ca36679d054f742949891f2cf864cccdcc4ed3b3f2d414d1823ba139d8f9b46';test "$(sha256sum "$RECON"|awk '{print $1}')" = '5c5d2ff45e739e6fd5910b76f4a8c23083b4aeb7eb3f8a57a03ae6ea5d80bfed';test "$(sha256sum "$LEGACY_PROBE"|awk '{print $1}')" = '93af14f2f2d189aa9aa0775189313c391f375098fe30824b3cfcbf37e9ba453c';test "$(sha256sum "$LEGACY_AUDIT"|awk '{print $1}')" = '045bcfcd55e06f0948f677fab4814dd145f0a878b90812176fb3caf871c4e8bb'
+"$RLPY" -m py_compile "$PREP" "$RECON";export PYTHONPATH="$ROOT/pipeline:$ROOT/pipeline/scripts" OMP_NUM_THREADS=6 MKL_NUM_THREADS=6 OPENBLAS_NUM_THREADS=6 PYTHONHASHSEED=0
+taskset -c 0-11 timeout 30s "$RLPY" "$PREP" --legacy-probe "$LEGACY_PROBE" --legacy-auditor "$LEGACY_AUDIT" --reconciler "$RECON" --launcher "$0" --output "$REG/preregistration.json" >"$REG/prepare.log" 2>&1
+taskset -c 0-11 timeout 180s "$RLPY" "$RECON" --preregistration "$REG/preregistration.json" --selection "$SELECTION" --dataset "$DATASET" --output "$REG/reconciliation_receipt.json" >"$REG/reconcile.log" 2>&1
+echo V472_V471_LASTFOLD_EARLYSTOP_RECONCILIATION_PASS

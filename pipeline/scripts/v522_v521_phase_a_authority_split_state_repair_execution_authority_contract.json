@@ -1,0 +1,2393 @@
+{
+  "authority_materializer_source": {
+    "logical_bytes": 53649,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v522_v521_phase_a_authority_split_state_repair_execution_authority.py",
+    "sha256": "42f2375eb3b468798d2131edddbefab7e579bdc6662e3743dbb0fb3b799ddca5"
+  },
+  "authority_receipt_contract": {
+    "authorization_exact": {
+      "cache_reuse_authorized": false,
+      "dev_hidden_final_outcome_read_authorized": false,
+      "direct_phase_a_driver_authorized": false,
+      "launcher_invocations_authorized": 1,
+      "launcher_invocations_consumed": 0,
+      "nested_phase_a_driver_invocations_authorized": 1,
+      "nested_phase_a_driver_only_via_launcher": true,
+      "phase_a_cache_qualification_launcher_authorized": true,
+      "phase_a_worker_invocations_authorized": 2,
+      "retry_authorized": false,
+      "reward_read_authorized": false,
+      "rng_proxy_required_for_every_runtime_delegate": true,
+      "runtime_delegate_calls_authorized": 2000,
+      "runtime_delegate_calls_consumed": 0,
+      "service_environment_overrides_authorized": false,
+      "submission_authorized": false,
+      "training_authorized": false,
+      "worker_environment_exact": {
+        "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+        "PYTHONPATH": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline"
+      }
+    },
+    "check_key_set_sha256": "56fd48ff06942c38841d0ff51f1e565f3d29c946ba1b1365e47d0b493746e269",
+    "check_keys": [
+      "authorization_boundary",
+      "contract_current",
+      "current_absences",
+      "execution_boundary",
+      "fresh_prereg_exact8",
+      "fresh_roots_absent",
+      "gpu_empty",
+      "historical_absence_validator_not_reused_post_authority",
+      "historical_absences",
+      "input_snapshots_equal",
+      "materializer_current",
+      "no_live_phase_a_process",
+      "no_pending_values",
+      "old_phase_a_failures_no_retry",
+      "per_call_rng_contract_source_enforced",
+      "publish_stable_excludes_authority_prep",
+      "service_env_unchanged",
+      "source_aliases_exact",
+      "source_closure_current",
+      "source_order_exact",
+      "split_forensic_exact",
+      "split_transition_sole_authority_absence_leaf",
+      "v517_candidate_exact1",
+      "v517_dual_bind_current",
+      "v517_evidence_exact6",
+      "v517_normalization_diff_exact2",
+      "v517_process_passed",
+      "v519_evidence_exact6",
+      "v519_inputs_prepost_equal",
+      "v519_output_exact",
+      "v519_process_receipt_exact",
+      "v519_raw_warning_exact",
+      "v519_rng_four_stage_full",
+      "v519_sample_call_partition",
+      "v519_stdout_exact1",
+      "v520_authority_expected_current_exact1",
+      "v520_authority_top68_check33_source23",
+      "v521_failed_transport_evidence_exact6",
+      "v521_stdout_exact2_native_empty",
+      "v521_transport_partition_exact",
+      "worker_env_exact2"
+    ],
+    "checks_sha256": "935f0c74e95b41aed3d77e6f7ed77823ae2271c700ce717272b373d835ca379a",
+    "format": "strict-track2-v522-v521-phase-a-authority-split-state-repair-execution-authority-v1",
+    "per_call_rng_evidence_contract_exact": {
+      "calls_per_branch": 1000,
+      "canonical_event_digest_recorded_per_call": true,
+      "delegate_invocations_completed_per_successful_call": 1,
+      "delegate_invocations_started_per_call": 1,
+      "durable_process_log_markers_per_branch": 2000,
+      "durable_process_log_markers_per_call": 2,
+      "expected_branches": [
+        "A",
+        "B"
+      ],
+      "fork_rng_devices_exact_all_cuda_indices": true,
+      "format": "strict-track2-v520-per-call-rng-isolation-evidence-v1",
+      "numpy_all_four_stages_equal": true,
+      "output_schema_recorded_per_call": true,
+      "process_log_marker_order_per_call": [
+        "started",
+        "completed"
+      ],
+      "python_all_four_stages_equal": true,
+      "raw_warning_order_preserved": true,
+      "required_rng_stage_keys": [
+        "entry_external",
+        "inside_before_delegate",
+        "internal_after_delegate",
+        "exit_restored"
+      ],
+      "sample0_evidence_is_ancestry_not_runtime_substitute": true,
+      "torch_cpu_exit_restored": true,
+      "torch_cuda_exit_restored": true,
+      "torch_internal_change_allowed": true,
+      "total_durable_process_log_markers": 4000,
+      "total_runtime_delegate_calls": 2000
+    },
+    "runtime_observation_exact": {
+      "cache_reused": false,
+      "dev_hidden_final_outcome_read": false,
+      "execution_authority_materialized": true,
+      "phase_a_driver_executed": false,
+      "phase_a_launcher_executed": false,
+      "phase_a_worker_invocations": 0,
+      "qualification_output_created": false,
+      "reward_read": false,
+      "rng_proxy_delegate_invocations": 0,
+      "training_launched": false
+    },
+    "status": "authorized_exact_one_external_v522_phase_a_cache_qualification_attempt",
+    "top_keys": [
+      "authority_design_contract",
+      "authority_materializer_source",
+      "authority_split_state_forensic",
+      "authorization",
+      "cache_scope_helper_source",
+      "check_key_set_sha256",
+      "check_keys",
+      "checks",
+      "checks_sha256",
+      "contract_sha256",
+      "execution_boundary",
+      "format",
+      "fresh_phase_a_driver_source",
+      "fresh_phase_a_independent_auditor_source",
+      "fresh_phase_a_launcher_source",
+      "fresh_phase_a_preregistration_source",
+      "fresh_phase_a_worker_source",
+      "fresh_rng_proxy_source",
+      "frozen_v485_launcher_source",
+      "historical_absences",
+      "input_post_snapshot",
+      "input_pre_snapshot",
+      "input_snapshots_exactly_equal",
+      "old_authority_expected_current",
+      "old_phase_a_failure_forensics",
+      "passed",
+      "per_call_rng_evidence_contract",
+      "phase_a_attempt_root",
+      "phase_a_cache_qualification_authorized",
+      "phase_a_design_contract_source",
+      "phase_a_driver_source",
+      "phase_a_independent_auditor_source",
+      "phase_a_launcher_source",
+      "phase_a_output_materializer_source",
+      "phase_a_preregistration_source",
+      "phase_a_static_audit_source",
+      "phase_a_static_auditor_source",
+      "phase_a_worker_source",
+      "preregistration_sha256",
+      "qualification_output_root",
+      "required_absences",
+      "restart_v218_source_source",
+      "rng_proxy_source",
+      "runtime_observation",
+      "source_aliases",
+      "source_closure",
+      "source_closure_sha256",
+      "source_role_order",
+      "status",
+      "training_authorized",
+      "v509_import_failure_forensic_source",
+      "v509_warning_failure_forensic_source",
+      "v511_anchor_failure_forensic_source",
+      "v517_candidate_receipt",
+      "v517_candidate_tree",
+      "v517_evidence_tree",
+      "v517_normalized_current_view",
+      "v517_process_receipt",
+      "v518_rng_failure_forensic_source",
+      "v519_child_stdout",
+      "v519_evidence_tree",
+      "v519_output_record",
+      "v519_process_receipt",
+      "v519_rng_isolation_evidence",
+      "v519_rng_sample_child_source",
+      "v519_rng_sample_design_source",
+      "v519_rng_sample_transport_helper_source",
+      "v519_rng_sample_transport_script_source",
+      "v519_source_records",
+      "v520_authority_design_contract_source",
+      "v520_authority_materializer_source",
+      "v520_authority_receipt",
+      "v520_authority_receipt_source",
+      "v520_authority_registration_tree",
+      "v520_authority_semantics",
+      "v521_execution_partition",
+      "v521_materialization_evidence_tree",
+      "v521_materialization_process_receipt",
+      "v521_materialization_process_receipt_source",
+      "v521_materialization_stderr",
+      "v521_materialization_stderr_source",
+      "v521_materialization_stdout",
+      "v521_materialization_stdout_source",
+      "v521_transport_failure_forensic_source",
+      "v521_transport_helper_source",
+      "v521_transport_script_source",
+      "v522_v521_authority_split_state_forensic_source",
+      "worker_environment_exact"
+    ]
+  },
+  "authority_split_state_forensic": {
+    "authorization": {
+      "cache_reuse_authorized": false,
+      "dev_hidden_final_outcome_read_authorized": false,
+      "direct_phase_a_driver_authorized": false,
+      "fresh_v522_authority_design_authorized": false,
+      "reward_read_authorized": false,
+      "training_authorized": false,
+      "v520_phase_a_launcher_authorized_under_v521_failure": false,
+      "v521_transport_retry_authorized": false
+    },
+    "captured_at_date": "2026-08-26",
+    "execution_partition": {
+      "cache_reuse_invocations": 0,
+      "dev_hidden_final_outcome_reads": 0,
+      "phase_a_qualification_outputs_created": 0,
+      "retry_authorized": false,
+      "reward_reads": 0,
+      "training_invocations": 0,
+      "v520_authority_materializer_invocations": 1,
+      "v520_independent_auditor_invocations": 0,
+      "v520_phase_a_driver_invocations": 0,
+      "v520_phase_a_launcher_invocations": 0,
+      "v520_phase_a_worker_invocations": 0,
+      "v520_rng_proxy_delegate_invocations": 0,
+      "v521_transport_helper_invocations": 1
+    },
+    "format": "strict-track2-v522-v521-phase-a-authority-split-state-forensic-v1",
+    "frozen_downstream_sources": {
+      "v520_independent_auditor": {
+        "logical_bytes": 45074,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v520_v519_phase_a_rng_isolated_qualification.py",
+        "sha256": "6964cc0120489add4ba7397ea7bc1b43bb393ea75ba52e4d588031cbab460f42"
+      },
+      "v520_phase_a_driver": {
+        "logical_bytes": 45542,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v520_v519_phase_a_cache_qualification.py",
+        "sha256": "4a6afa63b5ef8eff84dd0a197e914ac96a4d32c8f1ac543014810b7949249a05"
+      },
+      "v520_phase_a_launcher": {
+        "logical_bytes": 64163,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v520_v519_phase_a_cache_qualification.py",
+        "sha256": "3ba99011c1a43e8fa38d9ebf04e011f48ebcdf0919e718413041dba4e867d36f"
+      },
+      "v520_phase_a_worker": {
+        "logical_bytes": 38774,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v520_v519_phase_a_cache_qualification_worker.py",
+        "sha256": "deff45645f6ba4f650200d0d8d408f01ab107d1ff74eeb041eaa0a70fcf29e7b"
+      },
+      "v520_rng_proxy": {
+        "logical_bytes": 8926,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+        "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+      }
+    },
+    "lineage": {
+      "authority_valid_superseded_without_downstream_execution": true,
+      "name": "v522_v521_phase_a_authority_split_state",
+      "old_v521_helper_and_script_no_retry": true,
+      "v520_authority_valid": true,
+      "v521_transport_helper_terminal_failed": true
+    },
+    "other_seven_historical_absences_current": [
+      "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826.registration-prep",
+      "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1656_20260826",
+      "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1656_20260826.execution-prep",
+      "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_cache_qualification_attempt_seed1656_20260826",
+      "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_cache_qualification_attempt_seed1656_20260826.attempt-prep",
+      "/root/v520_v519_phase_a_cache_qualification_seed1656_20260826",
+      "/root/v520_v519_phase_a_cache_qualification_seed1656_20260826.attempt-prep"
+    ],
+    "passed": true,
+    "process_and_gpu_state": {
+      "cleanup_group_empty": true,
+      "cleanup_reaped": true,
+      "gpu_compute_pids_current": [],
+      "gpu_compute_pids_pre": [],
+      "v520_phase_a_pids_current": [],
+      "v520_phase_a_pids_pre": []
+    },
+    "service_health_pre_and_current_equal": {
+      "18084_health": {
+        "body_bytes": 18,
+        "body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd",
+        "http_code": 200,
+        "json_model": {
+          "status": "ready"
+        }
+      },
+      "8005_v1_health": {
+        "body_bytes": 106,
+        "body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0",
+        "http_code": 200,
+        "json_model": {
+          "api_version": "1.0",
+          "model_version": "track2-v218-public-knn-blend-alpha070-route-aware",
+          "status": "ready"
+        }
+      }
+    },
+    "sole_snapshot_transition": {
+      "authority_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826",
+      "current_state": "present",
+      "current_value": false,
+      "historical_value": true,
+      "logical_path": [
+        "roots_after_failure",
+        "authority_root",
+        "absent"
+      ],
+      "transition_cause": "successful_fcf7_authority_materialization_exact1",
+      "transition_is_valid": true,
+      "transport_post_snapshot_predicate_is_stale": true
+    },
+    "status": "immutable_v520_authority_valid_v521_transport_evidence_failed_no_retry_no_downstream_execution",
+    "v520_materialized_authority_receipt": {
+      "logical_bytes": 121101,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826/authority_receipt.json",
+      "sha256": "3e71dff7f0756d966593e8d3200b5fc8370e9849251b16fe61393583afd7735f"
+    },
+    "v520_materialized_authority_registration_tree": {
+      "canonical_json_triples_digest_sha256": "47f93414dc9073eb4c69799ed89a82866e5749fd1f57f1368495463aef6e8dbe",
+      "file_count": 1,
+      "inventory": [
+        [
+          "authority_receipt.json",
+          "3e71dff7f0756d966593e8d3200b5fc8370e9849251b16fe61393583afd7735f",
+          121101
+        ]
+      ],
+      "logical_file_bytes": 121101,
+      "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826",
+      "sha256sum_lines_digest_sha256": "4edaba7bee39d41a02b7c40bea968ecefb85f5c18290c4ae3f84446aea7cb222"
+    },
+    "v520_materialized_authority_schema": {
+      "check_count": 33,
+      "format_status": "authorized_exact_one_external_v520_phase_a_cache_qualification_attempt",
+      "passed": true,
+      "source_closure_count": 23,
+      "top_key_count": 68
+    },
+    "v521_materialization_evidence_tree": {
+      "canonical_json_triples_digest_sha256": "9af08453ab635c0147072cbcad4389e0f3dc1f27d020b9f77cc44c626a2a4cfd",
+      "file_count": 6,
+      "inventory": [
+        [
+          "argv.json",
+          "553b915934e23f8141aae88283f4781b435ea0d1d36315e8035b3494c73762b2",
+          16598
+        ],
+        [
+          "intent.json",
+          "a8e54f3f09fd5bf711b57b418feb479c0758a0a1c6185452aebf888ecb9ce99d",
+          518
+        ],
+        [
+          "materializer_stderr.log",
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          0
+        ],
+        [
+          "materializer_stdout.log",
+          "a24a7f6cd0a558168f3eb83d35975f43eb4648432428e486e861ae84838e6f71",
+          1251
+        ],
+        [
+          "process_receipt.json",
+          "906fcd5468d0a94fa29ddb4ff98b826de39566609532b06810ab87c21801aab2",
+          3447
+        ],
+        [
+          "transport_helper.py",
+          "de2403b17513ffc817a50de79e97b931e4fdd9ac818ffc4156a99ed5a3f5f7a3",
+          78449
+        ]
+      ],
+      "logical_file_bytes": 100263,
+      "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826",
+      "sha256sum_lines_digest_sha256": "4afec5aa009fc6008ec82bc2e86c54bcc0990ba85ec427a82cb8c0545c892eba"
+    },
+    "v521_materialization_process_receipt": {
+      "error": "v520 transport collection failure forensic",
+      "error_type": "RuntimeError",
+      "logical_bytes": 3447,
+      "passed": false,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/process_receipt.json",
+      "sha256": "906fcd5468d0a94fa29ddb4ff98b826de39566609532b06810ab87c21801aab2",
+      "status": "failed_no_retry"
+    },
+    "v521_materialization_stderr": {
+      "empty": true,
+      "logical_bytes": 0,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/materializer_stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "v521_materialization_stdout": {
+      "authority_receipt_sha256": "3e71dff7f0756d966593e8d3200b5fc8370e9849251b16fe61393583afd7735f",
+      "committed_success": true,
+      "line_count": 2,
+      "line_origin": "transport_helper",
+      "logical_bytes": 1251,
+      "materializer_native_stdout_empty": true,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/materializer_stdout.log",
+      "sha256": "a24a7f6cd0a558168f3eb83d35975f43eb4648432428e486e861ae84838e6f71"
+    },
+    "v521_transport_sources": {
+      "failure_forensic": {
+        "logical_bytes": 9234,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v521_v520_authority_transport_collection_failure_forensic.json",
+        "sha256": "ebb1ca52ec8f96cb1903b7e1955485a07eeeb77fd8e4b5373415e38fc8dd1d6a"
+      },
+      "transport_helper": {
+        "logical_bytes": 78449,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v521_v520_phase_a_rng_isolated_qualification_execution_authority_materializer_once.py",
+        "sha256": "de2403b17513ffc817a50de79e97b931e4fdd9ac818ffc4156a99ed5a3f5f7a3"
+      },
+      "transport_script": {
+        "logical_bytes": 2575,
+        "path": "/root/v521_v520_phase_a_rng_isolated_qualification_authority_materialize_once.sh",
+        "sha256": "d4c55f482ba6d351803a0e32ef01f7128f8a1273d540904929720af78ab9b846"
+      }
+    }
+  },
+  "authorization": {
+    "cache_reuse_authorized": false,
+    "dev_hidden_final_outcome_read_authorized": false,
+    "direct_phase_a_driver_authorized": false,
+    "launcher_invocations_authorized": 1,
+    "launcher_invocations_consumed": 0,
+    "nested_phase_a_driver_invocations_authorized": 1,
+    "nested_phase_a_driver_only_via_launcher": true,
+    "phase_a_cache_qualification_launcher_authorized": true,
+    "phase_a_worker_invocations_authorized": 2,
+    "retry_authorized": false,
+    "reward_read_authorized": false,
+    "rng_proxy_required_for_every_runtime_delegate": true,
+    "runtime_delegate_calls_authorized": 2000,
+    "runtime_delegate_calls_consumed": 0,
+    "service_environment_overrides_authorized": false,
+    "submission_authorized": false,
+    "training_authorized": false,
+    "worker_environment_exact": {
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "PYTHONPATH": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline"
+    }
+  },
+  "current_absences_after_authority": {
+    "authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_authority_split_state_repair_execution_authority_seed1658_20260826.registration-prep"
+    },
+    "phase_a_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_attempt_seed1658_20260826.attempt-prep"
+    },
+    "phase_a_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_attempt_seed1658_20260826"
+    },
+    "qualification_output_prep": {
+      "path": "/root/v522_v521_phase_a_cache_qualification_seed1658_20260826.attempt-prep"
+    },
+    "qualification_output_root": {
+      "path": "/root/v522_v521_phase_a_cache_qualification_seed1658_20260826"
+    }
+  },
+  "execution_boundary": {
+    "authority_materialization_only": true,
+    "dev_hidden_final_outcome_reads": 0,
+    "phase_a_driver_invocations": 0,
+    "phase_a_launcher_invocations": 0,
+    "phase_a_worker_invocations": 0,
+    "reward_reads": 0,
+    "rng_proxy_delegate_invocations": 0,
+    "training_invocations": 0
+  },
+  "format": "strict-track2-v522-v521-phase-a-authority-split-state-repair-execution-authority-design-contract-v1",
+  "historical_absences": {
+    "authority_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_authority_split_state_repair_execution_authority_seed1658_20260826.registration-prep"
+    },
+    "authority_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_authority_split_state_repair_execution_authority_seed1658_20260826"
+    },
+    "phase_a_attempt_prep": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_attempt_seed1658_20260826.attempt-prep"
+    },
+    "phase_a_attempt_root": {
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_attempt_seed1658_20260826"
+    },
+    "qualification_output_prep": {
+      "path": "/root/v522_v521_phase_a_cache_qualification_seed1658_20260826.attempt-prep"
+    },
+    "qualification_output_root": {
+      "path": "/root/v522_v521_phase_a_cache_qualification_seed1658_20260826"
+    }
+  },
+  "lineage": {
+    "fresh_authority_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_authority_split_state_repair_execution_authority_seed1658_20260826",
+    "fresh_phase_a_attempt_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_attempt_seed1658_20260826",
+    "fresh_qualification_output_root": "/root/v522_v521_phase_a_cache_qualification_seed1658_20260826",
+    "name": "v522_v521_phase_a_authority_split_state_repair",
+    "old_v520_authority_expected_current": true,
+    "sole_semantic_change": "fresh_phase_a_lineage_after_valid_authority_failed_transport_split",
+    "supersedes_v521_transport_failure_no_retry_without_reusing_old_launcher": true
+  },
+  "old_authority_expected_current": {
+    "historical_absence_validator_reused_post_authority": false,
+    "present": true,
+    "receipt": {
+      "logical_bytes": 121101,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826/authority_receipt.json",
+      "sha256": "3e71dff7f0756d966593e8d3200b5fc8370e9849251b16fe61393583afd7735f"
+    },
+    "registration_tree": {
+      "canonical_json_triples_digest_sha256": "47f93414dc9073eb4c69799ed89a82866e5749fd1f57f1368495463aef6e8dbe",
+      "file_count": 1,
+      "inventory": [
+        [
+          "authority_receipt.json",
+          "3e71dff7f0756d966593e8d3200b5fc8370e9849251b16fe61393583afd7735f",
+          121101
+        ]
+      ],
+      "logical_file_bytes": 121101,
+      "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826",
+      "sha256sum_lines_digest_sha256": "4edaba7bee39d41a02b7c40bea968ecefb85f5c18290c4ae3f84446aea7cb222"
+    },
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826"
+  },
+  "old_phase_a_failure_forensics": {
+    "v509_import_failure_forensic": {
+      "authorization": {
+        "cache_reuse_authorized": false,
+        "dev_hidden_final_outcome_read_authorized": false,
+        "folds_authorized": 0,
+        "fresh_authority_and_fresh_qualification_root_required": true,
+        "policy_updates": 0,
+        "retry_v508_driver_authorized": false,
+        "retry_v508_launcher_authorized": false,
+        "reward_read_authorized": false,
+        "training_authorized": false
+      },
+      "date": "2026-08-25",
+      "format": "strict-track2-v509-v508-phase-a-wam-pipeline-import-failure-forensic-v1",
+      "logs": {
+        "phase_a_stderr": {
+          "logical_bytes": 1164,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v508_v507_phase_a_cache_qualification_attempt_seed1649_20260825/phase_a_stderr.log",
+          "sha256": "89a23c48e2114c41365050468536401098db7b89fb640083a076e1b49c176ebb"
+        },
+        "phase_a_stdout": {
+          "logical_bytes": 0,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v508_v507_phase_a_cache_qualification_attempt_seed1649_20260825/phase_a_stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "process_a_log": {
+          "logical_bytes": 1075,
+          "path": "/root/v485_v169_cache_qualification_seed1627_20260824/process_a/process.log",
+          "sha256": "7256a1cbe35ee00105695bd97bb2f50df67509a8d03570bee52bf7339bf77bae"
+        },
+        "process_a_progress": {
+          "logical_bytes": 834,
+          "path": "/root/v485_v169_cache_qualification_seed1627_20260824/process_a/progress.ndjson",
+          "sha256": "438cef3436d09c22bccab5f96dfdef263b83b37c4303dc2080c9af5a36f72b75"
+        }
+      },
+      "passed": true,
+      "post_observation": {
+        "attempt_prep_absent": true,
+        "authority_prep_absent": true,
+        "evidence_prep_absent": true,
+        "gpu_compute_processes_empty": true,
+        "lineage_processes_empty": true,
+        "qualification_prep_absent": true
+      },
+      "root_cause": {
+        "canonical_package_init": {
+          "logical_bytes": 118,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/__init__.py",
+          "sha256": "1d8c8f56ecd70fa05b21f3fe8b870a12424dbc5ea6a6ad9944d202023dc66f2a"
+        },
+        "canonical_package_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline",
+        "corrected_rule": "construct a fresh driver child environment with exact PYTHONPATH equal to the canonical repository pipeline root and pass it only to worker Popen; do not alter service stop/restart environments",
+        "driver_returncode": 1,
+        "driver_spawn_observation": {
+          "driver_source": {
+            "logical_bytes": 28333,
+            "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v485_v169_cache_qualification.py",
+            "sha256": "9199d8489fe6aea732365552a2cdbe60f24408dc383bdbd31d4148f6a0931d0a"
+          },
+          "observed_cwd": "/root",
+          "observed_pythonpath": null,
+          "popen_has_cwd_argument": false,
+          "popen_has_env_argument": false,
+          "popen_line": 110
+        },
+        "error": "No module named 'wam_pipeline'",
+        "error_type": "ModuleNotFoundError",
+        "importing_runtime": {
+          "import_line": "from wam_pipeline.v169_arm_routed_runtime import Track2V169ArmRoutedRuntime",
+          "logical_bytes": 21745,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/v482_temporal8_residual_runtime.py",
+          "sha256": "6939e3f6f52c1eb83bfd4324372d7e75ed4ee6d493777a39f38c26e5f4db7471"
+        },
+        "stage": "process_a",
+        "worker_exit_code": 1,
+        "worker_exit_type": "nonzero_exit"
+      },
+      "services": {
+        "before_after_exactly_equal": true,
+        "health_after": {
+          "18084_body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd",
+          "18084_http_code": 200,
+          "8005_body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0",
+          "8005_http_code": 200
+        },
+        "health_before": {
+          "18084_body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd",
+          "18084_http_code": 200,
+          "8005_body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0",
+          "8005_http_code": 200
+        },
+        "restored": true,
+        "stopped": true
+      },
+      "status": "v508_phase_a_failed_no_retry_process_a_import_error",
+      "v508_phase_a_attempt_tree": {
+        "canonical_json_triples_digest_sha256": "d7476852dadf96d0cc00e1ba525d89e7a5f7de14148dd871de4dde49c77324bf",
+        "file_count": 4,
+        "inventory": [
+          [
+            "intent.json",
+            "963358d83b85c55ace40a8ef54244cb9bf0e702c2ce25e80882e67fcaf5e0813",
+            4599
+          ],
+          [
+            "phase_a_stderr.log",
+            "89a23c48e2114c41365050468536401098db7b89fb640083a076e1b49c176ebb",
+            1164
+          ],
+          [
+            "phase_a_stdout.log",
+            "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            0
+          ],
+          [
+            "terminal_receipt.json",
+            "9cbaa78f27e5e823fd7b55461f9cc1d6d3001ea6ef916f6301f4a0720eb7a220",
+            26068
+          ]
+        ],
+        "logical_file_bytes": 31831,
+        "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v508_v507_phase_a_cache_qualification_attempt_seed1649_20260825",
+        "sha256sum_lines_digest_sha256": "968df304567819643c05bee1495f305ac3445755f7a75aa84e98de97c87ce44f"
+      },
+      "v508_phase_a_terminal": {
+        "cache_reuse_authorized": false,
+        "dev_hidden_final_outcome_read_authorized": false,
+        "direct_phase_a_driver_invocations": 0,
+        "driver_cleanup": {
+          "group_empty": true,
+          "reaped": true,
+          "returncode": 1,
+          "started": true
+        },
+        "driver_returncode": 1,
+        "error": "Phase-A driver rc=1",
+        "error_type": "RuntimeError",
+        "folds_authorized": 0,
+        "format": "strict-track2-v508-v507-phase-a-cache-qualification-attempt-terminal-v1",
+        "launcher_invocations": 1,
+        "nested_phase_a_driver_invocations": 1,
+        "passed": false,
+        "policy_updates": 0,
+        "record": {
+          "logical_bytes": 26068,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v508_v507_phase_a_cache_qualification_attempt_seed1649_20260825/terminal_receipt.json",
+          "sha256": "9cbaa78f27e5e823fd7b55461f9cc1d6d3001ea6ef916f6301f4a0720eb7a220"
+        },
+        "retry_authorized": false,
+        "reward_read_authorized": false,
+        "status": "failed_no_retry",
+        "training_authorized": false
+      },
+      "v508_process_a_completion": {
+        "child_completed": true,
+        "exit_code": 1,
+        "exit_type": "nonzero_exit",
+        "format": "strict-track2-v485-v482-v169-cache-phase-a-driver-completion-v1",
+        "record": {
+          "logical_bytes": 1447,
+          "path": "/root/v485_v169_cache_qualification_seed1627_20260824/process_a/completion_receipt.json",
+          "sha256": "563d21db9ea2c859e47e8333c23fe3193853db0b60860b48551bf133c6ea847b"
+        },
+        "signal": null,
+        "status": "failed",
+        "worker_passed": false,
+        "worker_receipt_present": false
+      },
+      "v508_qualification_failure": {
+        "failure_state_tree_canonical_json_digest_sha256": "4f7c06ee76f7e46d61883b34a31e6409e9bdd6a17a2ac047ec9682226b4cfb48",
+        "failure_state_tree_file_count": 5,
+        "failure_state_tree_logical_file_bytes": 9033,
+        "failure_state_tree_sha256sum_lines_digest_sha256": "fd2392e53eeb2d3513e9754913427131b70710927e62bff1a76e011692dc0fdc",
+        "folds": 0,
+        "format": "strict-track2-v485-v169-cache-qualification-failure-receipt-v1",
+        "passed": false,
+        "policy_updates": 0,
+        "record": {
+          "logical_bytes": 3118,
+          "path": "/root/v485_v169_cache_qualification_seed1627_20260824/failure_receipt.json",
+          "sha256": "d0c1e4b4c0739c56a75d1eab066e3735f8bfeef03cf8adbab70753bc16fc90b0"
+        },
+        "retry_authorized": false,
+        "rl_authorized": false,
+        "stage": "process_a",
+        "status": "failed_no_retry",
+        "training_authorized": false
+      },
+      "v508_qualification_tree": {
+        "canonical_json_triples_digest_sha256": "070425a866ae19982415873fa3f4bd476506b5aa86f9922fa408a94baf219524",
+        "file_count": 6,
+        "inventory": [
+          [
+            "attempt_intent.json",
+            "1c853b7e40c6e7811ed85b44fa80aa4ca9cede358ccbcf365362970c50cb779a",
+            4834
+          ],
+          [
+            "failure_receipt.json",
+            "d0c1e4b4c0739c56a75d1eab066e3735f8bfeef03cf8adbab70753bc16fc90b0",
+            3118
+          ],
+          [
+            "process_a/completion_receipt.json",
+            "563d21db9ea2c859e47e8333c23fe3193853db0b60860b48551bf133c6ea847b",
+            1447
+          ],
+          [
+            "process_a/identity.json",
+            "481f711948fb89928411112df72afc8c9e3a8acd969eb2b26c219ce4ea3d5135",
+            843
+          ],
+          [
+            "process_a/process.log",
+            "7256a1cbe35ee00105695bd97bb2f50df67509a8d03570bee52bf7339bf77bae",
+            1075
+          ],
+          [
+            "process_a/progress.ndjson",
+            "438cef3436d09c22bccab5f96dfdef263b83b37c4303dc2080c9af5a36f72b75",
+            834
+          ]
+        ],
+        "logical_file_bytes": 12151,
+        "root": "/root/v485_v169_cache_qualification_seed1627_20260824",
+        "sha256sum_lines_digest_sha256": "d3ff15b9f5e11bf963be1c15f5da5d69367ad23f42c15ff6d7e3f42cebcaad77"
+      }
+    },
+    "v509_warning_failure_forensic": {
+      "bound_sources": {
+        "authority_contract": {
+          "logical_bytes": 114187,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v509_v508_phase_a_wam_pipeline_import_repair_execution_authority_contract.json",
+          "sha256": "acee1f332e66fa403a34e7bf3a62955136b92e19364e84a14db3308d2d339697"
+        },
+        "authority_receipt": {
+          "logical_bytes": 314015,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_wam_pipeline_import_repair_execution_authority_seed1650_20260825/authority_receipt.json",
+          "sha256": "c53aa1ad33f5e434517d64b700faf1a14ceb48d04eeda4df699113ea6785ab0d"
+        },
+        "driver": {
+          "logical_bytes": 37884,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v509_v508_phase_a_cache_qualification.py",
+          "sha256": "e481a4be0a2cdbccdfd9a3a26cfe0eb0b539460dcd18fb7e014d5291c71f5428"
+        },
+        "fresh_preregistration": {
+          "logical_bytes": 56800,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_cache_qualification_prereg_seed1650_20260825/preregistration.json",
+          "sha256": "8200ba523295a607bbab47c897e83e0b8736ab6000dc26a37fe73c6363cd7cc4"
+        },
+        "launcher": {
+          "logical_bytes": 58848,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v509_v508_phase_a_cache_qualification.py",
+          "sha256": "3427f8972bfe929042ed600d7742070bb873f5dc99c6e3eaae4543600457f33e"
+        },
+        "parent_runtime": {
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/v482_temporal8_residual_runtime.py",
+          "sha256": "6939e3f6f52c1eb83bfd4324372d7e75ed4ee6d493777a39f38c26e5f4db7471"
+        },
+        "warning_scope": {
+          "logical_bytes": 4519,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+          "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5"
+        },
+        "worker": {
+          "logical_bytes": 31353,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v485_v169_cache_qualification_worker.py",
+          "sha256": "f3c440c09e4cede17b5825c2117da7b39ee62c353c3538dd6e5c518f4da74cba"
+        }
+      },
+      "execution": {
+        "invocations": {
+          "cache_reuse": 0,
+          "dev_hidden_final_outcome_read": 0,
+          "phase_a_driver": 1,
+          "phase_a_launcher": 1,
+          "process_a_worker": 1,
+          "process_b_worker": 0,
+          "reward_read": 0,
+          "training": 0,
+          "transport_normal": 1
+        },
+        "returncode": 1,
+        "stderr_logical_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_logical_bytes": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "transport_script": {
+          "logical_bytes": 4104,
+          "path": "/root/v509_phase_a_cache_qualification_once.sh",
+          "sha256": "78ff4adc459728d930f6477db53f07c55932fe05c2eb965f66d4de5ed556ee3b"
+        }
+      },
+      "format": "strict-track2-v509-phase-a-deterministic-warning-mismatch-failure-forensic-v1",
+      "passed": false,
+      "preregistration_warning_contract": {
+        "category": "UserWarning",
+        "count_per_predict": 1,
+        "count_per_process": 1000,
+        "current_scope_helper_hardcodes_the_same_single_raw_warning": true,
+        "current_scope_helper_uses_prereg_expected_warning_at_runtime": false,
+        "current_worker_sha256": "f3c440c09e4cede17b5825c2117da7b39ee62c353c3538dd6e5c518f4da74cba",
+        "different_category_or_message": "terminal qualification failure",
+        "evidence_basis": "reviewed r2 two-fresh-process 24-call evidence",
+        "evidence_worker_sha256": "b7db9eba1b7b8a0492691886013a8f5f01426c7162767da571cc955b597999e7",
+        "field": "only_permitted_code_change.allowed_warning",
+        "forbidden": "any warning other than the exact single median CUDA indices warning inside one predict scope"
+      },
+      "qualification_failure": {
+        "authorization_outcomes": {
+          "cache_reuse": false,
+          "dev_hidden_final_outcome_read": false,
+          "folds": 0,
+          "policy_updates": 0,
+          "reward_read": false,
+          "training": false
+        },
+        "baseline_staging": {
+          "logical_bytes": 1572864000,
+          "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/cache/baseline_A_staging.raw",
+          "qualified_cache": false,
+          "sha256": "3e6b92b9764b3786091e5bb67e8ffb8c3271be4c977101da9fa14afa12fea171"
+        },
+        "call_events": {
+          "committed_calls": 0,
+          "logical_bytes": 0,
+          "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/call_events.ndjson",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "failure_receipt": {
+          "error_type": "RuntimeError",
+          "format": "strict-track2-v485-v169-cache-qualification-failure-receipt-v1",
+          "logical_bytes": 4011,
+          "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/failure_receipt.json",
+          "sha256": "3ff7aa53fefd4307e739c5dced935d18425b0924bd3f2514b8cd461cc4aa2b8e",
+          "stage": "process_a",
+          "status": "failed_no_retry"
+        },
+        "process_a_completion_receipt": {
+          "child_completed": true,
+          "exit_code": 1,
+          "exit_type": "nonzero_exit",
+          "logical_bytes": 1472,
+          "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/completion_receipt.json",
+          "sha256": "7b76710025309c347af6f1145376a5237de1bfede0de2aaa536cd5e728577fc0",
+          "signal": null,
+          "status": "failed",
+          "wait_seconds": 49.582383948,
+          "worker_passed": false,
+          "worker_receipt_present": false
+        },
+        "process_a_identity": {
+          "logical_bytes": 851,
+          "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/identity.json",
+          "pid_at_execution": 37867,
+          "role": "process_a",
+          "sha256": "8892662079656cb9ac038d1d76d524d237dd777cc29692de00f7e3058c3ebb36"
+        },
+        "process_a_log": {
+          "logical_bytes": 3414,
+          "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/process.log",
+          "sha256": "1910ea1d56fb506e1cc58fdf14a4f7eecee72b2906781742fd5712063ae55b7f"
+        },
+        "progress": {
+          "completed_calls": 0,
+          "current_execution_order": 0,
+          "current_sample_id": 0,
+          "last_rng": null,
+          "last_warning": null,
+          "logical_bytes": 842,
+          "path": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825/process_a/progress.ndjson",
+          "sha256": "288b3545e7ef661a9bd85dd5568d21c6f7bfcb064ac928036dde12c4d24cdee3"
+        }
+      },
+      "qualification_tree": {
+        "current_exact_tree": {
+          "canonical_json_digest_sha256": "584b873935583b7cd8e574ef77c5cc80735780a2844524566c0721c8f1337c30",
+          "file_count": 8,
+          "inventory": [
+            [
+              "attempt_intent.json",
+              "02e01e0e9f7fe2a96bda71cf9ae78166131157145f8d5e68bda17c246284cb77",
+              82932
+            ],
+            [
+              "failure_receipt.json",
+              "3ff7aa53fefd4307e739c5dced935d18425b0924bd3f2514b8cd461cc4aa2b8e",
+              4011
+            ],
+            [
+              "process_a/cache/baseline_A_staging.raw",
+              "3e6b92b9764b3786091e5bb67e8ffb8c3271be4c977101da9fa14afa12fea171",
+              1572864000
+            ],
+            [
+              "process_a/call_events.ndjson",
+              "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              0
+            ],
+            [
+              "process_a/completion_receipt.json",
+              "7b76710025309c347af6f1145376a5237de1bfede0de2aaa536cd5e728577fc0",
+              1472
+            ],
+            [
+              "process_a/identity.json",
+              "8892662079656cb9ac038d1d76d524d237dd777cc29692de00f7e3058c3ebb36",
+              851
+            ],
+            [
+              "process_a/process.log",
+              "1910ea1d56fb506e1cc58fdf14a4f7eecee72b2906781742fd5712063ae55b7f",
+              3414
+            ],
+            [
+              "process_a/progress.ndjson",
+              "288b3545e7ef661a9bd85dd5568d21c6f7bfcb064ac928036dde12c4d24cdee3",
+              842
+            ]
+          ],
+          "logical_file_bytes": 1572957522,
+          "sha256sum_lines_digest_sha256": "4c2eb7e8cc59dd2e95e1eb6f0ab90c25fc4cd730d1cc2da5d2bbd8cd5213d7c7"
+        },
+        "failure_receipt_embedded_pre_receipt_tree": {
+          "canonical_json_digest_sha256": "0c4e56cb43a8c960949ec9eed90b78713d5efe8569589f5667467ba018805088",
+          "file_count": 7,
+          "logical_file_bytes": 1572953511,
+          "sha256sum_lines_digest_sha256": "f9d11a6ae62d794c8ac56f800f043c936aadaf53a5be0fdfa03d68b5d392f899"
+        }
+      },
+      "read_only_root_cause_analysis": {
+        "alternative_requiring_explicit_semantic_reauthorization": "A fresh preregistration plus fresh scope helper could authorize the exact four-item ordered warning sequence or a canonical-code sequence with exact multiplicities, but this would accept CuBLAS nondeterminism warnings and is not a mechanical repair of the old contract.",
+        "collector_behavior": "The collector correctly retained four warnings in emission order; it did not normalize, deduplicate, or suppress them.",
+        "execution_performed_for_analysis": false,
+        "failure_cause": "The frozen preregistration and scope helper authorize exactly one median CUDA UserWarning per call, while the actual sample-0 runtime emitted three additional CuBLAS deterministic warnings because the exact replacement worker environment did not contain CUBLAS_WORKSPACE_CONFIG.",
+        "narrowest_semantically_safe_candidate_for_future_review": "A fresh authority must explicitly bind an exact worker environment that adds CUBLAS_WORKSPACE_CONFIG=:4096:8 before torch/CUDA initialization, preserve PYTHONPATH, and use a real frozen sample-0 fixture to prove the observed list returns to the sole exact median warning. Any new warning normalization should preserve raw ordered evidence and reject unknown or extra warnings.",
+        "new_preregistration_only_is_insufficient": "The current scope helper ignores preregistration warning fields and hardcodes raw one-item equality, so changing JSON alone cannot change production validation.",
+        "normalization_only_is_not_fact_preserving": "Canonicalizing or deduplicating the three CuBLAS warnings into the authorized median warning would hide additional nondeterministic-operation evidence and contradict the frozen preregistration."
+      },
+      "retry_authorized": false,
+      "roots": {
+        "launcher_attempt_prep_absent": true,
+        "launcher_attempt_root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_cache_qualification_attempt_seed1650_20260825",
+        "launcher_attempt_root_absent": true,
+        "process_b_absent": true,
+        "qualification_prep_absent": true,
+        "qualification_root": "/root/v509_v508_phase_a_cache_qualification_seed1650_20260825",
+        "qualification_root_present": true
+      },
+      "runtime_environment": {
+        "CUBLAS_WORKSPACE_CONFIG_present": false,
+        "exact_env_import_passed": true,
+        "interpreter_resolved_path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+        "interpreter_resolved_sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788",
+        "numpy": "1.26.4",
+        "package_tree_before_after_exactly_equal": true,
+        "python": "3.11.15",
+        "torch": "2.7.0+cu128",
+        "wam_pipeline_module_file": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/wam_pipeline/__init__.py",
+        "wam_pipeline_package_canonical_json_triples_digest_sha256": "e6b0ecc96bc6be6d4d37469673cbca46549a68abaf06dfbb1aac8f67482d515f",
+        "wam_pipeline_package_file_count": 465,
+        "wam_pipeline_package_snapshot_sha256": "5a58e766c0d2e580dbc4a2d04050580d4fe65f87a7b636940289a07d9862524e",
+        "worker_environment": {
+          "PYTHONPATH": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline"
+        },
+        "worker_environment_mode": "replace_not_inherit"
+      },
+      "service_restore": {
+        "gpu_compute_processes_empty": true,
+        "health": {
+          "18084_health": {
+            "http_code": 200,
+            "status": "ready",
+            "url": "http://127.0.0.1:18084/health"
+          },
+          "8005_v1_health": {
+            "http_code": 200,
+            "model_version": "track2-v218-public-knn-blend-alpha070-route-aware",
+            "status": "ready",
+            "url": "http://127.0.0.1:8005/v1/health"
+          }
+        },
+        "listener_pids_at_audit": {
+          "18084": 38189,
+          "8005": 38113
+        },
+        "v509_lineage_processes_empty": true
+      },
+      "status": "immutable_failed_no_retry_read_only_forensic",
+      "warning_comparison": {
+        "all_observed_categories": [
+          "UserWarning"
+        ],
+        "category_set_equal": true,
+        "collector": {
+          "capture": "warnings.catch_warnings(record=True) with simplefilter(always)",
+          "captured_fields": [
+            "category.__name__",
+            "str(message)"
+          ],
+          "collector_lines": [
+            53,
+            64
+          ],
+          "comparison": "ordered raw list exact equality",
+          "comparison_lines": [
+            65,
+            66
+          ],
+          "discarded_fields": [
+            "filename",
+            "lineno",
+            "source"
+          ],
+          "expected_definition_lines": [
+            14,
+            20
+          ],
+          "source": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py"
+        },
+        "expected_multiset": {
+          "cublas_workspace_config": 0,
+          "median_cuda_indices": 1
+        },
+        "expected_order": [
+          "median_cuda_indices"
+        ],
+        "message_definitions": {
+          "cublas_workspace_config": {
+            "category": "UserWarning",
+            "internal_source": "/pytorch/aten/src/ATen/Context.cpp:233",
+            "message": "Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:233.)"
+          },
+          "median_cuda_indices": {
+            "category": "UserWarning",
+            "internal_source": "/pytorch/aten/src/ATen/Context.cpp:93",
+            "message": "median CUDA with indices output does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:93.)"
+          }
+        },
+        "message_source_metadata_captured_by_collector": false,
+        "multiset_equal": false,
+        "observed_multiset": {
+          "cublas_workspace_config": 3,
+          "median_cuda_indices": 1
+        },
+        "observed_order": [
+          "cublas_workspace_config",
+          "cublas_workspace_config",
+          "median_cuda_indices",
+          "cublas_workspace_config"
+        ],
+        "ordered_equal": false
+      }
+    },
+    "v511_anchor_failure_forensic": {
+      "boot_id": "4de484a8-b923-4940-9ba9-7fcbbcee1cc9",
+      "child_failure": {
+        "child_success_receipt_present": false,
+        "raw_warnings_present": false,
+        "stderr_logical_bytes": 826,
+        "stderr_sha256": "046a5d7ea64de6c3daa112d51dd6ce922c3eb4bb4f32741e63880a0e98026900",
+        "stdout_logical_bytes": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "environment": {
+        "child_observed_environment_exact": {
+          "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+          "LC_CTYPE": "C.UTF-8",
+          "PYTHONPATH": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline"
+        },
+        "spawn_environment_exact": {
+          "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+          "PYTHONPATH": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline"
+        }
+      },
+      "evidence_tree": {
+        "canonical_json_digest_sha256": "77e62f07aa66a765aff32acd78e53457902f9fe01e3931313becd890408562b2",
+        "file_count": 6,
+        "inventory": [
+          [
+            "child_stderr.log",
+            "046a5d7ea64de6c3daa112d51dd6ce922c3eb4bb4f32741e63880a0e98026900",
+            826
+          ],
+          [
+            "child_stdout.log",
+            "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            0
+          ],
+          [
+            "design.json",
+            "50ffdf9a2f58687d9508abea2e728b03f9787fa1f1c3bcc403361e9c6dd989a0",
+            10977
+          ],
+          [
+            "intent.json",
+            "5f530d9c71c7c73ece52a7ae56cc833ffe5491923d76cb5feaab6a4b69f4e3c2",
+            84329
+          ],
+          [
+            "process_receipt.json",
+            "2da2036c57aec9c8bbed86dc45625398f7b49e6bf72568af74e1e056a5ad1493",
+            179070
+          ],
+          [
+            "transport_helper.py",
+            "78cefd79b5b12939847f728bfcd93ac0cbab1e86788a33a469a49309c76d7a73",
+            27549
+          ]
+        ],
+        "logical_file_bytes": 302751,
+        "prep_lexists": false,
+        "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v511_v510_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1652_20260826",
+        "sha256sum_lines_digest_sha256": "2b7bb2e6b2ed813c18dffdcb0b70b0f99d6d4fd619188af824de040c5a879c4f"
+      },
+      "execution": {
+        "cache_reuse_invocations": 0,
+        "child_invocations": 1,
+        "child_returncode": 1,
+        "dev_hidden_final_outcome_reads": 0,
+        "error": "child nonzero 1",
+        "error_type": "RuntimeError",
+        "passed": false,
+        "phase_a_driver_invocations": 0,
+        "phase_a_launcher_invocations": 0,
+        "retry_authorized": false,
+        "reward_reads": 0,
+        "sample0_calls": 0,
+        "service_control_invocations": 0,
+        "status": "failed_no_retry",
+        "training_invocations": 0,
+        "transport_helper_invocations": 1
+      },
+      "format": "strict-track2-v511-sample0-fixture-v509-authority-anchor-failure-forensic-v1",
+      "hostname": "autodl-container-074042af4d-d3994172",
+      "predicate_evaluation": {
+        "aggregate_expression_result": false,
+        "authority_nested_authorization_phase_a_cache_qualification_launcher_authorized_is_true": {
+          "expected": true,
+          "observed": true,
+          "result": true
+        },
+        "authority_passed_is_true": {
+          "expected": true,
+          "observed": true,
+          "result": true
+        },
+        "authority_top_level_phase_a_cache_qualification_launcher_authorized_is_true": {
+          "expected": true,
+          "observed": "missing",
+          "result": false
+        },
+        "failing_child_source_lines": [
+          188,
+          189,
+          190
+        ]
+      },
+      "prepost_and_cleanup": {
+        "gpu_compute_pids_empty": true,
+        "health_prepost_exactly_equal": true,
+        "input_prepost_exactly_equal": true,
+        "lineage_pids_empty": true,
+        "package_tree_prepost_exactly_equal": true,
+        "process_group_empty": true,
+        "process_reaped": true,
+        "sample0_dataset_prepost_exactly_equal": true,
+        "services_ready": true
+      },
+      "repair_boundary": {
+        "execution_retried": false,
+        "facts_only": true,
+        "retry_authorized": false,
+        "source_modified": false
+      },
+      "root_cause": "The child required phase_a_cache_qualification_launcher_authorized at the authority receipt top level. The actual v509 authority receipt stores the true predicate under authorization and has no top-level field of that name.",
+      "status": "immutable_failed_no_retry_read_only_forensic",
+      "timestamp_ns": 1787680576216904656,
+      "v509_authority_receipt": {
+        "logical_bytes": 314015,
+        "nested_authorization_phase_a_cache_qualification_launcher_authorized": true,
+        "passed": true,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_wam_pipeline_import_repair_execution_authority_seed1650_20260825/authority_receipt.json",
+        "sha256": "c53aa1ad33f5e434517d64b700faf1a14ceb48d04eeda4df699113ea6785ab0d",
+        "top_level_phase_a_cache_qualification_launcher_authorized_present": false
+      }
+    },
+    "v518_rng_failure_forensic": {
+      "authorization": {
+        "forensic_capture_authorized": true,
+        "forensic_capture_invocations": 1,
+        "phase_a_authorized": false,
+        "retry_authorized": false,
+        "sample_fixture_authorized": false,
+        "training_authorized": false
+      },
+      "captured_at_utc": "2026-08-26T03:58:20Z",
+      "control_flow_proof": {
+        "output_digest_or_schema_persisted": false,
+        "output_was_transiently_returned_by_runtime_predict": true,
+        "raw_warning_gate_passed_by_control_flow_inference": true,
+        "raw_warning_receipt_persisted": false,
+        "scope_event_returned_to_child": false,
+        "scope_sequence": [
+          "strict_deterministic_precondition",
+          "cuda_synchronize_if_available",
+          "capture_torch_cpu_and_cuda_rng_before",
+          "enter_warn_only_scope",
+          "runtime_predict_once",
+          "cuda_synchronize_if_available",
+          "restore_strict_deterministic_mode",
+          "capture_torch_cpu_and_cuda_rng_after",
+          "validate_raw_warning_exactly_once",
+          "compare_torch_cpu_and_cuda_rng_before_after",
+          "raise_rng_state_failure_before_returning_output_and_event"
+        ]
+      },
+      "evidence_tree": {
+        "canonical_json_digest_sha256": "44cd7567adf1abeabf0b0c0ff965fecd7b5c2bc441259148e604a3fd5d1de888",
+        "file_count": 6,
+        "inventory": [
+          [
+            "child_stderr.log",
+            "57e4c18853eebeb4cb5377eedf96258fd55b81aa7ef82b2e98ab2b69ecea19b3",
+            427
+          ],
+          [
+            "child_stdout.log",
+            "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            0
+          ],
+          [
+            "design.json",
+            "77db7b294ecc487aa25d262d5267f0f085d7a8d13c78843db41c0606ce048399",
+            16614
+          ],
+          [
+            "intent.json",
+            "46e6889c2e6ccf456996002f1a3a104073baa6b5d8d4dad7f0864b9f7037d5ff",
+            88698
+          ],
+          [
+            "process_receipt.json",
+            "4115aa351fb2077845a3dcd29e0432eedc059814effbb27ddd5c5dc705bf6074",
+            190330
+          ],
+          [
+            "transport_helper.py",
+            "1940150dac3a08ae9e9694633db1206fac11f9293e57ad4f58ecb6f6ef1aafaa",
+            40931
+          ]
+        ],
+        "logical_file_bytes": 337000,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v512_v511_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1653_20260826",
+        "sha256sum_lines_digest_sha256": "f8df29faaf8ba9bb13eed325c32d8133ec6818d4ab969ee7bb8e58ec661107d5"
+      },
+      "execution_partition": {
+        "cache_reuse_invocations": 0,
+        "child_invocations": 1,
+        "dev_hidden_final_outcome_read_invocations": 0,
+        "phase_a_driver_invocations": 0,
+        "phase_a_launcher_invocations": 0,
+        "reward_read_invocations": 0,
+        "sample0_call_accounting_known": true,
+        "sample0_calls_completed": 0,
+        "sample0_calls_started": 1,
+        "service_control_invocations": 0,
+        "training_invocations": 0,
+        "transport_helper_invocations": 1
+      },
+      "failure_summary": {
+        "child_returncode": 79,
+        "error": "v485 v169 predict changed CPU/CUDA RNG state",
+        "error_type": "RuntimeError",
+        "fixture_passed": false,
+        "fixture_status": "failed_no_retry",
+        "retry_authorized": false
+      },
+      "format": "strict-track2-v518-v512-phase-a-sample0-rng-state-failure-forensic-v1",
+      "prepost": {
+        "gpu_compute_pids": [],
+        "held_alias_source_target_equal": true,
+        "input_snapshot_equal": true,
+        "lineage_pids": [],
+        "package_tree_equal": true,
+        "process_group_empty": true,
+        "process_reaped": true,
+        "sample0_dataset_equal": true,
+        "services_equal": true
+      },
+      "repair_research": {
+        "execution_authorized": false,
+        "inside_context_seed_sequence": [
+          "random.seed(exact_sample_seed)",
+          "numpy.random.seed(exact_sample_seed_mod_2_pow_32)",
+          "torch.manual_seed(exact_sample_seed)",
+          "torch.cuda.manual_seed_all(exact_sample_seed)_if_cuda_available",
+          "delegate_runtime.predict_exactly_once"
+        ],
+        "python_numpy_restoration": "capture random.getstate and numpy.random.get_state before proxy call; restore both in finally",
+        "recommended_minimal_semantics": "fresh_single_call_runtime_proxy_restores_all_rng_families_before_returning_to_frozen_v485_scope",
+        "required_future_evidence": [
+          "python_random_before_after_sha256_equal",
+          "numpy_random_before_after_sha256_equal",
+          "torch_cpu_before_after_sha256_equal",
+          "torch_cuda_each_device_before_after_sha256_equal",
+          "seed_values_and_device_list_exact",
+          "sample0_calls_started_1_completed_1",
+          "raw_warning_ordered_exactly_one_unchanged",
+          "output_schema_and_digest",
+          "package_dataset_alias_services_prepost_equal",
+          "process_reaped_group_empty_pid_gpu_empty"
+        ],
+        "torch_context": "torch.random.fork_rng(devices=list(range(torch.cuda.device_count())),enabled=True)",
+        "torch_restoration": "fork_rng restores CPU and enumerated CUDA device states when the proxy returns or raises",
+        "warning_semantics": "do_not_filter_deduplicate_or_normalize; frozen outer warnings.catch_warnings observes the raw warning unchanged",
+        "why_proxy_is_required": "wrapping scope.predict_one externally would restore torch state only after frozen scope performs its internal comparison and therefore would still fail"
+      },
+      "rng_state_observability": {
+        "forensic_limit": "exact_before_after_digests_are_unrecoverable_from_the_terminated_child_and_were_not_persisted; no_reexecution_was_performed",
+        "numpy_random": {
+          "after_sha256": null,
+          "before_sha256": null,
+          "comparison_result": "not_measured",
+          "persistence": "v485_rng_scope_does_not_capture_numpy_random_state"
+        },
+        "python_random": {
+          "after_sha256": null,
+          "before_sha256": null,
+          "comparison_result": "not_measured",
+          "persistence": "v485_rng_scope_does_not_capture_python_random_state"
+        },
+        "torch_cpu": {
+          "after_sha256": null,
+          "before_sha256": null,
+          "comparison_result": "different",
+          "persistence": "not_persisted_scope_raised_before_event_return"
+        },
+        "torch_cuda_devices": {
+          "after": null,
+          "before": null,
+          "comparison_result": "at_least_one_cpu_or_cuda_state_different",
+          "persistence": "not_persisted_scope_raised_before_event_return"
+        }
+      },
+      "seed": 1654,
+      "service_health": {
+        "18084": {
+          "body": {
+            "status": "ready"
+          },
+          "http_code": 200,
+          "logical_bytes": 18,
+          "sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd"
+        },
+        "8005": {
+          "body": {
+            "api_version": "1.0",
+            "model_version": "track2-v218-public-knn-blend-alpha070-route-aware",
+            "status": "ready"
+          },
+          "http_code": 200,
+          "logical_bytes": 106,
+          "sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0"
+        }
+      },
+      "source_records": {
+        "rng_scope": {
+          "logical_bytes": 4519,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+          "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5"
+        },
+        "sample_child": {
+          "logical_bytes": 17707,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/verify_v512_v511_phase_a_sample0_cublas_workspace_environment_repair.py",
+          "sha256": "484e1203e697c02967c28d5e00e14a4a72832fc95b4c3857ddf6371b9d5f9980"
+        },
+        "sample_design": {
+          "logical_bytes": 16614,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v512_v511_phase_a_sample0_cublas_workspace_environment_repair_design.json",
+          "sha256": "77db7b294ecc487aa25d262d5267f0f085d7a8d13c78843db41c0606ce048399"
+        },
+        "transport_helper": {
+          "logical_bytes": 40931,
+          "path": "/root/v512_v511_phase_a_sample0_cublas_workspace_environment_repair_once.py",
+          "sha256": "1940150dac3a08ae9e9694633db1206fac11f9293e57ad4f58ecb6f6ef1aafaa"
+        },
+        "transport_script": {
+          "logical_bytes": 5442,
+          "path": "/root/v512_phase_a_sample0_cublas_workspace_environment_repair_once.sh",
+          "sha256": "e15425f5cb1b5994265f56bda347e54048ed9c57ba8221f0a02827112e2ab8c5"
+        }
+      },
+      "status": "immutable_failed_no_retry_read_only_forensic",
+      "terminal_records": {
+        "child_stderr": {
+          "canonical_json_exact": true,
+          "line_count": 1,
+          "logical_bytes": 427,
+          "sha256": "57e4c18853eebeb4cb5377eedf96258fd55b81aa7ef82b2e98ab2b69ecea19b3",
+          "traceback_appended": false
+        },
+        "child_stdout": {
+          "line_count": 0,
+          "logical_bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "process_receipt": {
+          "logical_bytes": 190330,
+          "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v512_v511_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1653_20260826/process_receipt.json",
+          "sha256": "4115aa351fb2077845a3dcd29e0432eedc059814effbb27ddd5c5dc705bf6074"
+        }
+      },
+      "v169_closure": {
+        "closure_digest": "5fc181bf1049b0e763ef47716f5e3356445de8eb6b2eb3de07dd2d70cd4346f3",
+        "closure_path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v474_v473_median4_parent_release_seed1618_20260824/v169_closure.json",
+        "closure_sha256": "f8b4891fc12fdbc87a7abd93b8a7709cc77614b294e6a7dfa6cd109dac43fb29",
+        "directory_symlinks": 4,
+        "file_symlinks": 2,
+        "library_records": 6673,
+        "release_records": 61
+      }
+    }
+  },
+  "per_call_rng_evidence_contract": {
+    "calls_per_branch": 1000,
+    "canonical_event_digest_recorded_per_call": true,
+    "delegate_invocations_completed_per_successful_call": 1,
+    "delegate_invocations_started_per_call": 1,
+    "durable_process_log_markers_per_branch": 2000,
+    "durable_process_log_markers_per_call": 2,
+    "expected_branches": [
+      "A",
+      "B"
+    ],
+    "fork_rng_devices_exact_all_cuda_indices": true,
+    "format": "strict-track2-v520-per-call-rng-isolation-evidence-v1",
+    "numpy_all_four_stages_equal": true,
+    "output_schema_recorded_per_call": true,
+    "process_log_marker_order_per_call": [
+      "started",
+      "completed"
+    ],
+    "python_all_four_stages_equal": true,
+    "raw_warning_order_preserved": true,
+    "required_rng_stage_keys": [
+      "entry_external",
+      "inside_before_delegate",
+      "internal_after_delegate",
+      "exit_restored"
+    ],
+    "sample0_evidence_is_ancestry_not_runtime_substitute": true,
+    "torch_cpu_exit_restored": true,
+    "torch_cuda_exit_restored": true,
+    "torch_internal_change_allowed": true,
+    "total_durable_process_log_markers": 4000,
+    "total_runtime_delegate_calls": 2000
+  },
+  "phase_a_driver_source": {
+    "logical_bytes": 45542,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v522_v521_phase_a_cache_qualification.py",
+    "sha256": "8f4e31da630272586d1fb08a067072734c19c97901c1b8fa25ae2bfd78820320"
+  },
+  "phase_a_independent_auditor_source": {
+    "logical_bytes": 45074,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v522_v521_phase_a_rng_isolated_qualification.py",
+    "sha256": "3b60f0134fb474422bf792666474bff16b6456273385cfcd24b15e4c685e1b2e"
+  },
+  "phase_a_launcher_source": {
+    "logical_bytes": 77590,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v522_v521_phase_a_cache_qualification.py",
+    "sha256": "289204d6b7b7593de390f8600c5cffb6edb496b357d45ec5216a446f586740f4"
+  },
+  "phase_a_preregistration_source": {
+    "logical_bytes": 57451,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_prereg_seed1658_20260826/preregistration.json",
+    "sha256": "27980589965c0209324e43f908acdfc86ee97df4be1186e8e236f4cda0879f7c"
+  },
+  "phase_a_worker_source": {
+    "logical_bytes": 38774,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v522_v521_phase_a_cache_qualification_worker.py",
+    "sha256": "3f4376a1aa093b578cf4d6f7ba02b7a85460c7ea4c86f162c96b2d222eaac231"
+  },
+  "qualification_output_root": "/root/v522_v521_phase_a_cache_qualification_seed1658_20260826",
+  "rng_proxy_source": {
+    "logical_bytes": 8926,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+    "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+  },
+  "runtime_observation": {
+    "cache_reused": false,
+    "dev_hidden_final_outcome_read": false,
+    "execution_authority_materialized": true,
+    "phase_a_driver_executed": false,
+    "phase_a_launcher_executed": false,
+    "phase_a_worker_invocations": 0,
+    "qualification_output_created": false,
+    "reward_read": false,
+    "rng_proxy_delegate_invocations": 0,
+    "training_launched": false
+  },
+  "seed": 1658,
+  "source_aliases": {
+    "authority_materializer": "authority_materializer_source",
+    "cache_scope_helper": "cache_scope_helper_source",
+    "fresh_phase_a_driver": "fresh_phase_a_driver_source",
+    "fresh_phase_a_independent_auditor": "fresh_phase_a_independent_auditor_source",
+    "fresh_phase_a_launcher": "fresh_phase_a_launcher_source",
+    "fresh_phase_a_preregistration": "fresh_phase_a_preregistration_source",
+    "fresh_phase_a_worker": "fresh_phase_a_worker_source",
+    "fresh_rng_proxy": "fresh_rng_proxy_source",
+    "frozen_v485_launcher": "frozen_v485_launcher_source",
+    "phase_a_design_contract": "phase_a_design_contract_source",
+    "phase_a_output_materializer": "phase_a_output_materializer_source",
+    "phase_a_static_audit": "phase_a_static_audit_source",
+    "phase_a_static_auditor": "phase_a_static_auditor_source",
+    "restart_v218_source": "restart_v218_source_source",
+    "v509_import_failure_forensic": "v509_import_failure_forensic_source",
+    "v509_warning_failure_forensic": "v509_warning_failure_forensic_source",
+    "v511_anchor_failure_forensic": "v511_anchor_failure_forensic_source",
+    "v518_rng_failure_forensic": "v518_rng_failure_forensic_source",
+    "v519_rng_sample_child": "v519_rng_sample_child_source",
+    "v519_rng_sample_design": "v519_rng_sample_design_source",
+    "v519_rng_sample_transport_helper": "v519_rng_sample_transport_helper_source",
+    "v519_rng_sample_transport_script": "v519_rng_sample_transport_script_source",
+    "v520_authority_design_contract": "v520_authority_design_contract_source",
+    "v520_authority_materializer": "v520_authority_materializer_source",
+    "v520_authority_receipt": "v520_authority_receipt_source",
+    "v521_materialization_process_receipt": "v521_materialization_process_receipt_source",
+    "v521_materialization_stderr": "v521_materialization_stderr_source",
+    "v521_materialization_stdout": "v521_materialization_stdout_source",
+    "v521_transport_failure_forensic": "v521_transport_failure_forensic_source",
+    "v521_transport_helper": "v521_transport_helper_source",
+    "v521_transport_script": "v521_transport_script_source",
+    "v522_v521_authority_split_state_forensic": "v522_v521_authority_split_state_forensic_source"
+  },
+  "source_closure": {
+    "authority_materializer": {
+      "logical_bytes": 53649,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v522_v521_phase_a_authority_split_state_repair_execution_authority.py",
+      "sha256": "42f2375eb3b468798d2131edddbefab7e579bdc6662e3743dbb0fb3b799ddca5"
+    },
+    "cache_scope_helper": {
+      "logical_bytes": 4519,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+      "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5"
+    },
+    "fresh_phase_a_driver": {
+      "logical_bytes": 45542,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v522_v521_phase_a_cache_qualification.py",
+      "sha256": "8f4e31da630272586d1fb08a067072734c19c97901c1b8fa25ae2bfd78820320"
+    },
+    "fresh_phase_a_independent_auditor": {
+      "logical_bytes": 45074,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v522_v521_phase_a_rng_isolated_qualification.py",
+      "sha256": "3b60f0134fb474422bf792666474bff16b6456273385cfcd24b15e4c685e1b2e"
+    },
+    "fresh_phase_a_launcher": {
+      "logical_bytes": 77590,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v522_v521_phase_a_cache_qualification.py",
+      "sha256": "289204d6b7b7593de390f8600c5cffb6edb496b357d45ec5216a446f586740f4"
+    },
+    "fresh_phase_a_preregistration": {
+      "logical_bytes": 57451,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v522_v521_phase_a_cache_qualification_prereg_seed1658_20260826/preregistration.json",
+      "sha256": "27980589965c0209324e43f908acdfc86ee97df4be1186e8e236f4cda0879f7c"
+    },
+    "fresh_phase_a_worker": {
+      "logical_bytes": 38774,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v522_v521_phase_a_cache_qualification_worker.py",
+      "sha256": "3f4376a1aa093b578cf4d6f7ba02b7a85460c7ea4c86f162c96b2d222eaac231"
+    },
+    "fresh_rng_proxy": {
+      "logical_bytes": 8926,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_rng_isolated_v169_runtime_proxy.py",
+      "sha256": "2b8ab0e2aec4a8de5d4bf8cffbb3525bbcd69b9b03270012a4a48f69f430b51b"
+    },
+    "frozen_v485_launcher": {
+      "logical_bytes": 23827,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/launch_v485_v169_cache_qualification.sh",
+      "sha256": "f596a0411c9b0db03812440ab1ece036b27489e8f6bd978a443d1a2a9ae8587e"
+    },
+    "phase_a_design_contract": {
+      "logical_bytes": 43960,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v482_v169_cache_determinism_scope_repair_contract.json",
+      "sha256": "8c4a583aa19de6927cc1ef787920b65317893e27ad01371d0b95b622f260cf64"
+    },
+    "phase_a_output_materializer": {
+      "logical_bytes": 16459,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v485_v169_cache_qualification_preregistration.py",
+      "sha256": "4c31832a5b1436c8efda258cc41dde6b37f169debcf7d1c3ee2a98489c1e9f4b"
+    },
+    "phase_a_static_audit": {
+      "logical_bytes": 61920,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/transparent_static_audit.json",
+      "sha256": "7740cabe53661da4832f2624642af01dac922e05aa6a62c6ef7882e8cb56a477"
+    },
+    "phase_a_static_auditor": {
+      "logical_bytes": 29437,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/audit_v485_v169_cache_qualification_static.py",
+      "sha256": "d4cadd94141378f0cf89892847894abefc91357304f44d470698221a6613fc5f"
+    },
+    "restart_v218_source": {
+      "logical_bytes": 2794,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/restart_v218_services.sh",
+      "sha256": "e54980c82266af22668a46cc9ee80b39ece66af53cc6d64d44621808807d51af"
+    },
+    "v509_import_failure_forensic": {
+      "logical_bytes": 8780,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v509_v508_phase_a_wam_pipeline_import_failure_forensic.json",
+      "sha256": "c237c2244d2b54cb595b2bbf5909c51c61a8ae8f0246bd6d94830fb1c642369e"
+    },
+    "v509_warning_failure_forensic": {
+      "logical_bytes": 14527,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v509_phase_a_deterministic_warning_mismatch_failure_forensic.json",
+      "sha256": "d6c5d5c8e9ef327d2f893ff1513cbb3d80edd226c033fa8e95b5adf3ba7744f8"
+    },
+    "v511_anchor_failure_forensic": {
+      "logical_bytes": 4569,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v511_sample0_fixture_v509_authority_anchor_failure_forensic.json",
+      "sha256": "8742959eb69e58b6f7300c9c93e565da8df376748217f9cfe9a362ad5fc3f231"
+    },
+    "v518_rng_failure_forensic": {
+      "logical_bytes": 9208,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v518_v512_phase_a_sample0_rng_state_failure_forensic.json",
+      "sha256": "ce757e861c4a1e031f25e1a3e88c0bd3e8b94aad1c9c962b396a76039eecaf12"
+    },
+    "v519_rng_sample_child": {
+      "logical_bytes": 27095,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/verify_v519_v518_phase_a_sample0_rng_isolation.py",
+      "sha256": "c0c231364fe139d9017452c7873e39e8ca01ee357e915b26dc0f8917dcfa3f19"
+    },
+    "v519_rng_sample_design": {
+      "logical_bytes": 20572,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v519_v518_phase_a_sample0_rng_isolation_design.json",
+      "sha256": "686b5a80fddbd31b687e7a62d22b252b2c2b0deb60a9813333a784fbe1b36caf"
+    },
+    "v519_rng_sample_transport_helper": {
+      "logical_bytes": 47103,
+      "path": "/root/v519_v518_phase_a_sample0_rng_isolation_once.py",
+      "sha256": "66c384879939744955b1ae49df2a12097d8375163433cbfbede056056c32513c"
+    },
+    "v519_rng_sample_transport_script": {
+      "logical_bytes": 5902,
+      "path": "/root/v519_phase_a_sample0_rng_isolation_once.sh",
+      "sha256": "500765a72b8dc771c48becdb612910ebe71288499c1fb7261948e2935326dbc5"
+    },
+    "v520_authority_design_contract": {
+      "logical_bytes": 88570,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v520_v519_phase_a_rng_isolated_qualification_execution_authority_contract.json",
+      "sha256": "58d1ccda8277aa58d3606eff9c21546aa6f67900a6153fe28d725e928f370d80"
+    },
+    "v520_authority_materializer": {
+      "logical_bytes": 33210,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/materialize_v520_v519_phase_a_rng_isolated_qualification_execution_authority.py",
+      "sha256": "fcf766f26fbd2d06abd9e7c1def44570d0380e5aadd9fbbce63932b4438c823d"
+    },
+    "v520_authority_receipt": {
+      "logical_bytes": 121101,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826/authority_receipt.json",
+      "sha256": "3e71dff7f0756d966593e8d3200b5fc8370e9849251b16fe61393583afd7735f"
+    },
+    "v521_materialization_process_receipt": {
+      "logical_bytes": 3447,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/process_receipt.json",
+      "sha256": "906fcd5468d0a94fa29ddb4ff98b826de39566609532b06810ab87c21801aab2"
+    },
+    "v521_materialization_stderr": {
+      "logical_bytes": 0,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/materializer_stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "v521_materialization_stdout": {
+      "logical_bytes": 1251,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/materializer_stdout.log",
+      "sha256": "a24a7f6cd0a558168f3eb83d35975f43eb4648432428e486e861ae84838e6f71"
+    },
+    "v521_transport_failure_forensic": {
+      "logical_bytes": 9234,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v521_v520_authority_transport_collection_failure_forensic.json",
+      "sha256": "ebb1ca52ec8f96cb1903b7e1955485a07eeeb77fd8e4b5373415e38fc8dd1d6a"
+    },
+    "v521_transport_helper": {
+      "logical_bytes": 78449,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/invoke_v521_v520_phase_a_rng_isolated_qualification_execution_authority_materializer_once.py",
+      "sha256": "de2403b17513ffc817a50de79e97b931e4fdd9ac818ffc4156a99ed5a3f5f7a3"
+    },
+    "v521_transport_script": {
+      "logical_bytes": 2575,
+      "path": "/root/v521_v520_phase_a_rng_isolated_qualification_authority_materialize_once.sh",
+      "sha256": "d4c55f482ba6d351803a0e32ef01f7128f8a1273d540904929720af78ab9b846"
+    },
+    "v522_v521_authority_split_state_forensic": {
+      "logical_bytes": 10025,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v522_v521_v520_phase_a_authority_split_state_forensic.json",
+      "sha256": "bed75dcfb24a8bb3d25caa3f497d26717d83692aa1b8cf251bd651cc45645267"
+    }
+  },
+  "source_closure_sha256": "4525183d211085d475b7fe8bec0346679b764fdb57b2d0df46f23e6beab47300",
+  "source_role_order": [
+    "authority_materializer",
+    "fresh_phase_a_launcher",
+    "fresh_phase_a_driver",
+    "fresh_phase_a_worker",
+    "fresh_rng_proxy",
+    "fresh_phase_a_independent_auditor",
+    "fresh_phase_a_preregistration",
+    "v522_v521_authority_split_state_forensic",
+    "v520_authority_design_contract",
+    "v520_authority_materializer",
+    "v520_authority_receipt",
+    "v521_materialization_process_receipt",
+    "v521_materialization_stdout",
+    "v521_materialization_stderr",
+    "v521_transport_failure_forensic",
+    "v521_transport_helper",
+    "v521_transport_script",
+    "frozen_v485_launcher",
+    "phase_a_design_contract",
+    "phase_a_static_audit",
+    "cache_scope_helper",
+    "phase_a_output_materializer",
+    "phase_a_static_auditor",
+    "restart_v218_source",
+    "v519_rng_sample_child",
+    "v519_rng_sample_design",
+    "v519_rng_sample_transport_helper",
+    "v519_rng_sample_transport_script",
+    "v509_import_failure_forensic",
+    "v509_warning_failure_forensic",
+    "v511_anchor_failure_forensic",
+    "v518_rng_failure_forensic"
+  ],
+  "status": "design_only_frozen_sources_pending_independent_review_no_authority",
+  "v517_candidate_receipt": {
+    "logical_bytes": 85855,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v516_v515_alias_restore_readonly_remediation_candidate_seed1653D_20260826/adapter_candidate.json",
+    "sha256": "1a4803aad2c2ae80d4572b74fa429316c575104c63341b2be9bedb913e388f50"
+  },
+  "v517_candidate_tree": {
+    "canonical_json_triples_digest_sha256": "4a65a2a053a5e83349731c337a72505bb57f68b2f662d7879f8a3dcbde9f1092",
+    "file_count": 1,
+    "inventory": [
+      [
+        "adapter_candidate.json",
+        "1a4803aad2c2ae80d4572b74fa429316c575104c63341b2be9bedb913e388f50",
+        85855
+      ]
+    ],
+    "logical_file_bytes": 85855,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v516_v515_alias_restore_readonly_remediation_candidate_seed1653D_20260826",
+    "sha256sum_lines_digest_sha256": "b3e94f0bd0ff25af017d460f5be10b15118cc5a4b10eb9e8239c7539db750a9c"
+  },
+  "v517_evidence_tree": {
+    "canonical_json_triples_digest_sha256": "7121a896d795d7def6b487c399837966d73bc39e906a7bd227171b2b27b9bcae",
+    "file_count": 6,
+    "inventory": [
+      [
+        "adapter_source.py",
+        "af42057bc5a4eb58b812ecff44df377d87964bc176512f6fc709497c85e24db9",
+        27683
+      ],
+      [
+        "adapter_stderr.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "adapter_stdout.log",
+        "5b50b2f7e4096cee63e070e09f1b28a8b887f2aa0886a876be762a3de783b8d3",
+        790
+      ],
+      [
+        "intent.json",
+        "991b6f92939e4675fabfdbf95885b9ea624c9954bf31f82ef367144817002664",
+        3585
+      ],
+      [
+        "process_receipt.json",
+        "a1c406745ac5d7dc1bf61ae742501687054f64785211d52d08fa4f1aa48f49dd",
+        145914
+      ],
+      [
+        "transport_design.json",
+        "24af5e767fc2202b5aed41c6bcc0bef45606616a2a249d5702a70c3a29ce16c2",
+        7285
+      ]
+    ],
+    "logical_file_bytes": 185257,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v517_v516_alias_restore_readonly_remediation_transport_evidence_seed1653E_20260826",
+    "sha256sum_lines_digest_sha256": "249a4037947eb3488b5729b425a9cfc25cd5eaa6ec07f26e2c583cda64b71a8f"
+  },
+  "v517_normalized_current_view": {
+    "authorization_leaf_diff_count": 2,
+    "authorization_leaf_diffs_canonical_sha256": "1095bcaecfa85a1dc5dfe1e4e511490df6537640269ee9006a80fa5b307a044e",
+    "candidate_receipt": {
+      "logical_bytes": 85855,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v516_v515_alias_restore_readonly_remediation_candidate_seed1653D_20260826/adapter_candidate.json",
+      "sha256": "1a4803aad2c2ae80d4572b74fa429316c575104c63341b2be9bedb913e388f50"
+    },
+    "candidate_tree": {
+      "canonical_json_triples_digest_sha256": "4a65a2a053a5e83349731c337a72505bb57f68b2f662d7879f8a3dcbde9f1092",
+      "file_count": 1,
+      "inventory": [
+        [
+          "adapter_candidate.json",
+          "1a4803aad2c2ae80d4572b74fa429316c575104c63341b2be9bedb913e388f50",
+          85855
+        ]
+      ],
+      "logical_file_bytes": 85855,
+      "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v516_v515_alias_restore_readonly_remediation_candidate_seed1653D_20260826",
+      "sha256sum_lines_digest_sha256": "b3e94f0bd0ff25af017d460f5be10b15118cc5a4b10eb9e8239c7539db750a9c"
+    },
+    "evidence_tree": {
+      "canonical_json_triples_digest_sha256": "7121a896d795d7def6b487c399837966d73bc39e906a7bd227171b2b27b9bcae",
+      "file_count": 6,
+      "inventory": [
+        [
+          "adapter_source.py",
+          "af42057bc5a4eb58b812ecff44df377d87964bc176512f6fc709497c85e24db9",
+          27683
+        ],
+        [
+          "adapter_stderr.log",
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          0
+        ],
+        [
+          "adapter_stdout.log",
+          "5b50b2f7e4096cee63e070e09f1b28a8b887f2aa0886a876be762a3de783b8d3",
+          790
+        ],
+        [
+          "intent.json",
+          "991b6f92939e4675fabfdbf95885b9ea624c9954bf31f82ef367144817002664",
+          3585
+        ],
+        [
+          "process_receipt.json",
+          "a1c406745ac5d7dc1bf61ae742501687054f64785211d52d08fa4f1aa48f49dd",
+          145914
+        ],
+        [
+          "transport_design.json",
+          "24af5e767fc2202b5aed41c6bcc0bef45606616a2a249d5702a70c3a29ce16c2",
+          7285
+        ]
+      ],
+      "logical_file_bytes": 185257,
+      "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v517_v516_alias_restore_readonly_remediation_transport_evidence_seed1653E_20260826",
+      "sha256sum_lines_digest_sha256": "249a4037947eb3488b5729b425a9cfc25cd5eaa6ec07f26e2c583cda64b71a8f"
+    },
+    "external_terminal_passed": true,
+    "normalized_current_view_revalidated": {
+      "f813_tree": {
+        "canonical_json_triples_digest_sha256": "2c307584b6d902252365dd39b26dc6f59f38ac3b143034dc2d63529c83e9edaf",
+        "file_count": 3,
+        "inventory": [
+          [
+            "immutable_evidence/v485_static_b73.log",
+            "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b",
+            6475
+          ],
+          [
+            "preregistration.json",
+            "f8137d02a692a9c6243f13ce8a7674e4ac90fbd31c85b3e8c32af82f8afa42a8",
+            21296
+          ],
+          [
+            "transparent_static_audit.json",
+            "7740cabe53661da4832f2624642af01dac922e05aa6a62c6ef7882e8cb56a477",
+            61920
+          ]
+        ],
+        "logical_file_bytes": 89691,
+        "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824",
+        "sha256sum_lines_digest_sha256": "8628f5659dacbe3ede05699866ace077c4158e71b4c1020dcfadaf84d9d038b6"
+      },
+      "gpu_compute_pids": [],
+      "matching_pids": [],
+      "services": {
+        "18084": {
+          "body": {
+            "status": "ready"
+          },
+          "http_code": 200,
+          "raw_body_logical_bytes": 18,
+          "raw_body_sha256": "31bf75f4c0a97cc1f7b60df824fa390b3be9ba014f29b63c87c698ba63d9a9fd",
+          "url": "http://127.0.0.1:18084/health"
+        },
+        "8005": {
+          "body": {
+            "api_version": "1.0",
+            "model_version": "track2-v218-public-knn-blend-alpha070-route-aware",
+            "status": "ready"
+          },
+          "http_code": 200,
+          "raw_body_logical_bytes": 106,
+          "raw_body_sha256": "08dbc59225418d4d3064f9e122caeadbdf7c740d38fcbbaf708ad9baa44abab0",
+          "url": "http://127.0.0.1:8005/v1/health"
+        }
+      },
+      "source": {
+        "logical_bytes": 6475,
+        "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v486_v485_phase_a_static_reconciliation_seed1628_20260824/immutable_evidence/v485_static_b73.log",
+        "sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b"
+      },
+      "target": {
+        "logical_bytes": 6475,
+        "path": "/dev/shm/v485_static_b73.log",
+        "sha256": "7a3e5aa7b627ff92ec82cb7073cac70dea35e26774bda76ef302c547a3ab070b"
+      }
+    },
+    "normalized_process_receipt_canonical_sha256": "e707fc291c925ab9de87f3175f6e84c7e855cb2a986485cdf1b9edcaa429dc85",
+    "original_process_receipt_canonical_sha256": "a7529cfc53d94b01f98a28806875a68a8fcef3db5bc70ab1b252a55568a50e64",
+    "process_receipt": {
+      "logical_bytes": 145914,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v517_v516_alias_restore_readonly_remediation_transport_evidence_seed1653E_20260826/process_receipt.json",
+      "sha256": "a1c406745ac5d7dc1bf61ae742501687054f64785211d52d08fa4f1aa48f49dd"
+    },
+    "three_snapshots_and_current_equal": true
+  },
+  "v517_process_receipt": {
+    "logical_bytes": 145914,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v517_v516_alias_restore_readonly_remediation_transport_evidence_seed1653E_20260826/process_receipt.json",
+    "sha256": "a1c406745ac5d7dc1bf61ae742501687054f64785211d52d08fa4f1aa48f49dd"
+  },
+  "v519_child_stdout": {
+    "logical_bytes": 126129,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v519_v518_phase_a_sample0_rng_isolation_evidence_seed1655_20260826/child_stdout.log",
+    "sha256": "6585fbb99e063cb86287ca109ce7c4595dc0d07be1330f914ab53d83be06963d"
+  },
+  "v519_evidence_tree": {
+    "canonical_json_triples_digest_sha256": "e06c481df6865a157b6d34dab36fd99f867689a6eddad0309484f72885ab0538",
+    "file_count": 6,
+    "inventory": [
+      [
+        "child_stderr.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "child_stdout.log",
+        "6585fbb99e063cb86287ca109ce7c4595dc0d07be1330f914ab53d83be06963d",
+        126129
+      ],
+      [
+        "design.json",
+        "686b5a80fddbd31b687e7a62d22b252b2c2b0deb60a9813333a784fbe1b36caf",
+        20572
+      ],
+      [
+        "intent.json",
+        "8ea26bf047479e089311f5531d9e482dafbcf8a3fa5331aa07998ec010f4e546",
+        89585
+      ],
+      [
+        "process_receipt.json",
+        "06ce4ad84ad9bd3efdf35b429dbf5c0f1986c4d32ae495afcbc7a1e97060ed11",
+        369884
+      ],
+      [
+        "transport_helper.py",
+        "66c384879939744955b1ae49df2a12097d8375163433cbfbede056056c32513c",
+        47103
+      ]
+    ],
+    "logical_file_bytes": 653273,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v519_v518_phase_a_sample0_rng_isolation_evidence_seed1655_20260826",
+    "sha256sum_lines_digest_sha256": "f386dec633821d8e85b7097eed5fcc6668c07958ee52aaab9327804286bfbd26"
+  },
+  "v519_output_record": {
+    "dtype": "uint8",
+    "sha256": "119d47797f50b24b2050c91f99b1733b9f2c0ed20a7987f61d44ca42ef3dfce3",
+    "shape": [
+      8,
+      256,
+      256,
+      3
+    ]
+  },
+  "v519_process_receipt": {
+    "logical_bytes": 369884,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v519_v518_phase_a_sample0_rng_isolation_evidence_seed1655_20260826/process_receipt.json",
+    "sha256": "06ce4ad84ad9bd3efdf35b429dbf5c0f1986c4d32ae495afcbc7a1e97060ed11"
+  },
+  "v519_rng_isolation_evidence": {
+    "cuda_device_count": 1,
+    "cuda_device_indices": [
+      0
+    ],
+    "delegate_invocations_completed": 1,
+    "delegate_invocations_started": 1,
+    "entry_external": {
+      "numpy": {
+        "format": "numpy_random_get_state_canonical_json",
+        "logical_bytes": 6790,
+        "sha256": "8d8eb1a186ad39321d2ef7cda8a9687dc3d771730a1b3c4ee87243000009f043"
+      },
+      "python": {
+        "format": "python_random_getstate_canonical_json",
+        "logical_bytes": 6718,
+        "sha256": "1595cd87f02b05a4c2a3ef8e4451c28213acec4c6b0f6f6c8485ce87919ed43f"
+      },
+      "torch": {
+        "cpu": {
+          "logical_bytes": 5056,
+          "sha256": "99d77391e959bf3eb0525d68288a41cf8d6178de235b569110bc66f95c9a50a3"
+        },
+        "cuda": [
+          {
+            "device_index": 0,
+            "logical_bytes": 16,
+            "sha256": "40517653579fcdaca87a5fb71ddd9cfa72ab1ded8fb7fe3b873c0ce45e5aab66"
+          }
+        ]
+      }
+    },
+    "exact_seed": 1103331955,
+    "exception_finally_restoration_complete": true,
+    "exit_restored": {
+      "numpy": {
+        "format": "numpy_random_get_state_canonical_json",
+        "logical_bytes": 6790,
+        "sha256": "8d8eb1a186ad39321d2ef7cda8a9687dc3d771730a1b3c4ee87243000009f043"
+      },
+      "python": {
+        "format": "python_random_getstate_canonical_json",
+        "logical_bytes": 6718,
+        "sha256": "1595cd87f02b05a4c2a3ef8e4451c28213acec4c6b0f6f6c8485ce87919ed43f"
+      },
+      "torch": {
+        "cpu": {
+          "logical_bytes": 5056,
+          "sha256": "99d77391e959bf3eb0525d68288a41cf8d6178de235b569110bc66f95c9a50a3"
+        },
+        "cuda": [
+          {
+            "device_index": 0,
+            "logical_bytes": 16,
+            "sha256": "40517653579fcdaca87a5fb71ddd9cfa72ab1ded8fb7fe3b873c0ce45e5aab66"
+          }
+        ]
+      }
+    },
+    "fork_rng_devices_exact_all_cuda_indices": true,
+    "format": "strict-track2-v519-rng-isolation-four-stage-v1",
+    "inside_before_delegate": {
+      "numpy": {
+        "format": "numpy_random_get_state_canonical_json",
+        "logical_bytes": 6790,
+        "sha256": "8d8eb1a186ad39321d2ef7cda8a9687dc3d771730a1b3c4ee87243000009f043"
+      },
+      "python": {
+        "format": "python_random_getstate_canonical_json",
+        "logical_bytes": 6718,
+        "sha256": "1595cd87f02b05a4c2a3ef8e4451c28213acec4c6b0f6f6c8485ce87919ed43f"
+      },
+      "torch": {
+        "cpu": {
+          "logical_bytes": 5056,
+          "sha256": "ace102bd98cd05261ae4c31a9b39d6058aa9ed6104cbce19a597299ac04a7ae9"
+        },
+        "cuda": [
+          {
+            "device_index": 0,
+            "logical_bytes": 16,
+            "sha256": "5983c7e65b8971e56b9cceae942a7851426d7e62a64689db27afb02a4491bb12"
+          }
+        ]
+      }
+    },
+    "internal_after_delegate": {
+      "numpy": {
+        "format": "numpy_random_get_state_canonical_json",
+        "logical_bytes": 6790,
+        "sha256": "8d8eb1a186ad39321d2ef7cda8a9687dc3d771730a1b3c4ee87243000009f043"
+      },
+      "python": {
+        "format": "python_random_getstate_canonical_json",
+        "logical_bytes": 6718,
+        "sha256": "1595cd87f02b05a4c2a3ef8e4451c28213acec4c6b0f6f6c8485ce87919ed43f"
+      },
+      "torch": {
+        "cpu": {
+          "logical_bytes": 5056,
+          "sha256": "ace102bd98cd05261ae4c31a9b39d6058aa9ed6104cbce19a597299ac04a7ae9"
+        },
+        "cuda": [
+          {
+            "device_index": 0,
+            "logical_bytes": 16,
+            "sha256": "5983c7e65b8971e56b9cceae942a7851426d7e62a64689db27afb02a4491bb12"
+          }
+        ]
+      }
+    },
+    "numpy_all_four_stages_equal": true,
+    "numpy_exit_restored": true,
+    "python_all_four_stages_equal": true,
+    "python_exit_restored": true,
+    "torch_cpu_exit_restored": true,
+    "torch_cuda_exit_restored": true,
+    "torch_internal_change_allowed": true
+  },
+  "v519_source_records": {
+    "child_source": {
+      "logical_bytes": 27095,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/verify_v519_v518_phase_a_sample0_rng_isolation.py",
+      "sha256": "c0c231364fe139d9017452c7873e39e8ca01ee357e915b26dc0f8917dcfa3f19"
+    },
+    "design": {
+      "logical_bytes": 20572,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v519_v518_phase_a_sample0_rng_isolation_design.json",
+      "sha256": "686b5a80fddbd31b687e7a62d22b252b2c2b0deb60a9813333a784fbe1b36caf"
+    },
+    "failure_forensic": {
+      "logical_bytes": 14527,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v509_phase_a_deterministic_warning_mismatch_failure_forensic.json",
+      "sha256": "d6c5d5c8e9ef327d2f893ff1513cbb3d80edd226c033fa8e95b5adf3ba7744f8"
+    },
+    "interpreter_resolved": {
+      "logical_bytes": 25555040,
+      "path": "/root/autodl-tmp/conda_envs/isaacsim51/bin/python3.11",
+      "sha256": "11e245a5a0d85eef88b5b851e421935e06a77bdf57bb7329eeecd10fb4f76788"
+    },
+    "old_design": {
+      "logical_bytes": 8285,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v510_v509_phase_a_sample0_cublas_workspace_environment_repair_design.json",
+      "sha256": "c0fef2adf3194939f4c095cd419375cf680f8bf253af9ad21c2ef554a82a94d6"
+    },
+    "old_transport_helper": {
+      "logical_bytes": 26459,
+      "path": "/root/v510_v509_phase_a_sample0_cublas_workspace_environment_repair_once.py",
+      "sha256": "922f2fff99ace66c57d80ec5e887bfe4fe64d1af1b5f705f3254c8df7688b96e"
+    },
+    "old_transport_script": {
+      "logical_bytes": 3499,
+      "path": "/root/v510_phase_a_sample0_cublas_workspace_environment_repair_once.sh",
+      "sha256": "a65dc756e8238b95ffbbfa7a04729b54779779d9718bcc8d699d3b5fb39817a5"
+    },
+    "package_manifest": {
+      "logical_bytes": 72190,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v509_v508_wam_pipeline_package_tree_manifest.json",
+      "sha256": "05c9da342cc6ee32d855e07f08a64c31f7c24ec9da8982fe8f3880e70027f623"
+    },
+    "parent_failure": {
+      "logical_bytes": 5657,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/launcher_failure_receipt.json",
+      "sha256": "dbe3e10d5e7d47d9690c42ebf7f8658fcb10b5aafcd9f6bd19cbf4accb381106"
+    },
+    "parent_preregistration": {
+      "logical_bytes": 294684,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v482_temporal8_residual_s0_r3_seed1624_20260824/preregistration.json",
+      "sha256": "426d4f7a774520458f6af41d20660cf31202791f99603dacec114f771da6a881"
+    },
+    "preentry_selftest_failure_fact": {
+      "logical_bytes": 2852,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v510_sample0_fixture_transport_selftest_missing_forensic_failure_fact.json",
+      "sha256": "2ee3306b00fce92503fa6c9bc72ec6ae84145e5ef572e0bb1d194e1611e7eb8d"
+    },
+    "rng_failure_forensic": {
+      "logical_bytes": 9208,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v518_v512_phase_a_sample0_rng_state_failure_forensic.json",
+      "sha256": "ce757e861c4a1e031f25e1a3e88c0bd3e8b94aad1c9c962b396a76039eecaf12"
+    },
+    "scope_source": {
+      "logical_bytes": 4519,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v485_v169_cache_scope.py",
+      "sha256": "ccf6d0a5bd5273a12f946e994a9aa615ae613116d21a9ce196032b10629d11f5"
+    },
+    "transport_helper": {
+      "logical_bytes": 47103,
+      "path": "/root/v519_v518_phase_a_sample0_rng_isolation_once.py",
+      "sha256": "66c384879939744955b1ae49df2a12097d8375163433cbfbede056056c32513c"
+    },
+    "transport_script": {
+      "logical_bytes": 5902,
+      "path": "/root/v519_phase_a_sample0_rng_isolation_once.sh",
+      "sha256": "500765a72b8dc771c48becdb612910ebe71288499c1fb7261948e2935326dbc5"
+    },
+    "v509_authority_receipt": {
+      "logical_bytes": 314015,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_wam_pipeline_import_repair_execution_authority_seed1650_20260825/authority_receipt.json",
+      "sha256": "c53aa1ad33f5e434517d64b700faf1a14ceb48d04eeda4df699113ea6785ab0d"
+    },
+    "v509_preregistration": {
+      "logical_bytes": 56800,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v509_v508_phase_a_cache_qualification_prereg_seed1650_20260825/preregistration.json",
+      "sha256": "8200ba523295a607bbab47c897e83e0b8736ab6000dc26a37fe73c6363cd7cc4"
+    },
+    "v511_child_stderr": {
+      "logical_bytes": 826,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v511_v510_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1652_20260826/child_stderr.log",
+      "sha256": "046a5d7ea64de6c3daa112d51dd6ce922c3eb4bb4f32741e63880a0e98026900"
+    },
+    "v511_failure_forensic": {
+      "logical_bytes": 4569,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/v511_sample0_fixture_v509_authority_anchor_failure_forensic.json",
+      "sha256": "8742959eb69e58b6f7300c9c93e565da8df376748217f9cfe9a362ad5fc3f231"
+    },
+    "v511_process_receipt": {
+      "logical_bytes": 179070,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v511_v510_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1652_20260826/process_receipt.json",
+      "sha256": "2da2036c57aec9c8bbed86dc45625398f7b49e6bf72568af74e1e056a5ad1493"
+    },
+    "v512_child_stderr": {
+      "logical_bytes": 427,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v512_v511_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1653_20260826/child_stderr.log",
+      "sha256": "57e4c18853eebeb4cb5377eedf96258fd55b81aa7ef82b2e98ab2b69ecea19b3"
+    },
+    "v512_process_receipt": {
+      "logical_bytes": 190330,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v512_v511_phase_a_sample0_cublas_workspace_environment_repair_evidence_seed1653_20260826/process_receipt.json",
+      "sha256": "4115aa351fb2077845a3dcd29e0432eedc059814effbb27ddd5c5dc705bf6074"
+    },
+    "v513_original_process_receipt": {
+      "logical_bytes": 26835,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v513_v512_post_reset_v485_volatile_static_log_alias_restore_evidence_seed1653A_20260826/process_receipt.json",
+      "sha256": "78b61aeb8e5e0bf22ed237a8f1a1c5716b5cb27b9f6b78b8928234d2543d1fa6"
+    },
+    "v517_adapter_stderr": {
+      "logical_bytes": 0,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v517_v516_alias_restore_readonly_remediation_transport_evidence_seed1653E_20260826/adapter_stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "v517_adapter_stdout": {
+      "logical_bytes": 790,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v517_v516_alias_restore_readonly_remediation_transport_evidence_seed1653E_20260826/adapter_stdout.log",
+      "sha256": "5b50b2f7e4096cee63e070e09f1b28a8b887f2aa0886a876be762a3de783b8d3"
+    },
+    "v517_candidate_receipt": {
+      "logical_bytes": 85855,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v516_v515_alias_restore_readonly_remediation_candidate_seed1653D_20260826/adapter_candidate.json",
+      "sha256": "1a4803aad2c2ae80d4572b74fa429316c575104c63341b2be9bedb913e388f50"
+    },
+    "v517_process_receipt": {
+      "logical_bytes": 145914,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v517_v516_alias_restore_readonly_remediation_transport_evidence_seed1653E_20260826/process_receipt.json",
+      "sha256": "a1c406745ac5d7dc1bf61ae742501687054f64785211d52d08fa4f1aa48f49dd"
+    },
+    "worker_source": {
+      "logical_bytes": 31353,
+      "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline/scripts/generate_v485_v169_cache_qualification_worker.py",
+      "sha256": "f3c440c09e4cede17b5825c2117da7b39ee62c353c3538dd6e5c518f4da74cba"
+    }
+  },
+  "v520_authority_receipt": {
+    "logical_bytes": 121101,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826/authority_receipt.json",
+    "sha256": "3e71dff7f0756d966593e8d3200b5fc8370e9849251b16fe61393583afd7735f"
+  },
+  "v520_authority_registration_tree": {
+    "canonical_json_triples_digest_sha256": "47f93414dc9073eb4c69799ed89a82866e5749fd1f57f1368495463aef6e8dbe",
+    "file_count": 1,
+    "inventory": [
+      [
+        "authority_receipt.json",
+        "3e71dff7f0756d966593e8d3200b5fc8370e9849251b16fe61393583afd7735f",
+        121101
+      ]
+    ],
+    "logical_file_bytes": 121101,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v520_v519_phase_a_rng_isolated_qualification_execution_authority_seed1656_20260826",
+    "sha256sum_lines_digest_sha256": "4edaba7bee39d41a02b7c40bea968ecefb85f5c18290c4ae3f84446aea7cb222"
+  },
+  "v520_authority_semantics": {
+    "check_count": 33,
+    "checks_all_strict_true": true,
+    "format": "strict-track2-v520-v519-phase-a-rng-isolated-qualification-execution-authority-v1",
+    "input_snapshots_exactly_equal": true,
+    "launcher_invocations_consumed": 0,
+    "passed": true,
+    "runtime_delegate_calls_consumed": 0,
+    "source_closure_all_current": true,
+    "source_closure_count": 23,
+    "status": "authorized_exact_one_external_v520_phase_a_cache_qualification_attempt",
+    "top_key_count": 68
+  },
+  "v521_execution_partition": {
+    "fresh_v522_authority_materializer_invocations": 0,
+    "phase_a_driver_invocations": 0,
+    "phase_a_launcher_invocations": 0,
+    "phase_a_worker_invocations": 0,
+    "retry_authorized": false,
+    "rng_proxy_delegate_invocations": 0,
+    "training_invocations": 0,
+    "v520_authority_materializer_invocations": 1,
+    "v521_transport_helper_invocations": 1
+  },
+  "v521_materialization_evidence_tree": {
+    "canonical_json_triples_digest_sha256": "9af08453ab635c0147072cbcad4389e0f3dc1f27d020b9f77cc44c626a2a4cfd",
+    "file_count": 6,
+    "inventory": [
+      [
+        "argv.json",
+        "553b915934e23f8141aae88283f4781b435ea0d1d36315e8035b3494c73762b2",
+        16598
+      ],
+      [
+        "intent.json",
+        "a8e54f3f09fd5bf711b57b418feb479c0758a0a1c6185452aebf888ecb9ce99d",
+        518
+      ],
+      [
+        "materializer_stderr.log",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        0
+      ],
+      [
+        "materializer_stdout.log",
+        "a24a7f6cd0a558168f3eb83d35975f43eb4648432428e486e861ae84838e6f71",
+        1251
+      ],
+      [
+        "process_receipt.json",
+        "906fcd5468d0a94fa29ddb4ff98b826de39566609532b06810ab87c21801aab2",
+        3447
+      ],
+      [
+        "transport_helper.py",
+        "de2403b17513ffc817a50de79e97b931e4fdd9ac818ffc4156a99ed5a3f5f7a3",
+        78449
+      ]
+    ],
+    "logical_file_bytes": 100263,
+    "root": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826",
+    "sha256sum_lines_digest_sha256": "4afec5aa009fc6008ec82bc2e86c54bcc0990ba85ec427a82cb8c0545c892eba"
+  },
+  "v521_materialization_process_receipt": {
+    "logical_bytes": 3447,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/process_receipt.json",
+    "sha256": "906fcd5468d0a94fa29ddb4ff98b826de39566609532b06810ab87c21801aab2"
+  },
+  "v521_materialization_stderr": {
+    "logical_bytes": 0,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/materializer_stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "v521_materialization_stdout": {
+    "logical_bytes": 1251,
+    "path": "/root/autodl-tmp/IROS_WAM_2.0 challenge/artifacts/strict_track2_joint_augmentation_20260810/v521_v520_phase_a_rng_isolated_qualification_execution_authority_materialization_evidence_seed1657_20260826/materializer_stdout.log",
+    "sha256": "a24a7f6cd0a558168f3eb83d35975f43eb4648432428e486e861ae84838e6f71"
+  },
+  "worker_environment_exact": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "PYTHONPATH": "/root/autodl-tmp/IROS_WAM_2.0 challenge/pipeline"
+  }
+}

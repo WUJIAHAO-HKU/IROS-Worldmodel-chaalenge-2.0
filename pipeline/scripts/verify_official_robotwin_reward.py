@@ -13,7 +13,11 @@ import torch
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--window", required=True)
-    parser.add_argument("--backend", default="residual-unet", choices=("synthetic", "ivideogpt", "residual-unet"))
+    parser.add_argument(
+        "--backend",
+        default="residual-unet",
+        choices=("synthetic", "ivideogpt", "track2-wan", "official-rlinf-wan", "residual-unet", "flow-residual-unet", "temporal-unet", "direct-video-unet", "direct-flow-unet", "wan-flow-ensemble", "autoregressive-flow-ensemble", "local-motion-texture-fusion", "multisource-flow-unet", "autoregressive-unet", "hybrid-unet"),
+    )
     parser.add_argument(
         "--backend-checkpoint",
         default="artifacts/checkpoints/residual-unet-track2-native256-5000/best",
@@ -25,6 +29,11 @@ def main() -> None:
     parser.add_argument("--t5-model", default="artifacts/official_resources/reward_model/t5-base")
     parser.add_argument("--instruction", default="adjust bottle")
     parser.add_argument("--device", default="cuda")
+    parser.add_argument("--wan-base-model")
+    parser.add_argument("--wan-inference-steps", type=int, default=30)
+    parser.add_argument("--wan-inference-solver", choices=("euler", "heun"), default="euler")
+    parser.add_argument("--official-diffsynth-root")
+    parser.add_argument("--official-wan-inference-steps", type=int, default=5)
     args = parser.parse_args()
 
     checkpoint = Path(args.checkpoint)
@@ -39,7 +48,16 @@ def main() -> None:
     from wam_pipeline.data import load_window_npz
 
     window = load_window_npz(args.window)
-    predictions = build_backend(args.backend, args.backend_checkpoint, args.device).predict(
+    predictions = build_backend(
+        args.backend,
+        args.backend_checkpoint,
+        args.device,
+        wan_base_model=args.wan_base_model,
+        wan_inference_steps=args.wan_inference_steps,
+        wan_inference_solver=args.wan_inference_solver,
+        official_diffsynth_root=args.official_diffsynth_root,
+        official_wan_inference_steps=args.official_wan_inference_steps,
+    ).predict(
         window.context_frames,
         window.history_actions,
         window.future_actions,
